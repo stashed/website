@@ -1,6 +1,6 @@
 ---
 title: Concepts
-description: Concepts
+description: Stash Concepts
 menu:
   docs_0.8.0:
     identifier: concepts

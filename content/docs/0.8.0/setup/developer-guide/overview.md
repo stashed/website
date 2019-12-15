@@ -1,101 +1,101 @@
 ---
-title: Developer Guide
+title: Overview | Developer Guide
+description: Developer Guide Overview
 menu:
   docs_0.8.0:
     identifier: developer-guide-readme
     name: Overview
     parent: developer-guide
-    weight: 10
+    weight: 15
+product_name: stash
 menu_name: docs_0.8.0
 section_menu_id: setup
-aliases:
-- /docs/0.8.0/setup/developer-guide/
 info:
   version: 0.8.0
 ---
 
-# Development Guide
+> New to Stash? Please start [here](/docs/0.8.0/concepts/README).
 
-This document is intended to be the canonical source of truth for things like supported toolchain versions for building KubeDB.
+## Development Guide
+This document is intended to be the canonical source of truth for things like supported toolchain versions for building Stash.
 If you find a requirement that this doc does not capture, please submit an issue on github.
 
 This document is intended to be relative to the branch in which it is found. It is guaranteed that requirements will change over time
-for the development branch, but release branches of KubeDB should not change.
+for the development branch, but release branches of Stash should not change.
 
-## Build KubeDB
-
-Some of the KubeDB development helper scripts rely on a fairly up-to-date GNU tools environment, so most recent Linux distros should
+### Build Stash
+Some of the Stash development helper scripts rely on a fairly up-to-date GNU tools environment, so most recent Linux distros should
 work just fine out-of-the-box.
 
-### Setup GO
-
-KubeDB is written in Google's GO programming language. Currently, KubeDB is developed and tested on **go 1.8.3**. If you haven't set up a GO
+#### Setup GO
+Stash is written in Google's GO programming language. Currently, Stash is developed and tested on **go 1.9.2**. If you haven't set up a GO
 development environment, please follow [these instructions](https://golang.org/doc/code.html) to install GO.
 
-### Code Organization
-
-KubeDB codebase is across various repositories under github.com/kubedb organization. There are 5 categories of git repositories:
-
-| Repository                             | Description                                                                                              |
-|----------------------------------------|----------------------------------------------------------------------------------------------------------|
-| https://github.com/kubedb/apimachinery | Contains api types, clientset and KubeDB framework interfaces.                                           |
-| https://github.com/kubedb/xdb          | This repository contains operator for `db`, eg, https://github.com/kubedb/postgres                       |
-| https://github.com/kubedb/db_exporter  | This repository contains Prometheus exporter for `db`, eg, https://github.com/kubedb/postgres_exporter . |
-| https://github.com/kubedb/operator     | This repository contains the combined operator for all databases supported by KubeDB.                    |
-| https://github.com/kubedb/cli          | This repository contains CLI for KubeDB.                                                                 |
-
-For each of these repositories, you can get source code and build code using the following steps:
-
-### Download Source
+#### Download Source
 
 ```console
-$ go get github.com/kubedb/operator
-$ cd $(go env GOPATH)/src/github.com/kubedb/operator
+$ go get github.com/appscode/stash
+$ cd $(go env GOPATH)/src/github.com/appscode/stash
 ```
 
-### Install Dev tools
-
-To install various dev tools for KubeDB, run the following command:
-
+#### Install Dev tools
+To install various dev tools for Stash, run the following command:
 ```console
 $ ./hack/builddeps.sh
 ```
 
-### Build Binary
-
-```console
+#### Build Binary
+```
 $ ./hack/make.py
+$ stash version
 ```
 
-### Dependency management
+#### Run Binary Locally
+```console
+$ stash run \
+  --secure-port=8443 \
+  --kubeconfig="$HOME/.kube/config" \
+  --authorization-kubeconfig="$HOME/.kube/config" \
+  --authentication-kubeconfig="$HOME/.kube/config" \
+  --authentication-skip-lookup
+```
 
-For KubeDB original repositories, we use [Glide](https://github.com/Masterminds/glide) to manage dependencies. Dependencies are already checked in the `vendor` folder. If you want to update/add dependencies, run:
+#### Dependency management
+Stash uses [Glide](https://github.com/Masterminds/glide) to manage dependencies. Dependencies are already checked in the `vendor` folder.
+If you want to update/add dependencies, run:
 ```console
 $ glide slow
 ```
 
-### Build Docker images
-
-For unified operator or db specific operators, we support building Docker images. To build and push your custom Docker image, follow the steps below. To release a new version of KubeDB, please follow the [release guide](/docs/0.8.0/setup/developer-guide/release).
+#### Build Docker images
+To build and push your custom Docker image, follow the steps below. To release a new version of Stash, please follow the [release guide](/docs/0.8.0/setup/developer-guide/release).
 
 ```console
 # Build Docker image
-$ ./hack/docker/operator/setup.sh; ./hack/docker/operator/setup.sh push
+$ ./hack/docker/setup.sh; ./hack/docker/setup.sh push
 
 # Add docker tag for your repository
-$ docker tag kubedb/operator:<tag> <image>:<tag>
+$ docker tag appscode/stash:<tag> <image>:<tag>
 
 # Push Image
 $ docker push <image>:<tag>
-
-# Example:
-$ docker tag kubedb/operator:default aerokite/operator:default
-$ docker push aerokite/operator:default
 ```
 
-### Generate CLI Reference Docs
-
+#### Generate CLI Reference Docs
 ```console
-$ cd ~/go/src/github.com/kubedb/cli
 $ ./hack/gendocs/make.sh
 ```
+
+### Testing Stash
+#### Unit tests
+```console
+$ ./hack/make.py test unit
+```
+
+#### Run e2e tests
+Stash uses [Ginkgo](http://onsi.github.io/ginkgo/) to run e2e tests.
+```console
+$ ./hack/make.py test e2e
+```
+
+To run e2e tests against remote backends, you need to set cloud provider credentials in `./hack/config/.env`. You can see an example file in `./hack/config/.env.example`.

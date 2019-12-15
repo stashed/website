@@ -1,6 +1,6 @@
 ---
 title: Reference
-description: KubeDB CLI Reference
+description: Stash CLI Reference
 menu:
   docs_0.8.0:
     identifier: reference

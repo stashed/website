@@ -1,5 +1,6 @@
 ---
-title: KubeDB
+title: Docs | Stash
+description: Stash Docs
 menu:
   docs_0.8.0:
     identifier: welcome

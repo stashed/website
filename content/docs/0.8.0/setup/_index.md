@@ -1,5 +1,5 @@
 ---
-title: Setup | KubeDB
+title: Setup | Stash
 menu:
   docs_0.8.0:
     identifier: setup

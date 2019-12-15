@@ -1,12 +1,13 @@
 ---
-title: Support | KubeDB
+title: Support | Stash
 description: Support
 menu:
   docs_0.8.0:
-    identifier: support-cli
+    identifier: support-stash
     name: Support
     parent: welcome
-    weight: 10
+    weight: 25
+product_name: stash
 menu_name: docs_0.8.0
 section_menu_id: welcome
 url: /docs/0.8.0/welcome/support/
@@ -18,8 +19,6 @@ info:
 
 # Support
 
-We use Slack for public discussions. To chit chat with us or the rest of the community, join us in the [Kubernetes Slack team](https://kubernetes.slack.com/messages/C8149MREV/) channel `#kubedb`. To sign up, use our [Slack inviter](http://slack.kubernetes.io/).
+We use Slack for public discussions. To chit chat with us or the rest of the community, join us in the [AppsCode Slack team](https://appscode.slack.com/messages/C8NCX6N23/details/) channel `#stash`. To sign up, use our [Slack inviter](https://slack.appscode.com/).
 
-To receive product announcements, please join our [mailing list](https://groups.google.com/forum/#!forum/kubedb) or follow us on [Twitter](https://twitter.com/KubeDB). Our mailing list is also used to share design docs shared via Google docs.
-
-If you have found a bug with KubeDB or want to request for new features, please [file an issue](https://github.com/kubedb/project/issues/new).
+If you have found a bug with Stash or want to request for new features, please [file an issue](https://github.com/appscode/stash/issues/new).

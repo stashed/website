@@ -1,5 +1,6 @@
 ---
-title: Developer Guide
+title: Developer Guide | Stash
+description: Stash Developer Guide
 menu:
   docs_0.8.0:
     identifier: developer-guide
