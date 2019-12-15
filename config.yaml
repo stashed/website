@@ -1,5 +1,5 @@
-title: Run production-grade databases easily on Kubernetes
-baseurl: https://kubedb.com
+title: Backup your Kubernetes Stateful Applications
+baseurl: https://stash.run
 languageCode: en-us
 assetDir: static
 googleAnalytics: UA-62096468-4
@@ -7,9 +7,10 @@ disableKinds:
 - taxonomy
 - taxonomyTerm
 params:
-  product_key: kubedb
+  product_key: stash
   main_menu_dropdown_item: database
   domain_appscode: https://appscode.com
+  domain_stash: https://stash.run
   domain_kubedb: https://kubedb.com
   domain_kubevault: https://kubevault.com
   domain_kubeform: https://kubeform.com
@@ -18,7 +19,7 @@ params:
   domain_kubeshield: https://kubeshield.com
   domain_bytebuilders: https://byte.builders
   domain_marketplace: https://marketplace.byte.builders
-  search_engine_ID: 015199383701854252104:8mvwy0fek2e
+  search_engine_ID: 015199383701854252104:0pfqfvpvwyl
   search_api_key: AIzaSyBo15AW3hatf4fO8actJUZ_d5qZJpx0rXM
   blog_url: https://blog.byte.builders
   slack_url: https://slack.appscode.com
@@ -30,51 +31,23 @@ params:
   contact_phone: +1(650)241-8486
 menu:
   main:
-  - name: Databases
-    identifier: database
-    weight: 15
-    url: https://kubedb.com/docs/latest/setup/install/
   - name: Documentation
     weight: 20
   - name: Community
     identifier: community
     weight: 25
-  - name: Elasticsearch
-    identifier: elasticsearch
-    parent: database
-    weight: 10
-  - name: Memcached
-    identifier: memcached
-    parent: database
-    weight: 20
-  - name: MongoDB
-    identifier: mongodb
-    parent: database
-    weight: 30
-  - name: MySQL
-    identifier: mysql
-    parent: database
-    weight: 40
-  - name: PostgreSQL
-    identifier: postgres
-    parent: database
-    weight: 50
-  - name: Redis
-    identifier: redis
-    parent: database
-    weight: 60
   - name: GitHub
     identifier: github
     parent: community
-    url: https://github.com/kubedb
+    url: https://github.com/stashed
     weight: 1
   - name: Twitter
     identifier: twitter
     parent: community
-    url: https://twitter.com/KubeDB
+    url: https://twitter.com/AppsCodeHQ
     weight: 2
   - name: Slack
     identifier: slack
     parent: community
-    url: http://slack.kubernetes.io/
+    url: https://slack.appscode.com
     weight: 3

@@ -1,76 +1,41 @@
 ---
-title: KubeDB Uninstall
+title: Uninstall
+description: Stash Uninstall
 menu:
   docs_0.8.0:
-    identifier: uninstall-kubedb
+    identifier: uninstall-stash
     name: Uninstall
     parent: setup
     weight: 20
+product_name: stash
 menu_name: docs_0.8.0
 section_menu_id: setup
 info:
   version: 0.8.0
 ---
 
-> New to KubeDB? Please start [here](/docs/0.8.0/concepts/README).
+# Uninstall Stash
 
-# Uninstall KubeDB
-
-To uninstall KubeDB operator, run the following command:
+To uninstall Stash operator, run the following command:
 
 ```console
-$ curl -fsSL https://raw.githubusercontent.com/kubedb/cli/0.8.0/hack/deploy/kubedb.sh \
+$ curl -fsSL https://raw.githubusercontent.com/appscode/stash/0.8.0/hack/deploy/stash.sh \
     | bash -s -- --uninstall [--namespace=NAMESPACE]
 
-+ kubectl delete deployment -l app=kubedb -n kube-system
-deployment "kubedb-operator" deleted
-+ kubectl delete service -l app=kubedb -n kube-system
-service "kubedb-operator" deleted
-+ kubectl delete serviceaccount -l app=kubedb -n kube-system
++ kubectl delete deployment -l app=stash -n kube-system
+deployment "stash-operator" deleted
++ kubectl delete service -l app=stash -n kube-system
+service "stash-operator" deleted
++ kubectl delete secret -l app=stash -n kube-system
 No resources found
-+ kubectl delete clusterrolebindings -l app=kubedb -n kube-system
++ kubectl delete serviceaccount -l app=stash -n kube-system
 No resources found
-+ kubectl delete clusterrole -l app=kubedb -n kube-system
++ kubectl delete clusterrolebindings -l app=stash -n kube-system
 No resources found
++ kubectl delete clusterrole -l app=stash -n kube-system
+No resources found
++ kubectl delete initializerconfiguration -l app=stash
+initializerconfiguration "stash-initializer" deleted
 ```
 
-The above command will leave the KubeDB crd objects as-is. If you wish to **nuke** all KubeDB crd objects, also pass the `--purge` flag. This will keep a copy of KubeDB crd objects in your current directory.
-
-
-- Now, wait several seconds for KubeDB to stop running. To confirm that KubeDB operator pod(s) have stopped running, run:
-
-    ```console
-    $ kubectl get pods --all-namespaces -l app=kubedb
-    ```
-
-- To keep a copy of your existing KubeDB objects, run:
-
-    ```console
-    kubectl get postgres.kubedb.com --all-namespaces -o yaml > postgres.yaml
-    kubectl get elasticsearch.kubedb.com --all-namespaces -o yaml > elasticsearch.yaml
-    kubectl get memcached.kubedb.com --all-namespaces -o yaml > memcached.yaml
-    kubectl get mongodb.kubedb.com --all-namespaces -o yaml > mongodb.yaml
-    kubectl get mysql.kubedb.com --all-namespaces -o yaml > mysql.yaml
-    kubectl get redis.kubedb.com --all-namespaces -o yaml > redis.yaml
-    kubectl get snapshot.kubedb.com --all-namespaces -o yaml > snapshot.yaml
-    kubectl get dormant-database.kubedb.com --all-namespaces -o yaml > data.yaml
-    ```
-
-- To delete existing KubeDB objects from all namespaces, run the following command in each namespace one by one.
-
-    ```console
-    kubectl delete postgres.kubedb.com --all --cascade=false
-    kubectl delete elasticsearch.kubedb.com --all --cascade=false
-    kubectl delete memcached.kubedb.com --all --cascade=false
-    kubectl delete mongodb.kubedb.com --all --cascade=false
-    kubectl delete mysql.kubedb.com --all --cascade=false
-    kubectl delete redis.kubedb.com --all --cascade=false
-    kubectl delete snapshot.kubedb.com --all --cascade=false
-    kubectl delete dormant-database.kubedb.com --all --cascade=false
-    ```
-
-- Delete the old CRD-registration.
-
-    ```console
-    kubectl delete crd -l app=kubedb
-    ```
+The above command will leave the Stash crd objects as-is. If you wish to **nuke** all Stash crd objects, also pass the `--purge` flag. This will keep a copy of Stash crd objects in your current directory.

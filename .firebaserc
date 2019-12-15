@@ -7,14 +7,14 @@
     "kubedb-new-e7965": {
       "hosting": {
         "hugo": [
-          "kubedb-v2-hugo"
+          "stashed-v1-hugo"
         ]
       }
     },
     "appscode-domains": {
       "hosting": {
         "hugo": [
-          "kubedb-prod"
+          "stashed-prod"
         ]
       }
     }
