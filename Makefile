@@ -4,7 +4,7 @@ run:
 
 .PHONY: docs
 docs:
-	hugo-tools docs-aggregator
+	hugo-tools docs-aggregator --fm-replacements product_stash_=docs_,/products/stash/=/docs/
 	find ./data -name "*.json" -exec sed -i 's/https:\/\/cdn.appscode.com\/images/\/assets\/images/g' {} \;
 
 .PHONY: assets
