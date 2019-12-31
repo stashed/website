@@ -58,7 +58,7 @@ metadata:
   name: sample-mongodb
   namespace: demo
 spec:
-  version: &quot;4.0-v2&quot;
+  version: &quot;4.1&quot;
   storageType: Durable
   storage:
     storageClassName: &quot;standard&quot;
@@ -71,8 +71,8 @@ spec:
 </code></pre><p>Create the above <code>MongoDB</code> crd,</p><pre><code class=language-console>$ kubectl apply -f https://github.com/stashed/mongodb/raw/4.0/docs/examples/backup/standalone/mongodb.yaml
 mongodb.kubedb.com/sample-mongodb created
 </code></pre><p>KubeDB will deploy a MongoDB database according to the above specification. It will also create the necessary secrets and services to access the database.</p><p>Let&rsquo;s check if the database is ready to use,</p><pre><code class=language-console>$ kubectl get mg -n demo sample-mongodb
-NAME             VERSION    STATUS    AGE
-sample-mongodb   4.0-v2     Running   2m9s
+NAME             VERSION     STATUS    AGE
+sample-mongodb   4.1         Running   2m9s
 </code></pre><p>The database is <code>Running</code>. Verify that KubeDB has created a Secret and a Service for this database using the following commands,</p><pre><code class=language-console>$ kubectl get secret -n demo -l=kubedb.com/name=sample-mongodb
 NAME                  TYPE     DATA   AGE
 sample-mongodb-auth   Opaque   2      2m28s
@@ -93,7 +93,7 @@ metadata:
     app.kubernetes.io/instance: sample-mongodb
     app.kubernetes.io/managed-by: kubedb.com
     app.kubernetes.io/name: mongodb
-    app.kubernetes.io/version: 4.0-v2
+    app.kubernetes.io/version: 4.1
     kubedb.com/kind: MongoDB
     kubedb.com/name: sample-mongodb
   name: sample-mongodb
@@ -107,14 +107,14 @@ spec:
   secret:
     name: sample-mongodb-auth
   type: kubedb.com/mongodb
-  version: &quot;4.0.11&quot;
+  version: &quot;4.1.13&quot;
 </code></pre><p>Stash uses the <code>AppBinding</code> crd to connect with the target database. It requires the following two fields to set in AppBinding&rsquo;s <code>Spec</code> section.</p><ul><li><code>spec.clientConfig.service.name</code> specifies the name of the service that connects to the database.</li><li><code>spec.secret</code> specifies the name of the secret that holds necessary credentials to access the database.</li><li><code>spec.type</code> specifies the types of the app that this AppBinding is pointing to. KubeDB generated AppBinding follows the following format: <code>&lt;app group&gt;/&lt;app resource type&gt;</code>.</li></ul><h3 id=appbinding-for-ssl>AppBinding for SSL</h3><p>If <code>SSLMode</code> of the MongoDB server is either of <code>requireSSL</code> or <code>preferSSL</code>, you can provide ssl connection information through AppBinding Specs.</p><p>User need to provide the following fields in case of SSL is enabled,</p><ul><li><code>spec.clientConfig.caBundle</code> specifies the CA certificate that is used in <a href=https://docs.mongodb.com/manual/reference/program/mongod/index.html#cmdoption-mongod-sslcafile><code>--sslCAFile</code></a> flag of <code>mongod</code>.</li><li><code>spec.secret</code> specifies the name of the secret that holds <code>client.pem</code> file. Follow the <a href=https://docs.mongodb.com/manual/tutorial/configure-x509-client-authentication/>mongodb official doc</a> to learn how to create <code>client.pem</code> and add the subject of <code>client.pem</code> as user (with appropriate roles) to mongodb server.</li></ul><p><strong>KubeDB does these automatically</strong>. It has added the subject of <code>client.pem</code> in the mongodb server with <code>root</code> role. So, user can just use the appbinding that is created by KubeDB without doing any hurdle! See the <a href=https://github.com/kubedb/docs/blob/master/docs/guides/mongodb/tls-ssl-encryption/tls-ssl-encryption.md>MongoDB with TLS/SSL (Transport Encryption)</a> guide to learn about the ssl options in mongodb in details.</p><p>So, in KubeDB, the following <code>CRD</code> deploys a mongodb replicaset where ssl is enabled (<code>requireSSL</code> sslmode),</p><pre><code class=language-yaml>apiVersion: kubedb.com/v1alpha1
 kind: MongoDB
 metadata:
   name: sample-mongodb-ssl
   namespace: demo
 spec:
-  version: &quot;4.0-v2&quot;
+  version: &quot;4.1&quot;
   storageType: Durable
   storage:
     storageClassName: &quot;standard&quot;
@@ -132,7 +132,7 @@ metadata:
     app.kubernetes.io/instance: sample-mongodb-ssl
     app.kubernetes.io/managed-by: kubedb.com
     app.kubernetes.io/name: mongodb
-    app.kubernetes.io/version: 4.0-v2
+    app.kubernetes.io/version: 4.1
     kubedb.com/kind: MongoDB
     kubedb.com/name: sample-mongodb-ssl
   name: sample-mongodb-ssl
@@ -147,7 +147,7 @@ spec:
   secret:
     name: sample-mongodb-ssl-cert
   type: kubedb.com/mongodb
-  version: &quot;4.0.11&quot;
+  version: &quot;4.1.13&quot;
 </code></pre><p>Here, <code>sample-mongodb-cert</code> contains few required certificates, and one of them is <code>client.pem</code> which is required to backup/restore ssl enabled mongodb server using stash-mongodb.</p><p><strong>Creating AppBinding Manually:</strong></p><p>If you deploy MongoDB database without KubeDB, you have to create the AppBinding crd manually in the same namespace as the service and secret of the database.</p><p>The following YAML shows a minimal AppBinding specification that you have to create if you deploy MongoDB database without KubeDB.</p><pre><code class=language-yaml>apiVersion: appcatalog.appscode.com/v1alpha1
 kind: AppBinding
 metadata:
@@ -236,7 +236,7 @@ metadata:
 spec:
   schedule: &quot;*/5 * * * *&quot;
   task:
-    name: mongodb-backup-4
+    name: mongodb-backup-4.1
   repository:
     name: gcs-repo
   target:
@@ -263,15 +263,15 @@ gcs-repo   true        1.611 KiB   1                33s                      33m
 </code></pre><p>Now, if we navigate to the GCS bucket, we are going to see backed up data has been stored in <code>demo/mongodb/sample-mongodb</code> directory as specified by <code>spec.backend.gcs.prefix</code> field of Repository crd.</p><blockquote><p>Note: Stash keeps all the backed up data encrypted. So, data in the backend will not make any sense until they are decrypted.</p></blockquote><h2 id=restore-mongodb>Restore MongoDB</h2><p>In this section, we are going to restore the database from the backup we have taken in the previous section. We are going to deploy a new database and initialize it from the backup.</p><p><strong>Stop Taking Backup of the Old Database:</strong></p><p>At first, let&rsquo;s stop taking any further backup of the old database so that no backup is taken during restore process. We are going to pause the <code>BackupConfiguration</code> crd that we had created to backup the <code>sample-mongodb</code> database. Then, Stash will stop taking any further backup for this database.</p><p>Let&rsquo;s pause the <code>sample-mongodb-backup</code> BackupConfiguration,</p><pre><code class=language-console>$ kubectl patch backupconfiguration -n demo sample-mongodb-backup --type=&quot;merge&quot; --patch='{&quot;spec&quot;: {&quot;paused&quot;: true}}'
 backupconfiguration.stash.appscode.com/sample-mongodb-backup patched
 </code></pre><p>Now, wait for a moment. Stash will pause the BackupConfiguration. Verify that the BackupConfiguration has been paused,</p><pre><code class=language-console>$ kubectl get backupconfiguration -n demo sample-mongodb-backup
-NAME                   TASK                    SCHEDULE      PAUSED   AGE
-sample-mongodb-backup  mongodb-backup-4        */5 * * * *   true     26m
+NAME                   TASK                      SCHEDULE      PAUSED   AGE
+sample-mongodb-backup  mongodb-backup-4.1        */5 * * * *   true     26m
 </code></pre><p>Notice the <code>PAUSED</code> column. Value <code>true</code> for this field means that the BackupConfiguration has been paused.</p><p><strong>Deploy Restored Database:</strong></p><p>Now, we have to deploy the restored database similarly as we have deployed the original <code>sample-psotgres</code> database. However, this time there will be the following differences:</p><ul><li>We have to use the same secret that was used in the original database. We are going to specify it using <code>spec.databaseSecret</code> field.</li><li>We have to specify <code>spec.init</code> section to tell KubeDB that we are going to use Stash to initialize this database from backup. KubeDB will keep the database phase to <code>Initializing</code> until Stash finishes its initialization.</li></ul><p>Below is the YAML for <code>MongoDB</code> crd we are going deploy to initialize from backup,</p><pre><code class=language-yaml>apiVersion: kubedb.com/v1alpha1
 kind: MongoDB
 metadata:
   name: restored-mongodb
   namespace: demo
 spec:
-  version: &quot;4.0-v2&quot;
+  version: &quot;4.1&quot;
   storageType: Durable
   databaseSecret:
     secretName: sample-mongodb-auth
@@ -289,8 +289,8 @@ spec:
 </code></pre><p>Here,</p><ul><li><code>spec.init.stashRestoreSession.name</code> specifies the <code>RestoreSession</code> crd name that we are going to use to restore this database.</li></ul><p>Let&rsquo;s create the above database,</p><pre><code class=language-console>$ kubectl apply -f https://github.com/stashed/mongodb/raw/4.0/docs/examples/restore/standalone/restored-mongodb.yaml
 mongodb.kubedb.com/restored-mongodb created
 </code></pre><p>If you check the database status, you will see it is stuck in <code>Initializing</code> state.</p><pre><code class=language-console>$ kubectl get mg -n demo restored-mongodb
-NAME               VERSION    STATUS         AGE
-restored-mongodb   4.0-v2     Initializing   17s
+NAME               VERSION     STATUS         AGE
+restored-mongodb   4.1         Initializing   17s
 </code></pre><p><strong>Create RestoreSession:</strong></p><p>Now, we need to create a <code>RestoreSession</code> crd pointing to the AppBinding for this restored database.</p><p>Check AppBinding has been created for the <code>restored-mongodb</code> database using the following command,</p><pre><code class=language-console>$ kubectl get appbindings -n demo restored-mongodb
 NAME               AGE
 restored-mongodb   29s
@@ -303,7 +303,7 @@ metadata:
     kubedb.com/kind: MongoDB
 spec:
   task:
-    name: mongodb-restore-4
+    name: mongodb-restore-4.1
   repository:
     name: gcs-repo
   target:
@@ -320,8 +320,8 @@ NAME                     REPOSITORY-NAME   PHASE       AGE
 sample-mongodb-restore   gcs-repo          Running     5s
 sample-mongodb-restore   gcs-repo          Succeeded   43s
 </code></pre><p>So, we can see from the output of the above command that the restore process succeeded.</p><p><strong>Verify Restored Data:</strong></p><p>In this section, we are going to verify that the desired data has been restored successfully. We are going to connect to the database and check whether the table we had created in the original database is restored or not.</p><p>At first, check if the database has gone into <code>Running</code> state by the following command,</p><pre><code class=language-console>$ kubectl get mg -n demo restored-mongodb
-NAME               VERSION    STATUS    AGE
-restored-mongodb   4.0-v2     Running   105m
+NAME               VERSION     STATUS    AGE
+restored-mongodb   4.1         Running   105m
 </code></pre><p>Now, find out the database pod by the following command,</p><pre><code class=language-console>$ kubectl get pods -n demo --selector=&quot;kubedb.com/name=restored-mongodb&quot;
 NAME                 READY   STATUS    RESTARTS   AGE
 restored-mongodb-0   1/1     Running   0          106m
