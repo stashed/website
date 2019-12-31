@@ -44,7 +44,7 @@ menu:
   - name: Twitter
     identifier: twitter
     parent: community
-    url: https://twitter.com/AppsCodeHQ
+    url: https://twitter.com/KubeStash
     weight: 2
   - name: Slack
     identifier: slack
