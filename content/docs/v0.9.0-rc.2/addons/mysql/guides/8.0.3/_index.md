@@ -5,7 +5,7 @@ menu:
     identifier: stash-mysql-guides-8.0.3
     name: 8.0.3
     parent: stash-mysql-guides
-    weight: 50
+    weight: 20
 menu_name: docs_v0.9.0-rc.2
 info:
   catalog: v0.1.0
