@@ -36,7 +36,7 @@ namespace/monitoring created
 Enable Prometheus monitoring using `prometheus.io/builtin` agent while installing Stash. To know details about how to enable monitoring see [here](/docs/v0.9.0-rc.4/guides/v1alpha1/monitoring/overview#how-to-enable-monitoring). Here, we are going to enable monitoring for both `backup & recovery` and `operator` metrics using Helm 3.
 
 ```console
-$ helm install stash appscode/stash --version {{< param "info.version" >}} \
+$ helm install stash-operator appscode/stash --version {{< param "info.version" >}} \
   --namespace kube-system \
   --set monitoring.agent=prometheus.io/builtin \
   --set monitoring.backup=true \
