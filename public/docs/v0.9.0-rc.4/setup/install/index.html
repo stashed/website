@@ -39,22 +39,22 @@ Kubernetes</p></div></a><a href=https://appscode.com/products/swift/ class="sing
 <label for=1eb95fd7fd7e6b84f78586b991bf96a4-2><a href=/docs/v0.9.0-rc.4/setup/install/>Install</a></label></div><div class=item><input type=checkbox id=1eb95fd7fd7e6b84f78586b991bf96a4-3>
 <label for=1eb95fd7fd7e6b84f78586b991bf96a4-3><a href=/docs/v0.9.0-rc.4/setup/upgrade/>Upgrade</a></label></div><div class=item><input type=checkbox id=1eb95fd7fd7e6b84f78586b991bf96a4-4>
 <label for=1eb95fd7fd7e6b84f78586b991bf96a4-4><a href=/docs/v0.9.0-rc.4/setup/uninstall/>Uninstall</a></label></div><div class=item><input type=checkbox id=1eb95fd7fd7e6b84f78586b991bf96a4-5>
-<label for=1eb95fd7fd7e6b84f78586b991bf96a4-5><a>Developer Guide</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.4/setup/developer-guide/overview/>Overview</a></li><li><a href=/docs/v0.9.0-rc.4/setup/developer-guide/release/>Release</a></li></ul></div></div></div></div></div><div class="column is-7"><div class=full-info><h1 id=installation-guide>Installation Guide</h1><p>Stash operator can be installed via a script or as a Helm chart.</p><p><ul class="nav nav-tabs" id=installerTab role=tablist><li class=nav-item><a class="nav-link active" id=helm3-tab data-toggle=tab href=#helm3 role=tab aria-controls=helm3 aria-selected=true>Helm 3 (Recommended)</a></li><li class=nav-item><a class=nav-link id=helm2-tab data-toggle=tab href=#helm2 role=tab aria-controls=helm2 aria-selected=false>Helm 2</a></li><li class=nav-item><a class=nav-link id=script-tab data-toggle=tab href=#script role=tab aria-controls=script aria-selected=false>YAML</a></li></ul><div class=tab-content id=installerTabContent><div class="tab-pane fade show active" id=helm3 role=tabpanel aria-labelledby=helm3-tab></p><h2 id=using-helm-3>Using Helm 3</h2><p>Stash can be installed via <a href=https://helm.sh/>Helm</a> using the <a href=https://github.com/stashed/installer/tree/v0.9.0-rc.4/charts/stash>chart</a> from <a href=https://github.com/appscode/charts>AppsCode Charts Repository</a>. To install the chart with the release name <code>my-release</code>:</p><pre><code class=language-console>$ helm repo add appscode https://charts.appscode.com/stable/
+<label for=1eb95fd7fd7e6b84f78586b991bf96a4-5><a>Developer Guide</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.4/setup/developer-guide/overview/>Overview</a></li><li><a href=/docs/v0.9.0-rc.4/setup/developer-guide/release/>Release</a></li></ul></div></div></div></div></div><div class="column is-7"><div class=full-info><h1 id=installation-guide>Installation Guide</h1><p>Stash operator can be installed via a script or as a Helm chart.</p><p><ul class="nav nav-tabs" id=installerTab role=tablist><li class=nav-item><a class="nav-link active" id=helm3-tab data-toggle=tab href=#helm3 role=tab aria-controls=helm3 aria-selected=true>Helm 3 (Recommended)</a></li><li class=nav-item><a class=nav-link id=helm2-tab data-toggle=tab href=#helm2 role=tab aria-controls=helm2 aria-selected=false>Helm 2</a></li><li class=nav-item><a class=nav-link id=script-tab data-toggle=tab href=#script role=tab aria-controls=script aria-selected=false>YAML</a></li></ul><div class=tab-content id=installerTabContent><div class="tab-pane fade show active" id=helm3 role=tabpanel aria-labelledby=helm3-tab></p><h2 id=using-helm-3>Using Helm 3</h2><p>Stash can be installed via <a href=https://helm.sh/>Helm</a> using the <a href=https://github.com/stashed/installer/tree/v0.9.0-rc.4/charts/stash>chart</a> from <a href=https://github.com/appscode/charts>AppsCode Charts Repository</a>. To install the chart with the release name <code>stash</code>:</p><pre><code class=language-console>$ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
 $ helm search repo appscode/stash --version v0.9.0-rc.4
 NAME            CHART VERSION APP VERSION DESCRIPTION
 appscode/stash  v0.9.0-rc.4    v0.9.0-rc.4  Stash by AppsCode - Backup your Kubernetes Volumes
 
-$ helm install stash-operator appscode/stash \
+$ helm install stash appscode/stash \
   --version v0.9.0-rc.4 \
   --namespace kube-system
-</code></pre><p>To see the detailed configuration options, visit <a href=https://github.com/stashed/installer/tree/v0.9.0-rc.4/charts/stash>here</a>.</p><p></div><div class="tab-pane fade" id=helm2 role=tabpanel aria-labelledby=helm2-tab></p><h2 id=using-helm-2>Using Helm 2</h2><p>Stash can be installed via <a href=https://helm.sh/>Helm</a> using the <a href=https://github.com/stashed/installer/tree/v0.9.0-rc.4/charts/stash>chart</a> from <a href=https://github.com/appscode/charts>AppsCode Charts Repository</a>. To install the chart with the release name <code>my-release</code>:</p><pre><code class=language-console>$ helm repo add appscode https://charts.appscode.com/stable/
+</code></pre><p>To see the detailed configuration options, visit <a href=https://github.com/stashed/installer/tree/v0.9.0-rc.4/charts/stash>here</a>.</p><p></div><div class="tab-pane fade" id=helm2 role=tabpanel aria-labelledby=helm2-tab></p><h2 id=using-helm-2>Using Helm 2</h2><p>Stash can be installed via <a href=https://helm.sh/>Helm</a> using the <a href=https://github.com/stashed/installer/tree/v0.9.0-rc.4/charts/stash>chart</a> from <a href=https://github.com/appscode/charts>AppsCode Charts Repository</a>. To install the chart with the release name <code>stash</code>:</p><pre><code class=language-console>$ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
 $ helm search appscode/stash --version v0.9.0-rc.4
 NAME            CHART VERSION APP VERSION DESCRIPTION
 appscode/stash  v0.9.0-rc.4    v0.9.0-rc.4  Stash by AppsCode - Backup your Kubernetes Volumes
 
-$ helm install appscode/stash --name stash-operator \
+$ helm install appscode/stash --name stash \
   --version v0.9.0-rc.4 \
   --namespace kube-system
 </code></pre><p>To see the detailed configuration options, visit <a href=https://github.com/stashed/installer/tree/v0.9.0-rc.4/charts/stash>here</a>.</p><p></div><div class="tab-pane fade" id=script role=tabpanel aria-labelledby=script-tab></p><h2 id=using-yaml>Using YAML</h2><p>If you prefer to not use Helm, you can generate YAMLs from Stash chart and deploy using <code>kubectl</code>. Here we are going to show the prodecure using Helm 3.</p><pre><code class=language-console>$ helm repo add appscode https://charts.appscode.com/stable/
@@ -63,7 +63,7 @@ $ helm search repo appscode/stash --version v0.9.0-rc.4
 NAME            CHART VERSION APP VERSION DESCRIPTION
 appscode/stash  v0.9.0-rc.4    v0.9.0-rc.4  Stash by AppsCode - Backup your Kubernetes Volumes
 
-$ helm template stash-operator appscode/stash \
+$ helm template stash appscode/stash \
   --version v0.9.0-rc.4 \
   --namespace kube-system \
   --no-hooks | kubectl apply -f -
