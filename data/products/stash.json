@@ -289,10 +289,19 @@
       "show": true
     },
     {
+      "version": "v2020.07.09-beta.0",
+      "hostDocs": true,
+      "info": {
+        "catalog": "v2020.07.09-beta.0",
+        "cli": "v0.10.0-beta.1"
+      }
+    },
+    {
       "version": "v2020.07.08-beta.0",
       "hostDocs": true,
       "info": {
-        "catalog": "v2020.07.08-beta.0"
+        "catalog": "v2020.07.08-beta.0",
+        "cli": "v0.10.0-beta.0"
       }
     },
     {
@@ -416,7 +425,7 @@
       "show": true
     }
   ],
-  "latestVersion": "v2020.07.08-beta.0",
+  "latestVersion": "v0.9.0-rc.6",
   "socialLinks": {
     "facebook": "https://facebook.com/appscode",
     "github": "https://github.com/stashed/stash",
@@ -493,10 +502,17 @@
       "mappings": [
         {
           "versions": [
-            "v2020.07.08-beta.0"
+            "v2020.07.09-beta.0"
           ],
           "subProjectVersions": [
-            "6.8.0-beta.20200708"
+            "5.6.4-beta.20200709",
+            "6.2.4-beta.20200709",
+            "6.3.0-beta.20200709",
+            "6.4.0-beta.20200709",
+            "6.5.3-beta.20200709",
+            "6.8.0-beta.20200709",
+            "7.2.0-beta.20200709",
+            "7.3.2-beta.20200709"
           ]
         },
         {
@@ -504,55 +520,14 @@
             "v2020.07.08-beta.0"
           ],
           "subProjectVersions": [
-            "6.5.3-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "5.6.4-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
+            "5.6.4-beta.20200708",
+            "6.2.4-beta.20200708",
+            "6.3.0-beta.20200708",
+            "6.4.0-beta.20200708",
+            "6.5.3-beta.20200708",
+            "6.8.0-beta.20200708",
+            "7.2.0-beta.20200708",
             "7.3.2-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "7.2.0-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "6.4.0-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "6.3.0-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "6.2.4-beta.20200708"
           ]
         },
         {
@@ -580,10 +555,20 @@
       "mappings": [
         {
           "versions": [
-            "v2020.07.08-beta.0"
+            "v2020.07.09-beta.0"
           ],
           "subProjectVersions": [
-            "3.4.2-beta.20200708"
+            "3.4.1-beta.20200709",
+            "3.4.2-beta.20200709",
+            "3.6.1-beta.20200709",
+            "3.6.8-beta.20200709",
+            "4.0.1-beta.20200709",
+            "4.0.3-beta.20200709",
+            "4.0.5-beta.20200709",
+            "4.1.1-beta.20200709",
+            "4.1.4-beta.20200709",
+            "4.1.7-beta.20200709",
+            "4.2.3-beta.20200709"
           ]
         },
         {
@@ -591,79 +576,17 @@
             "v2020.07.08-beta.0"
           ],
           "subProjectVersions": [
-            "3.4.1-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "4.1.7-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "4.1.1-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "4.1.4-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
+            "3.4.1-beta.20200708",
+            "3.4.2-beta.20200708",
+            "3.6.1-beta.20200708",
+            "3.6.8-beta.20200708",
+            "4.0.1-beta.20200708",
+            "4.0.3-beta.20200708",
+            "4.0.5-beta.20200708",
+            "4.1.1-beta.20200708",
+            "4.1.4-beta.20200708",
+            "4.1.7-beta.20200708",
             "4.2.3-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "4.0.3-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "4.0.1-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "3.6.1-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "4.0.5-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "3.6.8-beta.20200708"
           ]
         },
         {
@@ -694,26 +617,22 @@
       "mappings": [
         {
           "versions": [
+            "v2020.07.09-beta.0"
+          ],
+          "subProjectVersions": [
+            "5.7.25-beta.20200709",
+            "8.0.3-beta.20200709",
+            "8.0.14-beta.20200709"
+          ]
+        },
+        {
+          "versions": [
             "v2020.07.08-beta.0"
           ],
           "subProjectVersions": [
+            "5.7.25-beta.20200708",
+            "8.0.3-beta.20200708",
             "8.0.14-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "5.7.25-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "8.0.3-beta.20200708"
           ]
         },
         {
@@ -734,6 +653,14 @@
     "stash-percona-xtradb": {
       "dir": "addons/percona-xtradb/guides",
       "mappings": [
+        {
+          "versions": [
+            "v2020.07.09-beta.0"
+          ],
+          "subProjectVersions": [
+            "5.7-beta.20200709"
+          ]
+        },
         {
           "versions": [
             "v2020.07.08-beta.0"
@@ -758,10 +685,14 @@
       "mappings": [
         {
           "versions": [
-            "v2020.07.08-beta.0"
+            "v2020.07.09-beta.0"
           ],
           "subProjectVersions": [
-            "9.6-beta.20200708"
+            "9.6-beta.20200709",
+            "10.2-beta.20200709",
+            "10.6-beta.20200709",
+            "11.1-beta.20200709",
+            "11.2-beta.20200709"
           ]
         },
         {
@@ -769,31 +700,11 @@
             "v2020.07.08-beta.0"
           ],
           "subProjectVersions": [
+            "9.6-beta.20200708",
+            "10.2-beta.20200708",
+            "10.6-beta.20200708",
+            "11.1-beta.20200708",
             "11.2-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "11.1-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "10.6-beta.20200708"
-          ]
-        },
-        {
-          "versions": [
-            "v2020.07.08-beta.0"
-          ],
-          "subProjectVersions": [
-            "10.2-beta.20200708"
           ]
         },
         {
