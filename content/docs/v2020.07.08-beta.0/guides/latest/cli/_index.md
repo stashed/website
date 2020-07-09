@@ -1,0 +1,14 @@
+---
+title: kubectl plugin | Stash
+menu:
+  docs_v2020.07.08-beta.0:
+    identifier: cli
+    name: CLI
+    parent: latest-guides
+    weight: 120
+menu_name: docs_v2020.07.08-beta.0
+info:
+  catalog: v2020.07.08-beta.0
+  version: v2020.07.08-beta.0
+---
+
