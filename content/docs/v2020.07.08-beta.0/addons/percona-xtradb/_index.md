@@ -1,0 +1,14 @@
+---
+title: Stash Percona XtraDB Addon
+menu:
+  docs_v2020.07.08-beta.0:
+    identifier: stash-percona-xtradb
+    name: Percona XtraDB
+    parent: stash-addons
+    weight: 50
+menu_name: docs_v2020.07.08-beta.0
+info:
+  catalog: v2020.07.08-beta.0
+  version: v2020.07.08-beta.0
+---
+
