@@ -31,9 +31,9 @@ This guide will give you an overview of which MySQL versions are supported and h
 
 Stash supports backup and restore of the following MySQL versions:
 
-- [5.7.25](/docs/v2020.08.27/addons/mysql/guides/5.7.25/mysql)
-- [8.0.3](/docs/v2020.08.27/addons/mysql/guides/8.0.3/mysql)
-- [8.0.14](/docs/v2020.08.27/addons/mysql/guides/8.0.14/mysql)
+- [5.7.25](/docs/v2020.08.27/addons/mysql/guides/5.7.25-v1/mysql)
+- [8.0.3](/docs/v2020.08.27/addons/mysql/guides/8.0.3-v1/mysql)
+- [8.0.14](/docs/v2020.08.27/addons/mysql/guides/8.0.14-v1/mysql)
 
 ## Documentation Overview
 
