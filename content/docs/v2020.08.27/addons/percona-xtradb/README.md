@@ -31,7 +31,7 @@ This guide will give you an overview of which Percona XtraDB versions are suppor
 
 Stash supports backup and restore of the following Percona XtraDB versions:
 
-- [5.7](/docs/v2020.08.27/addons/percona-xtradb/guides/5.7/clustered)
+- [5.7](/docs/v2020.08.27/addons/percona-xtradb/guides/5.7-v1/clustered)
 
 ## Documentation Overview
 
