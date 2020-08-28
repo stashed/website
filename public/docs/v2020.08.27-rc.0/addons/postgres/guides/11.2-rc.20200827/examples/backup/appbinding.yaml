@@ -1,0 +1,34 @@
+apiVersion: appcatalog.appscode.com/v1alpha1
+kind: AppBinding
+metadata:
+  creationTimestamp: "2019-09-25T11:32:33Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/component: database
+    app.kubernetes.io/instance: sample-postgres
+    app.kubernetes.io/managed-by: kubedb.com
+    app.kubernetes.io/name: postgres
+    app.kubernetes.io/version: "11.2"
+    kubedb.com/kind: Postgres
+    kubedb.com/name: sample-postgres
+  name: sample-postgres
+  namespace: demo
+spec:
+  clientConfig:
+    service:
+      name: sample-postgres
+      path: /
+      port: 5432
+      query: sslmode=disable
+      scheme: postgresql
+  secret:
+    name: sample-postgres-auth
+  secretTransforms:
+  - renameKey:
+      from: POSTGRES_USER
+      to: username
+  - renameKey:
+      from: POSTGRES_PASSWORD
+      to: password
+  type: kubedb.com/postgres
+  version: "11.2"

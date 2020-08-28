@@ -1,0 +1,287 @@
+<!doctype html><html lang=en><head><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-62096468-4','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=theme-color content="#5E2DEA"><title>Stash by AppsCode</title><meta name=description content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta name=author content="AppsCode Inc."><meta name=keywords content="kubernetes appscode backup disaster recovery volume"><link rel=apple-touch-icon sizes=57x57 href=/assets/images/products/stash/icons/apple-icon-57x57.png><link rel=apple-touch-icon sizes=60x60 href=/assets/images/products/stash/icons/apple-icon-60x60.png><link rel=apple-touch-icon sizes=72x72 href=/assets/images/products/stash/icons/apple-icon-72x72.png><link rel=apple-touch-icon sizes=76x76 href=/assets/images/products/stash/icons/apple-icon-76x76.png><link rel=apple-touch-icon sizes=114x114 href=/assets/images/products/stash/icons/apple-icon-114x114.png><link rel=apple-touch-icon sizes=120x120 href=/assets/images/products/stash/icons/apple-icon-120x120.png><link rel=apple-touch-icon sizes=144x144 href=/assets/images/products/stash/icons/apple-icon-144x144.png><link rel=apple-touch-icon sizes=152x152 href=/assets/images/products/stash/icons/apple-icon-152x152.png><link rel=apple-touch-icon sizes=180x180 href=/assets/images/products/stash/icons/apple-icon-180x180.png><link rel=icon type=image/png sizes=192x192 href=/assets/images/products/stash/icons/android-icon-192x192.png><link rel=icon type=image/png sizes=32x32 href=/assets/images/products/stash/icons/favicon-32x32.png><link rel=icon type=image/png sizes=96x96 href=/assets/images/products/stash/icons/favicon-96x96.png><link rel=icon type=image/png sizes=16x16 href=/assets/images/products/stash/icons/favicon-16x16.png><link rel=manifest href=/assets/images/products/stash/icons/manifest.json><meta name=msapplication-TileColor content="#ffffff"><meta name=msapplication-TileImage content="/assets/images/products/stash/icons/ms-icon-144x144.png"><meta itemprop=name content="Stash by AppsCode"><meta itemprop=description content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta itemprop=image content="https://stash.run/assets/images/products/stash/stash-1280x640.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:site content="@KubeStash"><meta name=twitter:title content="Stash by AppsCode"><meta name=twitter:creator content="@KubeStash"><meta name=twitter:description content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta name=twitter:image:src content="https://stash.run/assets/images/products/stash/stash-1280x640.png"><meta property="og:url" content="https://stash.run"><meta property="og:title" content="Stash by AppsCode"><meta property="og:description" content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta property="og:site_name" content="Stash by AppsCode"><meta property="og:image" content="https://stash.run/assets/images/products/stash/stash-1280x640.png"><meta property="og:type" content="article"><link rel=stylesheet href=/assets/css/font-awesome.min.css><link href=https://unpkg.com/aos@2.3.1/dist/aos.css rel=stylesheet><link rel=stylesheet href=/assets/css/bulma-carousel.min.css><link rel=stylesheet href=/assets/css/bulma-tooltip.min.css><link rel=stylesheet href=/assets/css/bulma.min.css><link rel=stylesheet href=/assets/sass/main.min.07c98ba8010cf282fb1bc78228ba008ded77cf1eec07444d29c1e8c784afee49.css></head><body class=stash><header><div class=header-top><div class="container section"><nav class=navbar><div class=navbar-brand><a class=navbar-item href=https://appscode.com><img src=/assets/images/products/appscode/appscode.png alt=AppsCode></a>
+<a role=button class="navbar-burger burger" aria-label=menu aria-expanded=false data-target=acNav1><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a></div><div id=acNav1 class="navbar-menu main-menu"><div class=navbar-end><div class=navbar-start><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Products</a><div class=ac-megamenu><div class=columns><div class="column is-8"><div class=columns><div class="column is-6 br-1"><a href=https://kubedb.com class="single-product-item is-kubedb"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubedb/kubedb-icon.png alt=KubeDB></div><h5>KubeDB</h5></div><div class=menu-body><p>Run production-grade databases easily on Kubernetes</p></div></a><a href=https://stash.run class="single-product-item is-stash"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/stash/stash-icon.png alt=Stash></div><h5>Stash</h5></div><div class=menu-body><p>Backup your Kubernetes Stateful Applications</p></div></a><a href=https://kubevault.com class="single-product-item is-kubevault"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubevault/kubevault-icon.png alt=KubeVault></div><h5>KubeVault</h5></div><div class=menu-body><p>Tools for running HashiCorp Vault on Kubernetes</p></div></a><a href=https://appscode.com/products/guard/ class="single-product-item is-guard"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/guard/guard-icon.png alt=Guard></div><h5>Guard</h5></div><div class=menu-body><p>Kubernetes Authentication WebHook Server</p></div></a></div><div class="column is-6 br-1"><a href class="single-product-item is-voyager"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/voyager/voyager-icon.png alt=Voyager></div><h5>Voyager</h5></div><div class=menu-body><p>Secure HAProxy Ingress Controller for
+Kubernetes</p></div></a><a href=https://appscode.com/products/swift/ class="single-product-item is-swift"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/swift/swift-icon.png alt=Swift></div><h5>Swift</h5></div><div class=menu-body><p>Ajax friendly Helm Tiller Proxy</p></div></a><a href=https://appscode.com/products/searchlight/ class="single-product-item is-searchlight"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/searchlight/searchlight-icon.png alt=Searchlight></div><h5>Searchlight</h5></div><div class=menu-body><p>Alerts for Kubernetes</p></div></a><a href=https://appscode.com/products/kubed/ class="single-product-item is-kubed"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubed/kubed-icon.png alt=Kubed></div><h5>Kubed</h5></div><div class=menu-body><p>Kubernetes cluster manager daemon</p></div></a></div></div></div><div class="column is-4"><div class=columns><div class="column is-12"><a href=https://byte.builders class="single-product-item byte-builder kd-orange"><div class=menu-header><p class=intro>Introducing....</p><h5>ByteBuilders</h5></div><div class=menu-body><p>Cloud reimagined for the age of Kubernetes</p></div><p class=learn-more-btn>Learn more
+<span class=icon><i class="fa fa-long-arrow-right" aria-hidden=true></i></span></p></a><a href=https://pharmer.io class="single-product-item is-pharmer"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/pharmer/pharmer-icon.png alt=Pharmer></div><h5>Pharmer</h5></div><div class=menu-body><p>Kubernetes Cluster Manager using Kubeadm & Cluster API</p></div></a><a href=https://kubeform.com class="single-product-item is-kubeform"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubeform/kubeform-icon.png alt=Kubeform></div><h5>Kubeform</h5></div><div class=menu-body><p>Provision cloud resources using Kubernetes CRDs & Terraform</p></div></a></div></div></div></div><div class="columns has-text-centered"><div class=column><div class=menu-bottom><p>Explore apps and integrations for AppsCode products:
+<a href=https://marketplace.byte.builders>Visit the Marketplace
+<i class="fa fa-long-arrow-right" aria-hidden=true></i></a></p></div></div></div></div></div><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Services</a><div class=ac-dropdown><a class=navbar-item href=https://appscode.com/consulting/>Consulting</a>
+<a class=navbar-item href=https://appscode.com/training/>Training</a>
+<a class=navbar-item href=https://appscode.com/support/>Support</a></div></div><a class=navbar-item href=https://blog.byte.builders>Blog</a>
+<a class=navbar-item href=https://appscode.com/contact/>Contact Us</a></div><div class=navbar-item><div class="buttons main-menu-button-top"><a class="button is-small for-chat" href=https://slack.appscode.com><span><img src=/assets/images/icon/slack.png alt></span>Slack</a>
+<a class="button is-small for-support" href=https://appscode.freshdesk.com><span><img src=/assets/images/icon/chat.png alt></span>Support Portal</a></div></div></div></div></nav></div></div><div class="header-bottom-area header-area kubedb-primary-bg customize-kubedb fixed-menu"><div class="container section"><nav class=navbar><div class=navbar-brand><a class=navbar-item href=https://stash.run><img src=/assets/images/products/stash/stash-white.png alt=Stash></a>
+<a role=button class="navbar-burger burger" aria-label=menu aria-expanded=false data-target=acNav><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a></div><div id=acNav class="navbar-menu main-menu"><div class=navbar-end><div class=navbar-start><a href=/features/ class=navbar-item>Features</a>
+<a href=/pricing/ class=navbar-item>Pricing</a>
+<a href=/docs/v2020.08.27/welcome/ class=navbar-item>Documentation</a><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Community</a><div class=ac-dropdown><a href=https://github.com/stashed class=navbar-item>GitHub</a>
+<a href=https://twitter.com/KubeStash class=navbar-item>Twitter</a>
+<a href=https://slack.appscode.com class=navbar-item>Slack</a></div></div></div><div class=navbar-item><div class="buttons main-menu-button"><img style=height:24px alt="GitHub Stars" src="https://img.shields.io/github/stars/appscode/stash?style=flat&labelColor=1B3D4B&color=06A64F&logoColor=white&logo=github">
+&nbsp;&nbsp;&nbsp;
+<img style=height:24px alt="Docker Pulls" src="https://img.shields.io/docker/pulls/appscode/stash?style=flat&labelColor=1B3D4B&color=06A64F&logoColor=white&logo=docker"></div></div></div></div></nav></div></div><div class=documentation-menu><div class="container section"><div class=is-centered><div class="is-half has-text-centered-desktop"><div class=responsive-menu><a role=button class="navbar-burger burger" aria-label=menu aria-expanded=false data-target=acNav3><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a></div><nav class=documentation-navbar><div id=acNav3 class="navbar-menu nav-menu main-menu"><div class=navbar-centered><div class=navbar-start><a href=/docs/v2020.08.26-rc.0/ class=navbar-item>Welcome</a>
+<a href=/docs/v2020.08.26-rc.0/concepts/ class=navbar-item>Concepts</a>
+<a href=/docs/v2020.08.26-rc.0/setup/ class=navbar-item>Setup</a><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Guides</a><div class=ac-dropdown><a href=/docs/v2020.08.26-rc.0/guides/latest/ class=navbar-item>Latest Guides</a>
+<a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/ class=navbar-item>v1alpha1 Guides</a></div></div><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Addons</a><div class=ac-dropdown><a href=/docs/v2020.08.26-rc.0/addons/postgres/ class=navbar-item>Postgres</a>
+<a href=/docs/v2020.08.26-rc.0/addons/elasticsearch/ class=navbar-item>Elasticsearch</a>
+<a href=/docs/v2020.08.26-rc.0/addons/mysql/ class=navbar-item>MySQL</a>
+<a href=/docs/v2020.08.26-rc.0/addons/mongodb/ class=navbar-item>MongoDB</a>
+<a href=/docs/v2020.08.26-rc.0/addons/percona-xtradb/ class=navbar-item>Percona XtraDB</a></div></div><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Reference</a><div class=ac-dropdown><a href=/docs/v2020.08.26-rc.0/reference/operator/ class=navbar-item>Stash Operator</a>
+<a href=/docs/v2020.08.26-rc.0/reference/cli/ class=navbar-item>Stash CLI</a></div></div></div></div></div></nav></div></div></div></div></header><div class=documentation-area><div class="container section"><div class=columns><div class="column is-3"><div class=kd-left-sidebar><div class=trial-button><a href=/docs/v2020.08.27/setup/ class="button is-fullwidth">Try Now for FREE!</a></div><div class=kd-version><div class=dropdown><div class=dropdown-trigger><button class="button is-fullwidth" aria-haspopup=true aria-controls=dropdown-menu3>
+<span class="icon is-small"><i class="fa fa-angle-down" aria-hidden=true></i></span></button></div><div class=dropdown-menu id=dropdown-menu3 role=menu><div class=dropdown-content><a href=https://github.com/stashed/docs/tree/master/docs target=_blank class=dropdown-item>master</a>
+<a href=/docs/v2020.08.27/ class=dropdown-item>v2020.08.27<div class=tag>Latest</div></a><a href=/docs/v0.9.0-rc.6/ class=dropdown-item>v0.9.0-rc.6</a>
+<a href=/docs/0.8.3/ class=dropdown-item>0.8.3</a>
+<a href=/docs/0.8.2/ class=dropdown-item>0.8.2</a>
+<a href=/docs/0.8.1/ class=dropdown-item>0.8.1</a>
+<a href=/docs/0.8.0/ class=dropdown-item>0.8.0</a>
+<a href=/docs/0.7.0/ class=dropdown-item>0.7.0</a>
+<a href=/docs/0.6.4/ class=dropdown-item>0.6.4</a>
+<a href=https://github.com/stashed/docs/tree/0.4.2/docs target=_blank class=dropdown-item>0.4.2</a></div></div></div></div><div class=kd-sidebar-menu><div class=item><input type=checkbox id=986638b7d61e2a86ce02c5b3c5ea3f3f-1>
+<label for=986638b7d61e2a86ce02c5b3c5ea3f3f-1><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/>v1alpha1 Guides</a></label></div><div class=item><input type=checkbox id=986638b7d61e2a86ce02c5b3c5ea3f3f-2>
+<label for=986638b7d61e2a86ce02c5b3c5ea3f3f-2><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/backup/>Backup Volumes</a></label></div><div class=item><input type=checkbox id=986638b7d61e2a86ce02c5b3c5ea3f3f-3>
+<label for=986638b7d61e2a86ce02c5b3c5ea3f3f-3><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/offline_backup/>Offline Backup</a></label></div><div class=item><input type=checkbox id=986638b7d61e2a86ce02c5b3c5ea3f3f-4>
+<label for=986638b7d61e2a86ce02c5b3c5ea3f3f-4><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/restore/>Restore Volumes</a></label></div><div class=item><input type=checkbox id=986638b7d61e2a86ce02c5b3c5ea3f3f-5>
+<label for=986638b7d61e2a86ce02c5b3c5ea3f3f-5><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/workloads/>Workloads</a></label></div><div class=item><input type=checkbox id=986638b7d61e2a86ce02c5b3c5ea3f3f-6>
+<label for=986638b7d61e2a86ce02c5b3c5ea3f3f-6><a>Supported Backends</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/backends/overview/>What is Backend?</a></li><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/backends/local/>Persistent Volumes</a></li><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/backends/s3/>AWS S3</a></li><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/backends/azure/>Azure Blob Storage</a></li><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/backends/gcs/>Google Cloud Storage</a></li><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/backends/swift/>OpenStack Swift</a></li><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/backends/b2/>Backblaze B2</a></li></ul></div></div><div class=item><input type=checkbox id=986638b7d61e2a86ce02c5b3c5ea3f3f-7 checked>
+<label for=986638b7d61e2a86ce02c5b3c5ea3f3f-7><a>Platforms</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/platforms/eks/>EKS</a></li><li class=is-active><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/platforms/aks/>AKS</a></li><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/platforms/gke/>GKE</a></li><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/platforms/minio/>Minio</a></li><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/platforms/rook/>Rook</a></li></ul></div></div><div class=item><input type=checkbox id=986638b7d61e2a86ce02c5b3c5ea3f3f-8>
+<label for=986638b7d61e2a86ce02c5b3c5ea3f3f-8><a>Monitoring</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/monitoring/overview/>Overview</a></li><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/monitoring/builtin/>Builtin Prometheus</a></li><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/monitoring/coreos/>Prometheus Operator</a></li><li><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/monitoring/grafana/>Using Grafana</a></li></ul></div></div><div class=item><input type=checkbox id=986638b7d61e2a86ce02c5b3c5ea3f3f-9>
+<label for=986638b7d61e2a86ce02c5b3c5ea3f3f-9><a href=/docs/v2020.08.26-rc.0/guides/v1alpha1/rbac/>RBAC</a></label></div></div></div></div><div class="column is-7"><div class=full-info><blockquote><p>New to Stash? Please start <a href=/docs/v2020.08.26-rc.0/concepts/README>here</a>.</p></blockquote><h1 id=using-stash-with-azure-kubernetes-service-aks>Using Stash with Azure Kubernetes Service (AKS)</h1><p>This tutorial will show you how to use Stash to <strong>backup</strong> and <strong>restore</strong> a volume in <a href=https://azure.microsoft.com/en-us/services/kubernetes-service/>Azure Kubernetes Service</a>. Here, we are going to backup the <code>/source/data</code> folder of a busybox pod into <a href=https://azure.microsoft.com/en-us/services/storage/blobs/>Azure Blob Storage</a>. Then, we are going to show how to recover this data into a <code>PersistentVolumeClaim(PVC)</code>. We are going to also re-deploy deployment using this recovered volume.</p><h2 id=before-you-begin>Before You Begin</h2><p>At first, you need to have a AKS cluster. If you don&rsquo;t already have a cluster, create one from <a href=https://azure.microsoft.com/en-us/services/kubernetes-service/>here</a>.</p><ul><li><p>Install Stash in your cluster following the steps <a href=/docs/v2020.08.26-rc.0/setup/README>here</a>.</p></li><li><p>You should be familiar with the following Stash concepts:</p><ul><li><a href=/docs/v2020.08.26-rc.0/concepts/crds/v1alpha1/restic>Restic</a></li><li><a href=/docs/v2020.08.26-rc.0/concepts/crds/repository>Repository</a></li><li><a href=/docs/v2020.08.26-rc.0/concepts/crds/v1alpha1/recovery>Recovery</a></li><li><a href=/docs/v2020.08.26-rc.0/concepts/crds/snapshot>Snapshot</a></li></ul></li><li><p>You will need a <a href=https://azure.microsoft.com/en-us/services/storage/blobs/>Azure Blob Storage</a> to store the backup snapshots.</p></li></ul><p>To keep things isolated, we are going to use a separate namespace called <code>demo</code> throughout this tutorial.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl create ns demo
+namespace/demo created
+</code></pre></div><blockquote><p>Note: YAML files used in this tutorial are stored in <a href=/docs/v2020.08.26-rc.0/examples/platforms/aks>/docs/examples/platforms/aks</a> directory of <a href=https://github.com/stashed/docs>stashed/docs</a> repository.</p></blockquote><h2 id=backup>Backup</h2><p>In order to take backup, we need some sample data. Stash has some sample data in <a href=https://github.com/stashed/stash-data>stash-data</a> repository. As <a href=https://kubernetes.io/docs/concepts/storage/volumes/#gitrepo>gitRepo</a> volume has been deprecated, we are not going to use this repository as volume directly. Instead, we are going to create a <a href=https://kubernetes.io/docs/concepts/storage/volumes/#configmap>configMap</a> from the stash-data repository and use that ConfigMap as data source.</p><p>Let&rsquo;s create a ConfigMap from these sample data,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl create configmap -n demo stash-sample-data <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>	--from-literal<span style=color:#f92672>=</span>LICENSE<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>curl -fsSL https://github.com/stashed/stash-data/raw/master/LICENSE<span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span> <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>	--from-literal<span style=color:#f92672>=</span>README.md<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>curl -fsSL https://github.com/stashed/stash-data/raw/master/README.md<span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
+configmap/stash-sample-data created
+</code></pre></div><p><strong>Deploy Workload:</strong></p><p>Now, deploy the following Deployment. Here, we have mounted the ConfigMap <code>stash-sample-data</code> as data source volume.</p><p>Below, the YAML for the Deployment we are going to create.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: apps/v1
+<span style=color:#66d9ef>kind</span>: Deployment
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>labels</span>:
+    <span style=color:#66d9ef>app</span>: stash-demo
+  <span style=color:#66d9ef>name</span>: stash-demo
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>replicas</span>: <span style=color:#ae81ff>1</span>
+  <span style=color:#66d9ef>selector</span>:
+    <span style=color:#66d9ef>matchLabels</span>:
+      <span style=color:#66d9ef>app</span>: stash-demo
+  <span style=color:#66d9ef>template</span>:
+    <span style=color:#66d9ef>metadata</span>:
+      <span style=color:#66d9ef>labels</span>:
+        <span style=color:#66d9ef>app</span>: stash-demo
+      <span style=color:#66d9ef>name</span>: busybox
+    <span style=color:#66d9ef>spec</span>:
+      <span style=color:#66d9ef>containers</span>:
+      - <span style=color:#66d9ef>args</span>:
+        - sleep
+        - <span style=color:#e6db74>&#34;3600&#34;</span>
+        <span style=color:#66d9ef>image</span>: busybox
+        <span style=color:#66d9ef>imagePullPolicy</span>: IfNotPresent
+        <span style=color:#66d9ef>name</span>: busybox
+        <span style=color:#66d9ef>volumeMounts</span>:
+        - <span style=color:#66d9ef>mountPath</span>: /source/data
+          <span style=color:#66d9ef>name</span>: source-data
+      <span style=color:#66d9ef>restartPolicy</span>: Always
+      <span style=color:#66d9ef>volumes</span>:
+      - <span style=color:#66d9ef>name</span>: source-data
+        <span style=color:#66d9ef>configMap</span>:
+          <span style=color:#66d9ef>name</span>: stash-sample-data
+</code></pre></div><p>Let&rsquo;s create the deployment we have shown above,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.26-rc.0/docs/examples/platforms/aks/deployment.yaml
+deployment.apps/stash-demo created
+</code></pre></div><p>Now, wait for deployment&rsquo;s pod to go in <code>Running</code> state.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get pod -n demo -l app<span style=color:#f92672>=</span>stash-demo
+NAME                          READY   STATUS    RESTARTS   AGE
+stash-demo-7584fd7748-nl5n8   1/1     Running   <span style=color:#ae81ff>0</span>          3m
+</code></pre></div><p>You can check that the <code>/source/data/</code> directory of this pod is populated with data from the <code>stash-sample-data</code> ConfigMap using this command,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -n demo stash-demo-7584fd7748-nl5n8 -- ls -R /source/data
+/source/data:
+LICENSE
+README.md
+</code></pre></div><p>Now, we are ready to backup <code>/source/data</code> directory into <a href=https://azure.microsoft.com/en-us/services/storage/blobs/>Azure Blob Container</a>.</p><p><strong>Create Secret:</strong></p><p>At first, we need to create a storage secret that hold the credentials for the backend. To configure this backend, the following secret keys are needed:</p><table><thead><tr><th>Key</th><th>Description</th></tr></thead><tbody><tr><td><code>RESTIC_PASSWORD</code></td><td><code>Required</code>. Password used to encrypt snapshots by <code>restic</code></td></tr><tr><td><code>AZURE_ACCOUNT_NAME</code></td><td><code>Required</code>. Azure Storage account name</td></tr><tr><td><code>AZURE_ACCOUNT_KEY</code></td><td><code>Required</code>. Azure Storage account key</td></tr></tbody></table><p>Create the storage secret as below,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ echo -n <span style=color:#e6db74>&#39;changeit&#39;</span> &gt;RESTIC_PASSWORD
+$ echo -n <span style=color:#e6db74>&#39;&lt;your-azure-storage-account-name&gt;&#39;</span> &gt; AZURE_ACCOUNT_NAME
+$ echo -n <span style=color:#e6db74>&#39;&lt;your-azure-storage-account-key&gt;&#39;</span> &gt; AZURE_ACCOUNT_KEY
+$ kubectl create secret generic -n demo azure-secret <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --from-file<span style=color:#f92672>=</span>./RESTIC_PASSWORD <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --from-file<span style=color:#f92672>=</span>./AZURE_ACCOUNT_NAME <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --from-file<span style=color:#f92672>=</span>./AZURE_ACCOUNT_KEY
+secret/azure-secret created
+</code></pre></div><p>Verify that the secret has been created successfully,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get secret -n demo azure-secret -o yaml
+</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: v1
+<span style=color:#66d9ef>data</span>:
+  <span style=color:#66d9ef>AZURE_ACCOUNT_KEY</span>: &lt;base64 encoded AZURE_ACCOUNT_KEY<span style=color:#e6db74>&gt;
+</span><span style=color:#e6db74>  AZURE_ACCOUNT_NAME: &lt;base64 encoded AZURE_ACCOUNT_NAME&gt;</span>
+  <span style=color:#66d9ef>RESTIC_PASSWORD</span>: Y2hhbmdlaXQ=
+<span style=color:#66d9ef>kind</span>: Secret
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>creationTimestamp</span>: <span style=color:#e6db74>2018-11-12T07:09:36Z</span>
+  <span style=color:#66d9ef>name</span>: azure-secret
+  <span style=color:#66d9ef>namespace</span>: demo
+  <span style=color:#66d9ef>resourceVersion</span>: <span style=color:#e6db74>&#34;15708&#34;</span>
+  <span style=color:#66d9ef>selfLink</span>: /api/v1/namespaces/demo/secrets/azure-secret
+  <span style=color:#66d9ef>uid</span>: ea0b4275-e649<span style=color:#ae81ff>-11e8</span>-b68c-a62bf720de95
+<span style=color:#66d9ef>type</span>: Opaque
+
+</code></pre></div><p><strong>Create Restic:</strong></p><p>Now, we are going to create <code>Restic</code> crd to take backup <code>/source/data</code> directory of <code>stash-demo</code> deployment. This will create a repository in the Azure blob container specified in <code>azure.container</code> field and start taking periodic backup of <code>/source/data</code> directory.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.26-rc.0/docs/examples/platforms/aks/restic.yaml
+restic.stash.appscode.com/azure-restic created
+</code></pre></div><p>Below, the YAML for Restic crd we have created above,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: stash.appscode.com/v1alpha1
+<span style=color:#66d9ef>kind</span>: Restic
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: azure-restic
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>selector</span>:
+    <span style=color:#66d9ef>matchLabels</span>:
+      <span style=color:#66d9ef>app</span>: stash-demo
+  <span style=color:#66d9ef>fileGroups</span>:
+  - <span style=color:#66d9ef>path</span>: /source/data
+    <span style=color:#66d9ef>retentionPolicyName</span>: <span style=color:#e6db74>&#39;keep-last-5&#39;</span>
+  <span style=color:#66d9ef>backend</span>:
+    <span style=color:#66d9ef>azure</span>:
+      <span style=color:#66d9ef>container</span>: stashqa
+      <span style=color:#66d9ef>prefix</span>: demo
+    <span style=color:#66d9ef>storageSecretName</span>: azure-secret
+  <span style=color:#66d9ef>schedule</span>: <span style=color:#e6db74>&#39;@every 1m&#39;</span>
+  <span style=color:#66d9ef>volumeMounts</span>:
+  - <span style=color:#66d9ef>mountPath</span>: /source/data
+    <span style=color:#66d9ef>name</span>: source-data
+  <span style=color:#66d9ef>retentionPolicies</span>:
+  - <span style=color:#66d9ef>name</span>: <span style=color:#e6db74>&#39;keep-last-5&#39;</span>
+    <span style=color:#66d9ef>keepLast</span>: <span style=color:#ae81ff>5</span>
+    <span style=color:#66d9ef>prune</span>: <span style=color:#66d9ef>true</span>
+</code></pre></div><p>If everything goes well, Stash will inject a sidecar container into the <code>stash-demo</code> deployment to take periodic backup. Let&rsquo;s check sidecar has been injected successfully,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get pod -n demo -l app<span style=color:#f92672>=</span>stash-demo
+NAME                          READY   STATUS    RESTARTS   AGE
+stash-demo-6b8c94cdd7-8jhtn   2/2     Running   <span style=color:#ae81ff>1</span>          1h
+</code></pre></div><p>Look at the pod. It now has 2 containers. If you view the resource definition of this pod, you will see there is a container named <code>stash</code> which running <code>backup</code> command.</p><p><strong>Verify Backup:</strong></p><p>Stash will create a <code>Repository</code> crd with name <code>deployment.stash-demo</code> for the respective repository in Azure backend at first backup schedule. To verify, run the following command,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get repository deployment.stash-demo -n demo
+NAME                    BACKUPCOUNT   LASTSUCCESSFULBACKUP   AGE
+deployment.stash-demo   <span style=color:#ae81ff>8</span>             13s                    8m
+</code></pre></div><p>Here, <code>BACKUPCOUNT</code> field indicates number of backup snapshot has taken in this repository.</p><p><code>Restic</code> will take backup of the volume periodically with a 1-minute interval. You can verify that backup snapshots are created successfully by,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get snapshots -n demo -l repository<span style=color:#f92672>=</span>deployment.stash-demo
+NAME                             AGE
+deployment.stash-demo-52ee5eaa   4m36s
+deployment.stash-demo-9a3c5d10   3m36s
+deployment.stash-demo-39df477a   2m36s
+deployment.stash-demo-e315dfb4   96s
+deployment.stash-demo-59633ea3   36s
+</code></pre></div><p>Here, we can see 5 last successful backup <a href=/docs/v2020.08.26-rc.0/concepts/crds/snapshot>Snapshot</a> taken by Stash in <code>deployment.stash-demo</code> repository.</p><p>If you navigate to <code>&lt;bucket name>/demo/deployment/stash-demo</code> directory in your Azure storage bucket. You will see, a repository has been created there.</p><p align=center>  <img alt="Repository in Azure Backend" , height=350px src=/docs/v2020.08.26-rc.0/images/v1alpha1/platforms/aks/azure-backup-repository.png></p><p>To view the snapshot files, navigate to <code>snapshots</code> directory of the repository,</p><p align=center>  <img alt="Snapshot in Azure Bucket" height=350px src=/docs/v2020.08.26-rc.0/images/v1alpha1/platforms/aks/azure-backup-snapshots.png></p><blockquote><p>Stash keeps all backup data encrypted. So, snapshot files in the bucket will not contain any meaningful data until they are decrypted.</p></blockquote><h2 id=recovery>Recovery</h2><p>Now, consider that we have lost our workload as well as data volume. We want to recover the data into a new volume and re-deploy the workload.</p><p>At first, let&rsquo;s delete <code>Restic</code> crd, <code>stash-demo</code> deployment and <code>stash-sample-data</code> ConfigMap.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl delete deployment -n demo stash-demo
+deployment.extensions <span style=color:#e6db74>&#34;stash-demo&#34;</span> deleted
+
+$ kubectl delete restic -n demo azure-restic
+restic.stash.appscode.com <span style=color:#e6db74>&#34;azure-restic&#34;</span> deleted
+
+$ kubectl delete configmap -n demo stash-sample-data
+configmap <span style=color:#e6db74>&#34;stash-sample-data&#34;</span> deleted
+</code></pre></div><p>In order to perform recovery, we need <code>Repository</code> crd <code>deployment.stah-demo</code> and backend secret <code>azure-secret</code> to exist.</p><blockquote><p>In case of cluster disaster, you might lose <code>Repository</code> crd and backend secret. In this scenario, you have to create the secret again and <code>Repository</code> crd manually. Follow the guide to understand <code>Repository</code> crd structure from <a href=/docs/v2020.08.26-rc.0/concepts/crds/repository>here</a>.</p></blockquote><p><strong>Create PVC:</strong></p><p>Let&rsquo;s create a <code>PersistentVolumeClaim</code> where our recovered data will be stored.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.26-rc.0/docs/examples/platforms/aks/pvc.yaml
+persistentvolumeclaim/stash-recovered created
+</code></pre></div><p>Below the YAML for <code>PersistentVolumeClaim</code> we have created above,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: v1
+<span style=color:#66d9ef>kind</span>: PersistentVolumeClaim
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: stash-recovered
+  <span style=color:#66d9ef>namespace</span>: demo
+  <span style=color:#66d9ef>labels</span>:
+    <span style=color:#66d9ef>app</span>: stash-demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>storageClassName</span>: default
+  <span style=color:#66d9ef>accessModes</span>:
+  - ReadWriteOnce
+  <span style=color:#66d9ef>resources</span>:
+    <span style=color:#66d9ef>requests</span>:
+      <span style=color:#66d9ef>storage</span>: 50Mi
+</code></pre></div><p>Check that if cluster has provisioned the requested claim,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get pvc -n demo -l app<span style=color:#f92672>=</span>stash-demo
+NAME              STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+stash-recovered   Bound    pvc-f6bddbf6-e66a-11e8-b68c-a62bf720de95   1Gi        RWO            default        1m
+</code></pre></div><p>Look at the <code>STATUS</code> filed. <code>stash-recovered</code> PVC is bounded to volume <code>pvc-f6bddbf6-e66a-11e8-b68c-a62bf720de95</code>.</p><p><strong>Create Recovery:</strong></p><p>Now, we have to create a <code>Recovery</code> crd to recover backed up data into this PVC.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.26-rc.0/docs/examples/platforms/aks/recovery.yaml
+recovery.stash.appscode.com/azure-recovery created
+</code></pre></div><p>Below, the YAML for <code>Recovery</code> crd we have created above.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: stash.appscode.com/v1alpha1
+<span style=color:#66d9ef>kind</span>: Recovery
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: azure-recovery
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>repository</span>:
+    <span style=color:#66d9ef>name</span>: deployment.stash-demo
+    <span style=color:#66d9ef>namespace</span>: demo
+  <span style=color:#66d9ef>paths</span>:
+  - /source/data
+  <span style=color:#66d9ef>recoveredVolumes</span>:
+  - <span style=color:#66d9ef>mountPath</span>: /source/data
+    <span style=color:#66d9ef>persistentVolumeClaim</span>:
+      <span style=color:#66d9ef>claimName</span>: stash-recovered
+</code></pre></div><p>Wait until <code>Recovery</code> job completes its task. To verify that recovery has completed successfully run,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get recovery -n demo azure-recovery
+NAME             REPOSITORYNAMESPACE   REPOSITORYNAME          SNAPSHOT   PHASE       AGE
+azure-recovery   demo                  deployment.stash-demo              Succeeded   3m
+</code></pre></div><p>Here, <code>PHASE</code> <code>Succeeded</code> indicate that our recovery has been completed successfully. Backup data has been restored in <code>stash-recovered</code> PVC. Now, we are ready to use this PVC to re-deploy workload.</p><p>If you are using Kubernetes version older than v1.11.0 then run following command and check <code>status.phase</code> field to see whether the recovery succeeded or failed.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get recovery -n demo azure-recovery -o yaml
+</code></pre></div><p><strong>Re-deploy Workload:</strong></p><p>We have successfully restored backup data into <code>stash-recovered</code> PVC. Now, we are going to re-deploy our previous deployment <code>stash-demo</code>. This time, we are going to mount the <code>stash-recovered</code> PVC as <code>source-data</code> volume instead of ConfigMap <code>stash-sample-data</code>.</p><p>Below, the YAML for <code>stash-demo</code> deployment with <code>stash-recovered</code> PVC as <code>source-data</code> volume.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: apps/v1
+<span style=color:#66d9ef>kind</span>: Deployment
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>labels</span>:
+    <span style=color:#66d9ef>app</span>: stash-demo
+  <span style=color:#66d9ef>name</span>: stash-demo
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>replicas</span>: <span style=color:#ae81ff>1</span>
+  <span style=color:#66d9ef>selector</span>:
+    <span style=color:#66d9ef>matchLabels</span>:
+      <span style=color:#66d9ef>app</span>: stash-demo
+  <span style=color:#66d9ef>template</span>:
+    <span style=color:#66d9ef>metadata</span>:
+      <span style=color:#66d9ef>labels</span>:
+        <span style=color:#66d9ef>app</span>: stash-demo
+      <span style=color:#66d9ef>name</span>: busybox
+    <span style=color:#66d9ef>spec</span>:
+      <span style=color:#66d9ef>containers</span>:
+      - <span style=color:#66d9ef>args</span>:
+        - sleep
+        - <span style=color:#e6db74>&#34;3600&#34;</span>
+        <span style=color:#66d9ef>image</span>: busybox
+        <span style=color:#66d9ef>imagePullPolicy</span>: IfNotPresent
+        <span style=color:#66d9ef>name</span>: busybox
+        <span style=color:#66d9ef>volumeMounts</span>:
+        - <span style=color:#66d9ef>mountPath</span>: /source/data
+          <span style=color:#66d9ef>name</span>: source-data
+      <span style=color:#66d9ef>restartPolicy</span>: Always
+      <span style=color:#66d9ef>volumes</span>:
+      - <span style=color:#66d9ef>name</span>: source-data
+        <span style=color:#66d9ef>persistentVolumeClaim</span>:
+          <span style=color:#66d9ef>claimName</span>: stash-recovered
+</code></pre></div><p>Let&rsquo;s create the deployment,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$  kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.26-rc.0/docs/examples/platforms/aks/recovered-deployment.yaml
+deployment.apps/stash-demo created
+</code></pre></div><p><strong>Verify Recovered Data:</strong></p><p>We have re-deployed <code>stash-demo</code> deployment with recovered volume. Now, it is time to verify that the data are present in <code>/source/data</code> directory.</p><p>Get the pod of new deployment,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get pod -n demo -l app<span style=color:#f92672>=</span>stash-demo
+NAME                          READY   STATUS    RESTARTS   AGE
+stash-demo-69994758c9-v7ntg   1/1     Running   <span style=color:#ae81ff>0</span>          3m
+</code></pre></div><p>Run following command to view data of <code>/source/data</code> directory of this pod,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -n demo stash-demo-69994758c9-v7ntg -- ls -R /source/data
+/source/data:
+LICENSE
+README.md
+lost+found
+
+/source/data/lost+found:
+</code></pre></div><p>So, we can see that the data we had backed up from original deployment are now present in re-deployed deployment.</p><h2 id=cleanup>Cleanup</h2><p>To cleanup the resources created by this tutorial, run following commands:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl delete recovery -n demo azure-recovery
+$ kubectl delete secret -n demo azure-secret
+$ kubectl delete deployment -n demo stash-demo
+$ kubectl delete pvc -n demo stash-recovered
+$ kubectl delete repository -n demo deployment.stash-demo
+$ kubectl delete ns demo
+</code></pre></div><ul><li>To uninstall Stash from your cluster, follow the instructions from <a href=/docs/v2020.08.26-rc.0/setup/README>here</a>.</li></ul></div></div><div class="column is-2"><div class=right-sidebar-area><div class=search-area><form action=#><input id=acSearch type=text placeholder=Search...>
+<button class=search-button>
+<i class="fa fa-search" aria-hidden=true></i></button></form></div><div class=tbl-of-contents><h4>What's on this Page</h4><nav id=TableOfContents><ul><li><a href=#before-you-begin>Before You Begin</a></li><li><a href=#backup>Backup</a></li><li><a href=#recovery>Recovery</a></li><li><a href=#cleanup>Cleanup</a></li></ul></nav></div></div></div></div></div><script>var kdDropdown=document.querySelector(".dropdown");var kdDropdownBtn=document.querySelector(".dropdown-trigger");kdDropdownBtn.addEventListener("click",function(){kdDropdown.classList.toggle("is-active");})</script></div><div class=overlay-bg></div><div class=sidebar-search-area><div class=search-area-top><h3>Search</h3><div class=searchbar-area><input type=search name=search id=searchbox placeholder=Search...>
+<button onclick=queryPage(1)><i class="fa fa-search" aria-hidden=true></i></button></div><span id=searchbar-script-container style=display:none></span><div class="search-meta-information level"><div class=level-left></div></div></div><div class=search-result-wrapper></div><div class=pagination-area><div class=pagination-list></div></div></div><div class=improve-section-area><div class="container section"><div class=improve-bg-color><div class=columns><div class="column is-6"><a href=https://github.com/stashed/docs/edit/master/docs/guides/v1alpha1/platforms/aks.md/>Improve This Page</a></div></div></div></div></div><script type=text/javascript>var pageSize=5;var acSearch=document.querySelector("#acSearch");var bodyOverlay=document.querySelector(".overlay-bg");var sidebarSearch=document.querySelector(".sidebar-search-area");acSearch.addEventListener("click",function(){bodyOverlay.style.display="block";sidebarSearch.style.right="0";document.getElementById("searchbox").focus();bodyOverlay.addEventListener("click",function(){bodyOverlay.style.display="none";sidebarSearch.style.right="-80%";});});function encodeQueryData(data){var ret=[];for(var d in data)
+ret.push(encodeURIComponent(d)+'='+encodeURIComponent(data[d]));return ret.join('&');}
+document.querySelector(".searchbar-area input[type=search]").addEventListener("keyup",function(event){event.preventDefault();if(event.keyCode===13){queryPage(1);}});function queryPage(idx){var q=document.getElementById("searchbox").value;var cx="015199383701854252104:0pfqfvpvwyl";var key="AIzaSyBo15AW3hatf4fO8actJUZ_d5qZJpx0rXM";var imgSize="small";var callback="renderResult";var src="https://www.googleapis.com/customsearch/v1?"+encodeQueryData({q:q,cx:cx,key:key,imgSize:imgSize,callback:callback,start:(idx-1)*pageSize+1,num:pageSize,});var newScript=document.createElement("script");newScript.src=src;e=document.getElementById("searchbar-script-container");var child=e.lastElementChild;if(child){e.removeChild(child);}
+e.appendChild(newScript);}
+function renderSearchResultEntry(e){var out='<div class="single-search-result">'+
+'<h3><a href="'+e.link+'">'+e.title+'</a></h3>'+
+'<a href="'+e.link+'">'+e.htmlFormattedUrl+'</a>'+
+'<div class="result-description-wrapper">';if(e.pagemap&&e.pagemap.cse_thumbnail){out+='<div class="result-thumb">'+
+'<img src="'+e.pagemap.cse_thumbnail[0].src+'" alt="" />'+
+'</div>';}
+out+='<div class="result-description">'+
+'<p>'+
+e.snippet+
+'</p>'+
+'</div>'+
+'</div>'+
+'</div>';return out;}
+function renderResult(response){document.querySelector(".search-meta-information .level-left").innerHTML='<div class="level-left">'+
+'<p>'+
+'About <span class="search-count">'+response.searchInformation.formattedTotalResults+'</span> results (<span class="time-count">'+response.searchInformation.formattedSearchTime+' </span>seconds)'+
+'</p>'+
+'</div>';if(!response.items){return;}
+var searchResultWrapper=document.querySelector(".search-result-wrapper");searchResultWrapper.innerHTML="";for(var i=0;i<response.items.length;i++){searchResultWrapper.innerHTML+=renderSearchResultEntry(response.items[i]);}
+var pager='<ul>';if(response.queries.previousPage){var pageIndex=Math.floor(response.queries.previousPage[0].startIndex/pageSize)+1;pager+='<li><a href="#" onclick="queryPage('+pageIndex+')">Previous</a></li>';}
+if(response.queries.request){var pageIndex=Math.floor(response.queries.request[0].startIndex/pageSize)+1;pager+='<li><a href="#" onclick="queryPage('+pageIndex+')" class="is-active">'+pageIndex+'</a></li>';}
+if(response.queries.nextPage){var pageIndex=Math.floor(response.queries.nextPage[0].startIndex/pageSize)+1;pager+='<li><a href="#" onclick="queryPage('+pageIndex+')">Next</a></li>';}
+pager+='</ul>';document.querySelector(".pagination-area .pagination-list").innerHTML=pager;}</script><section></section><section></section><section></section><button class=go-to-top id=goTop>
+<i class="fa fa-angle-up" aria-hidden=true></i></button><footer class=footer-area><div class=footer-top><div class="container section"><div class="columns is-mobile is-multiline"><div class="column is-full-mobile is-one-third-desktop is-one-third-widescreen is-one-third-tablet" data-aos=fade-up><div class=single-footer-widget><div class=footer-logo><a href=https://appscode.com><img src=/assets/images/products/appscode/appscode.png alt=AppsCode class=img></a></div><div class=subscription-form><form action="https://appscode.us17.list-manage.com/subscribe/post?u=feb2bf31969a951e7449048a3&id=82fb19acb9" method=post id=mc-embedded-subscribe-form name=mc-embedded-subscribe-form class=navbar-form target=_blank novalidate role=email role=email><label for=email>Subscribe to Our Newsletter</label><p class=spam-message>No spam, we promise. Your mail address is secure</p><div class="field has-addons"><div class=control><input class=input name=EMAIL id=mce-EMAIL type=email placeholder="Your work email address" required>
+<button id=mc-embedded-subscribe type=submit name=subscribe class=button>
+<i class="fa fa-paper-plane-o" aria-hidden=true></i></button></div></div></form></div><div class=contact-information><h4>Have any Inquiry?</h4><ul class=all-contact-info><li><a href=callto:+1%28650%29241-8486><span><i class="fa fa-phone" aria-hidden=true></i></span>+1(650)241-8486</a></li><li><a href=mailto:support@appscode.com><span><i class="fa fa-envelope-o" aria-hidden=true></i></span>support@appscode.com</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=500><div class=single-footer-widget><div class=footer-menu><h4>Products</h4><ul class=footer-link><li><a href=https://kubedb.com>KubeDB</a></li><li><a href=https://stash.run>Stash</a></li><li><a href=https://kubevault.com>KubeVault</a></li><li><a href>Voyager</a></li><li><a href=https://appscode.com/products/guard/>Guard</a></li><li><a href=https://pharmer.io>Pharmer</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=600><div class=single-footer-widget><div class=footer-menu><h4>Services</h4><ul class=footer-link><li><a href=https://appscode.com/pricing/>Pricing</a></li><li><a href=https://appscode.com/consulting/>Consulting</a></li><li><a href=https://appscode.com/training/>Training</a></li><li><a href=https://appscode.com/support/>Support</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=700><div class=single-footer-widget><div class=footer-menu><h4>Company</h4><ul class=footer-link><li><a href=https://appscode.com/about/>About Us</a></li><li><a href=https://blog.byte.builders>Blog</a></li><li><a href=https://appscode.com/contact/>Contact Us</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=800><div class=single-footer-widget><div class=footer-menu><h4>Legal</h4><ul class=footer-link><li><a href=https://appscode.com/legal/tos/>Terms of Sevice</a></li><li><a href=https://appscode.com/legal/privacy-policy/>Privacy Policy</a></li><li><a href=https://appscode.com/legal/security/>Security</a></li><li><a href=https://appscode.com/legal/sla/>Service Level Agreement</a></li></ul></div></div></div></div></div></div><div class=footer-bottom><div class="container section"><div class=columns><div class="column is-4"><p>© 2020 AppsCode Inc. All rights reserved.</p></div><div class="column is-4 is-mobile has-text-centered"><div class=footer-inline-link><a href=https://appscode.com/legal/privacy-policy/>Privacy Policy</a>
+<a href=https://appscode.com/legal/tos/>Terms of Service</a></div></div><div class="column is-4 is-mobile has-text-right"><div class=socail-link-inline><ul><li><a href=https://twitter.com/AppsCodeHQ><i class="fa fa-twitter" aria-hidden=true></i></a></li><li><a href=https://www.facebook.com/appscode><i class="fa fa-facebook" aria-hidden=true></i></a></li><li><a href=https://www.youtube.com/c/AppsCodeInc><i class="fa fa-youtube" aria-hidden=true></i></a></li></ul></div></div></div></div></div></footer><script src=/assets/js/bulma-carousel.min.js></script><script src=https://unpkg.com/aos@2.3.1/dist/aos.js></script><script src=https://unpkg.com/downloadjs@1.4.7/download.min.js></script><script src=https://unpkg.com/clipboard@2/dist/clipboard.min.js></script><script src=/assets/js/main.js></script><script type=text/javascript>var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/5821e34b18d9f16af02864b7/default';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();</script></body></html>

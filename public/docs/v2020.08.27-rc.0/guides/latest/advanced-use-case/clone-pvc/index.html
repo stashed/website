@@ -1,0 +1,610 @@
+<!doctype html><html lang=en><head><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-62096468-4','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=theme-color content="#5E2DEA"><title>Stash by AppsCode</title><meta name=description content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta name=author content="AppsCode Inc."><meta name=keywords content="kubernetes appscode backup disaster recovery volume"><link rel=apple-touch-icon sizes=57x57 href=/assets/images/products/stash/icons/apple-icon-57x57.png><link rel=apple-touch-icon sizes=60x60 href=/assets/images/products/stash/icons/apple-icon-60x60.png><link rel=apple-touch-icon sizes=72x72 href=/assets/images/products/stash/icons/apple-icon-72x72.png><link rel=apple-touch-icon sizes=76x76 href=/assets/images/products/stash/icons/apple-icon-76x76.png><link rel=apple-touch-icon sizes=114x114 href=/assets/images/products/stash/icons/apple-icon-114x114.png><link rel=apple-touch-icon sizes=120x120 href=/assets/images/products/stash/icons/apple-icon-120x120.png><link rel=apple-touch-icon sizes=144x144 href=/assets/images/products/stash/icons/apple-icon-144x144.png><link rel=apple-touch-icon sizes=152x152 href=/assets/images/products/stash/icons/apple-icon-152x152.png><link rel=apple-touch-icon sizes=180x180 href=/assets/images/products/stash/icons/apple-icon-180x180.png><link rel=icon type=image/png sizes=192x192 href=/assets/images/products/stash/icons/android-icon-192x192.png><link rel=icon type=image/png sizes=32x32 href=/assets/images/products/stash/icons/favicon-32x32.png><link rel=icon type=image/png sizes=96x96 href=/assets/images/products/stash/icons/favicon-96x96.png><link rel=icon type=image/png sizes=16x16 href=/assets/images/products/stash/icons/favicon-16x16.png><link rel=manifest href=/assets/images/products/stash/icons/manifest.json><meta name=msapplication-TileColor content="#ffffff"><meta name=msapplication-TileImage content="/assets/images/products/stash/icons/ms-icon-144x144.png"><meta itemprop=name content="Stash by AppsCode"><meta itemprop=description content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta itemprop=image content="https://stash.run/assets/images/products/stash/stash-1280x640.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:site content="@KubeStash"><meta name=twitter:title content="Stash by AppsCode"><meta name=twitter:creator content="@KubeStash"><meta name=twitter:description content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta name=twitter:image:src content="https://stash.run/assets/images/products/stash/stash-1280x640.png"><meta property="og:url" content="https://stash.run"><meta property="og:title" content="Stash by AppsCode"><meta property="og:description" content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta property="og:site_name" content="Stash by AppsCode"><meta property="og:image" content="https://stash.run/assets/images/products/stash/stash-1280x640.png"><meta property="og:type" content="article"><link rel=stylesheet href=/assets/css/font-awesome.min.css><link href=https://unpkg.com/aos@2.3.1/dist/aos.css rel=stylesheet><link rel=stylesheet href=/assets/css/bulma-carousel.min.css><link rel=stylesheet href=/assets/css/bulma-tooltip.min.css><link rel=stylesheet href=/assets/css/bulma.min.css><link rel=stylesheet href=/assets/sass/main.min.07c98ba8010cf282fb1bc78228ba008ded77cf1eec07444d29c1e8c784afee49.css></head><body class=stash><header><div class=header-top><div class="container section"><nav class=navbar><div class=navbar-brand><a class=navbar-item href=https://appscode.com><img src=/assets/images/products/appscode/appscode.png alt=AppsCode></a>
+<a role=button class="navbar-burger burger" aria-label=menu aria-expanded=false data-target=acNav1><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a></div><div id=acNav1 class="navbar-menu main-menu"><div class=navbar-end><div class=navbar-start><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Products</a><div class=ac-megamenu><div class=columns><div class="column is-8"><div class=columns><div class="column is-6 br-1"><a href=https://kubedb.com class="single-product-item is-kubedb"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubedb/kubedb-icon.png alt=KubeDB></div><h5>KubeDB</h5></div><div class=menu-body><p>Run production-grade databases easily on Kubernetes</p></div></a><a href=https://stash.run class="single-product-item is-stash"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/stash/stash-icon.png alt=Stash></div><h5>Stash</h5></div><div class=menu-body><p>Backup your Kubernetes Stateful Applications</p></div></a><a href=https://kubevault.com class="single-product-item is-kubevault"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubevault/kubevault-icon.png alt=KubeVault></div><h5>KubeVault</h5></div><div class=menu-body><p>Tools for running HashiCorp Vault on Kubernetes</p></div></a><a href=https://appscode.com/products/guard/ class="single-product-item is-guard"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/guard/guard-icon.png alt=Guard></div><h5>Guard</h5></div><div class=menu-body><p>Kubernetes Authentication WebHook Server</p></div></a></div><div class="column is-6 br-1"><a href class="single-product-item is-voyager"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/voyager/voyager-icon.png alt=Voyager></div><h5>Voyager</h5></div><div class=menu-body><p>Secure HAProxy Ingress Controller for
+Kubernetes</p></div></a><a href=https://appscode.com/products/swift/ class="single-product-item is-swift"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/swift/swift-icon.png alt=Swift></div><h5>Swift</h5></div><div class=menu-body><p>Ajax friendly Helm Tiller Proxy</p></div></a><a href=https://appscode.com/products/searchlight/ class="single-product-item is-searchlight"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/searchlight/searchlight-icon.png alt=Searchlight></div><h5>Searchlight</h5></div><div class=menu-body><p>Alerts for Kubernetes</p></div></a><a href=https://appscode.com/products/kubed/ class="single-product-item is-kubed"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubed/kubed-icon.png alt=Kubed></div><h5>Kubed</h5></div><div class=menu-body><p>Kubernetes cluster manager daemon</p></div></a></div></div></div><div class="column is-4"><div class=columns><div class="column is-12"><a href=https://byte.builders class="single-product-item byte-builder kd-orange"><div class=menu-header><p class=intro>Introducing....</p><h5>ByteBuilders</h5></div><div class=menu-body><p>Cloud reimagined for the age of Kubernetes</p></div><p class=learn-more-btn>Learn more
+<span class=icon><i class="fa fa-long-arrow-right" aria-hidden=true></i></span></p></a><a href=https://pharmer.io class="single-product-item is-pharmer"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/pharmer/pharmer-icon.png alt=Pharmer></div><h5>Pharmer</h5></div><div class=menu-body><p>Kubernetes Cluster Manager using Kubeadm & Cluster API</p></div></a><a href=https://kubeform.com class="single-product-item is-kubeform"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubeform/kubeform-icon.png alt=Kubeform></div><h5>Kubeform</h5></div><div class=menu-body><p>Provision cloud resources using Kubernetes CRDs & Terraform</p></div></a></div></div></div></div><div class="columns has-text-centered"><div class=column><div class=menu-bottom><p>Explore apps and integrations for AppsCode products:
+<a href=https://marketplace.byte.builders>Visit the Marketplace
+<i class="fa fa-long-arrow-right" aria-hidden=true></i></a></p></div></div></div></div></div><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Services</a><div class=ac-dropdown><a class=navbar-item href=https://appscode.com/consulting/>Consulting</a>
+<a class=navbar-item href=https://appscode.com/training/>Training</a>
+<a class=navbar-item href=https://appscode.com/support/>Support</a></div></div><a class=navbar-item href=https://blog.byte.builders>Blog</a>
+<a class=navbar-item href=https://appscode.com/contact/>Contact Us</a></div><div class=navbar-item><div class="buttons main-menu-button-top"><a class="button is-small for-chat" href=https://slack.appscode.com><span><img src=/assets/images/icon/slack.png alt></span>Slack</a>
+<a class="button is-small for-support" href=https://appscode.freshdesk.com><span><img src=/assets/images/icon/chat.png alt></span>Support Portal</a></div></div></div></div></nav></div></div><div class="header-bottom-area header-area kubedb-primary-bg customize-kubedb fixed-menu"><div class="container section"><nav class=navbar><div class=navbar-brand><a class=navbar-item href=https://stash.run><img src=/assets/images/products/stash/stash-white.png alt=Stash></a>
+<a role=button class="navbar-burger burger" aria-label=menu aria-expanded=false data-target=acNav><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a></div><div id=acNav class="navbar-menu main-menu"><div class=navbar-end><div class=navbar-start><a href=/features/ class=navbar-item>Features</a>
+<a href=/pricing/ class=navbar-item>Pricing</a>
+<a href=/docs/v2020.08.27/welcome/ class=navbar-item>Documentation</a><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Community</a><div class=ac-dropdown><a href=https://github.com/stashed class=navbar-item>GitHub</a>
+<a href=https://twitter.com/KubeStash class=navbar-item>Twitter</a>
+<a href=https://slack.appscode.com class=navbar-item>Slack</a></div></div></div><div class=navbar-item><div class="buttons main-menu-button"><img style=height:24px alt="GitHub Stars" src="https://img.shields.io/github/stars/appscode/stash?style=flat&labelColor=1B3D4B&color=06A64F&logoColor=white&logo=github">
+&nbsp;&nbsp;&nbsp;
+<img style=height:24px alt="Docker Pulls" src="https://img.shields.io/docker/pulls/appscode/stash?style=flat&labelColor=1B3D4B&color=06A64F&logoColor=white&logo=docker"></div></div></div></div></nav></div></div><div class=documentation-menu><div class="container section"><div class=is-centered><div class="is-half has-text-centered-desktop"><div class=responsive-menu><a role=button class="navbar-burger burger" aria-label=menu aria-expanded=false data-target=acNav3><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a></div><nav class=documentation-navbar><div id=acNav3 class="navbar-menu nav-menu main-menu"><div class=navbar-centered><div class=navbar-start><a href=/docs/v2020.08.27-rc.0/ class=navbar-item>Welcome</a>
+<a href=/docs/v2020.08.27-rc.0/concepts/ class=navbar-item>Concepts</a>
+<a href=/docs/v2020.08.27-rc.0/setup/ class=navbar-item>Setup</a><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Guides</a><div class=ac-dropdown><a href=/docs/v2020.08.27-rc.0/guides/latest/ class=navbar-item>Latest Guides</a>
+<a href=/docs/v2020.08.27-rc.0/guides/v1alpha1/ class=navbar-item>v1alpha1 Guides</a></div></div><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Addons</a><div class=ac-dropdown><a href=/docs/v2020.08.27-rc.0/addons/postgres/ class=navbar-item>Postgres</a>
+<a href=/docs/v2020.08.27-rc.0/addons/elasticsearch/ class=navbar-item>Elasticsearch</a>
+<a href=/docs/v2020.08.27-rc.0/addons/mysql/ class=navbar-item>MySQL</a>
+<a href=/docs/v2020.08.27-rc.0/addons/mongodb/ class=navbar-item>MongoDB</a>
+<a href=/docs/v2020.08.27-rc.0/addons/percona-xtradb/ class=navbar-item>Percona XtraDB</a></div></div><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Reference</a><div class=ac-dropdown><a href=/docs/v2020.08.27-rc.0/reference/operator/ class=navbar-item>Stash Operator</a>
+<a href=/docs/v2020.08.27-rc.0/reference/cli/ class=navbar-item>Stash CLI</a></div></div></div></div></div></nav></div></div></div></div></header><div class=documentation-area><div class="container section"><div class=columns><div class="column is-3"><div class=kd-left-sidebar><div class=trial-button><a href=/docs/v2020.08.27/setup/ class="button is-fullwidth">Try Now for FREE!</a></div><div class=kd-version><div class=dropdown><div class=dropdown-trigger><button class="button is-fullwidth" aria-haspopup=true aria-controls=dropdown-menu3>
+<span class="icon is-small"><i class="fa fa-angle-down" aria-hidden=true></i></span></button></div><div class=dropdown-menu id=dropdown-menu3 role=menu><div class=dropdown-content><a href=https://github.com/stashed/docs/tree/master/docs target=_blank class=dropdown-item>master</a>
+<a href=/docs/v2020.08.27/ class=dropdown-item>v2020.08.27<div class=tag>Latest</div></a><a href=/docs/v0.9.0-rc.6/ class=dropdown-item>v0.9.0-rc.6</a>
+<a href=/docs/0.8.3/ class=dropdown-item>0.8.3</a>
+<a href=/docs/0.8.2/ class=dropdown-item>0.8.2</a>
+<a href=/docs/0.8.1/ class=dropdown-item>0.8.1</a>
+<a href=/docs/0.8.0/ class=dropdown-item>0.8.0</a>
+<a href=/docs/0.7.0/ class=dropdown-item>0.7.0</a>
+<a href=/docs/0.6.4/ class=dropdown-item>0.6.4</a>
+<a href=https://github.com/stashed/docs/tree/0.4.2/docs target=_blank class=dropdown-item>0.4.2</a></div></div></div></div><div class=kd-sidebar-menu><div class=item><input type=checkbox id=b79344a62ac0d54133ccd3b7ec8b60eb-1>
+<label for=b79344a62ac0d54133ccd3b7ec8b60eb-1><a href=/docs/v2020.08.27-rc.0/guides/latest/>Latest Guides</a></label></div><div class=item><input type=checkbox id=b79344a62ac0d54133ccd3b7ec8b60eb-2>
+<label for=b79344a62ac0d54133ccd3b7ec8b60eb-2><a>Supported Backends</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.27-rc.0/guides/latest/backends/overview/>What is Backend?</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/backends/local/>Kubernetes Volumes</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/backends/s3/>AWS S3/Minio/Rook</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/backends/azure/>Azure Blob Storage</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/backends/gcs/>Google Cloud Storage</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/backends/swift/>OpenStack Swift</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/backends/b2/>Backblaze B2</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/backends/rest/>REST Server</a></li></ul></div></div><div class=item><input type=checkbox id=b79344a62ac0d54133ccd3b7ec8b60eb-3>
+<label for=b79344a62ac0d54133ccd3b7ec8b60eb-3><a>Workload's Volumes</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.27-rc.0/guides/latest/workloads/overview/>How Backup and Restore works?</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/workloads/deployment/>Backup & Restore Volumes of a Deployment</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/workloads/statefulset/>Backup & Restore Volumes of a StatefulSet</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/workloads/daemonset/>Backup & Restore Volumes of a DaemonSet</a></li></ul></div></div><div class=item><input type=checkbox id=b79344a62ac0d54133ccd3b7ec8b60eb-4>
+<label for=b79344a62ac0d54133ccd3b7ec8b60eb-4><a>Stand-alone Volumes</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.27-rc.0/guides/latest/volumes/overview/>How does it work?</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/volumes/pvc/>Backup & Restore a Stand-alone PVC</a></li></ul></div></div><div class=item><input type=checkbox id=b79344a62ac0d54133ccd3b7ec8b60eb-5>
+<label for=b79344a62ac0d54133ccd3b7ec8b60eb-5><a>Batch Backup</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.27-rc.0/guides/latest/batch-backup/overview/>How Batch Backup & Restore works?</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/batch-backup/batch-backup/>Backup a WordPress Site</a></li></ul></div></div><div class=item><input type=checkbox id=b79344a62ac0d54133ccd3b7ec8b60eb-6>
+<label for=b79344a62ac0d54133ccd3b7ec8b60eb-6><a>Auto Backup</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.27-rc.0/guides/latest/auto-backup/overview/>What is Auto Backup?</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/auto-backup/workload/>Auto Backup for Workloads</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/auto-backup/pvc/>Auto Backup for PVCs</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/auto-backup/database/>Auto Backup for Databases</a></li></ul></div></div><div class=item><input type=checkbox id=b79344a62ac0d54133ccd3b7ec8b60eb-7>
+<label for=b79344a62ac0d54133ccd3b7ec8b60eb-7><a>Volume Snapshot</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.27-rc.0/guides/latest/volumesnapshot/overview/>How VolumeSnapshot works?</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/volumesnapshot/deployment/>Snapshot Deployment Volumes</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/volumesnapshot/statefulset/>Snapshot StatefulSet Volumes</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/volumesnapshot/pvc/>Snapshot Stand-alone PVC</a></li></ul></div></div><div class=item><input type=checkbox id=b79344a62ac0d54133ccd3b7ec8b60eb-8 checked>
+<label for=b79344a62ac0d54133ccd3b7ec8b60eb-8><a>Advance Use Cases</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.27-rc.0/guides/latest/advanced-use-case/instant-backup/>Instant Backup</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/advanced-use-case/pause-backup/>Pause Backup</a></li><li class=is-active><a href=/docs/v2020.08.27-rc.0/guides/latest/advanced-use-case/clone-pvc/>Clone Data Volumes</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/advanced-use-case/ownership/>File Ownership</a></li></ul></div></div><div class=item><input type=checkbox id=b79344a62ac0d54133ccd3b7ec8b60eb-9>
+<label for=b79344a62ac0d54133ccd3b7ec8b60eb-9><a>Platforms</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.27-rc.0/guides/latest/platforms/eks/>EKS</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/platforms/aks/>AKS</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/platforms/gke/>GKE</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/platforms/minio/>Minio</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/platforms/rook/>Rook</a></li></ul></div></div><div class=item><input type=checkbox id=b79344a62ac0d54133ccd3b7ec8b60eb-10>
+<label for=b79344a62ac0d54133ccd3b7ec8b60eb-10><a>Monitoring</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.27-rc.0/guides/latest/monitoring/overview/>Overview</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/monitoring/builtin/>Builtin Prometheus</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/monitoring/coreos/>Prometheus Operator</a></li></ul></div></div><div class=item><input type=checkbox id=b79344a62ac0d54133ccd3b7ec8b60eb-11>
+<label for=b79344a62ac0d54133ccd3b7ec8b60eb-11><a>Addons</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.27-rc.0/guides/latest/addons/overview/>Overview</a></li></ul></div></div><div class=item><input type=checkbox id=b79344a62ac0d54133ccd3b7ec8b60eb-12>
+<label for=b79344a62ac0d54133ccd3b7ec8b60eb-12><a>Hooks</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.27-rc.0/guides/latest/hooks/overview/>Overview</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/hooks/backup-and-restore-hooks/>Backup & Restore Hooks</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/hooks/batch-backup-hooks/>BackupBatch Hooks</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/hooks/configuring-hooks/>Configuring Hooks</a></li></ul></div></div><div class=item><input type=checkbox id=b79344a62ac0d54133ccd3b7ec8b60eb-13>
+<label for=b79344a62ac0d54133ccd3b7ec8b60eb-13><a>CLI</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.27-rc.0/guides/latest/cli/cli/>Stash kubectl Plugin</a></li></ul></div></div><div class=item><input type=checkbox id=b79344a62ac0d54133ccd3b7ec8b60eb-14>
+<label for=b79344a62ac0d54133ccd3b7ec8b60eb-14><a>Security</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.08.27-rc.0/guides/latest/security/rbac/>RBAC</a></li><li><a href=/docs/v2020.08.27-rc.0/guides/latest/security/psp/>PSP</a></li></ul></div></div></div></div></div><div class="column is-7"><div class=full-info><h1 id=clone-data-volumes-using-stash>Clone Data Volumes using Stash</h1><p>Using Stash you can clone data volumes of a workload into a different namespace in a cluster. You can provide a template for PVC in <code>RestoreSession</code>. Stash will create PVCs according to the template, then it will restore data in that PVC. Then you can use the cloned PVCs to deploy your desired workload. This guide will show you how to clone backed up data into new PVCs using Stash.</p><h2 id=before-you-begin>Before You Begin</h2><ul><li><p>At first, you need to have a Kubernetes cluster, and the <code>kubectl</code> command-line tool must be configured to communicate with your cluster. If you do not already have a cluster, you can create one by using <a href=https://kind.sigs.k8s.io/docs/user/quick-start/>kind</a>.</p></li><li><p>Install <code>Stash</code> in your cluster following the steps <a href=/docs/v2020.08.27-rc.0/setup/README>here</a>.</p></li><li><p>You should be familiar with the following <code>Stash</code> concepts:</p><ul><li><a href=/docs/v2020.08.27-rc.0/concepts/crds/backupconfiguration>BackupConfiguration</a></li><li><a href=/docs/v2020.08.27-rc.0/concepts/crds/backupsession>BackupSession</a></li><li><a href=/docs/v2020.08.27-rc.0/concepts/crds/repository>Repository</a></li><li><a href=/docs/v2020.08.27-rc.0/concepts/crds/restoresession>RestoreSession</a></li></ul></li></ul><p>To keep everything isolated, we are going to use a separate namespace called <code>demo</code> throughout this tutorial.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl create ns demo
+namespace/demo created
+</code></pre></div><blockquote><p><strong>Note:</strong> YAML files used in this tutorial are stored in <a href=/docs/v2020.08.27-rc.0/examples/guides/latest/advanced-use-case/clone-pvc>/docs/examples/guides/latest/advanced-use-case/clone-pvc</a> directory of <a href=https://github.com/stashed/docs>stashed/docs</a> repository.</p></blockquote><h2 id=clone-the-volumes-of-a-deployment>Clone the Volumes of a Deployment</h2><p>Here we are going to clone the volumes of a Deployment. At first, we are going to back up the volumes of a Deployment, then we are going to restore these volumes into new PVCs.</p><h3 id=backup>Backup</h3><p>We are going to deploy a Deployment with two PVCs and generate some sample data in it. Then, we are going to back up these PVCs.</p><p><strong>Deploy Deployment:</strong></p><p>Below is the YAML of the Deployment and PVCs that we are going to create,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>kind</span>: PersistentVolumeClaim
+<span style=color:#66d9ef>apiVersion</span>: v1
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: source-data
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>accessModes</span>:
+    - ReadWriteOnce
+  <span style=color:#66d9ef>storageClassName</span>: standard
+  <span style=color:#66d9ef>resources</span>:
+    <span style=color:#66d9ef>requests</span>:
+      <span style=color:#66d9ef>storage</span>: 2Gi
+---
+<span style=color:#66d9ef>kind</span>: PersistentVolumeClaim
+<span style=color:#66d9ef>apiVersion</span>: v1
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: source-config
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>accessModes</span>:
+    - ReadWriteOnce
+  <span style=color:#66d9ef>storageClassName</span>: standard
+  <span style=color:#66d9ef>resources</span>:
+    <span style=color:#66d9ef>requests</span>:
+      <span style=color:#66d9ef>storage</span>: 2Gi
+---
+<span style=color:#66d9ef>apiVersion</span>: apps/v1
+<span style=color:#66d9ef>kind</span>: Deployment
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>labels</span>:
+    <span style=color:#66d9ef>app</span>: stash-demo
+  <span style=color:#66d9ef>name</span>: stash-demo
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>replicas</span>: <span style=color:#ae81ff>1</span>
+  <span style=color:#66d9ef>selector</span>:
+    <span style=color:#66d9ef>matchLabels</span>:
+      <span style=color:#66d9ef>app</span>: stash-demo
+  <span style=color:#66d9ef>template</span>:
+    <span style=color:#66d9ef>metadata</span>:
+      <span style=color:#66d9ef>labels</span>:
+        <span style=color:#66d9ef>app</span>: stash-demo
+      <span style=color:#66d9ef>name</span>: busybox
+    <span style=color:#66d9ef>spec</span>:
+      <span style=color:#66d9ef>containers</span>:
+      - <span style=color:#66d9ef>args</span>: [<span style=color:#e6db74>&#34;echo sample_data &gt; /source/data/data.txt; echo config_data &gt; /source/config/config.cfg &amp;&amp; sleep 3000&#34;</span>]
+        <span style=color:#66d9ef>command</span>: [<span style=color:#e6db74>&#34;/bin/sh&#34;</span>, <span style=color:#e6db74>&#34;-c&#34;</span>]
+        <span style=color:#66d9ef>image</span>: busybox
+        <span style=color:#66d9ef>imagePullPolicy</span>: IfNotPresent
+        <span style=color:#66d9ef>name</span>: busybox
+        <span style=color:#66d9ef>volumeMounts</span>:
+        - <span style=color:#66d9ef>mountPath</span>: /source/data
+          <span style=color:#66d9ef>name</span>: source-data
+        - <span style=color:#66d9ef>mountPath</span>: /source/config
+          <span style=color:#66d9ef>name</span>: source-config
+      <span style=color:#66d9ef>restartPolicy</span>: Always
+      <span style=color:#66d9ef>volumes</span>:
+      - <span style=color:#66d9ef>name</span>: source-data
+        <span style=color:#66d9ef>persistentVolumeClaim</span>:
+          <span style=color:#66d9ef>claimName</span>: source-data
+      - <span style=color:#66d9ef>name</span>: source-config
+        <span style=color:#66d9ef>persistentVolumeClaim</span>:
+          <span style=color:#66d9ef>claimName</span>: source-config
+</code></pre></div><p>The above Deployment will automatically create <code>data.txt</code> and <code>config.cfg</code> file in <code>/source/data</code> and <code>/source/config</code> directory respectively and write some sample data in it.</p><p>Let&rsquo;s create the Deployment and PVCs we have shown above.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.27-rc.0/docs/examples/guides/latest/advanced-use-case/clone-pvc/deployment/deployment.yaml
+persistentvolumeclaim/source-data created
+persistentvolumeclaim/source-config created
+deployment.apps/stash-demo created
+</code></pre></div><p>Now, wait for the pod of the Deployment to go into <code>Running</code> state.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get pod -n demo
+NAME                          READY   STATUS    RESTARTS   AGE
+stash-demo-67ccdfbbc7-z97rd   1/1     Running   <span style=color:#ae81ff>0</span>          77s
+</code></pre></div><p>Verify that the sample data has been created in <code>/source/data</code> and <code>/source/config</code> directory using the following commands,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -n demo stash-demo-67ccdfbbc7-z97rd -- cat /source/data/data.txt
+sample_data
+$ kubectl exec -n demo stash-demo-67ccdfbbc7-z97rd -- cat /source/config/config.cfg
+config_data
+</code></pre></div><p><strong>Create Repository:</strong></p><p>We are going to store our backed up data into a GCS bucket. We have to create a Secret and a Repository object with access credentials and backend information respectively.</p><blockquote><p>For GCS backend, if the bucket does not exist, Stash needs <code>Storage Object Admin</code> role permissions to create the bucket. For more details, please check the following <a href=/docs/v2020.08.27-rc.0/guides/latest/backends/gcs>guide</a>.</p></blockquote><p>Let&rsquo;s create a secret called <code>gcs-secret</code> with access credentials of our desired GCS backend,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ echo -n <span style=color:#e6db74>&#39;changeit&#39;</span> &gt; RESTIC_PASSWORD
+$ echo -n <span style=color:#e6db74>&#39;&lt;your-project-id&gt;&#39;</span> &gt; GOOGLE_PROJECT_ID
+$ cat /path/to/downloaded/sa_key_file.json &gt; GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+$ kubectl create secret generic -n demo gcs-secret <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --from-file<span style=color:#f92672>=</span>./RESTIC_PASSWORD <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --from-file<span style=color:#f92672>=</span>./GOOGLE_PROJECT_ID <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --from-file<span style=color:#f92672>=</span>./GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+secret/gcs-secret created
+</code></pre></div><p>Now, create a <code>Repository</code> using this secret. Below is the YAML of <code>Repository</code> crd we are going to create,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: stash.appscode.com/v1alpha1
+<span style=color:#66d9ef>kind</span>: Repository
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: gcs-repo
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>backend</span>:
+    <span style=color:#66d9ef>gcs</span>:
+      <span style=color:#66d9ef>bucket</span>: appscode-qa
+      <span style=color:#66d9ef>prefix</span>: /source/data/restore-pvc-in-temp
+    <span style=color:#66d9ef>storageSecretName</span>: gcs-secret
+</code></pre></div><p>Let&rsquo;s create the <code>Repository</code> object that we have shown above,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.27-rc.0/docs/examples/guides/latest/advanced-use-case/clone-pvc/repository.yaml
+repository.stash.appscode.com/gcs-repo created
+</code></pre></div><p>Now, we are ready to backup our volumes to our desired backend.</p><p><strong>Create BackupConfiguration:</strong></p><p>Now, create a <code>BackupConfiguration</code> crd to take periodic backup of the PVCs of <code>stash-demo</code> Deployment.</p><p>Below is the YAML of the <code>BackupConfiguration</code> object that we are going to create,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: stash.appscode.com/v1beta1
+<span style=color:#66d9ef>kind</span>: BackupConfiguration
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: deployment-backup
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>repository</span>:
+    <span style=color:#66d9ef>name</span>: gcs-repo
+  <span style=color:#66d9ef>schedule</span>: <span style=color:#e6db74>&#34;* * * * *&#34;</span>
+  <span style=color:#66d9ef>target</span>:
+    <span style=color:#66d9ef>ref</span>:
+      <span style=color:#66d9ef>apiVersion</span>: apps/v1
+      <span style=color:#66d9ef>kind</span>: Deployment
+      <span style=color:#66d9ef>name</span>: stash-demo
+    <span style=color:#66d9ef>volumeMounts</span>:
+    - <span style=color:#66d9ef>name</span>: source-data
+      <span style=color:#66d9ef>mountPath</span>: /source/data
+    - <span style=color:#66d9ef>name</span>: source-config
+      <span style=color:#66d9ef>mountPath</span>: /source/config
+    <span style=color:#66d9ef>paths</span>:
+    - /source/data
+    - /source/config
+  <span style=color:#66d9ef>retentionPolicy</span>:
+    <span style=color:#66d9ef>name</span>: <span style=color:#e6db74>&#39;keep-last-5&#39;</span>
+    <span style=color:#66d9ef>keepLast</span>: <span style=color:#ae81ff>5</span>
+    <span style=color:#66d9ef>prune</span>: <span style=color:#66d9ef>true</span>
+</code></pre></div><p>Let&rsquo;s create the <code>BackupConfiguration</code> object that we have shown above,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.27-rc.0/docs/examples/guides/latest/advanced-use-case/clone-pvc/deployment/dep-backupconfiguration.yaml
+backupconfiguration.stash.appscode.com/deployment-backup created
+</code></pre></div><p>If everything goes well, Stash will create a <code>CronJob</code> to trigger backup periodically.</p><p><strong>Verify CronJob:</strong></p><p>Verify that Stash has created a <code>CronJob</code> to trigger a periodic backup of volumes of the Deployment by the following command,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get backupconfiguration -n demo
+NAME                TASK   SCHEDULE    PAUSED   AGE
+deployment-backup          * * * * *            36s
+</code></pre></div><p><strong>Wait for BackupSession:</strong></p><p>Now, wait for the next backup schedule. You can watch for <code>BackupSession</code> crd using the following command,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ watch -n <span style=color:#ae81ff>3</span> kubectl get backupconfiguration -n demo
+Every 3.0s: kubectl get backupconfiguration -n demo                  suaas-appscode: Mon Jul  <span style=color:#ae81ff>8</span> 18:20:47 <span style=color:#ae81ff>2019</span>
+
+NAME                           INVOKER-TYPE          INVOKER-NAME        PHASE       AGE
+deployment-backup-1562588351   BackupConfiguration   deployment-backup   Succeeded   96s
+</code></pre></div><p>We can see from the above output that the backup session has succeeded. This indicates that the volumes of the Deployment have been backed up in the backend successfully.</p><h3 id=restore>Restore</h3><p>Now, we are going to clone the volumes that we have backed up in the previous section. To do that, we have to create a <code>RestoreSession</code> object with <code>volumeClaimTemplates</code>.</p><p><strong>Stop Taking Backup of the Old Deployment:</strong></p><p>At first, let&rsquo;s pause the scheduled backup of the old Deployment so that no backup is taken during the restore process. To pause the <code>deployment-backup</code> BackupConfiguration, run:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl patch backupconfiguration -n demo deployment-backup --type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;merge&#34;</span> --patch<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;{&#34;spec&#34;: {&#34;paused&#34;: true}}&#39;</span>
+backupconfiguration.stash.appscode.com/deployment-backup patched
+</code></pre></div><p>Now, wait for a moment. Stash will pause the BackupConfiguration. Verify that the BackupConfiguration has been paused,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get backupconfiguration -n demo
+NAME                TASK   SCHEDULE      PAUSED   AGE
+deployment-backup          */1 * * * *   true     26m
+</code></pre></div><p>Notice the <code>PAUSED</code> column. Value <code>true</code> for this field means that the BackupConfiguration has been paused.</p><p><strong>Create RestoreSession:</strong></p><p>Below is the YAML of the <code>RestoreSession</code> object that we are going to create,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: stash.appscode.com/v1beta1
+<span style=color:#66d9ef>kind</span>: RestoreSession
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: restore-deployment
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>repository</span>:
+    <span style=color:#66d9ef>name</span>: gcs-repo
+  <span style=color:#66d9ef>target</span>:
+    <span style=color:#66d9ef>rules</span>:
+    - <span style=color:#66d9ef>paths</span>:
+      - /source/data
+      - /source/config
+    <span style=color:#66d9ef>volumeMounts</span>:
+    - <span style=color:#66d9ef>name</span>:  restore-data
+      <span style=color:#66d9ef>mountPath</span>:  /source/data
+    - <span style=color:#66d9ef>name</span>:  restore-config
+      <span style=color:#66d9ef>mountPath</span>:  /source/config
+    <span style=color:#66d9ef>volumeClaimTemplates</span>:
+    - <span style=color:#66d9ef>metadata</span>:
+        <span style=color:#66d9ef>name</span>:  restore-data
+      <span style=color:#66d9ef>spec</span>:
+        <span style=color:#66d9ef>accessModes</span>: [ <span style=color:#e6db74>&#34;ReadWriteOnce&#34;</span> ]
+        <span style=color:#66d9ef>storageClassName</span>: <span style=color:#e6db74>&#34;standard&#34;</span>
+        <span style=color:#66d9ef>resources</span>:
+          <span style=color:#66d9ef>requests</span>:
+            <span style=color:#66d9ef>storage</span>: 2Gi
+    - <span style=color:#66d9ef>metadata</span>:
+        <span style=color:#66d9ef>name</span>:  restore-config
+      <span style=color:#66d9ef>spec</span>:
+        <span style=color:#66d9ef>accessModes</span>: [ <span style=color:#e6db74>&#34;ReadWriteOnce&#34;</span> ]
+        <span style=color:#66d9ef>storageClassName</span>: <span style=color:#e6db74>&#34;standard&#34;</span>
+        <span style=color:#66d9ef>resources</span>:
+          <span style=color:#66d9ef>requests</span>:
+            <span style=color:#66d9ef>storage</span>: 2Gi
+</code></pre></div><p>Here,</p><ul><li><code>spec.target.volumeMounts</code> specifies the directory where the newly created PVC will be mounted inside the restore job.</li><li><code>spec.target.rules[*].paths</code> specifies the file paths that will be restored from the backed up data.</li><li><code>spec.target.volumeClaimTemplates:</code> a list of PVC templates that will be created by Stash to restore the respective backed up data.<ul><li><code>name</code> specifies the name of the volume mountPath. This name must be the same as the volumeClaimTemplate name.</li><li><code>mountPath</code> must be same <code>mountPath</code> as the original volume because Stash stores absolute path of the backed up files. If you use different <code>mountPath</code> for the restored volume the backed up files will not be restored into your desired volume.</li></ul></li></ul><p>Let&rsquo;s create the <code>RestoreSession</code> object that we have shown above,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.27-rc.0/docs/examples/guides/latest/advanced-use-case/clone-pvc/deployment/restoresession.yaml
+restoresession.stash.appscode.com/restore-deployment created
+</code></pre></div><p><strong>Wait for RestoreSession to Succeed:</strong></p><p>Once, you have created the <code>RestoreSession</code> crd, Stash will create a job to restore PVCs. We can watch the <code>RestoreSession</code> phase to check if the restore process has succeeded or not.</p><p>Run the following command to watch RestoreSession phase,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ watch -n <span style=color:#ae81ff>3</span> kubectl get restoresession -n demo
+Every 3.0s: kubectl get restoresession -n demo               suaas-appscode: Mon Jul  <span style=color:#ae81ff>8</span> 18:39:58 <span style=color:#ae81ff>2019</span>
+
+NAME                 REPOSITORY-NAME   PHASE       AGE
+restore-deployment   gcs-repo          Succeeded   3m27s
+</code></pre></div><p>So, we can see from the output of the above command that the restore process has completed successfully.</p><p><strong>Verify Restored PVC:</strong></p><p>Once the restore process is complete, we are going to see that new PVCs with the name <code>restore-data</code> and <code>restore-config</code> have been created.</p><p>Verify that the PVCs have been created by the following command,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get pvc -n demo
+NAME             STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+restore-config   Bound    pvc-6aab94dc-10b2-4c36-8768-89b20a7a24ed   2Gi        RWO            standard       32s
+restore-data     Bound    pvc-8296da99-b813-466a-b9f2-efff1faeee17   2Gi        RWO            standard       32s
+</code></pre></div><p><strong>Verify Restored Data:</strong></p><p>Let&rsquo;s create a new Deployment with the restored PVCs to verify whether the backed up data have been restored.</p><p>Below is the YAML of the Deployment that we are going to create,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: apps/v1
+<span style=color:#66d9ef>kind</span>: Deployment
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>labels</span>:
+    <span style=color:#66d9ef>app</span>: restore-demo
+  <span style=color:#66d9ef>name</span>: restore-demo
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>replicas</span>: <span style=color:#ae81ff>1</span>
+  <span style=color:#66d9ef>selector</span>:
+    <span style=color:#66d9ef>matchLabels</span>:
+      <span style=color:#66d9ef>app</span>: restore-demo
+  <span style=color:#66d9ef>template</span>:
+    <span style=color:#66d9ef>metadata</span>:
+      <span style=color:#66d9ef>labels</span>:
+        <span style=color:#66d9ef>app</span>: restore-demo
+      <span style=color:#66d9ef>name</span>: busybox
+    <span style=color:#66d9ef>spec</span>:
+      <span style=color:#66d9ef>containers</span>:
+      - <span style=color:#66d9ef>args</span>:
+        - sleep
+        - <span style=color:#e6db74>&#34;3600&#34;</span>
+        <span style=color:#66d9ef>image</span>: busybox
+        <span style=color:#66d9ef>imagePullPolicy</span>: IfNotPresent
+        <span style=color:#66d9ef>name</span>: busybox
+        <span style=color:#66d9ef>volumeMounts</span>:
+        - <span style=color:#66d9ef>mountPath</span>: /restore/data
+          <span style=color:#66d9ef>name</span>: restore-data
+        - <span style=color:#66d9ef>mountPath</span>: /restore/config
+          <span style=color:#66d9ef>name</span>: restore-config
+      <span style=color:#66d9ef>restartPolicy</span>: Always
+      <span style=color:#66d9ef>volumes</span>:
+      - <span style=color:#66d9ef>name</span>: restore-data
+        <span style=color:#66d9ef>persistentVolumeClaim</span>:
+          <span style=color:#66d9ef>claimName</span>: restore-data
+      - <span style=color:#66d9ef>name</span>: restore-config
+        <span style=color:#66d9ef>persistentVolumeClaim</span>:
+          <span style=color:#66d9ef>claimName</span>: restore-config
+</code></pre></div><p>Create the deployment we have shown above.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.27-rc.0/docs/examples/guides/latest/advanced-use-case/clone-pvc/deployment/restore-deployment.yaml
+deployment.apps/restore-demo created
+</code></pre></div><p>Now, wait for the pod of the Deployment to go into the <code>Running</code> state.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get pod -n demo
+NAME                                READY   STATUS    RESTARTS   AGE
+restore-demo-85fbcb5dcf-vpbt8       1/1     Running   <span style=color:#ae81ff>0</span>          2m50s
+</code></pre></div><p>Verify that the backed up data has been restored in <code>/source/data</code> and <code>/source/config</code> directory using the following command,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -n demo restore-demo-85fbcb5dcf-vpbt8 -- cat /restore/data/data.txt
+sample_data
+$ kubectl exec -n demo restore-demo-85fbcb5dcf-vpbt8 -- cat /restore/config/config.cfg
+config_data
+</code></pre></div><h2 id=clone-the-volumes-of-a-satefulset>Clone the Volumes of a SatefulSet</h2><p>Here we are going to clone the volumes of a StatefulSet. At first, we are going to back up the volumes of a StatefulSet, then we are going to restore these volumes into new PVCs.</p><h3 id=backup-1>Backup</h3><p>Now, we are going to deploy a StatefulSet and generate some sample data in its volume. Then, we are going to back up these volumes.</p><p><strong>Deploy StatefulSet:</strong></p><p>Below is the YAML of the Statefulset that we are going to create,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: v1
+<span style=color:#66d9ef>kind</span>: Service
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: headless
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>ports</span>:
+  - <span style=color:#66d9ef>name</span>: http
+    <span style=color:#66d9ef>port</span>: <span style=color:#ae81ff>80</span>
+    <span style=color:#66d9ef>targetPort</span>: <span style=color:#ae81ff>0</span>
+  <span style=color:#66d9ef>selector</span>:
+    <span style=color:#66d9ef>app</span>: stash-demo
+  <span style=color:#66d9ef>clusterIP</span>: None
+---
+<span style=color:#66d9ef>apiVersion</span>: apps/v1
+<span style=color:#66d9ef>kind</span>: StatefulSet
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: stash-demo
+  <span style=color:#66d9ef>namespace</span>: demo
+  <span style=color:#66d9ef>labels</span>:
+    <span style=color:#66d9ef>app</span>: stash-demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>replicas</span>: <span style=color:#ae81ff>3</span>
+  <span style=color:#66d9ef>selector</span>:
+    <span style=color:#66d9ef>matchLabels</span>:
+      <span style=color:#66d9ef>app</span>: stash-demo
+  <span style=color:#66d9ef>serviceName</span>: headless
+  <span style=color:#66d9ef>template</span>:
+    <span style=color:#66d9ef>metadata</span>:
+      <span style=color:#66d9ef>labels</span>:
+        <span style=color:#66d9ef>app</span>: stash-demo
+    <span style=color:#66d9ef>spec</span>:
+      <span style=color:#66d9ef>containers</span>:
+      - <span style=color:#66d9ef>args</span>: [<span style=color:#e6db74>&#34;echo $(POD_NAME) &gt; /source/data/data.txt; echo $(POD_NAME) &gt; /source/config/config.cfg &amp;&amp; sleep 3000&#34;</span>]
+        <span style=color:#66d9ef>command</span>: [<span style=color:#e6db74>&#34;/bin/sh&#34;</span>, <span style=color:#e6db74>&#34;-c&#34;</span>]
+        <span style=color:#66d9ef>env</span>:
+        - <span style=color:#66d9ef>name</span>:  POD_NAME
+          <span style=color:#66d9ef>valueFrom</span>:
+            <span style=color:#66d9ef>fieldRef</span>:
+              <span style=color:#66d9ef>fieldPath</span>:  metadata.name
+        <span style=color:#66d9ef>name</span>: busybox
+        <span style=color:#66d9ef>image</span>: busybox
+        <span style=color:#66d9ef>ports</span>:
+        - <span style=color:#66d9ef>containerPort</span>: <span style=color:#ae81ff>80</span>
+          <span style=color:#66d9ef>name</span>: http
+        <span style=color:#66d9ef>volumeMounts</span>:
+        - <span style=color:#66d9ef>name</span>: source-data
+          <span style=color:#66d9ef>mountPath</span>: <span style=color:#e6db74>&#34;/source/data&#34;</span>
+        - <span style=color:#66d9ef>name</span>: source-config
+          <span style=color:#66d9ef>mountPath</span>: <span style=color:#e6db74>&#34;/source/config&#34;</span>
+        <span style=color:#66d9ef>imagePullPolicy</span>: IfNotPresent
+  <span style=color:#66d9ef>volumeClaimTemplates</span>:
+  - <span style=color:#66d9ef>metadata</span>:
+      <span style=color:#66d9ef>name</span>: source-data
+    <span style=color:#66d9ef>spec</span>:
+      <span style=color:#66d9ef>accessModes</span>: [ <span style=color:#e6db74>&#34;ReadWriteOnce&#34;</span> ]
+      <span style=color:#66d9ef>storageClassName</span>: <span style=color:#e6db74>&#34;standard&#34;</span>
+      <span style=color:#66d9ef>resources</span>:
+        <span style=color:#66d9ef>requests</span>:
+          <span style=color:#66d9ef>storage</span>: 2Gi
+  - <span style=color:#66d9ef>metadata</span>:
+      <span style=color:#66d9ef>name</span>: source-config
+    <span style=color:#66d9ef>spec</span>:
+      <span style=color:#66d9ef>accessModes</span>: [ <span style=color:#e6db74>&#34;ReadWriteOnce&#34;</span> ]
+      <span style=color:#66d9ef>storageClassName</span>: <span style=color:#e6db74>&#34;standard&#34;</span>
+      <span style=color:#66d9ef>resources</span>:
+        <span style=color:#66d9ef>requests</span>:
+          <span style=color:#66d9ef>storage</span>: 2Gi
+</code></pre></div><p>The above StatefulSet will automatically create <code>data.txt</code> and <code>config.cfg</code> file in <code>/source/data</code> and <code>/source/config</code> directory respectively and write some sample data in it.</p><p>Let&rsquo;s create the Statefulset we have shown above.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.27-rc.0/docs/examples/guides/latest/advanced-use-case/clone-pvc/statefulset/statefulset.yaml
+service/headless configured
+statefulset.apps/stash-demo created
+</code></pre></div><p>Now, wait for the pod of the Statefulset to go into the <code>Running</code> state.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get pod -n demo
+NAME           READY   STATUS    RESTARTS   AGE
+stash-demo-0   1/1     Running   <span style=color:#ae81ff>0</span>          47s
+stash-demo-1   1/1     Running   <span style=color:#ae81ff>0</span>          43s
+stash-demo-2   1/1     Running   <span style=color:#ae81ff>0</span>          33s
+</code></pre></div><p>Verify that the sample data has been created in <code>/source/data</code> and <code>/source/config</code> directory using the following command,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -n demo stash-demo-0 -- cat /source/data/data.txt
+stash-demo-0
+$ kubectl exec -n demo stash-demo-0 -- cat /source/config/config.cfg
+stash-demo-0
+$ kubectl exec -n demo stash-demo-1 -- cat /source/data/data.txt
+stash-demo-1
+$ kubectl exec -n demo stash-demo-1 -- cat /source/config/config.cfg
+stash-demo-1
+$ kubectl exec -n demo stash-demo-2 -- cat /source/data/data.txt
+stash-demo-2
+$ kubectl exec -n demo stash-demo-2 -- cat /source/config/config.cfg
+stash-demo-2
+</code></pre></div><p><strong>Create Repository:</strong></p><p>We are going to store our backed up data into a GCS bucket. Let’s create a secret called <code>gcs-secret</code> with access credentials of our desired GCS backend,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ echo -n <span style=color:#e6db74>&#39;changeit&#39;</span> &gt; RESTIC_PASSWORD
+$ echo -n <span style=color:#e6db74>&#39;&lt;your-project-id&gt;&#39;</span> &gt; GOOGLE_PROJECT_ID
+$ cat /path/to/downloaded/sa_key_file.json &gt; GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+$ kubectl create secret generic -n demo gcs-secret <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --from-file<span style=color:#f92672>=</span>./RESTIC_PASSWORD <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --from-file<span style=color:#f92672>=</span>./GOOGLE_PROJECT_ID <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --from-file<span style=color:#f92672>=</span>./GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+secret/gcs-secret created
+</code></pre></div><p>Now, create a <code>Repository</code> using this secret. Below is the YAML of <code>Repository</code> crd we are going to create,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: stash.appscode.com/v1alpha1
+<span style=color:#66d9ef>kind</span>: Repository
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: gcs-repo
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>backend</span>:
+    <span style=color:#66d9ef>gcs</span>:
+      <span style=color:#66d9ef>bucket</span>: appscode-qa
+      <span style=color:#66d9ef>prefix</span>: /source/data/restore-pvc-in-temp
+    <span style=color:#66d9ef>storageSecretName</span>: gcs-secret
+</code></pre></div><p>Let’s create the Repository object that we have shown above,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.27-rc.0/docs/examples/guides/latest/advanced-use-case/clone-pvc/repository.yaml
+repository.stash.appscode.com/gcs-repo created
+</code></pre></div><p>Now, we are ready to backup our volumes to our desired backend.</p><p><strong>Create BackupConfiguration:</strong></p><p>Now, create a <code>BackupConfiguration</code> crd to take periodic backup of the PVCs of <code>stash-demo</code> Statefulset.</p><p>Below is the YAML of the <code>BackupConfiguration</code> that we are going to create,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: stash.appscode.com/v1beta1
+<span style=color:#66d9ef>kind</span>: BackupConfiguration
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: ss-backup
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>repository</span>:
+    <span style=color:#66d9ef>name</span>: gcs-repo
+  <span style=color:#66d9ef>schedule</span>: <span style=color:#e6db74>&#34;*/3 * * * *&#34;</span>
+  <span style=color:#66d9ef>target</span>:
+    <span style=color:#66d9ef>ref</span>:
+      <span style=color:#66d9ef>apiVersion</span>: apps/v1
+      <span style=color:#66d9ef>kind</span>: StatefulSet
+      <span style=color:#66d9ef>name</span>: stash-demo
+    <span style=color:#66d9ef>volumeMounts</span>:
+    - <span style=color:#66d9ef>name</span>: source-data
+      <span style=color:#66d9ef>mountPath</span>: /source/data
+    - <span style=color:#66d9ef>name</span>: source-config
+      <span style=color:#66d9ef>mountPath</span>: /source/config
+    <span style=color:#66d9ef>paths</span>:
+    - /source/data
+    - /source/config
+  <span style=color:#66d9ef>retentionPolicy</span>:
+    <span style=color:#66d9ef>name</span>: <span style=color:#e6db74>&#39;keep-last-5&#39;</span>
+    <span style=color:#66d9ef>keepLast</span>: <span style=color:#ae81ff>5</span>
+    <span style=color:#66d9ef>prune</span>: <span style=color:#66d9ef>true</span>
+</code></pre></div><p>Let’s create the <code>BackupConfiguration</code> object that we have shown above,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.27-rc.0/docs/examples/guides/latest/advanced-use-case/clone-pvc/statefulset/ss-backupconfiguration.yaml
+backupconfiguration.stash.appscode.com/ss-backup created
+</code></pre></div><p>If everything goes well, Stash will create a <code>CronJob</code> to trigger backup periodically.</p><p><strong>Verify CronJob:</strong></p><p>Verify that Stash has created a <code>CronJob</code> to trigger a periodic backup of the volumes of the Statefulset by the following command,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get backupconfiguration -n demo
+NAME        TASK   SCHEDULE      PAUSED   AGE
+ss-backup          * * * * *              2m
+</code></pre></div><p><strong>Wait for BackupSession:</strong></p><p>Now, wait for the next backup schedule. You can watch for <code>BackupSession</code> crd using the following command,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ watch -n <span style=color:#ae81ff>3</span> kubectl get backupsession -n demo
+Every 3.0s: kubectl get backupsession -n demo                suaas-appscode: Tue Jul  <span style=color:#ae81ff>9</span> 17:09:43 <span style=color:#ae81ff>2019</span>
+
+NAME                   INVOKER-TYPE          INVOKER-NAME   PHASE       AGE
+ss-backup-1562670004   BackupConfiguration   ss-backup      Succeeded   9m39s
+</code></pre></div><p>We can see from the above output that the backup session has succeeded. This indicates that the volumes of the Deployment have been backed up in the backend successfully.</p><h3 id=restore-1>Restore</h3><p>Now, we are going to restore the volumes that we have backed up in the previous section. To do that, we have to create a <code>RestoreSession</code> object with <code>volumeClaimTemplates</code>.</p><p><strong>Stop Taking Backup of the Old StatefulSet:</strong></p><p>At first, let&rsquo;s pause the scheduled backup of the old StatefulSet so that no backup is taken during the restore process. To pause the <code>ss-backup</code> BackupConfiguration, run:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl patch backupconfiguration -n demo ss-backup --type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;merge&#34;</span> --patch<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;{&#34;spec&#34;: {&#34;paused&#34;: true}}&#39;</span>
+backupconfiguration.stash.appscode.com/ss-backup patched
+</code></pre></div><p>Now, wait for a moment. Stash will pause the BackupConfiguration. Verify that the BackupConfiguration has been paused,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get backupconfiguration -n demo
+NAME                TASK   SCHEDULE      PAUSED   AGE
+ss-backup                  */1 * * * *   true     26m
+</code></pre></div><p>Notice the <code>PAUSED</code> column. Value <code>true</code> for this field means that the <code>BackupConfiguration</code> has been paused.</p><p><strong>Create RestoreSession:</strong></p><p>Below is the YAML of the <code>RestoreSession</code> object that we are going to create,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: stash.appscode.com/v1beta1
+<span style=color:#66d9ef>kind</span>: RestoreSession
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: restore-statefulset
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>repository</span>:
+    <span style=color:#66d9ef>name</span>: gcs-repo
+  <span style=color:#66d9ef>target</span>:
+    <span style=color:#66d9ef>rules</span>:
+    - <span style=color:#66d9ef>paths</span>:
+      - /source/data
+      - /source/config
+    <span style=color:#66d9ef>replicas</span>: <span style=color:#ae81ff>3</span>
+    <span style=color:#66d9ef>volumeMounts</span>:
+    - <span style=color:#66d9ef>name</span>:  restore-data-restore-demo
+      <span style=color:#66d9ef>mountPath</span>:  /source/data
+    - <span style=color:#66d9ef>name</span>:  restore-config-restore-demo
+      <span style=color:#66d9ef>mountPath</span>:  /source/config
+    <span style=color:#66d9ef>volumeClaimTemplates</span>:
+    - <span style=color:#66d9ef>metadata</span>:
+        <span style=color:#66d9ef>name</span>: restore-data-restore-demo-${POD_ORDINAL}
+      <span style=color:#66d9ef>spec</span>:
+        <span style=color:#66d9ef>accessModes</span>: [ <span style=color:#e6db74>&#34;ReadWriteOnce&#34;</span> ]
+        <span style=color:#66d9ef>storageClassName</span>: <span style=color:#e6db74>&#34;standard&#34;</span>
+        <span style=color:#66d9ef>resources</span>:
+          <span style=color:#66d9ef>requests</span>:
+            <span style=color:#66d9ef>storage</span>: 2Gi
+    - <span style=color:#66d9ef>metadata</span>:
+        <span style=color:#66d9ef>name</span>: restore-config-restore-demo-${POD_ORDINAL}
+      <span style=color:#66d9ef>spec</span>:
+        <span style=color:#66d9ef>accessModes</span>: [ <span style=color:#e6db74>&#34;ReadWriteOnce&#34;</span> ]
+        <span style=color:#66d9ef>storageClassName</span>: <span style=color:#e6db74>&#34;standard&#34;</span>
+        <span style=color:#66d9ef>resources</span>:
+          <span style=color:#66d9ef>requests</span>:
+            <span style=color:#66d9ef>storage</span>: 2Gi
+</code></pre></div><ul><li><code>spec.target.replicas</code> <code>spec.target.replicas</code> specify the number of replicas of a StatefulSet whose volumes were backed up and Stash uses this field to dynamically create the desired number of PVCs and initialize them from respective Volumes.</li><li><code>spec.target.volumeMounts</code> specifies a list of volumes and their mountPath where the data will be restored.<ul><li><code>name</code> specifies the name of the volume mountPath. This name must be the same as the volumeClaimTemplate name without the <code>POD_ORDINAL</code> part.</li><li><code>mountPath</code> must be same <code>mountPath</code> as the original volume because Stash stores absolute path of the backed up files. If you use different <code>mountPath</code> for the restored volume the backed up files will not be restored into your desired volume.</li></ul></li><li><code>spec.target.volumeClaimTemplates:</code> a list of PVC templates that will be created by Stash to restore the respective backed up data.<ul><li><p><code>metadata.name</code> is a template for the name of the restored PVC that will be created by Stash. You have to provide this named template to match with your desired StatefulSet&rsquo;s PVC. For example, if you want to deploy a StatefulSet named <code>stash-demo</code> with <code>volumeClaimTemplate</code> name <code>my-volume</code>, your StatefulSet&rsquo;s PVC will be<code>my-volume-stash-demo-0</code>, <code>my-volume-stash-demo-1</code> and so on. In this case, you have to provide <code>volumeClaimTemplate</code> name in RestoreSession in the following format:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>&lt;pvc name&gt;-&lt;statefulset name&gt;-<span style=color:#e6db74>${</span>POD_ORDINAL<span style=color:#e6db74>}</span>
+</code></pre></div><p>So for the above example, <code>volumeClaimTemplate</code> name for <code>RestoreSession</code> will be <code>my-volume-restore-demo-${POD_ORDINAL}</code>.
+The <code>${POD_ORDINAL}</code> variable is resolved by Stash.</p></li></ul></li></ul><p>Let’s create the <code>RestoreSession</code> object that we have shown above,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.27-rc.0/docs/examples/guides/latest/advanced-use-case/clone-pvc/statefulset/restoresession.yaml
+restoresession.stash.appscode.com/restore-statefulset created
+</code></pre></div><p><strong>Wait for RestoreSession to Succeed:</strong></p><p>Once, you have created the <code>RestoreSession</code> crd, Stash will create a job to restore. We can watch the <code>RestoreSession</code> phase to check if the restore process has succeeded or not.</p><p>Run the following command to watch <code>RestoreSession</code> phase,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ watch -n <span style=color:#ae81ff>3</span> kubectl get restoresession -n demo
+Every 3.0s: kubectl get restoresession -n demo               suaas-appscode: Tue Jul  <span style=color:#ae81ff>9</span> 18:14:44 <span style=color:#ae81ff>2019</span>
+
+NAME                  REPOSITORY-NAME   PHASE       AGE
+restore-statefulset   gcs-repo          Succeeded   2m2s
+</code></pre></div><p>So, we can see from the output of the above command that the restore process succeeded.</p><p><strong>Verify Restored PVC:</strong></p><p>Once the restore process is complete, verify that new PVCs have been created successfully by the following command,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get pvc -n demo
+NAME                            STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+restore-config-restore-demo-0   Bound    pvc-c575f88a-79c9-4d25-9aab-5f9822ced239   2Gi        RWO            standard       19s
+restore-config-restore-demo-1   Bound    pvc-09d8e1dc-9b51-4a74-983e-8ef2ecde88b5   2Gi        RWO            standard       19s
+restore-config-restore-demo-2   Bound    pvc-45fe4050-12dc-46cb-a797-63f8ea420e28   2Gi        RWO            standard       19s
+restore-data-restore-demo-0     Bound    pvc-d27485e6-5377-4009-b2e2-9ddc2f9afaf3   2Gi        RWO            standard       19s
+restore-data-restore-demo-1     Bound    pvc-ae605285-ef6c-4b02-958c-d34352972ff0   2Gi        RWO            standard       19s
+restore-data-restore-demo-2     Bound    pvc-bd087508-9d9c-4ee0-955f-4cd822ab85f7   2Gi        RWO            standard       19s
+</code></pre></div><p><strong>Verify Restored Data:</strong></p><p>Let&rsquo;s create a new Statefulset with the restored PVCs to verify whether the backed up data have been restored.</p><p>Below is the YAML of the StatefulSet that we are going to create,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: v1
+<span style=color:#66d9ef>kind</span>: Service
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: re-headless
+  <span style=color:#66d9ef>namespace</span>: demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>ports</span>:
+  - <span style=color:#66d9ef>name</span>: http
+    <span style=color:#66d9ef>port</span>: <span style=color:#ae81ff>80</span>
+    <span style=color:#66d9ef>targetPort</span>: <span style=color:#ae81ff>0</span>
+  <span style=color:#66d9ef>selector</span>:
+    <span style=color:#66d9ef>app</span>: restore-demo
+  <span style=color:#66d9ef>clusterIP</span>: None
+---
+<span style=color:#66d9ef>apiVersion</span>: apps/v1
+<span style=color:#66d9ef>kind</span>: StatefulSet
+<span style=color:#66d9ef>metadata</span>:
+  <span style=color:#66d9ef>name</span>: restore-demo
+  <span style=color:#66d9ef>namespace</span>: demo
+  <span style=color:#66d9ef>labels</span>:
+    <span style=color:#66d9ef>app</span>: restore-demo
+<span style=color:#66d9ef>spec</span>:
+  <span style=color:#66d9ef>replicas</span>: <span style=color:#ae81ff>3</span>
+  <span style=color:#66d9ef>selector</span>:
+    <span style=color:#66d9ef>matchLabels</span>:
+      <span style=color:#66d9ef>app</span>: restore-demo
+  <span style=color:#66d9ef>serviceName</span>: re-headless
+  <span style=color:#66d9ef>template</span>:
+    <span style=color:#66d9ef>metadata</span>:
+      <span style=color:#66d9ef>labels</span>:
+        <span style=color:#66d9ef>app</span>: restore-demo
+    <span style=color:#66d9ef>spec</span>:
+      <span style=color:#66d9ef>containers</span>:
+      - <span style=color:#66d9ef>command</span>:
+        - sleep
+        - <span style=color:#e6db74>&#39;3600&#39;</span>
+        <span style=color:#66d9ef>name</span>: busybox
+        <span style=color:#66d9ef>image</span>: busybox
+        <span style=color:#66d9ef>ports</span>:
+        - <span style=color:#66d9ef>containerPort</span>: <span style=color:#ae81ff>80</span>
+          <span style=color:#66d9ef>name</span>: http
+        <span style=color:#66d9ef>volumeMounts</span>:
+        - <span style=color:#66d9ef>name</span>: restore-data
+          <span style=color:#66d9ef>mountPath</span>: <span style=color:#e6db74>&#34;/restore/data&#34;</span>
+        - <span style=color:#66d9ef>name</span>: restore-config
+          <span style=color:#66d9ef>mountPath</span>: <span style=color:#e6db74>&#34;/restore/config&#34;</span>
+        <span style=color:#66d9ef>imagePullPolicy</span>: IfNotPresent
+  <span style=color:#66d9ef>volumeClaimTemplates</span>:
+    - <span style=color:#66d9ef>metadata</span>:
+        <span style=color:#66d9ef>name</span>: restore-data
+      <span style=color:#66d9ef>spec</span>:
+        <span style=color:#66d9ef>accessModes</span>: [ <span style=color:#e6db74>&#34;ReadWriteOnce&#34;</span> ]
+        <span style=color:#66d9ef>storageClassName</span>: <span style=color:#e6db74>&#34;standard&#34;</span>
+        <span style=color:#66d9ef>resources</span>:
+          <span style=color:#66d9ef>requests</span>:
+            <span style=color:#66d9ef>storage</span>: 2Gi
+    - <span style=color:#66d9ef>metadata</span>:
+        <span style=color:#66d9ef>name</span>: restore-config
+      <span style=color:#66d9ef>spec</span>:
+        <span style=color:#66d9ef>accessModes</span>: [ <span style=color:#e6db74>&#34;ReadWriteOnce&#34;</span> ]
+        <span style=color:#66d9ef>storageClassName</span>: <span style=color:#e6db74>&#34;standard&#34;</span>
+        <span style=color:#66d9ef>resources</span>:
+          <span style=color:#66d9ef>requests</span>:
+            <span style=color:#66d9ef>storage</span>: 2Gi
+</code></pre></div><p>Create the StatefulSet we have shown above.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.08.27-rc.0/docs/examples/guides/latest/advanced-use-case/clone-pvc/statefulset/restore-statefulset.yaml
+service/re-headless created
+statefulset.apps/restore-demo created
+</code></pre></div><p>Now, wait for the pod of the StatefulSet to go into the <code>Running</code> state.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get pod -n demo
+NAME             READY   STATUS    RESTARTS   AGE
+restore-demo-0   1/1     Running   <span style=color:#ae81ff>0</span>          34s
+restore-demo-1   1/1     Running   <span style=color:#ae81ff>0</span>          31s
+restore-demo-2   1/1     Running   <span style=color:#ae81ff>0</span>          26s
+</code></pre></div><p>Verify that the backed up data has been restored in <code>/restore/data</code> and <code>/restore/config</code> directory using the following command,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -n demo restore-demo-0 -- cat /restore/data/data.txt
+stash-demo-0
+$ kubectl exec -n demo restore-demo-0 -- cat /restore/config/config.cfg
+stash-demo-0
+$ kubectl exec -n demo restore-demo-1 -- cat /restore/data/data.txt
+stash-demo-1
+$ kubectl exec -n demo restore-demo-1 -- cat /restore/config/config.cfg
+stash-demo-1
+$ kubectl exec -n demo restore-demo-2 -- cat /restore/data/data.txt
+stash-demo-2
+$ kubectl exec -n demo restore-demo-2 -- cat /restore/config/config.cfg
+stash-demo-2
+</code></pre></div><h2 id=cleanup>Cleanup</h2><p>To clean up the Kubernetes resources created by this tutorial, run:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml>kubectl delete -n demo deployment stash-demo
+kubectl delete -n demo deployment restore-demo
+kubectl delete -n demo statefulset stash-demo
+kubectl delete -n demo statefulset restore-demo
+kubectl delete -n demo backupconfiguration deployment-backup
+kubectl delete -n demo backupconfiguration ss-backup
+kubectl delete -n demo restoresession restore-deployment
+kubectl delete -n demo restoresession restore-statefulset
+kubectl delete -n demo repository gcs-repo
+kubectl delete -n demo secret gcs-secret
+kubectl delete -n demo pvc --all
+</code></pre></div></div></div><div class="column is-2"><div class=right-sidebar-area><div class=search-area><form action=#><input id=acSearch type=text placeholder=Search...>
+<button class=search-button>
+<i class="fa fa-search" aria-hidden=true></i></button></form></div><div class=tbl-of-contents><h4>What's on this Page</h4><nav id=TableOfContents><ul><li><a href=#before-you-begin>Before You Begin</a></li><li><a href=#clone-the-volumes-of-a-deployment>Clone the Volumes of a Deployment</a><ul><li><a href=#backup>Backup</a></li><li><a href=#restore>Restore</a></li></ul></li><li><a href=#clone-the-volumes-of-a-satefulset>Clone the Volumes of a SatefulSet</a><ul><li><a href=#backup-1>Backup</a></li><li><a href=#restore-1>Restore</a></li></ul></li><li><a href=#cleanup>Cleanup</a></li></ul></nav></div></div></div></div></div><script>var kdDropdown=document.querySelector(".dropdown");var kdDropdownBtn=document.querySelector(".dropdown-trigger");kdDropdownBtn.addEventListener("click",function(){kdDropdown.classList.toggle("is-active");})</script></div><div class=overlay-bg></div><div class=sidebar-search-area><div class=search-area-top><h3>Search</h3><div class=searchbar-area><input type=search name=search id=searchbox placeholder=Search...>
+<button onclick=queryPage(1)><i class="fa fa-search" aria-hidden=true></i></button></div><span id=searchbar-script-container style=display:none></span><div class="search-meta-information level"><div class=level-left></div></div></div><div class=search-result-wrapper></div><div class=pagination-area><div class=pagination-list></div></div></div><div class=improve-section-area><div class="container section"><div class=improve-bg-color><div class=columns><div class="column is-6"><a href=https://github.com/stashed/docs/edit/master/docs/guides/latest/advanced-use-case/clone-pvc.md/>Improve This Page</a></div></div></div></div></div><script type=text/javascript>var pageSize=5;var acSearch=document.querySelector("#acSearch");var bodyOverlay=document.querySelector(".overlay-bg");var sidebarSearch=document.querySelector(".sidebar-search-area");acSearch.addEventListener("click",function(){bodyOverlay.style.display="block";sidebarSearch.style.right="0";document.getElementById("searchbox").focus();bodyOverlay.addEventListener("click",function(){bodyOverlay.style.display="none";sidebarSearch.style.right="-80%";});});function encodeQueryData(data){var ret=[];for(var d in data)
+ret.push(encodeURIComponent(d)+'='+encodeURIComponent(data[d]));return ret.join('&');}
+document.querySelector(".searchbar-area input[type=search]").addEventListener("keyup",function(event){event.preventDefault();if(event.keyCode===13){queryPage(1);}});function queryPage(idx){var q=document.getElementById("searchbox").value;var cx="015199383701854252104:0pfqfvpvwyl";var key="AIzaSyBo15AW3hatf4fO8actJUZ_d5qZJpx0rXM";var imgSize="small";var callback="renderResult";var src="https://www.googleapis.com/customsearch/v1?"+encodeQueryData({q:q,cx:cx,key:key,imgSize:imgSize,callback:callback,start:(idx-1)*pageSize+1,num:pageSize,});var newScript=document.createElement("script");newScript.src=src;e=document.getElementById("searchbar-script-container");var child=e.lastElementChild;if(child){e.removeChild(child);}
+e.appendChild(newScript);}
+function renderSearchResultEntry(e){var out='<div class="single-search-result">'+
+'<h3><a href="'+e.link+'">'+e.title+'</a></h3>'+
+'<a href="'+e.link+'">'+e.htmlFormattedUrl+'</a>'+
+'<div class="result-description-wrapper">';if(e.pagemap&&e.pagemap.cse_thumbnail){out+='<div class="result-thumb">'+
+'<img src="'+e.pagemap.cse_thumbnail[0].src+'" alt="" />'+
+'</div>';}
+out+='<div class="result-description">'+
+'<p>'+
+e.snippet+
+'</p>'+
+'</div>'+
+'</div>'+
+'</div>';return out;}
+function renderResult(response){document.querySelector(".search-meta-information .level-left").innerHTML='<div class="level-left">'+
+'<p>'+
+'About <span class="search-count">'+response.searchInformation.formattedTotalResults+'</span> results (<span class="time-count">'+response.searchInformation.formattedSearchTime+' </span>seconds)'+
+'</p>'+
+'</div>';if(!response.items){return;}
+var searchResultWrapper=document.querySelector(".search-result-wrapper");searchResultWrapper.innerHTML="";for(var i=0;i<response.items.length;i++){searchResultWrapper.innerHTML+=renderSearchResultEntry(response.items[i]);}
+var pager='<ul>';if(response.queries.previousPage){var pageIndex=Math.floor(response.queries.previousPage[0].startIndex/pageSize)+1;pager+='<li><a href="#" onclick="queryPage('+pageIndex+')">Previous</a></li>';}
+if(response.queries.request){var pageIndex=Math.floor(response.queries.request[0].startIndex/pageSize)+1;pager+='<li><a href="#" onclick="queryPage('+pageIndex+')" class="is-active">'+pageIndex+'</a></li>';}
+if(response.queries.nextPage){var pageIndex=Math.floor(response.queries.nextPage[0].startIndex/pageSize)+1;pager+='<li><a href="#" onclick="queryPage('+pageIndex+')">Next</a></li>';}
+pager+='</ul>';document.querySelector(".pagination-area .pagination-list").innerHTML=pager;}</script><section></section><section></section><section></section><button class=go-to-top id=goTop>
+<i class="fa fa-angle-up" aria-hidden=true></i></button><footer class=footer-area><div class=footer-top><div class="container section"><div class="columns is-mobile is-multiline"><div class="column is-full-mobile is-one-third-desktop is-one-third-widescreen is-one-third-tablet" data-aos=fade-up><div class=single-footer-widget><div class=footer-logo><a href=https://appscode.com><img src=/assets/images/products/appscode/appscode.png alt=AppsCode class=img></a></div><div class=subscription-form><form action="https://appscode.us17.list-manage.com/subscribe/post?u=feb2bf31969a951e7449048a3&id=82fb19acb9" method=post id=mc-embedded-subscribe-form name=mc-embedded-subscribe-form class=navbar-form target=_blank novalidate role=email role=email><label for=email>Subscribe to Our Newsletter</label><p class=spam-message>No spam, we promise. Your mail address is secure</p><div class="field has-addons"><div class=control><input class=input name=EMAIL id=mce-EMAIL type=email placeholder="Your work email address" required>
+<button id=mc-embedded-subscribe type=submit name=subscribe class=button>
+<i class="fa fa-paper-plane-o" aria-hidden=true></i></button></div></div></form></div><div class=contact-information><h4>Have any Inquiry?</h4><ul class=all-contact-info><li><a href=callto:+1%28650%29241-8486><span><i class="fa fa-phone" aria-hidden=true></i></span>+1(650)241-8486</a></li><li><a href=mailto:support@appscode.com><span><i class="fa fa-envelope-o" aria-hidden=true></i></span>support@appscode.com</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=500><div class=single-footer-widget><div class=footer-menu><h4>Products</h4><ul class=footer-link><li><a href=https://kubedb.com>KubeDB</a></li><li><a href=https://stash.run>Stash</a></li><li><a href=https://kubevault.com>KubeVault</a></li><li><a href>Voyager</a></li><li><a href=https://appscode.com/products/guard/>Guard</a></li><li><a href=https://pharmer.io>Pharmer</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=600><div class=single-footer-widget><div class=footer-menu><h4>Services</h4><ul class=footer-link><li><a href=https://appscode.com/pricing/>Pricing</a></li><li><a href=https://appscode.com/consulting/>Consulting</a></li><li><a href=https://appscode.com/training/>Training</a></li><li><a href=https://appscode.com/support/>Support</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=700><div class=single-footer-widget><div class=footer-menu><h4>Company</h4><ul class=footer-link><li><a href=https://appscode.com/about/>About Us</a></li><li><a href=https://blog.byte.builders>Blog</a></li><li><a href=https://appscode.com/contact/>Contact Us</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=800><div class=single-footer-widget><div class=footer-menu><h4>Legal</h4><ul class=footer-link><li><a href=https://appscode.com/legal/tos/>Terms of Sevice</a></li><li><a href=https://appscode.com/legal/privacy-policy/>Privacy Policy</a></li><li><a href=https://appscode.com/legal/security/>Security</a></li><li><a href=https://appscode.com/legal/sla/>Service Level Agreement</a></li></ul></div></div></div></div></div></div><div class=footer-bottom><div class="container section"><div class=columns><div class="column is-4"><p>© 2020 AppsCode Inc. All rights reserved.</p></div><div class="column is-4 is-mobile has-text-centered"><div class=footer-inline-link><a href=https://appscode.com/legal/privacy-policy/>Privacy Policy</a>
+<a href=https://appscode.com/legal/tos/>Terms of Service</a></div></div><div class="column is-4 is-mobile has-text-right"><div class=socail-link-inline><ul><li><a href=https://twitter.com/AppsCodeHQ><i class="fa fa-twitter" aria-hidden=true></i></a></li><li><a href=https://www.facebook.com/appscode><i class="fa fa-facebook" aria-hidden=true></i></a></li><li><a href=https://www.youtube.com/c/AppsCodeInc><i class="fa fa-youtube" aria-hidden=true></i></a></li></ul></div></div></div></div></div></footer><script src=/assets/js/bulma-carousel.min.js></script><script src=https://unpkg.com/aos@2.3.1/dist/aos.js></script><script src=https://unpkg.com/downloadjs@1.4.7/download.min.js></script><script src=https://unpkg.com/clipboard@2/dist/clipboard.min.js></script><script src=/assets/js/main.js></script><script type=text/javascript>var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/5821e34b18d9f16af02864b7/default';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();</script></body></html>
