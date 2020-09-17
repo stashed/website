@@ -15,7 +15,10 @@
               with AppsCode
             </h1>
             <p>
-              At AppsCode, we focus on helping you achieve the outcomes you need to make your business successful. Our Support plans are designed to give you the right mix of tools and access to expertise so that you can be successful with AppsCode products while optimizing performance, managing risk, and keeping costs under control.
+              At AppsCode, we focus on helping you achieve the outcomes you need to make your business successful. Our
+              Support plans are designed to give you the right mix of tools and access to expertise so that you can be
+              successful with AppsCode products while optimizing performance, managing risk, and keeping costs under
+              control.
             </p>
             <br />
             <p>
@@ -27,11 +30,7 @@
       </div>
       <div class="column is-6">
         <div class="hero-area-img" data-aos="fade-up" data-aos-duration="1000">
-          <img
-            src="/assets/images/support-page/support-img.png"
-            alt=""
-            class="img"
-          />
+          <img src="/assets/images/support-page/support-img.png" alt="" class="img" />
         </div>
       </div>
     </div>
@@ -57,18 +56,35 @@
         <div class="single-cta community has-text-centered">
           <h3>Stash Community</h3>
           <p>Open source Stash Free for Commercial and Non-commercial usage</p>
-         <div class="bottom-content">
-          <a href="/docs/latest/setup/install/community" class="button ac-button is-secondary">Install Now!</a>
-         </div>
+          <div class="bottom-content">
+            <a href="/docs/latest/setup/install/community" class="button ac-button is-secondary">Install Now!</a>
+            <!-- plan title start  -->
+            <div class="plan-title">
+              <ul>
+                <li>community</li>
+              </ul>
+            </div>
+            <!-- plan title end -->
+          </div>
         </div>
         <!-- single cta end -->
         <!-- single cta start  -->
         <div class="single-cta enterprise has-text-centered">
           <h3>Stash Enterprise</h3>
           <p>Open Core Stash for production Enterprise workloads</p>
-          <div class="bottom-content">  
+          <div class="bottom-content">
             <a href="/docs/latest/setup/install/enterprise" class="is-trial">Try for Free!</a>
-          <a href="{{ $.Site.Params.domain_appscode }}/contact/" class="button ac-button is-secondary">Contact Us</a>
+            <a href="{{ $.Site.Params.domain_appscode }}/contact/" class="button ac-button is-secondary">Contact Us</a>
+            <!-- plan title start  -->
+            <div class="plan-title enterprise">
+              <ul>
+                <li>Indie</li>
+                <li>Staging</li>
+                <li>Prod</li>
+                <li>Oem</li>
+              </ul>
+            </div>
+            <!-- plan title end -->
           </div>
         </div>
         <!-- single cta end -->
@@ -79,213 +95,171 @@
 
     <!-- features table start  -->
     <div class="features-plan-area mt-30">
+      
       <!-- single features start  -->
       <div class="single-features-area">
-        <div class="ac-table-container table-container">
-          <table class="table ac-features-table is-fullwidth">
-            <thead>
-              <tr>
-                <th>Features</th>
-                <!-- <th></th>
-                <th></th> -->
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Backup & Restore Workload Data<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Deployment, DaemonSet, StatefulSet, ReplicaSet, ReplicationController, OpenShift DeploymentConfig"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Backup & Restore Stand-alone Volume (PVC)<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="PersistentVolumeClaim, PersistentVolume"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Schedule Backup, Instant Backup<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Schedule through cron expression or trigger instant backup using Stash Kubernetes plugin"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Pause Backup<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="No new backup when paused"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Backup & Restore subset of files<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Only backup/restore the files that matches the provided patterns"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Cleanup old snapshots automatically<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Cleanup old snapshots according to different retention policies"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Encryption, Deduplication (send only diff)<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Encrypt backed up data with AES-256. Stash only sends the changes since last backup"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td><a href="https://kubernetes.io/docs/concepts/storage/volume-snapshots/">CSI Driver Integration</a><span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="VolumeSnapshot for Kubernetes workloads. Supported for Kubernetes v1.17.0+"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Prometheus Metrics<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Rich backup metrics, restore metrics and Stash operator metrics."><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Security<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Built-in support for RBAC, PSP and Network Policy"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>CLI<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="kubectl plugin (for Kubernetes 1.12+)"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Extensibility and Customizability<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Write addons for bespoke applications and customize currently supported workloads"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Hooks<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Execute httpGet, httpPost, tcpSocket and exec hooks before and after of backup or restore process."><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Cloud Storage as Backend<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Stores backup data in AWS S3, Minio, Rook, GCS, Azure, OpenStack Swift, Backblaze B2 and Rest Server"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>On-prem Storage as Backend<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Stores backup data in any locally mounted Kubernetes Volumes such as NFS, etc."><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span><img src="/assets/images/icon/error-icon.svg" alt="error-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Backup & Restore databases<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="PostgreSQL, MySQL, MongoDB, Elasticsearch, Redis, MariaDB, Percona XtraDB"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span><img src="/assets/images/icon/error-icon.svg" alt="error-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Auto Backup<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Share backup configuration across workloads using templates. Enable backup for a target application via annotation"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span><img src="/assets/images/icon/error-icon.svg" alt="error-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Batch Backup & Batch Restore<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Backup and restore co-related applications (eg, WordPress server and its database) together"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span><img src="/assets/images/icon/error-icon.svg" alt="error-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Point-In-Time Recovery (PITR)<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Restore a set of files from a time in the past"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span><img src="/assets/images/icon/error-icon.svg" alt="error-icon"></span></td>
-                <td>Planned</td>
-              </tr>
-            </tbody>
-          </table>
+
+        <!-- single features start  -->
+        <div class="single-features title">
+          <div class="features-name">Recommended For</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community">
+              For Open Source Free Use
+            </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan">For Indie Develpers or Smaill Shops</div>
+              <div class="e-plan">For Pre-production Clusters</div>
+              <div class="e-plan">For production Cluster</div>
+              <div class="e-plan">Bundle Stash with customer apps</div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
         </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name"><a href="#">Link type data</a><span
+              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
+              data-tooltip="Deployment, DaemonSet, StatefulSet, ReplicaSet, ReplicationController, OpenShift DeploymentConfig"><img
+                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                  alt="check-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan">Unlimited</div>
+              <div class="e-plan">Unlimited</div>
+              <div class="e-plan">Unlimited</div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">Allowed # of Kubernetes Cluster For <span
+              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
+              data-tooltip="Deployment, DaemonSet, StatefulSet, ReplicaSet, ReplicationController, OpenShift DeploymentConfig"><img
+                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                  alt="check-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/error-icon.svg"
+                    alt="error-icon"></span></div>
+              <div class="e-plan">Unlimited</div>
+              <div class="e-plan">Unlimited</div>
+              <div class="e-plan">Unlimited</div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">Demo data</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community">
+              <span class="t-icon"><img src="/assets/images/icon/error-icon.svg"
+                alt="error-icon"></span>
+            </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan">Demo content</div>
+              <div class="e-plan">24/5</div>
+              <div class="e-plan">N/A</div>
+              <div class="e-plan">N/A</div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name"><a href="#">Link type data</a><span
+              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
+              data-tooltip="Deployment, DaemonSet, StatefulSet, ReplicaSet, ReplicationController, OpenShift DeploymentConfig"><img
+                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                  alt="check-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan">Unlimited</div>
+              <div class="e-plan">Unlimited</div>
+              <div class="e-plan">Unlimited</div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">Allowed # of Kubernetes Cluster For <span
+              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
+              data-tooltip="Deployment, DaemonSet, StatefulSet, ReplicaSet, ReplicationController, OpenShift DeploymentConfig"><img
+                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span>
+          </div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                  alt="check-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/error-icon.svg"
+                    alt="error-icon"></span></div>
+              <div class="e-plan">Unlimited</div>
+              <div class="e-plan">Unlimited</div>
+              <div class="e-plan">Unlimited</div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
       </div>
       <!-- single features end  -->
-
-      <!-- single features start  -->
-      <div class="single-features-area">
-        <div class="ac-table-container table-container">
-          <table class="table ac-features-table is-fullwidth">
-            <thead>
-              <tr>
-                <th>Support Plans</th>
-                <!-- <th></th>
-                <th></th> -->
-              </tr>
-            </thead>
-            <tbody>
-
-              <tr>
-                <td>Response Times<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="We will make every reasonable effort to respond to your initial request within the corresponding timeframes"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td>Best effort</td>
-                <td><span>
-                    General guidance: <br />
-                    < 48 business hours  <br />
-                    <br />
-                    System impaired:  <br />
-                    < 24 business hours <br />
-                    <br />
-                    Production system impaired: <br />
-                    < 4 hours
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td>Support Coverage<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="Business hours are generally defined as 9:00 AM to 6:00 PM in the customer country, excluding holidays and weekends. These times may vary in countries with multiple time zones."><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td>N/A</td>
-                <td>24x7x365</td>
-              </tr>
-              <tr>
-                <td>Emergency patches</td>
-                <td><span><img src="/assets/images/icon/error-icon.svg" alt="error-icon"></span></td>
-                <td>Yes<br>(as required)</td>
-              </tr>
-              <tr>
-                <td>Incident Tickets (with SLA coverage)</td>
-                <td><span><img src="/assets/images/icon/error-icon.svg" alt="error-icon"></span></td>
-                <td>Unlimited</td>
-              </tr>
-              <tr>
-                <td>Contacts for Ticketing</td>
-                <td><span><img src="/assets/images/icon/error-icon.svg" alt="error-icon"></span></td>
-                <td>5</td>
-              </tr>
-              <tr>
-                <td>Community Support</td>
-                <td>Included<br>(Public Slack & GitHub issues)</td>
-                <td>Included<br>(Public Slack & GitHub issues)</td>
-              </tr>
-              <tr>
-                <td>Remote Hands (Debug via Zoom)<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="We are able to accomodate a different remote desktop software if your organization provides it. Unused hours don't accrue over a month"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span><img src="/assets/images/icon/error-icon.svg" alt="error-icon"></span></td>
-                <td>Yes<br>(First month 2 hrs FREE,<br>addt’l charged at $200/hr)</td>
-              </tr>
-              <tr>
-                <td>Production Runbook</td>
-                <td><span><img src="/assets/images/icon/error-icon.svg" alt="error-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Dedicated Private chat (via Discord)<span class="info-icon tooltip is-tooltip-primary is-tooltip-multiline" data-tooltip="We are able to accomodate a different chat software, if your organization provides it"><img src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></td>
-                <td><span><img src="/assets/images/icon/error-icon.svg" alt="error-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span></td>
-              </tr>
-              <tr>
-                <td>Phone support</td>
-                <td><span><img src="/assets/images/icon/error-icon.svg" alt="error-icon"></span></td>
-                <td><span class="t-icon"><img src="/assets/images/icon/check-icon.svg" alt="check-icon"></span><span class="t-icon">☎</span></td>
-              </tr>
-              <tr>
-                <td>Architectural Guidance</td>
-                <td><span><img src="/assets/images/icon/error-icon.svg" alt="error-icon"></span></td>
-                <td>Consultative review and<br>guidance based on your applications</td>
-              </tr>
-              <tr>
-                <td>Professional Services</td>
-                <td><span><img src="/assets/images/icon/error-icon.svg" alt="error-icon"></span></td>
-                <td>Additional fees</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <!-- single features end  -->
-
+     
       <!-- short description start  -->
       <div class="pricing-description mt-30">
         <ul>
           <li>
-            <span>* </span>Each License applies to 1 Kubernetes cluster for 1 year. There are no limits on how many nodes you can have per Kubernetes cluster.
+            <span>* </span>Each License applies to 1 Kubernetes cluster for 1 year. There are no limits on how many
+            nodes you can have per Kubernetes cluster.
           </li>
           <li>
             <span>☎ </span>Additional conditions apply. Please contact us for further details.
@@ -399,7 +373,7 @@
           </div>
           <!-- single accordion item end  -->
         </div>
-      
+
       </div>
     </div>
   </div>
