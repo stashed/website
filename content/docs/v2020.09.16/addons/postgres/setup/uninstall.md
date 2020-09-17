@@ -50,6 +50,8 @@ info:
   version: v2020.09.16
 ---
 
+{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2020.09.16/setup/install/enterprise) to try this feature." >}}
+
 # Uninstall PostgreSQL addon for Stash
 
 In order to uninstall PostgreSQL addon, follow the instruction given below.

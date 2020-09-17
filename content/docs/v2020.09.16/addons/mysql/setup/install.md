@@ -50,6 +50,8 @@ info:
   version: v2020.09.16
 ---
 
+{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2020.09.16/setup/install/enterprise) to try this feature." >}}
+
 # Install MySQL Addon for Stash
 
 Stash uses `Function-Task` model to backup databases. This `Function-Task` model enables Stash to extend its capability via addons. In order to backup MySQL databases, you have to install MySQL addon (`stash-mysql`) for Stash. This addon creates necessary `Function` and `Task` definitions to backup/restore MySQL database.
