@@ -50,7 +50,7 @@ namespace/demo created
   <span style=color:#66d9ef>name</span>: sample-postgres
   <span style=color:#66d9ef>namespace</span>: demo
 <span style=color:#66d9ef>spec</span>:
-  <span style=color:#66d9ef>version</span>: <span style=color:#e6db74>&#34;10.6-v2&#34;</span>
+  <span style=color:#66d9ef>version</span>: <span style=color:#e6db74>&#34;10.14&#34;</span>
   <span style=color:#66d9ef>storageType</span>: Durable
   <span style=color:#66d9ef>storage</span>:
     <span style=color:#66d9ef>storageClassName</span>: <span style=color:#e6db74>&#34;standard&#34;</span>
@@ -64,7 +64,7 @@ namespace/demo created
 postgres.kubedb.com/sample-postgres created
 </code></pre><p>KubeDB will deploy a PostgreSQL database according to the above specification. It will also create the necessary secrets and services to access the database.</p><p>Let&rsquo;s check if the database is ready to use,</p><pre><code class=language-console data-lang=console>$ kubectl get pg -n demo sample-postgres
 NAME              VERSION      STATUS    AGE
-sample-postgres   10.6-v2      Running   3m11s
+sample-postgres   10.14        Running   3m11s
 </code></pre><p>The database is <code>Running</code>. Verify that KubeDB has created a Secret and a Service for this database using the following commands,</p><pre><code class=language-console data-lang=console>$ kubectl get secret -n demo -l=kubedb.com/name=sample-postgres
 NAME                   TYPE     DATA   AGE
 sample-postgres-auth   Opaque   2      27h
@@ -87,7 +87,7 @@ sample-postgres   20m
     <span style=color:#66d9ef>app.kubernetes.io/instance</span>: sample-postgres
     <span style=color:#66d9ef>app.kubernetes.io/managed-by</span>: kubedb.com
     <span style=color:#66d9ef>app.kubernetes.io/name</span>: postgres
-    <span style=color:#66d9ef>app.kubernetes.io/version</span>: <span style=color:#ae81ff>10.6</span>-v2
+    <span style=color:#66d9ef>app.kubernetes.io/version</span>: <span style=color:#ae81ff>10.14</span>
     <span style=color:#66d9ef>kubedb.com/kind</span>: Postgres
     <span style=color:#66d9ef>kubedb.com/name</span>: sample-postgres
   <span style=color:#66d9ef>name</span>: sample-postgres
@@ -110,7 +110,7 @@ sample-postgres   20m
       <span style=color:#66d9ef>from</span>: POSTGRES_PASSWORD
       <span style=color:#66d9ef>to</span>: password
   <span style=color:#66d9ef>type</span>: kubedb.com/postgres
-  <span style=color:#66d9ef>version</span>: <span style=color:#e6db74>&#34;10.6&#34;</span>
+  <span style=color:#66d9ef>version</span>: <span style=color:#e6db74>&#34;10.14&#34;</span>
 </code></pre></div><p>Stash uses the <code>AppBinding</code> crd to connect with the target database. It requires the following two fields to set in AppBinding&rsquo;s <code>Spec</code> section.</p><ul><li><code>spec.clientConfig.service.name</code> specifies the name of the service that connects to the database.</li><li><code>spec.secret</code> specifies the name of the secret that holds necessary credentials to access the database.</li><li><code>spec.type</code> specifies the types of the app that this AppBinding is pointing to. KubeDB generated AppBinding follows the following format: <code>&lt;app group>/&lt;app resource type></code>.</li></ul><p><strong>Creating AppBinding Manually:</strong></p><p>If you deploy PostgreSQL database without KubeDB, you have to create the AppBinding crd manually in the same namespace as the service and secret of the database.</p><p>The following YAML shows a minimal AppBinding specification that you have to create if you deploy PostgreSQL database without KubeDB.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: appcatalog.appscode.com/v1alpha1
 <span style=color:#66d9ef>kind</span>: AppBinding
 <span style=color:#66d9ef>metadata</span>:
@@ -134,7 +134,7 @@ sample-postgres-0   1/1     Running   0          8m58s
 </code></pre><p>Now, let&rsquo;s exec into the pod and create a table,</p><pre><code class=language-console data-lang=console>$ kubectl exec -it -n demo sample-postgres-0 sh
 # login as &quot;postgres&quot; superuser.
 / # psql -U postgres
-psql (10.6)
+psql (10.14)
 Type &quot;help&quot; for help.
 
 # list available databases
@@ -199,7 +199,7 @@ repository.stash.appscode.com/gcs-repo created
 <span style=color:#66d9ef>spec</span>:
   <span style=color:#66d9ef>schedule</span>: <span style=color:#e6db74>&#34;*/5 * * * *&#34;</span>
   <span style=color:#66d9ef>task</span>:
-    <span style=color:#66d9ef>name</span>: postgres-backup<span style=color:#ae81ff>-10.6</span>
+    <span style=color:#66d9ef>name</span>: postgres-backup<span style=color:#ae81ff>-10.14.0</span>
   <span style=color:#66d9ef>repository</span>:
     <span style=color:#66d9ef>name</span>: gcs-repo
   <span style=color:#66d9ef>target</span>:
@@ -228,14 +228,14 @@ gcs-repo   true        3.441 KiB   1                31s                      17m
 backupconfiguration.stash.appscode.com/sample-postgres-backup patched
 </code></pre><p>Now, wait for a moment. Stash will pause the BackupConfiguration. Verify that the BackupConfiguration has been paused,</p><pre><code class=language-console data-lang=console>$ kubectl get backupconfiguration -n demo sample-postgres-backup
 NAME                    TASK                        SCHEDULE      PAUSED   AGE
-sample-postgres-backup  postgres-backup-10.6        */5 * * * *   true     26m
+sample-postgres-backup  postgres-backup-10.14.0     */5 * * * *   true     26m
 </code></pre><p>Notice the <code>PAUSED</code> column. Value <code>true</code> for this field means that the BackupConfiguration has been paused.</p><p><strong>Deploy Restored Database:</strong></p><p>Now, we have to deploy the restored database similarly as we have deployed the original <code>sample-psotgres</code> database. However, this time there will be the following differences:</p><ul><li>We have to use the same secret that was used in the original database. We are going to specify it using <code>spec.databaseSecret</code> field.</li><li>We have to specify <code>spec.init</code> section to tell KubeDB that we are going to use Stash to initialize this database from backup. KubeDB will keep the database phase to <code>Initializing</code> until Stash finishes its initialization.</li></ul><p>Below is the YAML for <code>Postgres</code> crd we are going deploy to initialize from backup,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#66d9ef>apiVersion</span>: kubedb.com/v1alpha1
 <span style=color:#66d9ef>kind</span>: Postgres
 <span style=color:#66d9ef>metadata</span>:
   <span style=color:#66d9ef>name</span>: restored-postgres
   <span style=color:#66d9ef>namespace</span>: demo
 <span style=color:#66d9ef>spec</span>:
-  <span style=color:#66d9ef>version</span>: <span style=color:#e6db74>&#34;10.6-v2&#34;</span>
+  <span style=color:#66d9ef>version</span>: <span style=color:#e6db74>&#34;10.14&#34;</span>
   <span style=color:#66d9ef>storageType</span>: Durable
   <span style=color:#66d9ef>databaseSecret</span>:
     <span style=color:#66d9ef>secretName</span>: sample-postgres-auth <span style=color:#75715e># use same secret as original the database</span>
@@ -254,7 +254,7 @@ sample-postgres-backup  postgres-backup-10.6        */5 * * * *   true     26m
 postgres.kubedb.com/restored-postgres created
 </code></pre><p>If you check the database status, you will see it is stuck in <code>Initializing</code> state.</p><pre><code class=language-console data-lang=console>$ kubectl get pg -n demo restored-postgres
 NAME                VERSION      STATUS         AGE
-restored-postgres   10.6-v2      Initializing   3m21s
+restored-postgres   10.14        Initializing   3m21s
 </code></pre><p><strong>Create RestoreSession:</strong></p><p>Now, we need to create a <code>RestoreSession</code> crd pointing to the AppBinding for this restored database.</p><p>Check AppBinding has been created for the <code>restored-postgres</code> database using the following command,</p><pre><code class=language-console data-lang=console>$ kubectl get appbindings -n demo restored-postgres
 NAME                AGE
 restored-postgres   9m59s
@@ -267,7 +267,7 @@ restored-postgres   9m59s
     <span style=color:#66d9ef>kubedb.com/kind</span>: Postgres <span style=color:#75715e># this label is mandatory if you are using KubeDB to deploy the database.</span>
 <span style=color:#66d9ef>spec</span>:
   <span style=color:#66d9ef>task</span>:
-    <span style=color:#66d9ef>name</span>: postgres-restore<span style=color:#ae81ff>-10.6</span>
+    <span style=color:#66d9ef>name</span>: postgres-restore<span style=color:#ae81ff>-10.14.0</span>
   <span style=color:#66d9ef>repository</span>:
     <span style=color:#66d9ef>name</span>: gcs-repo
   <span style=color:#66d9ef>target</span>:
@@ -286,14 +286,14 @@ NAME                      REPOSITORY-NAME   PHASE       AGE
 sample-postgres-restore   gcs-repo          Succeeded   2m4s
 </code></pre><p>So, we can see from the output of the above command that the restore process succeeded.</p><p><strong>Verify Restored Data:</strong></p><p>In this section, we are going to verify that the desired data has been restored successfully. We are going to connect to the database and check whether the table we had created in the original database is restored or not.</p><p>At first, check if the database has gone into <code>Running</code> state by the following command,</p><pre><code class=language-console data-lang=console>$ kubectl get pg -n demo restored-postgres
 NAME                VERSION      STATUS    AGE
-restored-postgres   10.6-v2      Running   2m16s
+restored-postgres   10.14        Running   2m16s
 </code></pre><p>Now, find out the database pod by the following command,</p><pre><code class=language-console data-lang=console>$ kubectl get pods -n demo --selector=&quot;kubedb.com/name=restored-postgres&quot;
 NAME                  READY   STATUS    RESTARTS   AGE
 restored-postgres-0   1/1     Running   0          3m15s
 </code></pre><p>Now, exec into the database pod and list available tables,</p><pre><code class=language-console data-lang=console>$ kubectl exec -it -n demo restored-postgres-0 sh
 # login as &quot;postgres&quot; superuser.
 / # psql -U postgres
-psql (10.6)
+psql (10.14)
 Type &quot;help&quot; for help.
 
 # list available databases
