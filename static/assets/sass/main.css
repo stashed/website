@@ -4260,8 +4260,8 @@ body.stash .documentation-menu {
 }
 
 .features-cta-area .features-plan-cta-wrapper .cta-left {
-  width: 35%;
-  padding: 60px 20px;
+  width: 30%;
+  padding: 72px 20px;
 }
 
 .features-cta-area .features-plan-cta-wrapper .cta-left.fp-cta-bg {
@@ -4287,7 +4287,7 @@ body.stash .documentation-menu {
 }
 
 .features-cta-area .features-plan-cta-wrapper .cta-right {
-  width: 65%;
+  width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4302,11 +4302,11 @@ body.stash .documentation-menu {
 }
 
 .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta.community {
-  width: 40%;
+  width: 30%;
 }
 
 .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta.enterprise {
-  width: 60%;
+  width: 70%;
 }
 
 .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta.enterprise .button.ac-button.is-secondary {
@@ -4330,11 +4330,16 @@ body.stash .documentation-menu {
 .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta a.is-trial {
   font-size: 12px;
   color: #ff8000;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   line-height: 1;
   font-weight: 500;
   display: block;
   font-family: roboto;
+  text-decoration: underline;
+}
+
+.features-cta-area .features-plan-cta-wrapper .cta-right .single-cta a.is-trial:hover {
+  color: #4d4dcb;
 }
 
 .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta .bottom-content {
@@ -4354,7 +4359,7 @@ body.stash .documentation-menu {
 }
 
 .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta .plan-title.enterprise ul li:nth-child(2) {
-  background-color: #fef5e5;
+  background-color: rgba(0, 114, 249, 0.1);
 }
 
 .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta .plan-title.enterprise ul li:nth-child(3) {
@@ -4393,8 +4398,8 @@ body.stash .documentation-menu {
 .features-plan-area .single-features-area .single-features {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 35% 65%;
-      grid-template-columns: 35% 65%;
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
 }
 
 .features-plan-area .single-features-area .single-features:nth-child(odd) {
@@ -4403,27 +4408,27 @@ body.stash .documentation-menu {
 
 .features-plan-area .single-features-area .single-features:nth-child(odd) .features-plan.community {
   background-color: #edf9f3 !important;
-  color: #00a651;
+  color: #32325d;
+}
+
+.features-plan-area .single-features-area .single-features:nth-child(odd) .e-plan {
+  color: #32325d;
 }
 
 .features-plan-area .single-features-area .single-features:nth-child(odd) .e-plan:nth-child(1) {
   background-color: rgba(252, 96, 17, 0.1);
-  color: #fc6011;
 }
 
 .features-plan-area .single-features-area .single-features:nth-child(odd) .e-plan:nth-child(2) {
-  background-color: rgba(249, 154, 0, 0.1);
-  color: #f99a00;
+  background-color: rgba(0, 114, 249, 0.1);
 }
 
 .features-plan-area .single-features-area .single-features:nth-child(odd) .e-plan:nth-child(3) {
   background-color: rgba(63, 25, 173, 0.1);
-  color: #3f19ad;
 }
 
 .features-plan-area .single-features-area .single-features:nth-child(odd) .e-plan:nth-child(4) {
   background-color: rgba(25, 113, 189, 0.1);
-  color: #1971bd;
 }
 
 .features-plan-area .single-features-area .single-features:nth-child(even) {
@@ -4432,31 +4437,56 @@ body.stash .documentation-menu {
 
 .features-plan-area .single-features-area .single-features:nth-child(even) .features-plan.community {
   background-color: #e6f3ef !important;
-  color: #00a651;
+  color: #32325d;
+}
+
+.features-plan-area .single-features-area .single-features:nth-child(even) .e-plan {
+  color: #32325d;
 }
 
 .features-plan-area .single-features-area .single-features:nth-child(even) .e-plan:nth-child(1) {
   background-color: rgba(252, 96, 17, 0.1);
-  color: #fc6011;
 }
 
 .features-plan-area .single-features-area .single-features:nth-child(even) .e-plan:nth-child(2) {
-  background-color: rgba(249, 154, 0, 0.1);
-  color: #f99a00;
+  background-color: rgba(0, 114, 249, 0.1);
 }
 
 .features-plan-area .single-features-area .single-features:nth-child(even) .e-plan:nth-child(3) {
   background-color: rgba(63, 25, 173, 0.1);
-  color: #3f19ad;
 }
 
 .features-plan-area .single-features-area .single-features:nth-child(even) .e-plan:nth-child(4) {
   background-color: rgba(25, 113, 189, 0.1);
-  color: #1971bd;
 }
 
 .features-plan-area .single-features-area .single-features.title {
   margin-bottom: 0;
+}
+
+.features-plan-area .single-features-area .single-features.title .features-plan.community {
+  background-color: #edf9f3 !important;
+  color: #00a651;
+}
+
+.features-plan-area .single-features-area .single-features.title .e-plan:nth-child(1) {
+  background-color: rgba(252, 96, 17, 0.1);
+  color: #fc6011;
+}
+
+.features-plan-area .single-features-area .single-features.title .e-plan:nth-child(2) {
+  background-color: rgba(0, 114, 249, 0.1);
+  color: #0072f9;
+}
+
+.features-plan-area .single-features-area .single-features.title .e-plan:nth-child(3) {
+  background-color: rgba(63, 25, 173, 0.1);
+  color: #3f19ad;
+}
+
+.features-plan-area .single-features-area .single-features.title .e-plan:nth-child(4) {
+  background-color: rgba(25, 113, 189, 0.1);
+  color: #1971bd;
 }
 
 .features-plan-area .single-features-area .single-features.title .features-name {
@@ -4495,8 +4525,8 @@ body.stash .documentation-menu {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-grid-columns: 40% 60%;
-      grid-template-columns: 40% 60%;
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
 }
 
 .features-plan-area .single-features-area .single-features .features-plan-wrapper .features-plan {
