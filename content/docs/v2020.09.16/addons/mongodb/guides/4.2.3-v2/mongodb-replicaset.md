@@ -25,14 +25,14 @@ info:
   - 7.3.2-v2
   enterprise: v0.11.0
   mongodb:
-  - 3.4.1-v2
-  - 3.4.2-v2
-  - 3.6.1-v2
+  - 3.4.17-v2
+  - 3.4.22-v2
+  - 3.6.13-v2
   - 3.6.8-v2
   - 4.0.11-v2
   - 4.0.3-v2
   - 4.0.5-v2
-  - 4.1.1-v2
+  - 4.1.13-v2
   - 4.1.4-v2
   - 4.1.7-v2
   - 4.2.3-v2
@@ -399,7 +399,7 @@ metadata:
 spec:
   schedule: "*/5 * * * *"
   task:
-    name: mongodb-backup-4.2.3
+    name: mongodb-backup-{{< param "info.subproject_version" >}}
   repository:
     name: gcs-repo-replicaset
   target:
@@ -487,7 +487,7 @@ Now, wait for a moment. Stash will pause the BackupConfiguration. Verify that th
 ```console
 $ kubectl get backupconfiguration -n demo sample-mgo-rs-backup
 NAME                  TASK                       SCHEDULE      PAUSED   AGE
-sample-mgo-rs-backup  mongodb-backup-4.2.3      */5 * * * *   true     26m
+sample-mgo-rs-backup  mongodb-backup-{{< param "info.subproject_version" >}}      */5 * * * *   true     26m
 ```
 
 Notice the `PAUSED` column. Value `true` for this field means that the BackupConfiguration has been paused.
@@ -574,7 +574,7 @@ metadata:
     kubedb.com/kind: MongoDB
 spec:
   task:
-    name: mongodb-restore-4.2.3
+    name: mongodb-restore-{{< param "info.subproject_version" >}}
   repository:
     name: gcs-repo-replicaset
   target:
@@ -722,7 +722,7 @@ metadata:
 spec:
   schedule: "*/5 * * * *"
   task:
-    name: mongodb-backup-4.2.3
+    name: mongodb-backup-{{< param "info.subproject_version" >}}
   repository:
     name: gcs-repo-custom
   target:
@@ -795,7 +795,7 @@ metadata:
     kubedb.com/kind: MongoDB
 spec:
   task:
-    name: mongodb-restore-4.2.3
+    name: mongodb-restore-{{< param "info.subproject_version" >}}
   repository:
     name: gcs-repo-custom
   target:
