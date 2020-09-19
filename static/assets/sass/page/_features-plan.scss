@@ -33,6 +33,7 @@
     .cta-left {
       width: 30%;
       padding: 72px 20px;
+      height: 266px;
 
       &.fp-cta-bg {
         background-image: url(../images/features-plan/features-plan-cta-bg.svg);
@@ -60,13 +61,14 @@
     .cta-right {
       width: 70%;
       display: flex;
+      min-height: 266px;
 
       .single-cta {
         padding: 20px 20px 140px 20px;
         border-left: 1px solid #eceff4;
         position: relative;
         z-index: 1;
-        min-height: 200px;
+        min-height: 265px;
 
         &.community {
           width: 30%;
@@ -108,7 +110,7 @@
             display: block;
             font-family: roboto;
             text-decoration: underline;
-            &:hover{
+            &:hover {
               color: $primary-color;
             }
           }
@@ -242,6 +244,10 @@
 
       &.title {
         margin-bottom: 0;
+        .features-name {
+          display: flex;
+          align-items: center;
+        }
         .features-plan {
           &.community {
             background-color: #edf9f3 !important;
@@ -283,8 +289,6 @@
 
       .features-name {
         padding: 14px 20px;
-        display: flex;
-        align-items: center;
         font-size: 16px;
         color: #393e46;
 
@@ -297,6 +301,7 @@
           &.tooltip {
             margin-left: 5px;
             margin-top: 3px;
+            min-width: 16px;
           }
         }
       }
@@ -343,6 +348,9 @@
             span.t-icon {
               height: 26px;
               width: 26px;
+              align-items: center;
+              display: flex;
+              justify-content: center;
             }
           }
         }
@@ -440,14 +448,12 @@ Responsive Classes
   }
 
   .features-cta-area {
+    overflow-y: auto;
     .features-plan-cta-wrapper {
-      align-items: flex-start;
-      flex-direction: column;
       position: static;
-
+      min-width: 1344px;
       .cta-left {
-        width: 100%;
-        padding: 20px 20px;
+        width: 30%;
 
         h2 {
           font-size: 26px;
@@ -456,13 +462,11 @@ Responsive Classes
       }
 
       .cta-right {
-        width: 100%;
-        flex-direction: column;
+        width: 70%;
 
         .single-cta {
           width: 100%;
           padding: 20px 20px 108px 20px;
-          min-height: 240px;
 
           h3 {
             font-size: 20px;
@@ -471,7 +475,9 @@ Responsive Classes
         }
       }
     }
-
+    .features-plan-area{
+      min-width: 1344px;
+    }
     .single-features-area {
       margin-bottom: 10px;
     }
@@ -537,14 +543,12 @@ Responsive Classes
   }
 
   .features-cta-area {
+    overflow-y: auto;
     .features-plan-cta-wrapper {
-      align-items: flex-start;
-      flex-direction: column;
       position: static;
-
+      min-width: 1344px;
       .cta-left {
         width: 100%;
-        padding: 50px 20px;
 
         h2 {
           font-size: 26px;
@@ -554,7 +558,6 @@ Responsive Classes
 
       .cta-right {
         width: 100%;
-        flex-direction: column;
 
         .single-cta {
           width: 100%;
@@ -573,7 +576,9 @@ Responsive Classes
       margin-bottom: 10px;
     }
   }
-
+  .features-plan-area{
+    min-width: 1344px;
+  }
   .assistance-area,
   .features-plan-faq-area {
     .section-title {
@@ -600,14 +605,15 @@ Responsive Classes
   }
 
   .features-cta-area {
+    overflow-y: auto;
     .features-plan-cta-wrapper {
-      align-items: flex-start;
-      flex-direction: column;
+      min-width: 1344px;
       position: static;
 
       .cta-left {
-        width: 100%;
+        width: 30%;
         padding: 50px 20px;
+        height: 266px;
 
         h2 {
           font-size: 26px;
@@ -616,7 +622,7 @@ Responsive Classes
       }
 
       .cta-right {
-        width: 100%;
+        width: 70%;
 
         // flex-direction: column;
         .single-cta {
@@ -634,6 +640,9 @@ Responsive Classes
 
     .single-features-area {
       margin-bottom: 10px;
+    }
+    .features-plan-area{
+      min-width: 1344px;
     }
   }
 }
