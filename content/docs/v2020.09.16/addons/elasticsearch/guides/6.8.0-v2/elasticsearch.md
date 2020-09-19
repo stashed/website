@@ -25,14 +25,14 @@ info:
   - 7.3.2-v2
   enterprise: v0.11.0
   mongodb:
-  - 3.4.1-v2
-  - 3.4.2-v2
-  - 3.6.1-v2
+  - 3.4.17-v2
+  - 3.4.22-v2
+  - 3.6.13-v2
   - 3.6.8-v2
   - 4.0.11-v2
   - 4.0.3-v2
   - 4.0.5-v2
-  - 4.1.1-v2
+  - 4.1.13-v2
   - 4.1.4-v2
   - 4.1.7-v2
   - 4.2.3-v2
@@ -346,7 +346,7 @@ metadata:
 spec:
   schedule: "*/5 * * * *"
   task:
-    name: elasticsearch-backup-6.8.0
+    name: elasticsearch-backup-{{< param "info.subproject_version" >}}
   repository:
     name: gcs-repo
   target:
@@ -445,7 +445,7 @@ Now, wait for a moment. Stash will pause the BackupConfiguration. Verify that th
 ```console
 $  kubectl get backupconfiguration -n demo sample-elasticsearch-backup
 NAME                          TASK                           SCHEDULE      PAUSED   AGE
-sample-elasticsearch-backup   elasticsearch-backup-6.8.0     */5 * * * *   true     3m8s
+sample-elasticsearch-backup   elasticsearch-backup-{{< param "info.subproject_version" >}}     */5 * * * *   true     3m8s
 ```
 
 Notice the `PAUSED` column. Value `true` for this field means that the BackupConfiguration has been paused.
@@ -528,7 +528,7 @@ metadata:
     kubedb.com/kind: Elasticsearch # this label is mandatory if you are using KubeDB to deploy the database. Otherwise, Elasticsearch crd will be stuck in `Initializing` phase.
 spec:
   task:
-    name: elasticsearch-restore-6.8.0
+    name: elasticsearch-restore-{{< param "info.subproject_version" >}}
   repository:
     name: gcs-repo
   target:
