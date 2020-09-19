@@ -4262,6 +4262,7 @@ body.stash .documentation-menu {
 .features-cta-area .features-plan-cta-wrapper .cta-left {
   width: 30%;
   padding: 72px 20px;
+  height: 266px;
 }
 
 .features-cta-area .features-plan-cta-wrapper .cta-left.fp-cta-bg {
@@ -4291,6 +4292,7 @@ body.stash .documentation-menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  min-height: 266px;
 }
 
 .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta {
@@ -4298,7 +4300,7 @@ body.stash .documentation-menu {
   border-left: 1px solid #eceff4;
   position: relative;
   z-index: 1;
-  min-height: 200px;
+  min-height: 265px;
 }
 
 .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta.community {
@@ -4464,6 +4466,15 @@ body.stash .documentation-menu {
   margin-bottom: 0;
 }
 
+.features-plan-area .single-features-area .single-features.title .features-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .features-plan-area .single-features-area .single-features.title .features-plan.community {
   background-color: #edf9f3 !important;
   color: #00a651;
@@ -4499,12 +4510,6 @@ body.stash .documentation-menu {
 
 .features-plan-area .single-features-area .single-features .features-name {
   padding: 14px 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   font-size: 16px;
   color: #393e46;
 }
@@ -4517,6 +4522,7 @@ body.stash .documentation-menu {
 .features-plan-area .single-features-area .single-features .features-name .info-icon.tooltip {
   margin-left: 5px;
   margin-top: 3px;
+  min-width: 16px;
 }
 
 .features-plan-area .single-features-area .single-features .features-plan-wrapper {
@@ -4581,6 +4587,15 @@ body.stash .documentation-menu {
 .features-plan-area .single-features-area .single-features .features-plan-wrapper .features-plan .e-plan span.t-icon {
   height: 26px;
   width: 26px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .single-assistance {
@@ -4662,39 +4677,33 @@ Responsive Classes
   .features-cta-area.section-padding-100 {
     padding: 60px 0;
   }
+  .features-cta-area {
+    overflow-y: auto;
+  }
   .features-cta-area .features-plan-cta-wrapper {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
     position: static;
+    min-width: 1344px;
   }
   .features-cta-area .features-plan-cta-wrapper .cta-left {
-    width: 100%;
-    padding: 20px 20px;
+    width: 30%;
   }
   .features-cta-area .features-plan-cta-wrapper .cta-left h2 {
     font-size: 26px;
     margin-bottom: 10px;
   }
   .features-cta-area .features-plan-cta-wrapper .cta-right {
-    width: 100%;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    width: 70%;
   }
   .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta {
     width: 100%;
     padding: 20px 20px 108px 20px;
-    min-height: 240px;
   }
   .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta h3 {
     font-size: 20px;
     margin-bottom: 10px;
+  }
+  .features-cta-area .features-plan-area {
+    min-width: 1344px;
   }
   .features-cta-area .single-features-area {
     margin-bottom: 10px;
@@ -4731,19 +4740,15 @@ Responsive Classes
   .features-cta-area.section-padding-100 {
     padding: 60px 0;
   }
+  .features-cta-area {
+    overflow-y: auto;
+  }
   .features-cta-area .features-plan-cta-wrapper {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
     position: static;
+    min-width: 1344px;
   }
   .features-cta-area .features-plan-cta-wrapper .cta-left {
     width: 100%;
-    padding: 50px 20px;
   }
   .features-cta-area .features-plan-cta-wrapper .cta-left h2 {
     font-size: 26px;
@@ -4751,10 +4756,6 @@ Responsive Classes
   }
   .features-cta-area .features-plan-cta-wrapper .cta-right {
     width: 100%;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
   }
   .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta {
     width: 100%;
@@ -4767,6 +4768,9 @@ Responsive Classes
   }
   .features-cta-area .single-features-area {
     margin-bottom: 10px;
+  }
+  .features-plan-area {
+    min-width: 1344px;
   }
   .assistance-area .section-title h2,
   .features-plan-faq-area .section-title h2 {
@@ -4782,26 +4786,24 @@ Responsive Classes
   .features-plan .hero-area-img img {
     opacity: 1;
   }
+  .features-cta-area {
+    overflow-y: auto;
+  }
   .features-cta-area .features-plan-cta-wrapper {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    min-width: 1344px;
     position: static;
   }
   .features-cta-area .features-plan-cta-wrapper .cta-left {
-    width: 100%;
+    width: 30%;
     padding: 50px 20px;
+    height: 266px;
   }
   .features-cta-area .features-plan-cta-wrapper .cta-left h2 {
     font-size: 26px;
     margin-bottom: 10px;
   }
   .features-cta-area .features-plan-cta-wrapper .cta-right {
-    width: 100%;
+    width: 70%;
   }
   .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta {
     width: 100%;
@@ -4814,6 +4816,9 @@ Responsive Classes
   }
   .features-cta-area .single-features-area {
     margin-bottom: 10px;
+  }
+  .features-cta-area .features-plan-area {
+    min-width: 1344px;
   }
 }
 
