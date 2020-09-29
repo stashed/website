@@ -44,12 +44,12 @@
       "redirects": [
         {
           "source": "/docs/latest/",
-          "destination": "/docs/v2020.09.16/",
+          "destination": "/docs/v2020.09.29/",
           "type": 302
         },
         {
           "source": "/docs/latest/:rest*",
-          "destination": "/docs/v2020.09.16/:rest",
+          "destination": "/docs/v2020.09.29/:rest",
           "type": 302
         }
       ]
