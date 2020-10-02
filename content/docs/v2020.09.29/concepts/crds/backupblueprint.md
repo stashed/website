@@ -93,7 +93,7 @@ spec:
   tempDir:
     medium: "Memory"
     sizeLimit: "1Gi"
-    disableCache: false
+    disableCaching: false
   retentionPolicy:
     name: 'keep-last-5'
     keepLast: 5
