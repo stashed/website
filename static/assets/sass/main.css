@@ -4226,6 +4226,123 @@ body.stash .documentation-menu {
 /*==================================================
                   Theme stash End
   ====================================================*/
+.hero-area.features-plan .image-carousel-wrapper {
+  position: relative;
+  border-radius: 14px;
+  z-index: 1;
+}
+
+.hero-area.features-plan .image-carousel-wrapper:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: calc(100% - 40px);
+  background: #fff;
+  z-index: -1;
+  -webkit-box-shadow: 0px 4px 24px rgba(166, 171, 189, 0.3);
+          box-shadow: 0px 4px 24px rgba(166, 171, 189, 0.3);
+  border-radius: 14px;
+}
+
+.hero-area.features-plan .image-carousel-wrapper .shape-1 {
+  position: absolute;
+  left: -70px;
+  z-index: -1;
+  top: -50px;
+}
+
+.hero-area.features-plan .image-carousel-wrapper .shape-2 {
+  position: absolute;
+  bottom: 0;
+  left: -70px;
+  z-index: -1;
+  -webkit-animation-name: animatation-2;
+          animation-name: animatation-2;
+  -webkit-animation-duration: 6s;
+          animation-duration: 6s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.hero-area.features-plan .image-carousel-wrapper .shape-3 {
+  position: absolute;
+  right: -41px;
+  bottom: 0px;
+  z-index: -1;
+}
+
+.hero-area.features-plan .image-carousel-wrapper .carousel-inner .single-slider-wrapper {
+  padding: 0px 0px 40px;
+}
+
+.hero-area.features-plan .image-carousel-wrapper .carousel-inner .single-slider-wrapper a {
+  display: block;
+}
+
+.hero-area.features-plan .image-carousel-wrapper .carousel-inner .single-slider-wrapper img {
+  border-radius: 14px;
+}
+
+.hero-area.features-plan .image-carousel-wrapper .carousel-inner .slider-navigation-previous,
+.hero-area.features-plan .image-carousel-wrapper .carousel-inner .slider-navigation-next {
+  display: none;
+}
+
+.hero-area.features-plan .image-carousel-wrapper .carousel-inner .slider-pagination {
+  display: block;
+}
+
+.hero-area.features-plan .image-carousel-wrapper .carousel-inner .slider-pagination .slider-page {
+  background-color: #e8e9ea;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  width: 8px;
+  height: 8px;
+  margin: 0 5px;
+}
+
+.hero-area.features-plan .image-carousel-wrapper .carousel-inner .slider-pagination .slider-page:hover {
+  background-color: #4d4dcb;
+}
+
+.hero-area.features-plan .image-carousel-wrapper .carousel-inner .slider-pagination .slider-page.is-active {
+  background-color: #4d4dcb;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+@-webkit-keyframes animatation-2 {
+  0% {
+    left: -70px;
+    bottom: -20px;
+  }
+  25% {
+    left: -50px;
+    bottom: -15px;
+  }
+  100% {
+    left: -70px;
+    bottom: -20px;
+  }
+}
+
+@keyframes animatation-2 {
+  0% {
+    left: -70px;
+    bottom: -20px;
+  }
+  25% {
+    left: -50px;
+    bottom: -15px;
+  }
+  100% {
+    left: -70px;
+    bottom: -20px;
+  }
+}
+
 .features-plan .hero-area-content .hero-content-inner h1 {
   font-size: 36px;
   line-height: 140%;

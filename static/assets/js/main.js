@@ -63,6 +63,18 @@ bulmaCarousel.attach("#carousel-demo", {
   autoplay: false,
 });
 
+//bulma carousel
+bulmaCarousel.attach("#hero-area-carousel", {
+  slidesToScroll: 1,
+  slidesToShow: 1,
+  infinite: true,
+  // When I use autoplay true, it's internaly occured error 
+  autoplay: false,
+  pagination: true,
+  loop: true,
+  autoplaySpeed: 2000,
+});
+
 // For FAQ Collaps Page
 const accordionItem = document.querySelectorAll(".accordion-item");
 const onClickAccordionHeader = (e) => {

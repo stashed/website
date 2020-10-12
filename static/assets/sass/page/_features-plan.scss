@@ -1,3 +1,101 @@
+.hero-area.features-plan {
+  .image-carousel-wrapper {
+    position: relative;
+    border-radius: 14px;
+    z-index: 1;
+
+    &:after {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: calc(100% - 40px);
+      background: #fff;
+      z-index: -1;
+      box-shadow: 0px 4px 24px rgba(166, 171, 189, 0.3);
+      border-radius: 14px;
+    }
+
+    .shape-1 {
+      position: absolute;
+      left: -70px;
+      z-index: -1;
+      top: -50px;
+    }
+
+    .shape-2 {
+      position: absolute;
+      bottom: 0;
+      left: -70px;
+      z-index: -1;
+      animation-name: animatation-2;
+      animation-duration: 6s;
+      animation-iteration-count: infinite;
+    }
+
+    .shape-3 {
+      position: absolute;
+      right: -41px;
+      bottom: 0px;
+      z-index: -1;
+    }
+
+    .carousel-inner {
+      .single-slider-wrapper {
+        padding: 0px 0px 40px;
+
+        a {
+          display: block;
+        }
+
+        img {
+          border-radius: 14px;
+        }
+      }
+
+      .slider-navigation-previous,
+      .slider-navigation-next {
+        display: none;
+      }
+
+      .slider-pagination {
+        display: block;
+
+        .slider-page {
+          background-color: #e8e9ea;
+          box-shadow: none;
+          width: 8px;
+          height: 8px;
+          margin: 0 5px;
+
+          &:hover {
+            background-color: $primary-color;
+          }
+
+          &.is-active {
+            background-color: $primary-color;
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes animatation-2 {
+  0% {
+    left: -70px;
+    bottom: -20px;
+  }
+  25% {
+    left: -50px;
+    bottom: -15px;
+  }
+  100% {
+    left: -70px;
+    bottom: -20px;
+  }
+}
 .features-plan {
   .hero-area-content {
     .hero-content-inner {
@@ -110,6 +208,7 @@
             display: block;
             font-family: roboto;
             text-decoration: underline;
+
             &:hover {
               color: $primary-color;
             }
@@ -194,6 +293,7 @@
 
         .e-plan {
           color: #32325d;
+
           &:nth-child(1) {
             background-color: rgba(252, 96, 17, 0.1);
           }
@@ -224,6 +324,7 @@
 
         .e-plan {
           color: #32325d;
+
           &:nth-child(1) {
             background-color: rgba(252, 96, 17, 0.1);
           }
@@ -244,10 +345,12 @@
 
       &.title {
         margin-bottom: 0;
+
         .features-name {
           display: flex;
           align-items: center;
         }
+
         .features-plan {
           &.community {
             background-color: #edf9f3 !important;
@@ -276,6 +379,7 @@
             color: #1971bd;
           }
         }
+
         .features-name {
           font-weight: 400;
         }
@@ -449,9 +553,11 @@ Responsive Classes
 
   .features-cta-area {
     overflow-y: auto;
+
     .features-plan-cta-wrapper {
       position: static;
       min-width: 1344px;
+
       .cta-left {
         width: 30%;
 
@@ -475,9 +581,11 @@ Responsive Classes
         }
       }
     }
-    .features-plan-area{
+
+    .features-plan-area {
       min-width: 1344px;
     }
+
     .single-features-area {
       margin-bottom: 10px;
     }
@@ -544,9 +652,11 @@ Responsive Classes
 
   .features-cta-area {
     overflow-y: auto;
+
     .features-plan-cta-wrapper {
       position: static;
       min-width: 1344px;
+
       .cta-left {
         width: 100%;
 
@@ -576,9 +686,11 @@ Responsive Classes
       margin-bottom: 10px;
     }
   }
-  .features-plan-area{
+
+  .features-plan-area {
     min-width: 1344px;
   }
+
   .assistance-area,
   .features-plan-faq-area {
     .section-title {
@@ -606,6 +718,7 @@ Responsive Classes
 
   .features-cta-area {
     overflow-y: auto;
+
     .features-plan-cta-wrapper {
       min-width: 1344px;
       position: static;
@@ -641,7 +754,8 @@ Responsive Classes
     .single-features-area {
       margin-bottom: 10px;
     }
-    .features-plan-area{
+
+    .features-plan-area {
       min-width: 1344px;
     }
   }
