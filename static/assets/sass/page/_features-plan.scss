@@ -110,6 +110,7 @@
             display: block;
             font-family: roboto;
             text-decoration: underline;
+
             &:hover {
               color: $primary-color;
             }
@@ -194,6 +195,7 @@
 
         .e-plan {
           color: #32325d;
+
           &:nth-child(1) {
             background-color: rgba(252, 96, 17, 0.1);
           }
@@ -224,6 +226,7 @@
 
         .e-plan {
           color: #32325d;
+
           &:nth-child(1) {
             background-color: rgba(252, 96, 17, 0.1);
           }
@@ -244,10 +247,12 @@
 
       &.title {
         margin-bottom: 0;
+
         .features-name {
           display: flex;
           align-items: center;
         }
+
         .features-plan {
           &.community {
             background-color: #edf9f3 !important;
@@ -276,6 +281,7 @@
             color: #1971bd;
           }
         }
+
         .features-name {
           font-weight: 500;
         }
@@ -449,9 +455,11 @@ Responsive Classes
 
   .features-cta-area {
     overflow-y: auto;
+
     .features-plan-cta-wrapper {
       position: static;
       min-width: 1344px;
+
       .cta-left {
         width: 30%;
 
@@ -475,9 +483,11 @@ Responsive Classes
         }
       }
     }
-    .features-plan-area{
+
+    .features-plan-area {
       min-width: 1344px;
     }
+
     .single-features-area {
       margin-bottom: 10px;
     }
@@ -544,9 +554,11 @@ Responsive Classes
 
   .features-cta-area {
     overflow-y: auto;
+
     .features-plan-cta-wrapper {
       position: static;
       min-width: 1344px;
+
       .cta-left {
         width: 100%;
 
@@ -576,9 +588,11 @@ Responsive Classes
       margin-bottom: 10px;
     }
   }
-  .features-plan-area{
+
+  .features-plan-area {
     min-width: 1344px;
   }
+
   .assistance-area,
   .features-plan-faq-area {
     .section-title {
@@ -606,6 +620,7 @@ Responsive Classes
 
   .features-cta-area {
     overflow-y: auto;
+
     .features-plan-cta-wrapper {
       min-width: 1344px;
       position: static;
@@ -641,7 +656,8 @@ Responsive Classes
     .single-features-area {
       margin-bottom: 10px;
     }
-    .features-plan-area{
+
+    .features-plan-area {
       min-width: 1344px;
     }
   }
