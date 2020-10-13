@@ -72,7 +72,7 @@ bulmaCarousel.attach("#hero-area-carousel", {
   autoplay: false,
   pagination: true,
   loop: true,
-  autoplaySpeed: 2000,
+  autoplaySpeed: 1500,
 });
 
 // For FAQ Collaps Page

@@ -48,11 +48,28 @@
         </div>
         <div class="column is-6">
           <!-- hero image start -->
-          <div class="hero-area-img" data-aos="fade-up" data-aos-duration="1000">
-            <img src="{{ $p.heroImage.src }}" alt="{{ $p.heroImage.alt }}" class="img" />
+            <div class="image-carousel-wrapper carousel">
+              <!-- shape start  -->
+              <img class="shape-1" src="/assets/images/slider/s-1.png" alt="">
+              <img class="shape-2" src="/assets/images/slider/s-2.png" alt="">
+              <img class="shape-3" src="/assets/images/slider/s-3.png" alt="">
+              <!-- shape end  -->
+              <!-- carousel start  -->
+              <div class="carousel-inner" id="hero-area-carousel">
+                <div class="single-slider-wrapper">
+                 <a href="#"><img src="/assets/images/slider/slider-1.jpg" alt="slider-1"></a>
+                </div>
+                <div class="single-slider-wrapper">
+                  <a href="#"><img src="/assets/images/slider/slider-2.jpg" alt="slider-2"></a>
+                </div>
+                <div class="single-slider-wrapper">
+                  <a href="#"><img src="/assets/images/slider/slider-3.jpg" alt="slider-3"></a>
+                </div>
+              </div>
+              <!-- carousel end -->
+            </div>
           </div>
           <!-- hero image end -->
-        </div>
       </div>
     </div>
   </div>
