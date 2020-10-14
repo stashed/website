@@ -1482,44 +1482,41 @@ body.fixed-nav .fixed-menu {
   z-index: -1;
 }
 
-.hero-area .image-carousel-wrapper .carousel-inner .single-slider-wrapper {
-  padding: 0px 0px 40px;
+.hero-area .dots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.hero-area .image-carousel-wrapper .carousel-inner .single-slider-wrapper a {
-  display: block;
-}
-
-.hero-area .image-carousel-wrapper .carousel-inner .single-slider-wrapper img {
-  border-radius: 14px;
-}
-
-.hero-area .image-carousel-wrapper .carousel-inner .slider-navigation-previous,
-.hero-area .image-carousel-wrapper .carousel-inner .slider-navigation-next {
-  display: none;
-}
-
-.hero-area .image-carousel-wrapper .carousel-inner .slider-pagination {
-  display: block;
-}
-
-.hero-area .image-carousel-wrapper .carousel-inner .slider-pagination .slider-page {
-  background-color: #e8e9ea;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+.hero-area .dot {
+  border: none;
   width: 8px;
   height: 8px;
+  background: #e8e9ea;
+  border-radius: 50%;
   margin: 0 5px;
+  padding: 5px;
+  cursor: pointer;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
-.hero-area .image-carousel-wrapper .carousel-inner .slider-pagination .slider-page:hover {
-  background-color: #4d4dcb;
-}
-
-.hero-area .image-carousel-wrapper .carousel-inner .slider-pagination .slider-page.is-active {
+.hero-area .dot:hover {
   background-color: #4d4dcb;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+.hero-area .dot:focus {
+  outline: none;
+}
+
+.hero-area .dot--active {
+  background: #4d4dcb;
 }
 
 @-webkit-keyframes animatation-2 {
@@ -3658,7 +3655,7 @@ span.new-item {
   padding: 12px 6px 6px;
   background: #ffffff;
   position: absolute;
-  min-width: 730px;
+  min-width: 480px;
   top: 40px;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -4168,6 +4165,33 @@ video {
 .improve-bg-color p {
   font-size: 16px !important;
   color: #74818d !important;
+}
+
+/****************************************
+Responsive Classes
+*****************************************/
+@media (max-width: 575.98px) {
+  .image-carousel-wrapper .shape-1,
+  .image-carousel-wrapper .shape-2,
+  .image-carousel-wrapper .shape-3 {
+    display: none;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .image-carousel-wrapper .shape-1,
+  .image-carousel-wrapper .shape-2,
+  .image-carousel-wrapper .shape-3 {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .image-carousel-wrapper .shape-1,
+  .image-carousel-wrapper .shape-2,
+  .image-carousel-wrapper .shape-3 {
+    display: none;
+  }
 }
 
 .button.ac-button {
