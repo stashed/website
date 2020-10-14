@@ -239,7 +239,6 @@ body.fixed-nav .fixed-menu {
       box-shadow: 0px 4px 24px rgba(166, 171, 189, 0.3);
       border-radius: 14px;
     }
-
     .shape-1 {
       position: absolute;
       left: -70px;
@@ -263,46 +262,36 @@ body.fixed-nav .fixed-menu {
       bottom: 0px;
       z-index: -1;
     }
+  }
 
-    .carousel-inner {
-      .single-slider-wrapper {
-        padding: 0px 0px 40px;
+  .dots {
+    display: flex;
+    padding: 10px 0;
+    justify-content: center;
+  }
 
-        a {
-          display: block;
-        }
-
-        img {
-          border-radius: 14px;
-        }
-      }
-
-      .slider-navigation-previous,
-      .slider-navigation-next {
-        display: none;
-      }
-
-      .slider-pagination {
-        display: block;
-
-        .slider-page {
-          background-color: #e8e9ea;
-          box-shadow: none;
-          width: 8px;
-          height: 8px;
-          margin: 0 5px;
-
-          &:hover {
-            background-color: $primary-color;
-          }
-
-          &.is-active {
-            background-color: $primary-color;
-            transform: scale(1.1);
-          }
-        }
-      }
+  .dot {
+    border: none;
+    width: 8px;
+    height: 8px;
+    background: #e8e9ea;
+    border-radius: 50%;
+    margin: 0 5px;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    &:hover {
+      background-color: $primary-color;
+      transform: scale(1.1);
     }
+  }
+
+  .dot:focus {
+    outline: none;
+  }
+
+  .dot--active {
+    background: $primary-color;
   }
 }
 
@@ -2846,4 +2835,48 @@ video {
     font-size: 16px !important;
     color: #74818d !important;
   }
+}
+
+/****************************************
+Responsive Classes
+*****************************************/
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+  .image-carousel-wrapper {
+    .shape-1,
+    .shape-2,
+    .shape-3 {
+      display: none;
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .image-carousel-wrapper {
+    .shape-1,
+    .shape-2,
+    .shape-3 {
+      display: none;
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .image-carousel-wrapper {
+    .shape-1,
+    .shape-2,
+    .shape-3 {
+      display: none;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199.98px) {
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
 }
