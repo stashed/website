@@ -132,7 +132,7 @@
             ul {
               li {
                 background-color: #ffefe7;
-                width: 25%;
+                width: 33.33%;
 
                 &:nth-child(2) {
                   background-color: rgba(0, 114, 249, 0.1);
@@ -337,7 +337,7 @@
 
           &.enterprise {
             display: grid;
-            grid-template-columns: 25% 25% 25% 25%;
+            grid-template-columns: 33.33% 33.33% 33.34%;
             font-size: 14px;
             height: 100%;
           }
