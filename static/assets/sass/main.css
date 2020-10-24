@@ -4506,7 +4506,7 @@ body.stash .documentation-menu {
 
 .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta .plan-title.enterprise ul li {
   background-color: #ffefe7;
-  width: 25%;
+  width: 33.33%;
 }
 
 .features-cta-area .features-plan-cta-wrapper .cta-right .single-cta .plan-title.enterprise ul li:nth-child(2) {
@@ -4711,8 +4711,8 @@ body.stash .documentation-menu {
 .features-plan-area .single-features-area .single-features .features-plan-wrapper .features-plan.enterprise {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 25% 25% 25% 25%;
-      grid-template-columns: 25% 25% 25% 25%;
+  -ms-grid-columns: 33.33% 33.33% 33.34%;
+      grid-template-columns: 33.33% 33.33% 33.34%;
   font-size: 14px;
   height: 100%;
 }
