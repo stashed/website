@@ -54,10 +54,11 @@
       <div class="cta-right">
         <!-- single cta start  -->
         <div class="single-cta community has-text-centered">
-          <h3>Stash Community</h3>
-          <p>Open source Stash Free for everyone</p>
+          <h3>KubeDB Community</h3>
+          <p>Open source KubeDB Free for everyone</p>
           <div class="bottom-content">
-            <a href="/docs/latest/setup/install/community" class="button ac-button is-secondary">Install Now!</a>
+            <a href="/docs/latest/setup" class="button ac-button is-secondary">Install Now!</a>
+            <!-- <a href="/docs/latest/setup/install/community" class="button ac-button is-secondary">Install Now!</a> -->
             <!-- plan title start  -->
             <div class="plan-title">
               <ul>
@@ -70,10 +71,10 @@
         <!-- single cta end -->
         <!-- single cta start  -->
         <div class="single-cta enterprise has-text-centered">
-          <h3>Stash Enterprise</h3>
-          <p>Open Core Stash for production Enterprise workloads</p>
+          <h3>KubeDB Enterprise</h3>
+          <p>Open Core KubeDB for production databases</p>
           <div class="bottom-content">
-            <a href="/docs/latest/setup/install/enterprise" class="is-trial">Try for Free!</a>
+            <!-- <a href="/docs/latest/setup/install/enterprise" class="is-trial">Try for Free!</a> -->
             <a href="{{ $.Site.Params.domain_appscode }}/contact/" class="button ac-button is-secondary">Contact Us</a>
             <!-- plan title start  -->
             <div class="plan-title enterprise">
@@ -110,9 +111,9 @@
             <!-- community plan end  -->
             <!-- enterprise plan start  -->
             <div class="features-plan enterprise">
-              <div class="e-plan">Self-service plan for production workloads</div>
-              <div class="e-plan">For production workloads</div>
-              <div class="e-plan">For business and/or mission critical workloads</div>
+              <div class="e-plan">Self-service plan for production databases</div>
+              <div class="e-plan">For production databases</div>
+              <div class="e-plan">For business and/or mission critical databases</div>
             </div>
             <!-- enterprise plan end  -->
           </div>
@@ -145,10 +146,7 @@
 
         <!-- single features start  -->
         <div class="single-features">
-          <div class="features-name">Backup & Restore Workload Data<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="Deployment, DaemonSet, StatefulSet, ReplicaSet, ReplicationController, OpenShift DeploymentConfig"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <div class="features-name">PostgreSQL</div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
             <!-- community plan start  -->
@@ -172,10 +170,7 @@
 
         <!-- single features start  -->
         <div class="single-features">
-          <div class="features-name">Backup & Restore Stand-alone Volume (PVC)<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="PersistentVolumeClaim, PersistentVolume"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <div class="features-name">MySQL</div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
             <!-- community plan start  -->
@@ -199,10 +194,7 @@
 
         <!-- single features start  -->
         <div class="single-features">
-          <div class="features-name">Schedule Backup, Instant Backup<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="Schedule through cron expression or trigger instant backup using Stash Kubernetes plugin"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <div class="features-name">Elasticsearch</div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
             <!-- community plan start  -->
@@ -226,10 +218,7 @@
 
         <!-- single features start  -->
         <div class="single-features">
-          <div class="features-name">Pause Backup<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="No new backup when paused"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <div class="features-name">MongoDB</div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
             <!-- community plan start  -->
@@ -253,10 +242,7 @@
 
         <!-- single features start  -->
         <div class="single-features">
-          <div class="features-name">Backup & Restore subset of files<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="Only backup/restore the files that matches the provided patterns"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <div class="features-name">Redis</div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
             <!-- community plan start  -->
@@ -280,10 +266,7 @@
 
         <!-- single features start  -->
         <div class="single-features">
-          <div class="features-name">Cleanup old snapshots automatically<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="Cleanup old snapshots according to different retention policies"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <div class="features-name">Memcached</div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
             <!-- community plan start  -->
@@ -307,10 +290,7 @@
 
         <!-- single features start  -->
         <div class="single-features">
-          <div class="features-name">Encryption, Deduplication (send only diff)<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="VolumeSnapshot for Kubernetes workloads. Supported for Kubernetes v1.17.0+"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <div class="features-name">MariaDB</div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
             <!-- community plan start  -->
@@ -334,10 +314,277 @@
 
         <!-- single features start  -->
         <div class="single-features">
-          <div class="features-name"><a href="https://kubernetes.io/docs/concepts/storage/volume-snapshots/">CSI Driver Integration</a><span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="VolumeSnapshot for Kubernetes workloads. Supported for Kubernetes v1.17.0+"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <div class="features-name">Percona XtraDB</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                  alt="check-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">PgBouncer</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/error-icon.svg"
+                  alt="error-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">ProxySQL</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/error-icon.svg"
+                  alt="error-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+      </div>
+      <!-- single features end  -->
+
+
+
+      <!-- single features start  -->
+      <div class="single-features-area">
+
+        <!-- single features start  -->
+        <div class="single-features title">
+          <div class="features-name">Features</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community">
+            </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"></div>
+              <div class="e-plan"></div>
+              <div class="e-plan"></div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">Database Clustering</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                  alt="check-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">Cloud / On-prem / Air-gapped clusters</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                  alt="check-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">Multizone Cluster</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                  alt="check-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">Private Registry</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                  alt="check-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">CLI</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                  alt="check-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">Halt & resume database</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                  alt="check-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">Custom Configuration</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                  alt="check-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">Custom Extensions</div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
             <!-- community plan start  -->
@@ -363,7 +610,7 @@
         <div class="single-features">
           <div class="features-name">Prometheus Metrics<span
               class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="Rich backup metrics, restore metrics and Stash operator metrics"><img
+              data-tooltip="Rich database metrics and KubeDB operator metrics"><img
                 src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
@@ -388,118 +635,7 @@
 
         <!-- single features start  -->
         <div class="single-features">
-          <div class="features-name">CLI<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="kubectl plugin (for Kubernetes 1.12+)"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
-          <!-- features plan wrapper  -->
-          <div class="features-plan-wrapper">
-            <!-- community plan start  -->
-            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                  alt="check-icon"></span> </div>
-            <!-- community plan end  -->
-            <!-- enterprise plan start  -->
-            <div class="features-plan enterprise">
-              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                    alt="check-icon"></span></div>
-              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                    alt="check-icon"></span></div>
-              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                    alt="check-icon"></span></div>
-            </div>
-            <!-- enterprise plan end  -->
-          </div>
-          <!-- features plan wrapper  -->
-        </div>
-        <!-- single features end -->
-
-        <!-- single features start  -->
-        <div class="single-features">
-          <div class="features-name">Extensibility and Customizability<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="Write addons for bespoke applications and customize currently supported workloads"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
-          <!-- features plan wrapper  -->
-          <div class="features-plan-wrapper">
-            <!-- community plan start  -->
-            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                  alt="check-icon"></span> </div>
-            <!-- community plan end  -->
-            <!-- enterprise plan start  -->
-            <div class="features-plan enterprise">
-              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                    alt="check-icon"></span></div>
-              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                    alt="check-icon"></span></div>
-              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                    alt="check-icon"></span></div>
-            </div>
-            <!-- enterprise plan end  -->
-          </div>
-          <!-- features plan wrapper  -->
-        </div>
-        <!-- single features end -->
-
-        <!-- single features start  -->
-        <div class="single-features">
-          <div class="features-name">Hooks<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="Execute httpGet, httpPost, tcpSocket and exec hooks before and after of backup or restore process"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
-          <!-- features plan wrapper  -->
-          <div class="features-plan-wrapper">
-            <!-- community plan start  -->
-            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                  alt="check-icon"></span> </div>
-            <!-- community plan end  -->
-            <!-- enterprise plan start  -->
-            <div class="features-plan enterprise">
-              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                    alt="check-icon"></span></div>
-              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                    alt="check-icon"></span></div>
-              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                    alt="check-icon"></span></div>
-            </div>
-            <!-- enterprise plan end  -->
-          </div>
-          <!-- features plan wrapper  -->
-        </div>
-        <!-- single features end -->
-
-        <!-- single features start  -->
-        <div class="single-features">
-          <div class="features-name">Cloud Storage as Backend<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="Stores backup data in AWS S3, Minio, Rook, GCS, Azure, OpenStack Swift, Backblaze B2 and Rest Server"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
-          <!-- features plan wrapper  -->
-          <div class="features-plan-wrapper">
-            <!-- community plan start  -->
-            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                  alt="check-icon"></span> </div>
-            <!-- community plan end  -->
-            <!-- enterprise plan start  -->
-            <div class="features-plan enterprise">
-              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                    alt="check-icon"></span></div>
-              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                    alt="check-icon"></span></div>
-              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
-                    alt="check-icon"></span></div>
-            </div>
-            <!-- enterprise plan end  -->
-          </div>
-          <!-- features plan wrapper  -->
-        </div>
-        <!-- single features end -->
-
-        <!-- single features start  -->
-        <div class="single-features">
-          <div class="features-name">On-prem Storage as Backend<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="Stores backup data in any locally mounted Kubernetes Volumes such as NFS, etc."><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <div class="features-name">Protect against accidental deletion</div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
             <!-- community plan start  -->
@@ -523,10 +659,7 @@
 
         <!-- single features start  -->
         <div class="single-features">
-          <div class="features-name">Backup & Restore databases<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="PostgreSQL, MySQL, MongoDB, Elasticsearch, Redis, MariaDB, Percona XtraDB"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <div class="features-name">Managed Backup/Recovery using <a href="https://stash.run">Stash</a></div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
             <!-- community plan start  -->
@@ -550,10 +683,7 @@
 
         <!-- single features start  -->
         <div class="single-features">
-          <div class="features-name">Auto Backup<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="Share backup configuration across workloads using templates. Enable backup for a target application via annotation"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <div class="features-name">Managed Patch Upgrades</div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
             <!-- community plan start  -->
@@ -577,10 +707,7 @@
 
         <!-- single features start  -->
         <div class="single-features">
-          <div class="features-name">Batch Backup & Batch Restore<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="Backup and restore co-related applications (eg, WordPress server and its database) together"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <div class="features-name">Managed Horizontal Scaling</div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
             <!-- community plan start  -->
@@ -604,10 +731,7 @@
 
         <!-- single features start  -->
         <div class="single-features">
-          <div class="features-name">Point-In-Time Recovery (PITR)<span
-              class="info-icon tooltip is-tooltip-primary is-tooltip-multiline"
-              data-tooltip="Restore a set of files from a time in the past"><img
-                src="/assets/images/icon/info-icon.svg" alt="info-icon"></span></div>
+          <div class="features-name">Managed Vertical Scaling</div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
             <!-- community plan start  -->
@@ -616,9 +740,60 @@
             <!-- community plan end  -->
             <!-- enterprise plan start  -->
             <div class="features-plan enterprise">
-              <div class="e-plan">Planned</div>
-              <div class="e-plan">Planned</div>
-              <div class="e-plan">Planned</div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">Managed Reconfiguration</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/error-icon.svg"
+                  alt="error-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">Managed Restarts</div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/error-icon.svg"
+                  alt="error-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
             </div>
             <!-- enterprise plan end  -->
           </div>
@@ -753,7 +928,7 @@
 
         <!-- single features start  -->
         <div class="single-features">
-          <div class="features-name">GDPR</div>
+          <div class="features-name">User & Secret Management using <a href="https://kubevault.com">KubeVault</a></div>
           <!-- features plan wrapper  -->
           <div class="features-plan-wrapper">
             <!-- community plan start  -->
@@ -762,9 +937,36 @@
             <!-- community plan end  -->
             <!-- enterprise plan start  -->
             <div class="features-plan enterprise">
-              <div class="e-plan">Planned</div>
-              <div class="e-plan">Planned</div>
-              <div class="e-plan">Planned</div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+            </div>
+            <!-- enterprise plan end  -->
+          </div>
+          <!-- features plan wrapper  -->
+        </div>
+        <!-- single features end -->
+
+        <!-- single features start  -->
+        <div class="single-features">
+          <div class="features-name">Managed TLS using <a href="https://cert-manager.io">cert-manager</a></div>
+          <!-- features plan wrapper  -->
+          <div class="features-plan-wrapper">
+            <!-- community plan start  -->
+            <div class="features-plan community"><span class="t-icon"><img src="/assets/images/icon/error-icon.svg"
+                  alt="error-icon"></span> </div>
+            <!-- community plan end  -->
+            <!-- enterprise plan start  -->
+            <div class="features-plan enterprise">
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
+              <div class="e-plan"><span class="t-icon"><img src="/assets/images/icon/check-icon.svg"
+                    alt="check-icon"></span></div>
             </div>
             <!-- enterprise plan end  -->
           </div>
@@ -816,8 +1018,8 @@
             <!-- enterprise plan start  -->
             <div class="features-plan enterprise">
               <div class="e-plan">Best Effort</div>
-              <div class="e-plan"><a href="/files/products/stash/stash-pricing.pdf">Table 1</a></div>
-              <div class="e-plan"><a href="/files/products/stash/stash-pricing.pdf">Table 2</a></div>
+              <div class="e-plan"><a href="/files/products/kubedb/kubedb-pricing.pdf">Table 1</a></div>
+              <div class="e-plan"><a href="/files/products/kubedb/kubedb-pricing.pdf">Table 2</a></div>
             </div>
             <!-- enterprise plan end  -->
           </div>
@@ -1059,8 +1261,134 @@
 </section>
 <!-- features  area end -->
 
+<!-- assistance area start  -->
+<section class="assistance-area section-padding-100">
+  <div class="container section">
+   <!-- section title start  -->
+    <div class="columns is-centered">
+      <div class="column is-8 has-text-centered">
+        <div class="section-title">
+          <h2>Need Help?</h2>
+          <p>If you have a question, we are here to help! Don't hesitate to reach out.</p>
+        </div>
+      </div>
+    </div>
+   <!-- section title end -->
+
+   <!-- assistance cards start  -->
+   <div class="columns is-centered is-multiline assistance-card-wrapper">
+     <!-- single card start  -->
+      <div class="column is-one-quarter-fullhd is-one-third-widescreen is-half-desktop is-two-thirds-tablet is-three-full-mobile">
+        <div class="single-card">
+        <!-- card head start  -->
+        <div class="card-head">
+          <div class="ass-icon is-flex">
+            <img src="/assets/images/icon/calendar-icon.svg" alt="" class="img" />
+          </div>
+          <div class="ass-title">Schedule <br> a Meeting</div>
+        </div>
+        <!-- card head end -->
+        <!-- card body start  -->
+        <div class="card-body">
+          <p>Talk an expert about {{ $p.name }}</p>
+          <!-- <a href="#" class="button is-fullwidth">Set a Meeting</a> -->
+          <!-- Calendly link widget begin -->
+          <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+          <a href="" class="button is-fullwidth" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/appscode/30min'});return false;">Schedule a Meeting</a>
+          <!-- Calendly link widget end -->
+        </div>
+        <!-- card body end -->
+        </div>
+      </div>
+     <!-- single card end -->
+
+    {{ if $p.datasheetFormID }}
+      <!-- single card start  -->
+      <div class="column is-one-quarter-fullhd is-one-third-widescreen is-half-desktop is-two-thirds-tablet is-three-full-mobile">
+        <div class="single-card">
+        <!-- card head start  -->
+        <div class="card-head">
+          <div class="ass-icon is-flex">
+            <img src="/assets/images/icon/download-icon.svg" alt="" class="img" />
+          </div>
+          <div class="ass-title">Download <br> White Paper </div>
+        </div>
+        <!-- card head end -->
+        <!-- card body start  -->
+        <div class="card-body">
+          <p>Download the {{ $p.name }} White Paper</p>
+          <a href="/datasheet/" class="button is-fullwidth">Download Now</a>
+        </div>
+        <!-- card body end -->
+        </div>
+      </div>
+      <!-- single card end -->
+    {{ end }}
+
+       <!-- single card start  -->
+       <div class="column is-one-quarter-fullhd is-one-third-widescreen is-half-desktop is-two-thirds-tablet is-three-full-mobile">
+        <div class="single-card">
+        <!-- card head start  -->
+        <div class="card-head">
+          <div class="ass-icon is-flex">
+            <img src="/assets/images/icon/newsletter-icon.svg" alt="" class="img" />
+          </div>
+          <div class="ass-title">Mailing <br> List</div>
+        </div>
+        <!-- card head end -->
+        <!-- card body start  -->
+        <div class="card-body">
+          <p>Subscribe to Our Newsletter</p>
+          <!-- subscription form start -->
+          <div class="subscription-form">
+            <form action="https://appscode.us17.list-manage.com/subscribe/post?u=feb2bf31969a951e7449048a3&amp;id=82fb19acb9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="navbar-form" target="_blank" novalidate role="email" role="email">
+              <input
+                class="input"
+                name="EMAIL"
+                id="mce-EMAIL"
+                type="email"
+                placeholder="Your work email address"
+                required
+              />
+              <button id="mc-embedded-subscribe" type="submit" name="subscribe" class="button">
+                  <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+          <!-- subscription form end -->
+        </div>
+        <!-- card body end -->
+        </div>
+      </div>
+     <!-- single card end -->
+      <!-- single card start  -->
+      <div class="column  is-one-quarter-fullhd is-one-third-widescreen is-half-desktop is-two-thirds-tablet is-three-full-mobile">
+        <div class="single-card">
+        <!-- card head start  -->
+        <div class="card-head">
+          <div class="ass-icon is-flex">
+            <img src="/assets/images/icon/document-icon.svg" alt="" class="img" />
+          </div>
+          <div class="ass-title">Explore <br> Docs</div>
+        </div>
+        <!-- card head end -->
+        <!-- card body start  -->
+        <div class="card-body">
+          <p>Learn about {{ $p.name }} from our docs</p>
+          <a href="/docs/latest/" class="button is-fullwidth">Read the Docs</a>
+        </div>
+        <!-- card body end -->
+        </div>
+      </div>
+     <!-- single card end -->
+   </div>
+   <!-- assistance cards end -->
+  </div>
+</section>
+<!-- assistance area end -->
+
 <!-- faq section start  -->
-<section class="features-plan-faq-area pb-100 section-padding-70">
+<section class="features-plan-faq-area pb-100">
   <div class="container section">
     <div class="columns is-centered">
       <div class="column is-half">
