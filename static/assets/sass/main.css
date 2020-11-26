@@ -2,7 +2,8 @@
   Global CSS start
 ========================*/
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,400i,500,500i,600,600i,700,700i,800,800i,900|Roboto:400,400i,500,500i,700");
-@import url(/home/mohin/hugo-project/kubedb/website/static/assets/css/video-js.css);
+@import url(/assets/css/calendly.css);
+@import url(/home/mohin/hugo-project/stash/website/static/assets/css/video-js.css);
 body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -4319,6 +4320,96 @@ Responsive Classes
   color: #393E46;
 }
 
+/*==================================================
+                  Theme stash Start
+  ====================================================*/
+body.stash .kubedb-primary-bg,
+body.stash .kd-primary,
+body.stash.fixed-nav .fixed-menu,
+body.stash .socail-link-inline li a:hover,
+body.stash .tbl-of-contents ul a.active:before,
+body.stash .kd-version a.dropdown-item:hover,
+body.stash .ac-dropdown a.navbar-item:hover,
+body.stash a.nav-link.active:after,
+body.stash .trial-button .button,
+body.stash .pricing-top,
+body.stash .pricing-button .kd-button,
+body.stash .subscription-form .button:hover,
+body.stash .searchbar-area button,
+body.stash .pagination-list li a.is-active,
+body.stash .single-product-feature-wrapper:after,
+body.stash .assistance-card-wrapper .single-card .card-body .subscription-form .button,
+body.stash .assistance-card-wrapper .single-card .card-body .button:hover {
+  background-color: #5E2DEA;
+}
+
+body.stash .kd-transparent-btn,
+body.stash .carousel-wrapper:after,
+body.stash .cta-text h2,
+body.stash .main-menu-button a,
+body.stash .navbar-link.is-active,
+body.stash .navbar-link:hover,
+body.stash a.navbar-item.is-active,
+body.stash a.navbar-item:hover,
+body.stash .customize-kubedb .navbar-dropdown .navbar-item,
+body.stash .carousel-wrapper:after,
+body.stash .footer-link li a:hover,
+body.stash .footer-inline-link a:hover,
+body.stash .accordion-item.active .accordion-header h2,
+body.stash ul li b,
+body.stash .full-info p b,
+body.stash .full-info ul li p a,
+body.stash .full-info p a,
+body.stash .full-info a,
+body.stash .tbl-of-contents ul a.active,
+body.stash li.nav-item.active a,
+body.stash .item ul li.is-active a,
+body.stash .kd-sidebar-menu li a:hover,
+body.stash .subscription-form .button,
+body.stash .section-title h4,
+body.stash .hero-content-inner h4,
+body.stash .single-search-result h3 a,
+body.stash .assistance-card-wrapper .single-card .card-body .button {
+  color: #5E2DEA;
+}
+
+body.stash .star-count::before,
+body.stash .accordion-item.active,
+body.stash blockquote,
+body.stash .input.is-active,
+body.stash .input.is-focused,
+body.stash .input:active,
+body.stash .input:focus,
+body.stash .textarea.is-active,
+body.stash .textarea.is-focused,
+body.stash .textarea:active,
+body.stash .textarea:focus,
+body.stash .searchbar-area input:focus,
+body.stash .subscription-form .input:hover,
+body.stash .assistance-card-wrapper .single-card .card-body .subscription-form input {
+  border-color: #5E2DEA;
+}
+
+body.stash .pricing-top:before {
+  border-right-color: #3d12b8;
+}
+
+body.stash .assistance-card-wrapper .single-card .card-body .subscription-form .button:hover {
+  background-color: #3d12b8;
+}
+
+body.stash .go-to-top {
+  background-color: rgba(94, 45, 234, 0.8);
+}
+
+body.stash .documentation-menu,
+body.stash .assistance-card-wrapper .single-card .card-body .button {
+  background-color: #dfd5fb;
+}
+
+/*==================================================
+                  Theme stash End
+  ====================================================*/
 .features-plan .hero-area-content .hero-content-inner h1 {
   font-size: 36px;
   line-height: 140%;
@@ -4691,7 +4782,10 @@ Responsive Classes
           justify-content: center;
 }
 
-.single-assistance {
+.assistance-card-wrapper {
+}
+
+.assistance-card-wrapper .single-card {
   background: #ffffff;
   -webkit-box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.16);
           box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.16);
@@ -4700,12 +4794,12 @@ Responsive Classes
   transition: 0.3s ease-in-out;
 }
 
-.single-assistance:hover {
+.assistance-card-wrapper .single-card:hover {
   -webkit-box-shadow: 0px 8px 57px rgba(0, 0, 0, 0.16);
           box-shadow: 0px 8px 57px rgba(0, 0, 0, 0.16);
 }
 
-.single-assistance .ass-top {
+.assistance-card-wrapper .single-card .card-head {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4716,25 +4810,85 @@ Responsive Classes
   border-bottom: 1px solid #eceff4;
 }
 
-.single-assistance .ass-top .ass-icon {
-  margin-right: 30px;
-  max-width: 60px;
+.assistance-card-wrapper .single-card .card-head .ass-icon {
+  width: 56px;
+  margin-right: 28px;
 }
 
-.single-assistance .ass-top .ass-title h3 {
+.assistance-card-wrapper .single-card .card-head .ass-title {
+  font-style: normal;
+  font-weight: 500;
   font-size: 18px;
   line-height: 120%;
-  font-weight: 500;
-  font-family: "Roboto", sans-serif;
+  color: #1c1c1c;
 }
 
-.single-assistance .ass-bottom {
-  padding: 20px 30px 40px;
+.assistance-card-wrapper .single-card .card-body {
+  padding: 30px 20px;
 }
 
-.single-assistance .ass-bottom p {
-  color: #54657e;
+.assistance-card-wrapper .single-card .card-body p {
+  font-style: normal;
+  font-weight: normal;
   font-size: 16px;
+  line-height: 100%;
+  color: #54657e;
+  margin-bottom: 15px;
+}
+
+.assistance-card-wrapper .single-card .card-body .button {
+  background: rgba(77, 77, 203, 0.1);
+  border: 1px solid #4d4dcb;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #4d4dcb;
+  font-weight: 500;
+  font-family: Roboto;
+  height: 41px;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.assistance-card-wrapper .single-card .card-body .button:hover {
+  background-color: #4d4dcb;
+  color: #fff !important;
+}
+
+.assistance-card-wrapper .single-card .card-body .subscription-form {
+  position: relative;
+  z-index: 1;
+}
+
+.assistance-card-wrapper .single-card .card-body .subscription-form input {
+  border: none;
+  background-color: #e2e2e2;
+  height: 41px;
+}
+
+.assistance-card-wrapper .single-card .card-body .subscription-form input:focus {
+  border: 1px solid #4d4dcb;
+  border-radius: 4px;
+}
+
+.assistance-card-wrapper .single-card .card-body .subscription-form button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #4d4dcb;
+  color: #fff;
+  border: none;
+  z-index: 9;
+}
+
+.assistance-card-wrapper .single-card .card-body .subscription-form button i.fa {
+  color: #fff;
+}
+
+.assistance-card-wrapper .single-card .card-body .subscription-form button:hover {
+  background-color: #28288a;
+  color: #fff;
 }
 
 .assistance-area .section-title,
