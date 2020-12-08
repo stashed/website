@@ -63,6 +63,7 @@ bulmaCarousel.attach("#carousel-demo", {
   autoplay: false,
 });
 
+
 // For FAQ Collaps Page
 const accordionItem = document.querySelectorAll(".accordion-item");
 const onClickAccordionHeader = (e) => {
