@@ -69,7 +69,7 @@ This guide will give you an overview of which MariaDB versions are supported and
 
 Stash supports backup and restore of the following MariaDB versions:
 
-{{< versionlist "mariadb" "/docs/v2020.12.17/addons/mariadb/guides/%s/mariadb" >}}
+{{< versionlist "mariadb" "/docs/v2020.12.17/addons/mariadb/guides/%s/helm/logical" >}}
 
 Here, the addon follows `M.M.P-vX` versioning scheme where `M.M.P` (Major.Minor.Patch) represents the respective database version and an optional `-vX` (here, `X` is a monotonically increasing integer) is added if there is any breaking change in the addon image compared to the previous release.
 

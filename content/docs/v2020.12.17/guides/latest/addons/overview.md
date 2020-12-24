@@ -82,4 +82,4 @@ A `Function` is fundamentally a container specification and `Task` specifies the
 
 The following addons are available for [Stash Enterprise Edition](/docs/v2020.12.17/setup/install/enterprise):
 
-{{< catalogtable "elasticsearch" "mongodb" "mysql" "percona-xtradb" "postgres" >}}
+{{< catalogtable "elasticsearch" "mariadb" "mongodb" "mysql" "percona-xtradb" "postgres" >}}
