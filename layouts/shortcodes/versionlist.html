@@ -8,7 +8,7 @@
 {{ with sort (index $.Page.Params "info" $p) }}
 <ul>
 	{{- range $v := . }}
-	<li><a href="{{printf $fmt $v}}">{{ $v }}</a></li>
+	<li><a href="https://github.com/stashed/installer/tree/{{ index $.Page.Params "info" "installer" }}/catalog/raw/{{ replace $p "-" "" }}/{{ replaceRE "-v(\\d+)" "" $v }}">{{ replaceRE "-v(\\d+)" "" $v }}</a></li>
 	{{- end }}
 </ul>
 {{ end }}
