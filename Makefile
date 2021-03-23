@@ -10,12 +10,12 @@ docs:
 
 .PHONY: docs-skip-assets
 docs-skip-assets:
-	hugo-tools docs-aggregator --skip-assets
+	hugo-tools docs-aggregator --skip-assets --fm-replacements product_stash_=docs_,/products/stash/=/docs/
 	find ./data -name "*.json" -exec sed -i 's/https:\/\/cdn.appscode.com\/images/\/assets\/images/g' {} \;
 
 .PHONY: assets
 assets:
-	hugo-tools docs-aggregator --only-assets
+	hugo-tools docs-aggregator --only-assets --fm-replacements product_stash_=docs_,/products/stash/=/docs/
 	find ./data -name "*.json" -exec sed -i 's/https:\/\/cdn.appscode.com\/images/\/assets\/images/g' {} \;
 
 .PHONY: gen
