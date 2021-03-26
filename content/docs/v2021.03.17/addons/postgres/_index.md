@@ -5,7 +5,7 @@ menu:
     identifier: stash-postgres
     name: Postgres
     parent: stash-addons
-    weight: 10
+    weight: 70
 menu_name: docs_v2021.03.17
 info:
   cli: v0.12.0

@@ -5,7 +5,7 @@ menu:
     identifier: stash-mariadb
     name: MariaDB
     parent: stash-addons
-    weight: 60
+    weight: 30
 menu_name: docs_v2021.03.17
 info:
   cli: v0.12.0
