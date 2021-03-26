@@ -5,7 +5,7 @@ menu:
     identifier: stash-mongodb
     name: MongoDB
     parent: stash-addons
-    weight: 30
+    weight: 40
 menu_name: docs_v2021.03.17
 info:
   cli: v0.12.0

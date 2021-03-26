@@ -5,7 +5,7 @@ menu:
     identifier: stash-percona-xtradb
     name: Percona XtraDB
     parent: stash-addons
-    weight: 50
+    weight: 60
 menu_name: docs_v2021.03.17
 info:
   cli: v0.12.0

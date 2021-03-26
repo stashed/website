@@ -62,7 +62,7 @@ This guide will show you how to upgrade various Stash components. Here, we are g
 
 In Stash `v0.11.x` and prior versions, Stash used separate charts for Stash community edition, Stash enterprise edition, and Stash Addons catalogs. In Stash `v0.12.x`, we have moved to a single combined chart for all the components for a better user experience. This enables seamless migration between the Stash community edition and Stash enterprise edition. It also removes the burden of installing individual database addons manually.
 
-I order to upgrade from Stash `v0.11.x` to `v0.12.x`, please follow the following steps.
+In order to upgrade from Stash `v0.11.x` to `v0.12.x`, please follow the following steps.
 
 #### 1. Pause Upcoming Backups
 
@@ -159,10 +159,10 @@ In order to migrate from Stash community edition to Stash enterprise edition, pl
 
 ```bash
 helm upgrade stash -n kube-system appscode/stash \
---reuse-values                                   \
---set features.community=false                   \
---set features.enterprise=true                   \
---set-file global.license=/path/to/stash-enterprise-license.txt
+  --reuse-values \
+  --set features.community=false \
+  --set features.enterprise=true \
+  --set-file global.license=/path/to/stash-enterprise-license.txt
 ```
 
 **From Enterprise Edition to Community Edition:**
@@ -171,10 +171,10 @@ In order to migrate from Stash enterprise edition to Stash community edition, pl
 
 ```bash
 helm upgrade stash -n kube-system appscode/stash \
---reuse-values                                   \
---set features.community=true                    \
---set features.enterprise=false                  \
---set-file global.license=/path/to/stash-community-license.txt
+  --reuse-values \
+  --set features.community=true \
+  --set features.enterprise=false \
+  --set-file global.license=/path/to/stash-community-license.txt
 ```
 
 </div>
@@ -188,10 +188,10 @@ To migrate from Stash community edition to Stash enterprise edition, please run 
 
 ```bash
 helm upgrade stash appscode/stash \
---reuse-values                    \
---set features.community=false    \
---set features.enterprise=true    \
---set-file global.license=/path/to/stash-enterprise-license.txt
+  --reuse-values \
+  --set features.community=false \
+  --set features.enterprise=true \
+  --set-file global.license=/path/to/stash-enterprise-license.txt
 ```
 
 **From Enterprise Edition to Community Edition:**
@@ -200,10 +200,10 @@ To migrate from Stash enterprise edition to Stash community edition, please run 
 
 ```bash
 helm upgrade stash appscode/stash \
---reuse-values                   \
---set features.community=true    \
---set features.enterprise=false  \
---set-file global.license=/path/to/stash-community-license.txt
+  --reuse-values \
+  --set features.community=true \
+  --set features.enterprise=false \
+  --set-file global.license=/path/to/stash-community-license.txt
 ```
 
 </div>
@@ -218,15 +218,15 @@ In order to migrate from Stash community edition to Stash enterprise edition, pl
 ```bash
 # Delete resources of Stash community edition
 helm template stash -n kube-system appscode/stash \
-  --set features.community=true                   \
-  --set global.license="nothing"                  \
+  --set features.community=true \
+  --set global.license="nothing" \
   --set global.skipCleaner=true | kubectl delete -f -
 
 # Install Stash enterprise edition
 helm template stash -n kube-system appscode/stash \
-  --version {{< param "info.version" >}}                      \
-  --set features.enterprise=true                  \
-  --set global.skipCleaner=true                   \
+  --version {{< param "info.version" >}} \
+  --set features.enterprise=true \
+  --set global.skipCleaner=true \
   --set-file global.license=/path/to/stash-enterprise-license.txt | kubectl apply -f -
 ```
 
@@ -237,15 +237,15 @@ In order to migrate from Stash enterprise edition to Stash community edition, pl
 ```bash
 # Delete resources of Stash enterprise edition
 helm template stash -n kube-system appscode/stash \
-  --set features.enterprise=true                  \
-  --set global.license="nothing"                  \
+  --set features.enterprise=true \
+  --set global.license="nothing" \
   --set global.skipCleaner=true | kubectl delete -f -
 
 # Install Stash community edition
 helm template stash -n kube-system appscode/stash \
-  --version {{< param "info.version" >}}                    \
-  --set features.community=true                   \
-  --set global.skipCleaner=true                   \
+  --version {{< param "info.version" >}} \
+  --set features.community=true \
+  --set global.skipCleaner=true \
   --set-file global.license=/path/to/stash-community-license.txt | kubectl apply -f -
 ```
 
@@ -279,7 +279,7 @@ Follow the below instructions to update the license:
 
 ```bash
 helm upgrade stash -n kube-system appscode/stash \
-  --reuse-values                                 \
+  --reuse-values \
   --set-file global.license=/path/to/new/license.txt
 ```
 
@@ -290,7 +290,7 @@ helm upgrade stash -n kube-system appscode/stash \
 
 ```bash
 helm upgrade stash appscode/stash \
-  --reuse-values                  \
+  --reuse-values \
   --set-file license=/path/to/new/license.txt
 ```
 
@@ -302,9 +302,9 @@ helm upgrade stash appscode/stash \
 **Update License of Community Edition:**
 
 ```bash
-helm template stash -n kube-system appscode/stash             \
-  --set features.community=true                               \
-  --set global.skipCleaner=true                               \
+helm template stash -n kube-system appscode/stash \
+  --set features.community=true \
+  --set global.skipCleaner=true \
   --show-only appscode/stash-community/templates/license.yaml \
   --set-file global.license=/path/to/new/license.txt | kubectl apply -f -
 ```
@@ -312,9 +312,9 @@ helm template stash -n kube-system appscode/stash             \
 **Update License of Enterprise Edition:**
 
 ```bash
-helm template stash appscode/stash -n kube-system              \
-  --set features.enterprise=true                               \
-  --set global.skipCleaner=true                                \
+helm template stash appscode/stash -n kube-system \
+  --set features.enterprise=true \
+  --set global.skipCleaner=true \
   --show-only appscode/stash-enterprise/templates/license.yaml \
   --set-file global.license=/path/to/new/license.txt | kubectl apply -f -
 ```

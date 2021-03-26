@@ -124,7 +124,7 @@ $ helm install stash appscode/stash          \
   --set-file global.license=/path/to/the/license.txt
 ```
 
-To see the detailed configuration options, visit [here](https://github.com/stashed/installer/tree/{{< param "info.installer" >}}/charts/stash).
+To see the detailed configuration options, visit [here](https://github.com/stashed/installer/tree/{{< param "info.installer" >}}/charts/stash-community).
 
 </div>
 <div class="tab-pane fade" id="helm2" role="tabpanel" aria-labelledby="helm2-tab">
@@ -147,7 +147,7 @@ $ helm install appscode/stash --name stash    \
   --set-file global.license=/path/to/the/license.txt
 ```
 
-To see the detailed configuration options, visit [here](https://github.com/stashed/installer/tree/{{< param "info.installer" >}}/charts/stash).
+To see the detailed configuration options, visit [here](https://github.com/stashed/installer/tree/{{< param "info.installer" >}}/charts/stash-community).
 
 </div>
 <div class="tab-pane fade" id="script" role="tabpanel" aria-labelledby="script-tab">
@@ -171,7 +171,7 @@ $ helm template stash appscode/stash          \
   --set-file global.license=/path/to/the/license.txt | kubectl apply -f -
 ```
 
-To see the detailed configuration options, visit [here](https://github.com/stashed/installer/tree/{{< param "info.installer" >}}/charts/stash).
+To see the detailed configuration options, visit [here](https://github.com/stashed/installer/tree/{{< param "info.installer" >}}/charts/stash-community).
 
 </div>
 </div>
