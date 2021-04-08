@@ -1,0 +1,73 @@
+---
+title: Changelog | Stash
+description: Release History
+menu:
+  docs_v2021.04.07:
+    identifier: release-history
+    name: Changelog
+    parent: welcome
+    weight: 10
+product_name: stash
+menu_name: docs_v2021.04.07
+section_menu_id: welcome
+url: /docs/v2021.04.07/welcome/changelog/
+aliases:
+- /docs/v2021.04.07/CHANGELOG/
+info:
+  cli: v0.12.1
+  community: v0.12.1
+  elasticsearch:
+  - 5.6.4-v7
+  - 6.2.4-v7
+  - 6.3.0-v7
+  - 6.4.0-v7
+  - 6.5.3-v7
+  - 6.8.0-v7
+  - 7.2.0-v7
+  - 7.3.2-v7
+  enterprise: v0.12.1
+  installer: v0.12.1
+  mariadb:
+  - 10.5.8-v1
+  mongodb:
+  - 3.4.17-v6
+  - 3.4.22-v6
+  - 3.6.13-v6
+  - 3.6.8-v6
+  - 4.0.11-v6
+  - 4.0.3-v6
+  - 4.0.5-v6
+  - 4.1.13-v6
+  - 4.1.4-v6
+  - 4.1.7-v6
+  - 4.2.3-v6
+  mysql:
+  - 5.7.25-v7
+  - 8.0.14-v7
+  - 8.0.21-v1
+  - 8.0.3-v7
+  percona-xtradb:
+  - 5.7-v2
+  postgres:
+  - 10.14-v5
+  - 11.9-v5
+  - 12.4-v5
+  - 13.1-v2
+  - 9.6.19-v5
+  version: v2021.04.07
+---
+
+## Current Release
+
+- [CHANGELOG-0.9.md](/docs/v2021.04.07/CHANGELOG-0.9)
+
+## Older Releases
+
+- [CHANGELOG-0.8.md](/docs/v2021.04.07/CHANGELOG-0.8)
+- [CHANGELOG-0.7.md](/docs/v2021.04.07/CHANGELOG-0.7)
+- [CHANGELOG-0.6.md](/docs/v2021.04.07/CHANGELOG-0.6)
+- [CHANGELOG-0.5.md](/docs/v2021.04.07/CHANGELOG-0.5)
+- [CHANGELOG-0.4.md](/docs/v2021.04.07/CHANGELOG-0.4)
+- [CHANGELOG-0.3.md](/docs/v2021.04.07/CHANGELOG-0.3)
+- [CHANGELOG-0.2.md](/docs/v2021.04.07/CHANGELOG-0.2)
+- [CHANGELOG-0.1.md](/docs/v2021.04.07/CHANGELOG-0.1)
