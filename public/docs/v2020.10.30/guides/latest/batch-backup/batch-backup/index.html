@@ -1,0 +1,627 @@
+<!doctype html><html lang=en><head><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-62096468-4','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=theme-color content="#5E2DEA"><title>Stash by AppsCode</title><meta name=description content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta name=author content="AppsCode Inc."><meta name=keywords content="kubernetes appscode backup disaster recovery volume"><link rel=apple-touch-icon sizes=57x57 href=/assets/images/products/stash/icons/apple-icon-57x57.png><link rel=apple-touch-icon sizes=60x60 href=/assets/images/products/stash/icons/apple-icon-60x60.png><link rel=apple-touch-icon sizes=72x72 href=/assets/images/products/stash/icons/apple-icon-72x72.png><link rel=apple-touch-icon sizes=76x76 href=/assets/images/products/stash/icons/apple-icon-76x76.png><link rel=apple-touch-icon sizes=114x114 href=/assets/images/products/stash/icons/apple-icon-114x114.png><link rel=apple-touch-icon sizes=120x120 href=/assets/images/products/stash/icons/apple-icon-120x120.png><link rel=apple-touch-icon sizes=144x144 href=/assets/images/products/stash/icons/apple-icon-144x144.png><link rel=apple-touch-icon sizes=152x152 href=/assets/images/products/stash/icons/apple-icon-152x152.png><link rel=apple-touch-icon sizes=180x180 href=/assets/images/products/stash/icons/apple-icon-180x180.png><link rel=icon type=image/png sizes=192x192 href=/assets/images/products/stash/icons/android-icon-192x192.png><link rel=icon type=image/png sizes=32x32 href=/assets/images/products/stash/icons/favicon-32x32.png><link rel=icon type=image/png sizes=96x96 href=/assets/images/products/stash/icons/favicon-96x96.png><link rel=icon type=image/png sizes=16x16 href=/assets/images/products/stash/icons/favicon-16x16.png><link rel=manifest href=/assets/images/products/stash/icons/manifest.json><meta name=msapplication-TileColor content="#ffffff"><meta name=msapplication-TileImage content="/assets/images/products/stash/icons/ms-icon-144x144.png"><meta itemprop=name content="Stash by AppsCode"><meta itemprop=description content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta itemprop=image content="https://stash.run/assets/images/products/stash/stash-1280x640.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:site content="@KubeStash"><meta name=twitter:title content="Stash by AppsCode"><meta name=twitter:creator content="@KubeStash"><meta name=twitter:description content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta name=twitter:image:src content="https://stash.run/assets/images/products/stash/stash-1280x640.png"><meta property="og:url" content="https://stash.run"><meta property="og:title" content="Stash by AppsCode"><meta property="og:description" content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta property="og:site_name" content="Stash by AppsCode"><meta property="og:image" content="https://stash.run/assets/images/products/stash/stash-1280x640.png"><meta property="og:type" content="article"><link rel=stylesheet href=/assets/css/font-awesome.min.css><link href=https://unpkg.com/aos@2.3.1/dist/aos.css rel=stylesheet><link rel=stylesheet href=/assets/css/bulma-carousel.min.css><link rel=stylesheet href=/assets/css/bulma-tooltip.min.css><link rel=stylesheet href=/assets/css/bulma.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.css><link rel=stylesheet href=/assets/sass/main.min.7c4a3c9b9b725ecf3969bcbc5840e69b185f0fac32d96a51f603a97a3293fcc7.css></head><body class=stash><header><div class=header-top><div class="container section"><nav class=navbar><div class=navbar-brand><a class=navbar-item href=https://appscode.com><img src=/assets/images/products/appscode/appscode.png alt=AppsCode></a>
+<a role=button class="navbar-burger burger" aria-label=menu aria-expanded=false data-target=acNav1><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a></div><div id=acNav1 class="navbar-menu main-menu"><div class=navbar-end><div class=navbar-start><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Products</a><div class=ac-megamenu><div class=columns><div class="column is-6"><div class=columns><div class="column is-12 br-1"><a href=https://kubedb.com class="single-product-item is-kubedb"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubedb/kubedb-icon.png alt=KubeDB></div><h5>KubeDB</h5></div><div class=menu-body><p>Run production-grade Databases on Kubernetes</p></div></a><a href=https://stash.run class="single-product-item is-stash"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/stash/stash-icon.png alt=Stash></div><h5>Stash</h5></div><div class=menu-body><p>Backup your Kubernetes Stateful Applications</p></div></a><a href=https://kubevault.com class="single-product-item is-kubevault"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubevault/kubevault-icon.png alt=KubeVault></div><h5>KubeVault</h5></div><div class=menu-body><p>Tools for running HashiCorp Vault on Kubernetes</p></div></a></div></div></div><div class="column is-6"><div class=columns><div class="column is-12"><a href=https://byte.builders class="single-product-item byte-builder kd-orange"><div class=menu-header><p class=intro>Introducing....</p><h5>ByteBuilders</h5></div><div class=menu-body><p>Cloud reimagined for the age of Kubernetes</p></div><p class=learn-more-btn>Learn more
+<span class=icon><i class="fa fa-long-arrow-right" aria-hidden=true></i></span></p></a><a href=https://kubeform.com class="single-product-item is-kubeform"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubeform/kubeform-icon.png alt=Kubeform></div><h5>Kubeform</h5></div><div class=menu-body><p>Provision cloud resources using Kubernetes CRDs & Terraform</p></div></a></div></div></div></div></div></div><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Open Source</a><div class=ac-megamenu><div class=columns><div class="column is-6"><div class=columns><div class="column is-12 br-1"><a href=https://voyagermesh.com class="single-product-item is-voyager"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/voyager/voyager-icon.png alt=Voyager></div><h5>Voyager</h5></div><div class=menu-body><p>Secure HAProxy Ingress Controller for
+Kubernetes</p></div></a><a href=https://appscode.com/products/guard/ class="single-product-item is-guard"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/guard/guard-icon.png alt=Guard></div><h5>Guard</h5></div><div class=menu-body><p>Kubernetes Authentication WebHook Server</p></div></a><a href=https://appscode.com/products/kubed/ class="single-product-item is-kubed"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubed/kubed-icon.png alt=Kubed></div><h5>Kubed</h5></div><div class=menu-body><p>Kubernetes cluster manager daemon</p></div></a></div></div></div><div class="column is-6"><div class=columns><div class="column is-12"><a href=https://pharmer.cloud class="single-product-item is-pharmer"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/pharmer/pharmer-icon.png alt=Pharmer></div><h5>Pharmer</h5></div><div class=menu-body><p>Kubernetes Cluster Manager using Kubeadm & Cluster API</p></div></a><a href=https://appscode.com/products/swift/ class="single-product-item is-swift"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/swift/swift-icon.png alt=Swift></div><h5>Swift</h5></div><div class=menu-body><p>Ajax friendly Helm Tiller Proxy</p></div></a><a href=https://appscode.com/products/searchlight/ class="single-product-item is-searchlight"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/searchlight/searchlight-icon.png alt=Searchlight></div><h5>Searchlight</h5></div><div class=menu-body><p>Alerts for Kubernetes</p></div></a></div></div></div></div></div></div><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Services</a><div class=ac-dropdown><a class=navbar-item href=https://appscode.com/consulting/>Consulting</a>
+<a class=navbar-item href=https://appscode.com/training/>Training</a>
+<a class=navbar-item href=https://appscode.com/support/>Support</a></div></div><a class=navbar-item href=https://blog.byte.builders>Blog</a>
+<a class=navbar-item href=https://appscode.com/contact/>Contact Us</a></div><div class=navbar-item><div class="buttons main-menu-button-top"><a class="button is-small for-chat" href=https://slack.appscode.com><span><img src=/assets/images/icon/slack.png alt></span>Slack</a>
+<a class="button is-small for-support" href=https://appscode.freshdesk.com><span><img src=/assets/images/icon/chat.png alt></span>Support Portal</a></div></div></div></div></nav></div></div><div class="header-bottom-area header-area kubedb-primary-bg customize-kubedb fixed-menu"><div class="container section"><nav class=navbar><div class=navbar-brand><a class=navbar-item href=https://stash.run><img src=/assets/images/products/stash/stash-white.png alt=Stash></a>
+<a role=button class="navbar-burger burger" aria-label=menu aria-expanded=false data-target=acNav><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a></div><div id=acNav class="navbar-menu main-menu"><div class=navbar-end><div class=navbar-start><a href=/features/ class=navbar-item>Features</a>
+<a href=/pricing/ class=navbar-item>Pricing</a>
+<a href=/docs/v2021.04.12/welcome/ class=navbar-item>Documentation</a><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Community</a><div class=ac-dropdown><a href=https://github.com/stashed class=navbar-item>GitHub</a>
+<a href=https://twitter.com/KubeStash class=navbar-item>Twitter</a>
+<a href=https://slack.appscode.com class=navbar-item>Slack</a></div></div></div><div class=navbar-item><div class="buttons main-menu-button"><img style=height:24px alt="GitHub Stars" src="https://img.shields.io/badge/dynamic/json?style=flat&labelColor=1B3D4B&color=06A64F&logoColor=white&logo=github&label=stars&query=%24.stars&url=https://github-stars.appscode.workers.dev/user/stashed">
+&nbsp;&nbsp;&nbsp;
+<img style=height:24px alt="GitHub Forks" src="https://img.shields.io/badge/dynamic/json?style=flat&labelColor=1B3D4B&color=06A64F&logoColor=white&logo=github&label=forks&query=%24.forks&url=https://github-stars.appscode.workers.dev/user/stashed">
+&nbsp;&nbsp;&nbsp;
+<img style=height:24px alt="Docker Pulls" src="https://img.shields.io/docker/pulls/appscode/stash?style=flat&labelColor=1B3D4B&color=06A64F&logoColor=white&logo=docker&label=pulls"></div></div></div></div></nav></div></div><div class=documentation-menu><div class="container section"><div class=is-centered><div class="is-half has-text-centered-desktop"><div class=responsive-menu><a role=button class="navbar-burger burger" aria-label=menu aria-expanded=false data-target=acNav3><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a></div><nav class=documentation-navbar><div id=acNav3 class="navbar-menu nav-menu main-menu"><div class=navbar-centered><div class=navbar-start><a href=/docs/v2020.10.30/ class=navbar-item>Welcome</a>
+<a href=/docs/v2020.10.30/concepts/ class=navbar-item>Concepts</a>
+<a href=/docs/v2020.10.30/setup/ class=navbar-item>Setup</a><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Guides</a><div class=ac-dropdown><a href=/docs/v2020.10.30/guides/latest/ class=navbar-item>Latest Guides</a>
+<a href=/docs/v2020.10.30/guides/v1alpha1/ class=navbar-item>v1alpha1 Guides</a></div></div><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Addons</a><div class=ac-dropdown><a href=/docs/v2020.10.30/addons/postgres/ class=navbar-item>Postgres</a>
+<a href=/docs/v2020.10.30/addons/elasticsearch/ class=navbar-item>Elasticsearch</a>
+<a href=/docs/v2020.10.30/addons/mysql/ class=navbar-item>MySQL</a>
+<a href=/docs/v2020.10.30/addons/mongodb/ class=navbar-item>MongoDB</a>
+<a href=/docs/v2020.10.30/addons/percona-xtradb/ class=navbar-item>Percona XtraDB</a></div></div><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Reference</a><div class=ac-dropdown><a href=/docs/v2020.10.30/reference/operator/ class=navbar-item>Stash Operator</a>
+<a href=/docs/v2020.10.30/reference/cli/ class=navbar-item>Stash CLI</a></div></div></div></div></div></nav></div></div></div></div></header><div class=documentation-area><div class="container section"><article class="message is-danger"><div class=message-body>You are looking at the documentation of a prior release. To read the documentation of the latest release, please visit <a href=/docs/v2021.04.12/guides/latest/batch-backup/batch-backup/>here</a>.</div></article><div class=columns><div class="column is-3"><div class=kd-left-sidebar><div class=trial-button><a href=/docs/v2021.04.12/setup/ class="button is-fullwidth">Try Now for FREE!</a></div><div class=kd-version><div class=dropdown><div class=dropdown-trigger><button class="button is-fullwidth" aria-haspopup=true aria-controls=dropdown-menu3>
+<span><strong class=icon><i class="fa fa-cog" aria-hidden=true></i></strong>v2020.10.30</span>
+<span class="icon is-small"><i class="fa fa-angle-down" aria-hidden=true></i></span></button></div><div class=dropdown-menu id=dropdown-menu3 role=menu><div class=dropdown-content><a href=https://github.com/stashed/docs/tree/master/docs target=_blank class=dropdown-item>master</a>
+<a href=/docs/v2021.04.12/ class=dropdown-item>v2021.04.12<div class=tag>Latest</div></a><a href=/docs/v2021.03.17/ class=dropdown-item>v2021.03.17</a>
+<a href=/docs/v2021.01.21/ class=dropdown-item>v2021.01.21</a>
+<a href=/docs/v2020.12.17/ class=dropdown-item>v2020.12.17</a>
+<a href=/docs/v2020.11.17/ class=dropdown-item>v2020.11.17</a>
+<a href=/docs/v2020.11.06/ class=dropdown-item>v2020.11.06</a>
+<a href=/docs/v2020.10.30/ class=dropdown-item>v2020.10.30</a>
+<a href=/docs/v2020.10.29/ class=dropdown-item>v2020.10.29</a>
+<a href=/docs/v2020.10.21/ class=dropdown-item>v2020.10.21</a>
+<a href=/docs/v2020.09.29/ class=dropdown-item>v2020.09.29</a>
+<a href=/docs/v2020.09.16/ class=dropdown-item>v2020.09.16</a>
+<a href=/docs/v2020.08.27/ class=dropdown-item>v2020.08.27</a>
+<a href=/docs/v0.9.0-rc.6/ class=dropdown-item>v0.9.0-rc.6</a></div></div></div></div><div class=kd-sidebar-menu><div class=item><input type=checkbox id=69a62cd305b217a1bfb8b25b76349791-1>
+<label for=69a62cd305b217a1bfb8b25b76349791-1><a href=/docs/v2020.10.30/guides/latest/>Latest Guides</a></label></div><div class=item><input type=checkbox id=69a62cd305b217a1bfb8b25b76349791-2>
+<label for=69a62cd305b217a1bfb8b25b76349791-2><a>Supported Backends</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.10.30/guides/latest/backends/overview/>What is Backend?</a></li><li><a href=/docs/v2020.10.30/guides/latest/backends/local/>Kubernetes Volumes</a></li><li><a href=/docs/v2020.10.30/guides/latest/backends/s3/>AWS S3/Minio/Rook</a></li><li><a href=/docs/v2020.10.30/guides/latest/backends/azure/>Azure Blob Storage</a></li><li><a href=/docs/v2020.10.30/guides/latest/backends/gcs/>Google Cloud Storage</a></li><li><a href=/docs/v2020.10.30/guides/latest/backends/swift/>OpenStack Swift</a></li><li><a href=/docs/v2020.10.30/guides/latest/backends/b2/>Backblaze B2</a></li><li><a href=/docs/v2020.10.30/guides/latest/backends/rest/>REST Server</a></li></ul></div></div><div class=item><input type=checkbox id=69a62cd305b217a1bfb8b25b76349791-3>
+<label for=69a62cd305b217a1bfb8b25b76349791-3><a>Workload's Volumes</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.10.30/guides/latest/workloads/overview/>How Backup and Restore works?</a></li><li><a href=/docs/v2020.10.30/guides/latest/workloads/deployment/>Backup & Restore Volumes of a Deployment</a></li><li><a href=/docs/v2020.10.30/guides/latest/workloads/statefulset/>Backup & Restore Volumes of a StatefulSet</a></li><li><a href=/docs/v2020.10.30/guides/latest/workloads/daemonset/>Backup & Restore Volumes of a DaemonSet</a></li></ul></div></div><div class=item><input type=checkbox id=69a62cd305b217a1bfb8b25b76349791-4>
+<label for=69a62cd305b217a1bfb8b25b76349791-4><a>Stand-alone Volumes</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.10.30/guides/latest/volumes/overview/>How does it work?</a></li><li><a href=/docs/v2020.10.30/guides/latest/volumes/pvc/>Backup & Restore a Stand-alone PVC</a></li></ul></div></div><div class=item><input type=checkbox id=69a62cd305b217a1bfb8b25b76349791-5 checked>
+<label for=69a62cd305b217a1bfb8b25b76349791-5><a>Batch Backup</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.10.30/guides/latest/batch-backup/overview/>How Batch Backup & Restore works?</a></li><li class=is-active><a href=/docs/v2020.10.30/guides/latest/batch-backup/batch-backup/>Backup a WordPress Site</a></li></ul></div></div><div class=item><input type=checkbox id=69a62cd305b217a1bfb8b25b76349791-6>
+<label for=69a62cd305b217a1bfb8b25b76349791-6><a>Auto Backup</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.10.30/guides/latest/auto-backup/overview/>What is Auto Backup?</a></li><li><a href=/docs/v2020.10.30/guides/latest/auto-backup/workload/>Auto Backup for Workloads</a></li><li><a href=/docs/v2020.10.30/guides/latest/auto-backup/pvc/>Auto Backup for PVCs</a></li><li><a href=/docs/v2020.10.30/guides/latest/auto-backup/database/>Auto Backup for Databases</a></li></ul></div></div><div class=item><input type=checkbox id=69a62cd305b217a1bfb8b25b76349791-7>
+<label for=69a62cd305b217a1bfb8b25b76349791-7><a>Volume Snapshot</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.10.30/guides/latest/volumesnapshot/overview/>How VolumeSnapshot works?</a></li><li><a href=/docs/v2020.10.30/guides/latest/volumesnapshot/deployment/>Snapshot Deployment Volumes</a></li><li><a href=/docs/v2020.10.30/guides/latest/volumesnapshot/statefulset/>Snapshot StatefulSet Volumes</a></li><li><a href=/docs/v2020.10.30/guides/latest/volumesnapshot/pvc/>Snapshot Stand-alone PVC</a></li></ul></div></div><div class=item><input type=checkbox id=69a62cd305b217a1bfb8b25b76349791-8>
+<label for=69a62cd305b217a1bfb8b25b76349791-8><a>Advance Use Cases</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.10.30/guides/latest/advanced-use-case/instant-backup/>Instant Backup</a></li><li><a href=/docs/v2020.10.30/guides/latest/advanced-use-case/pause-backup/>Pause Backup</a></li><li><a href=/docs/v2020.10.30/guides/latest/advanced-use-case/clone-pvc/>Clone Data Volumes</a></li><li><a href=/docs/v2020.10.30/guides/latest/advanced-use-case/ownership/>File Ownership</a></li></ul></div></div><div class=item><input type=checkbox id=69a62cd305b217a1bfb8b25b76349791-9>
+<label for=69a62cd305b217a1bfb8b25b76349791-9><a>Platforms</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.10.30/guides/latest/platforms/eks/>EKS</a></li><li><a href=/docs/v2020.10.30/guides/latest/platforms/aks/>AKS</a></li><li><a href=/docs/v2020.10.30/guides/latest/platforms/gke/>GKE</a></li><li><a href=/docs/v2020.10.30/guides/latest/platforms/minio/>Minio</a></li><li><a href=/docs/v2020.10.30/guides/latest/platforms/rook/>Rook</a></li></ul></div></div><div class=item><input type=checkbox id=69a62cd305b217a1bfb8b25b76349791-10>
+<label for=69a62cd305b217a1bfb8b25b76349791-10><a>Monitoring</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.10.30/guides/latest/monitoring/overview/>Overview</a></li><li><a href=/docs/v2020.10.30/guides/latest/monitoring/builtin/>Builtin Prometheus</a></li><li><a href=/docs/v2020.10.30/guides/latest/monitoring/coreos/>Prometheus Operator</a></li></ul></div></div><div class=item><input type=checkbox id=69a62cd305b217a1bfb8b25b76349791-11>
+<label for=69a62cd305b217a1bfb8b25b76349791-11><a>Addons</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.10.30/guides/latest/addons/overview/>Overview</a></li></ul></div></div><div class=item><input type=checkbox id=69a62cd305b217a1bfb8b25b76349791-12>
+<label for=69a62cd305b217a1bfb8b25b76349791-12><a>Hooks</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.10.30/guides/latest/hooks/overview/>Overview</a></li><li><a href=/docs/v2020.10.30/guides/latest/hooks/backup-and-restore-hooks/>Backup & Restore Hooks</a></li><li><a href=/docs/v2020.10.30/guides/latest/hooks/batch-backup-hooks/>BackupBatch Hooks</a></li><li><a href=/docs/v2020.10.30/guides/latest/hooks/configuring-hooks/>Configuring Hooks</a></li></ul></div></div><div class=item><input type=checkbox id=69a62cd305b217a1bfb8b25b76349791-13>
+<label for=69a62cd305b217a1bfb8b25b76349791-13><a>CLI</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.10.30/guides/latest/cli/cli/>Stash kubectl Plugin</a></li></ul></div></div><div class=item><input type=checkbox id=69a62cd305b217a1bfb8b25b76349791-14>
+<label for=69a62cd305b217a1bfb8b25b76349791-14><a>Security</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v2020.10.30/guides/latest/security/rbac/>RBAC</a></li><li><a href=/docs/v2020.10.30/guides/latest/security/psp/>PSP</a></li></ul></div></div></div></div></div><div class="column is-7"><div class=full-info><article class="message is-warning"><div class=message-body>This is an Enterprise-only feature. Please install <a href=/docs/v2020.10.30/setup/install/enterprise>Stash Enterprise Edition</a> to try this feature.</div></article><h1 id=backup--restore-a-wordpress-site-using-batch-backup>Backup & Restore a WordPress Site Using Batch Backup</h1><p>This tutorial will demonstrate how to use Stash to take backup of an application with multiple co-related components. Here, we are going to take backup of a <a href=https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/>WordPress Site</a>.</p><h2 id=before-you-begin>Before You Begin</h2><ul><li><p>At first, you need to have a Kubernetes cluster, and the <code>kubectl</code> command-line tool must be configured to communicate with your cluster. If you do not already have a cluster, you can create one by using <a href=https://kind.sigs.k8s.io/docs/user/quick-start/>kind</a>.</p></li><li><p>Install <code>Stash</code> in your cluster following the steps <a href=/docs/v2020.10.30/setup/README>here</a>.</p></li><li><p>Install MySQL addon for Stash following the steps <a href=https://stash.run/docs/v0.9.0-rc.2/addons/mysql/guides/8.0.14/mysql/>here</a>.</p></li><li><p>If you are not familiar with how Stash backup and restore MySQL databases, please check the following guide <a href=https://stash.run/docs/v0.9.0-rc.2/addons/mysql/overview/>here</a>.</p></li><li><p>You should be familiar with the following <code>Stash</code> concepts:</p><ul><li><a href=/docs/v2020.10.30/concepts/crds/appbinding>Appbinding</a></li><li><a href=/docs/v2020.10.30/concepts/crds/function>Function</a></li><li><a href=/docs/v2020.10.30/concepts/crds/task>Task</a></li><li><a href=/docs/v2020.10.30/concepts/crds/backupbatch>BackupBatch</a></li><li><a href=/docs/v2020.10.30/concepts/crds/backupsession>BackupSession</a></li><li><a href=/docs/v2020.10.30/concepts/crds/repository>Repository</a></li><li><a href=/docs/v2020.10.30/concepts/crds/restorebatch>RestoreBatch</a></li></ul></li></ul><p>To keep everything isolated, we are going to use a separate namespace called <code>demo</code> throughout this tutorial.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl create ns demo
+namespace/demo created
+</code></pre></div><blockquote><p><strong>Note:</strong> YAML files used in this tutorial are stored in <a href=/docs/v2020.10.30/examples/guides/latest/batch-backup>docs/examples/guides/latest/batch-backup</a> directory of <a href=https://github.com/stashed/docs>stashed/docs</a> repository.</p></blockquote><h2 id=deploy-wordpress-site>Deploy WordPress Site</h2><p>At first, we are going to deploy a WordPress site with a MySQL database and generate some sample data in it. Then, we are going to backup this site&rsquo;s data and database into a GCS bucket. Finally, we are going to show how we can restore the site form the backed up data.</p><h3 id=deploy-database>Deploy Database</h3><p>We are going to use MySQL as the database for our WordPress site. So, let&rsquo;s deploy the database first.</p><p>Let&rsquo;s create a secret for the MySQL database,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl create secret  -n demo generic mysql-pass <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>  --from-literal<span style=color:#f92672>=</span>username<span style=color:#f92672>=</span>root                      <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>  --from-literal<span style=color:#f92672>=</span>password<span style=color:#f92672>=</span>mysqlpass
+secret/mysql-pass created
+</code></pre></div><p>Now, let&rsquo;s create a MySQL deployment with this secret. Below are the YAML of the MySQL Deployment along with its Service and PVC,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>v1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Service</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-db</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+  <span style=color:#f92672>labels</span>:
+    <span style=color:#f92672>app</span>: <span style=color:#ae81ff>wordpress-db</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>ports</span>:
+  - <span style=color:#f92672>port</span>: <span style=color:#ae81ff>3306</span>
+  <span style=color:#f92672>selector</span>:
+    <span style=color:#f92672>app</span>: <span style=color:#ae81ff>wordpress-db</span>
+---
+<span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>apps/v1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Deployment</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-db</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+  <span style=color:#f92672>labels</span>:
+    <span style=color:#f92672>app</span>: <span style=color:#ae81ff>wordpress-db</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>selector</span>:
+    <span style=color:#f92672>matchLabels</span>:
+      <span style=color:#f92672>app</span>: <span style=color:#ae81ff>wordpress-db</span>
+  <span style=color:#f92672>strategy</span>:
+    <span style=color:#f92672>type</span>: <span style=color:#ae81ff>Recreate</span>
+  <span style=color:#f92672>template</span>:
+    <span style=color:#f92672>metadata</span>:
+      <span style=color:#f92672>labels</span>:
+        <span style=color:#f92672>app</span>: <span style=color:#ae81ff>wordpress-db</span>
+    <span style=color:#f92672>spec</span>:
+      <span style=color:#f92672>containers</span>:
+      - <span style=color:#f92672>image</span>: <span style=color:#ae81ff>mysql:8.0.14</span>
+        <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql</span>
+        <span style=color:#f92672>args</span>:
+        - --<span style=color:#ae81ff>default-authentication-plugin=mysql_native_password</span>
+        <span style=color:#f92672>env</span>:
+        - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>MYSQL_ROOT_PASSWORD</span>
+          <span style=color:#f92672>valueFrom</span>:
+            <span style=color:#f92672>secretKeyRef</span>:
+              <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql-pass</span>
+              <span style=color:#f92672>key</span>: <span style=color:#ae81ff>password</span>
+        - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>MYSQL_USER</span>
+          <span style=color:#f92672>valueFrom</span>:
+            <span style=color:#f92672>secretKeyRef</span>:
+              <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql-pass</span>
+              <span style=color:#f92672>key</span>: <span style=color:#ae81ff>username</span>
+        <span style=color:#f92672>ports</span>:
+        - <span style=color:#f92672>containerPort</span>: <span style=color:#ae81ff>3306</span>
+          <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql</span>
+        <span style=color:#f92672>volumeMounts</span>:
+        - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>storage</span>
+          <span style=color:#f92672>mountPath</span>: <span style=color:#ae81ff>/var/lib/mysql</span>
+        - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>config-volume</span>
+          <span style=color:#f92672>mountPath</span>: <span style=color:#ae81ff>/etc/mysql/conf.d</span>
+      <span style=color:#f92672>volumes</span>:
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>storage</span>
+        <span style=color:#f92672>persistentVolumeClaim</span>:
+          <span style=color:#f92672>claimName</span>: <span style=color:#ae81ff>mysql-pvc</span>
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>config-volume</span>
+        <span style=color:#f92672>emptyDir</span>: {}
+---
+<span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>v1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>PersistentVolumeClaim</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql-pvc</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+  <span style=color:#f92672>labels</span>:
+    <span style=color:#f92672>app</span>: <span style=color:#ae81ff>wordpress-db</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>accessModes</span>:
+  - <span style=color:#ae81ff>ReadWriteOnce</span>
+  <span style=color:#f92672>resources</span>:
+    <span style=color:#f92672>requests</span>:
+      <span style=color:#f92672>storage</span>: <span style=color:#ae81ff>1Gi</span>
+</code></pre></div><p>Let&rsquo;s create the above MySQL Deployment,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.10.30/docs/examples/guides/latest/batch-backup/mysql.yaml
+service/wordpress-db created
+deployment.apps/wordpress-db created
+persistentvolumeclaim/mysql-pvc created
+</code></pre></div><p>Now, wait for the MySQL pod to go into running state,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get pod -n demo -l app<span style=color:#f92672>=</span>wordpress-db
+NAME                            READY   STATUS    RESTARTS   AGE
+wordpress-db-58657b89b9-kgt76   1/1     Running   <span style=color:#ae81ff>0</span>          104s
+</code></pre></div><p>Let&rsquo;s check if the MySQL database is ready to accept connections,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl logs -n demo -f wordpress-db-58657b89b9-kgt76
+Initializing database
+....
+....
+2020-01-07T12:33:23.242350Z <span style=color:#ae81ff>0</span> <span style=color:#f92672>[</span>System<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>MY-010931<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>Server<span style=color:#f92672>]</span> /usr/sbin/mysqld: ready <span style=color:#66d9ef>for</span> connections. Version: <span style=color:#e6db74>&#39;8.0.14&#39;</span>  socket: <span style=color:#e6db74>&#39;/var/run/mysqld/mysqld.sock&#39;</span>  port: <span style=color:#ae81ff>3306</span>  MySQL Community Server - GPL.
+2020-01-07T12:33:23.325316Z <span style=color:#ae81ff>0</span> <span style=color:#f92672>[</span>System<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>MY-011323<span style=color:#f92672>]</span> <span style=color:#f92672>[</span>Server<span style=color:#f92672>]</span> X Plugin ready <span style=color:#66d9ef>for</span> connections. Bind-address: <span style=color:#e6db74>&#39;::&#39;</span> port: <span style=color:#ae81ff>33060</span>
+</code></pre></div><p>From the last line, we can see the database is ready to accept connections.</p><h3 id=deploy-wordpress>Deploy WordPress</h3><p>Now, we are going to deploy our WordPress app in another Deployment. This going to use the MySQL database through the <code>wordpress-db</code> Service that we have created earlier.</p><p>Below is the YAML of the WordPress Deployment along with its PVC and Service:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>v1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Service</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-app</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+  <span style=color:#f92672>labels</span>:
+    <span style=color:#f92672>app</span>: <span style=color:#ae81ff>wordpress-app</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>ports</span>:
+  - <span style=color:#f92672>port</span>: <span style=color:#ae81ff>80</span>
+  <span style=color:#f92672>selector</span>:
+    <span style=color:#f92672>app</span>: <span style=color:#ae81ff>wordpress-app</span>
+---
+<span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>apps/v1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Deployment</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-app</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+  <span style=color:#f92672>labels</span>:
+    <span style=color:#f92672>app</span>: <span style=color:#ae81ff>wordpress-app</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>selector</span>:
+    <span style=color:#f92672>matchLabels</span>:
+      <span style=color:#f92672>app</span>: <span style=color:#ae81ff>wordpress-app</span>
+  <span style=color:#f92672>strategy</span>:
+    <span style=color:#f92672>type</span>: <span style=color:#ae81ff>Recreate</span>
+  <span style=color:#f92672>template</span>:
+    <span style=color:#f92672>metadata</span>:
+      <span style=color:#f92672>labels</span>:
+        <span style=color:#f92672>app</span>: <span style=color:#ae81ff>wordpress-app</span>
+    <span style=color:#f92672>spec</span>:
+      <span style=color:#f92672>containers</span>:
+      - <span style=color:#f92672>image</span>: <span style=color:#ae81ff>wordpress:5.3.2-apache</span>
+        <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress</span>
+        <span style=color:#f92672>env</span>:
+        - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>WORDPRESS_DB_HOST</span>
+          <span style=color:#f92672>value</span>: <span style=color:#ae81ff>wordpress-db</span>
+        - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>WORDPRESS_DB_PASSWORD</span>
+          <span style=color:#f92672>valueFrom</span>:
+            <span style=color:#f92672>secretKeyRef</span>:
+              <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql-pass</span>
+              <span style=color:#f92672>key</span>: <span style=color:#ae81ff>password</span>
+        - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>WORDPRESS_DB_USER</span>
+          <span style=color:#f92672>valueFrom</span>:
+            <span style=color:#f92672>secretKeyRef</span>:
+              <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql-pass</span>
+              <span style=color:#f92672>key</span>: <span style=color:#ae81ff>username</span>
+        <span style=color:#f92672>ports</span>:
+        - <span style=color:#f92672>containerPort</span>: <span style=color:#ae81ff>80</span>
+          <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress</span>
+        <span style=color:#f92672>volumeMounts</span>:
+        - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>storage</span>
+          <span style=color:#f92672>mountPath</span>: <span style=color:#ae81ff>/var/www/html</span>
+      <span style=color:#f92672>volumes</span>:
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>storage</span>
+        <span style=color:#f92672>persistentVolumeClaim</span>:
+          <span style=color:#f92672>claimName</span>: <span style=color:#ae81ff>wordpress-pvc</span>
+---
+<span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>v1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>PersistentVolumeClaim</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-pvc</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+  <span style=color:#f92672>labels</span>:
+    <span style=color:#f92672>app</span>: <span style=color:#ae81ff>wordpress-app</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>accessModes</span>:
+  - <span style=color:#ae81ff>ReadWriteOnce</span>
+  <span style=color:#f92672>resources</span>:
+    <span style=color:#f92672>requests</span>:
+      <span style=color:#f92672>storage</span>: <span style=color:#ae81ff>1Gi</span>
+</code></pre></div><p>Let&rsquo;s create the above Deployment,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.10.30/docs/examples/guides/latest/batch-backup/wordpress.yaml
+service/wordpress-app created
+deployment.apps/wordpress-app created
+persistentvolumeclaim/wordpress-pvc created
+</code></pre></div><p>Now, wait for the wordpress pod to go into running state,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get pod -n demo -l app<span style=color:#f92672>=</span>wordpress-app
+NAME                             READY   STATUS    RESTARTS   AGE
+wordpress-app-59b69858f9-48phf   1/1     Running   <span style=color:#ae81ff>0</span>          3m40s
+</code></pre></div><p>So, we can see that our WordPress site is running. Now, its time to insert some sample data.</p><h4 id=insert-sample-data>Insert Sample Data</h4><p>At first, lets port-forward the <code>wordpress-app</code> Service that we have created with the WordPress deployment.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl port-forward -n demo service/wordpress-app 8080:80
+Forwarding from 127.0.0.1:8080 -&gt; <span style=color:#ae81ff>80</span>
+Forwarding from <span style=color:#f92672>[</span>::1<span style=color:#f92672>]</span>:8080 -&gt; <span style=color:#ae81ff>80</span>
+</code></pre></div><p>Now, we can access our site through a browser at <code>localhost:8080</code>. Let&rsquo;s complete the initial setup.</p><figure align=center><img alt="WordPress Setup Wizard" src=/docs/v2020.10.30/images/guides/latest/batch-backup/wordpress-setup.png><figcaption align=center>Fig: WordPress Setup Wizard</figcaption></figure><p>Once we have completed the setup, let&rsquo;s create some sample blog posts. Here, I have created a sample post titled <strong>Stash Batch Backup Test</strong>.</p><figure align=center><img alt="Sample Post" src=/docs/v2020.10.30/images/guides/latest/batch-backup/sample-post.png><figcaption align=center>Fig: A sample blog post</figcaption></figure><p>When we save the post, WordPress will store it into the database. If we exec into the database pod, we will see the post has been stored there.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -it -n demo wordpress-db-58657b89b9-kgt76 -- mysql --user<span style=color:#f92672>=</span>root --password<span style=color:#f92672>=</span>mysqlpass
+...
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| wordpress          |
++--------------------+
+<span style=color:#ae81ff>5</span> rows in set <span style=color:#f92672>(</span>0.01 sec<span style=color:#f92672>)</span>
+
+mysql&gt; show tables in wordpress;
++-----------------------+
+| Tables_in_wordpress   |
++-----------------------+
+| wp_commentmeta        |
+| wp_comments           |
+| wp_links              |
+| wp_options            |
+| wp_postmeta           |
+| wp_posts              |
+| wp_term_relationships |
+| wp_term_taxonomy      |
+| wp_termmeta           |
+| wp_terms              |
+| wp_usermeta           |
+| wp_users              |
++-----------------------+
+<span style=color:#ae81ff>12</span> rows in set <span style=color:#f92672>(</span>0.00 sec<span style=color:#f92672>)</span>
+
+mysql&gt; use wordpress;
+Reading table information <span style=color:#66d9ef>for</span> completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+mysql&gt; <span style=color:#66d9ef>select</span> post_name from wp_posts;
++-------------------------+
+| post_name               |
++-------------------------+
+| hello-world             |
+| sample-page             |
+| privacy-policy          |
+|                         |
+| stash-batch-backup-test |
+| 5-revision-v1           |
++-------------------------+
+<span style=color:#ae81ff>6</span> rows in set <span style=color:#f92672>(</span>0.00 sec<span style=color:#f92672>)</span>
+
+mysql&gt; exit
+Bye
+</code></pre></div><p>So, we can see that our post has been stored with <code>stash-batch-backup-test</code> name.</p><p>Also, WordPress pod write some files in its <code>/var/www/html</code> directory. Let&rsquo;s see whats file has been written there:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -it -n demo wordpress-app-59b69858f9-48phf -- ls /var/www/html
+index.php        wp-blog-header.php    wp-cron.php        wp-mail.php
+license.txt      wp-comments-post.php  wp-includes        wp-settings.php
+readme.html      wp-config-sample.php  wp-links-opml.php  wp-signup.php
+wp-activate.php  wp-config.php         wp-load.php        wp-trackback.php
+wp-admin         wp-content            wp-login.php       xmlrpc.php
+</code></pre></div><p>Notice the <code>wp-content</code> directory. We will work with this directory later in this tutorial.</p><p>Now, our wordpress site is running and we have created some post into it. Now, its time to setup a backup for our site.</p><h3 id=backup>Backup</h3><p>Here, we are going to backup the <code>/var/www/html</code> directory of the WordPress pod and the MySQL database into a GCS bucket using <code>BackupBatch</code>.</p><h4 id=create-appbinding>Create AppBinding</h4><p>At first, let&rsquo;s create an <code>AppBinding</code> CR that holds the connection information of the MySQL database. Stash uses this <code>AppBinding</code> to connect with the database.</p><p>Here, is the <code>AppBinding</code> CR holding connection information of our MySQL database,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>appcatalog.appscode.com/v1alpha1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>AppBinding</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-db</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>type</span>: <span style=color:#ae81ff>mysql</span>
+  <span style=color:#f92672>version</span>: <span style=color:#ae81ff>8.0.14</span>
+  <span style=color:#f92672>clientConfig</span>:
+    <span style=color:#f92672>service</span>:
+      <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-db</span>
+      <span style=color:#f92672>port</span>: <span style=color:#ae81ff>3306</span>
+      <span style=color:#f92672>scheme</span>: <span style=color:#ae81ff>mysql</span>
+  <span style=color:#f92672>secret</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql-pass</span>
+</code></pre></div><p>Here,</p><ul><li><code>.spec.clientConfig.service.name</code> specifies the name of the Service that connects to the MySQL database.</li><li><code>.spec.clientConfig.service.port</code> specifies the port where the target database is running.</li><li><code>.spec.secret</code> specifies the name of the Secret that holds the necessary credentials to access the database.</li><li><code>spec.type</code> specifies the types of the database it pointing to.</li></ul><p>Let&rsquo;s create the above AppBinding,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.10.30/docs/examples/guides/latest/batch-backup/appbinding.yaml
+appbinding.appcatalog.appscode.com/wordpress-db
+</code></pre></div><h4 id=prepare-backend>Prepare Backend</h4><p>We are going to store our backed up data into a GCS bucket. We have to create a Secret with the necessary credentials and a Repository CR to use this backend. If you want to use a different backend, please read the respective backend configuration doc from <a href=/docs/v2020.10.30/guides/latest/backends/overview>here</a>.</p><blockquote><p>For GCS backend, if the bucket does not exist, Stash needs <code>Storage Object Admin</code> role permissions to create the bucket. For more details, please check the following <a href=/docs/v2020.10.30/guides/latest/backends/gcs>guide</a>.</p></blockquote><p><strong>Create Secret:</strong></p><p>Let&rsquo;s create a Secret called <code>gcs-secret</code> with access credentials to our desired GCS bucket,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ echo -n <span style=color:#e6db74>&#39;changeit&#39;</span> &gt; RESTIC_PASSWORD
+$ echo -n <span style=color:#e6db74>&#39;&lt;your-project-id&gt;&#39;</span> &gt; GOOGLE_PROJECT_ID
+$ cat /path/to/downloaded-sa-json.key &gt; GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+$ kubectl create secret generic -n demo gcs-secret <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --from-file<span style=color:#f92672>=</span>./RESTIC_PASSWORD <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --from-file<span style=color:#f92672>=</span>./GOOGLE_PROJECT_ID <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    --from-file<span style=color:#f92672>=</span>./GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+secret/gcs-secret created
+</code></pre></div><p><strong>Create Repository:</strong></p><p>Now, let&rsquo;s create a <code>Repository</code> with our GCS bucket information. Below is the YAML of <code>Repository</code> CR we are going to create,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>stash.appscode.com/v1alpha1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Repository</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>gcs-repo</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>backend</span>:
+    <span style=color:#f92672>gcs</span>:
+      <span style=color:#f92672>bucket</span>: <span style=color:#ae81ff>stashed-ci</span>
+      <span style=color:#f92672>prefix</span>: <span style=color:#ae81ff>/wordpress/backup</span>
+    <span style=color:#f92672>storageSecretName</span>: <span style=color:#ae81ff>gcs-secret</span>
+</code></pre></div><p>Let&rsquo;s create the Repository we have shown above,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.10.30/docs/examples/guides/latest/batch-backup/repository.yaml
+repository.stash.appscode.com/gcs-repo created
+</code></pre></div><p>Now, we are ready to backup our WordPress site into this backend.</p><h4 id=backup-1>Backup</h4><p>Now, we are going to create a <code>BackupBatch</code> CR targeting the MySQL database and the WordPress deployment.</p><p><strong>Create BackupBatch:</strong></p><p>Below is the YAML of the <code>BackupBatch</code> CR that we are going to create,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>stash.appscode.com/v1beta1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>BackupBatch</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-backup</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>repository</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>gcs-repo</span>
+  <span style=color:#f92672>schedule</span>: <span style=color:#e6db74>&#34;*/5 * * * *&#34;</span>
+  <span style=color:#f92672>executionOrder</span>: <span style=color:#ae81ff>Parallel</span>
+  <span style=color:#f92672>members</span>:
+  - <span style=color:#f92672>target</span>:
+      <span style=color:#f92672>alias</span>: <span style=color:#ae81ff>db</span>
+      <span style=color:#f92672>ref</span>:
+        <span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>appcatalog.appscode.com/v1alpha1</span>
+        <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>AppBinding</span>
+        <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-db</span>
+    <span style=color:#f92672>task</span>:
+      <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql-backup-v2020.07.09-beta.0</span>
+  - <span style=color:#f92672>target</span>:
+      <span style=color:#f92672>alias</span>: <span style=color:#ae81ff>app</span>
+      <span style=color:#f92672>ref</span>:
+        <span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>apps/v1</span>
+        <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Deployment</span>
+        <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-app</span>
+      <span style=color:#f92672>volumeMounts</span>:
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>storage</span>
+        <span style=color:#f92672>mountPath</span>: <span style=color:#ae81ff>/var/www/html</span>
+      <span style=color:#f92672>paths</span>:
+      - <span style=color:#ae81ff>/var/www/html</span>
+  <span style=color:#f92672>retentionPolicy</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#e6db74>&#39;keep-last-10&#39;</span>
+    <span style=color:#f92672>keepLast</span>: <span style=color:#ae81ff>10</span>
+    <span style=color:#f92672>prune</span>: <span style=color:#66d9ef>true</span>
+</code></pre></div><p>Here,</p><ul><li><code>spec.repository</code> refers to the <code>Repository</code> that holds the information of our GCS backend.</li><li><code>spec.schedule</code> is a cron expression that indicates that backup will take at every 5 minutes interval.</li><li><code>spec.executionOrder</code> specifies that we want to take backup both of the components in parallel.</li><li><code>spec.members</code> specifies a list of targets that are subject to backup. In our case, we are going to specify the <code>AppBinding</code> of our MySQL database and the WordPress deployment as members. Each of the members may have the following sub-fields:<ul><li><code>target.alias</code> specify the host identifier that will be used to separate data of this member in the backend.</li><li><code>target.ref</code> refers to the target that will be backed up.</li><li><code>target.paths</code> specifies a list of file paths to backup for the target.</li><li><code>target.volumeMounts</code> specifies a list of volumes and their mountPath that contain the target paths.</li><li><code>task.name</code> refers to the <code>Task</code> object that specifies the <code>Function</code> and their execution order to perform the backup in the Function-Task model.</li></ul></li></ul><p>Let&rsquo;s create the <code>BackupBatch</code> crd we have shown above,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.10.30/docs/examples/guides/latest/batch-backup/backupbatch.yaml
+backupbatch.stash.appscode.com/wordpress-backup created
+</code></pre></div><p><strong>Verify CronJob:</strong></p><p>Stash will also create a <code>CronJob</code> with the schedule specified in <code>spec.schedule</code> field of <code>BackupBatch</code> CR.</p><p>Verify that the CronJob has been created successfully,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get cronjob -n demo
+NAME                            SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+stash-backup-wordpress-backup   */5 * * * *   False     <span style=color:#ae81ff>0</span>        &lt;none&gt;          32s
+</code></pre></div><p><strong>Wait for BackupSession:</strong></p><p>The CronJob will trigger a backup on each scheduled slot by creating a <code>BackupSession</code> CR. Let&rsquo;s wait for a <code>BackupSession</code> to complete,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$  kubectl get backupsession -n demo -w
+NAME                          INVOKER-TYPE   INVOKER-NAME       PHASE       AGE
+wordpress-backup-1597245602   BackupBatch    wordpress-backup               0s
+wordpress-backup-1597245602   BackupBatch    wordpress-backup   Running     0s
+wordpress-backup-1597245602   BackupBatch    wordpress-backup   Succeeded   40s
+</code></pre></div><p>We can see from the above output that the BackupSession has <code>Succeeded</code>. It means Stash has backed up our database and the <code>/var/www/html</code> directory of the WordPress deployment successfully.</p><p><strong>Verify Backup:</strong></p><p>When a backup session is completed, Stash will update the respective <code>Repository</code> to reflect the latest state of backed up data.</p><p>Run the following command to check if a backup snapshot has been stored in the backend,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get repository -n demo gcs-repo
+NAME       INTEGRITY   SIZE        SNAPSHOT-COUNT   LAST-SUCCESSFUL-BACKUP   AGE
+gcs-repo   true        183.5Mi     <span style=color:#ae81ff>2</span>                3s                       38m
+</code></pre></div><p>From the output above, we can see that 2 snapshots have been stored in the backend.</p><p>Now, if we navigate to our GCS bucket, we are going to see that the backed up data has been stored in <code>/wordpress/backup</code> directory as specified by the <code>prefix</code> field of the Repository.</p><figure align=center><img alt="Backup data in GCS Bucket" src=/docs/v2020.10.30/images/guides/latest/batch-backup/backup-data.png><figcaption align=center>Fig: Backup data in GCS Bucket</figcaption></figure><blockquote><p><strong>Note:</strong> Stash keeps all the backed up data encrypted. So, data in the backend will not make any sense until they are decrypted.</p></blockquote><h2 id=restore>Restore</h2><p>In the previous section, we have successfully backed up the database and <code>/var/www/html</code> directory our WordPress deployment into a GCS bucket. Now, it is time to see the restore process in action.</p><p>Here, we are going to see two different restore scenarios:</p><ul><li><p><strong>Batch Restore:</strong> In this scenario, we will assume that both of the components (database and wordpress deployment) our WordPress site has been damaged. In this case, we will restore the backed up data of both components using a <code>RestoreBatch</code> object.</p></li><li><p><strong>Individual Restore:</strong> In this scenario, we will assume that only the database has been damaged. So, restoring only the database is sufficient. In this case, we are going to restore the database using a <code>RestoreSession</code> object.</p></li></ul><p><strong>Pause Backup:</strong></p><p>At first, let stop the backup so that no new backup happens during the restore process. Let&rsquo;s set <code>spec.paused</code> section of <code>BackupBatch</code> to <code>true</code> which will stop taking further scheduled backup.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl patch backupbatch -n demo wordpress-backup --type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;merge&#34;</span> --patch<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;{&#34;spec&#34;: {&#34;paused&#34;: true}}&#39;</span>
+backupbatch.stash.appscode.com/wordpress-backup patched
+</code></pre></div><p>It should suspend the respective CronJob which is responsible for triggering backup at a scheduled slot. Let&rsquo;s verify that the CronJob has been suspended.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get cronjob -n demo
+NAME                            SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+stash-backup-wordpress-backup   */5 * * * *   True      <span style=color:#ae81ff>0</span>        12h             13h
+</code></pre></div><h3 id=batch-restore>Batch Restore</h3><p>In this section, we are going to simulate a disaster scenario where we will damage both the database and the wordpress deployment&rsquo;s data. Then, we will restore them from the backup.</p><p><strong>Simulate Disaster:</strong></p><p>At first, let&rsquo;s corrupt the database. Here, we are going to delete the sample post we have created earlier.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -it -n demo wordpress-db-58657b89b9-kgt76 -- mysql --user<span style=color:#f92672>=</span>root --password<span style=color:#f92672>=</span>mysqlpass
+....
+mysql&gt; show tables from wordpress;
++-----------------------+
+| Tables_in_wordpress   |
++-----------------------+
+| wp_commentmeta        |
+| wp_comments           |
+| wp_links              |
+| wp_options            |
+| wp_postmeta           |
+| wp_posts              |
+| wp_term_relationships |
+| wp_term_taxonomy      |
+| wp_termmeta           |
+| wp_terms              |
+| wp_usermeta           |
+| wp_users              |
++-----------------------+
+<span style=color:#ae81ff>12</span> rows in set <span style=color:#f92672>(</span>0.01 sec<span style=color:#f92672>)</span>
+
+mysql&gt; use wordpress;
+Reading table information <span style=color:#66d9ef>for</span> completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql&gt; show tables;
++-----------------------+
+| Tables_in_wordpress   |
++-----------------------+
+| wp_commentmeta        |
+| wp_comments           |
+| wp_links              |
+| wp_options            |
+| wp_postmeta           |
+| wp_posts              |
+| wp_term_relationships |
+| wp_term_taxonomy      |
+| wp_termmeta           |
+| wp_terms              |
+| wp_usermeta           |
+| wp_users              |
++-----------------------+
+<span style=color:#ae81ff>12</span> rows in set <span style=color:#f92672>(</span>0.00 sec<span style=color:#f92672>)</span>
+
+mysql&gt; <span style=color:#66d9ef>select</span> post_name from wp_posts;
++-------------------------+
+| post_name               |
++-------------------------+
+| hello-world             |
+| sample-page             |
+| privacy-policy          |
+|                         |
+| stash-batch-backup-test |
+| 5-revision-v1           |
++-------------------------+
+<span style=color:#ae81ff>6</span> rows in set <span style=color:#f92672>(</span>0.00 sec<span style=color:#f92672>)</span>
+
+mysql&gt; delete from wp_posts where post_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;stash-batch-backup-test&#39;</span>;
+Query OK, <span style=color:#ae81ff>1</span> row affected <span style=color:#f92672>(</span>0.01 sec<span style=color:#f92672>)</span>
+
+mysql&gt; <span style=color:#66d9ef>select</span> post_name from wp_posts;
++----------------+
+| post_name      |
++----------------+
+| hello-world    |
+| sample-page    |
+| privacy-policy |
+|                |
+| 5-revision-v1  |
++----------------+
+<span style=color:#ae81ff>5</span> rows in set <span style=color:#f92672>(</span>0.00 sec<span style=color:#f92672>)</span>
+
+mysql&gt; exit;
+Bye
+</code></pre></div><p>We have deleted the <code>stash-batch-backup-test</code> post from the database. Now, if you go to our WordPress site through a browser, you will see that the sample post that we had created is missing now.</p><figure align=center><img alt="Missing Sample Post" src=/docs/v2020.10.30/images/guides/latest/batch-backup/wp_missing.png><figcaption align=center>Fig: Missing Sample Post</figcaption></figure><p>So, we can see that the sample post is gone. Only, the <code>Hello World!</code> post is now available.</p><p>Now, let&rsquo;s do some damage to our WordPress deployment too. Here, we are going to remove the <code>wp-content</code> directory from <code>/var/www/html</code> directory of our WordPress pod.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -n demo wordpress-app-5b778b446-gtd6d -c wordpress -- rm -r /var/www/html/wp-content
+</code></pre></div><p>Verify that the <code>wp-content</code> directory has been removed.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -n demo wordpress-app-5b778b446-gtd6d -c wordpress  -- ls /var/www/html
+index.php
+license.txt
+readme.html
+wp-activate.php
+wp-admin
+wp-blog-header.php
+wp-comments-post.php
+wp-config-sample.php
+wp-config.php
+wp-cron.php
+wp-includes
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+</code></pre></div><p>So, we can see from the above that the <code>wp-content</code> directory is no longer present in <code>/var/www/html</code> directory.</p><p><strong>Create RestoreBatch:</strong></p><p>Now, we are going to restore both of the components using a RestoreBatch. Here, is the YAML of the RestoreBatch CR that we are going to use:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>stash.appscode.com/v1beta1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>RestoreBatch</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-restore</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>driver</span>: <span style=color:#ae81ff>Restic</span>
+  <span style=color:#f92672>repository</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>gcs-repo</span>
+  <span style=color:#f92672>executionOrder</span>: <span style=color:#ae81ff>Sequential</span>
+  <span style=color:#f92672>members</span>:
+  - <span style=color:#f92672>target</span>:
+      <span style=color:#f92672>alias</span>: <span style=color:#ae81ff>db</span>
+      <span style=color:#f92672>ref</span>:
+        <span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>appcatalog.appscode.com/v1alpha1</span>
+        <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>AppBinding</span>
+        <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-db</span>
+      <span style=color:#f92672>rules</span>:
+      - <span style=color:#f92672>snapshots</span>: [<span style=color:#ae81ff>latest]</span>
+    <span style=color:#f92672>task</span>:
+      <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql-restore-v2020.07.09-beta.0</span>
+  - <span style=color:#f92672>target</span>:
+      <span style=color:#f92672>alias</span>: <span style=color:#ae81ff>app</span>
+      <span style=color:#f92672>ref</span>:
+        <span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>apps/v1</span>
+        <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Deployment</span>
+        <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-app</span>
+      <span style=color:#f92672>rules</span>:
+      - <span style=color:#f92672>paths</span>:
+        - <span style=color:#ae81ff>/var/www/html</span>
+      <span style=color:#f92672>volumeMounts</span>:
+      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>storage</span>
+        <span style=color:#f92672>mountPath</span>: <span style=color:#ae81ff>/var/www/html</span>
+</code></pre></div><p>Here,</p><ul><li><code>spec.repository</code> specifies that we are restoring from the <code>gcs-repo</code> Repository.</li><li><code>spec.executionOrder</code> specify that we want Stash to restore the component sequentially. Here, we want to restore the database first then we want to restore the wordpress deployment&rsquo;s data.</li><li><code>spec.members</code> specify the targets to be restored. Each member may have the following sub-fields.<ul><li><code>target.alias</code> specify the host identifier of the backed up data for this member. It must be the same as the <code>alias</code> used during backup.</li><li><code>target.ref</code> refers to the target to restore.</li><li><code>target.rules</code> specify the rules for restoring the data of this member. Here, we want to restore the <code>latest</code> snapshot for the database and the latest state of <code>/var/www/html</code> path for our WordPress deployment.</li><li><code>target.volumeMounts</code> specifies the volume mounts where the data will be restored.</li><li><code>task.name</code> refers to the <code>Task</code> object to use to restore the member in the Function-Task model.</li></ul></li></ul><p>Let&rsquo;s create the above <code>RestoreBatch</code> object,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.10.30/docs/examples/guides/latest/batch-backup/restorebatch.yaml
+restorebatch.stash.appscode.com/wordpress-restore created
+</code></pre></div><p>Now, wait for the <code>RestoreBatch</code> phase to go into <code>Succeeded</code> state.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get restorebatch -n demo -w
+NAME                REPOSITORY   PHASE     AGE
+wordpress-restore   gcs-repo     Running   7s
+wordpress-restore   gcs-repo     Succeeded   2m
+</code></pre></div><p>We can see from above that Stash has successfully restored both components. Now, it&rsquo;s time to verify whether data has been restored or not.</p><p><strong>Verify Restored Data :</strong></p><p>Let&rsquo;s verify that <code>sample-batch-backup-test</code> post that we had deleted from the database has been restored.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -n demo wordpress-db-58657b89b9-kgt76 -- mysql --user<span style=color:#f92672>=</span>root --password<span style=color:#f92672>=</span>mysqlpass -e <span style=color:#e6db74>&#34;SELECT post_name FROM wordpress.wp_posts;&#34;</span>
+mysql: <span style=color:#f92672>[</span>Warning<span style=color:#f92672>]</span> Using a password on the command line interface can be insecure.
+post_name
+hello-world
+sample-page
+privacy-policy
+
+stash-batch-backup-test
+5-revision-v1<span style=color:#f92672>=</span>
+</code></pre></div><p>We can see that the <code>stash-batch-backup-test</code> post is now present in the database.</p><p>Again, let verify whether the <code>wp-content</code> directory that we had removed from the WordPress deployment&rsquo;s pod has been restored or not.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -n demo wordpress-app-684b577c89-wpsqs -c wordpress  -- ls /var/www/html
+index.php
+license.txt
+readme.html
+wp-activate.php
+wp-admin
+wp-blog-header.php
+wp-comments-post.php
+wp-config-sample.php
+wp-config.php
+wp-content
+wp-cron.php
+wp-includes
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+</code></pre></div><p>We can see from the above that the <code>wp-content</code> has been restored successfully.</p><p>Now, if you go to the WordPress site through a browser, you will see that the <code>Stash Batch Backup Test</code> post is present now.</p><figure align=center><img alt="Restored Sample Post" src=/docs/v2020.10.30/images/guides/latest/batch-backup/wp_restored.png><figcaption align=center>Fig: Restored Sample Post</figcaption></figure><h3 id=individual-restore>Individual Restore</h3><p>In this section, we are going to simulate a disaster scenario where the data of only one component get damaged. So, restoring only the damaged component is sufficient.</p><p>Here, we are going to delete the sample post again from the database and then restore it using a RestoreSession.</p><p><strong>Simulate Disaster Scenario :</strong></p><p>Let&rsquo;s delete the sample post from the database:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -n demo wordpress-db-58657b89b9-kgt76 -- mysql --user<span style=color:#f92672>=</span>root --password<span style=color:#f92672>=</span>mysqlpass -e <span style=color:#e6db74>&#34;DELETE FROM wordpress.wp_posts WHERE post_name=&#39;stash-batch-backup-test&#39;;&#34;</span>
+</code></pre></div><p>Verify that the sample post has been removed:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -n demo wordpress-db-58657b89b9-kgt76 -- mysql --user<span style=color:#f92672>=</span>root --password<span style=color:#f92672>=</span>mysqlpass -e <span style=color:#e6db74>&#34;SELECT post_name FROM wordpress.wp_posts;&#34;</span>
+mysql: <span style=color:#f92672>[</span>Warning<span style=color:#f92672>]</span> Using a password on the command line interface can be insecure.
+post_name
+hello-world
+sample-page
+privacy-policy
+
+5-revision-v1
+</code></pre></div><p>We can see from the above output that <code>stash-batch-backup-test</code> entry no longer presents in the database.</p><p><strong>Create RestoreSession:</strong></p><p>Now, let&rsquo;s create a <code>RestoreSession</code> object targeting the <code>AppBinding</code> of our MySQL database. Here, is the YAML of the <code>RestoreSession</code> that we are going to create:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>stash.appscode.com/v1beta1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>RestoreSession</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-db-restore</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>task</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql-restore-v2020.07.09-beta.0</span>
+  <span style=color:#f92672>repository</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>gcs-repo</span>
+  <span style=color:#f92672>target</span>:
+    <span style=color:#f92672>alias</span>: <span style=color:#ae81ff>db</span>
+    <span style=color:#f92672>ref</span>:
+      <span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>appcatalog.appscode.com/v1alpha1</span>
+      <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>AppBinding</span>
+      <span style=color:#f92672>name</span>: <span style=color:#ae81ff>wordpress-db</span>
+    <span style=color:#f92672>rules</span>:
+    - <span style=color:#f92672>snapshots</span>: [<span style=color:#ae81ff>latest]</span>
+</code></pre></div><p>Let&rsquo;s create the above <code>RestoreSession</code> object,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl apply -f https://github.com/stashed/docs/raw/v2020.10.30/docs/examples/guides/latest/batch-backup/restoresession.yaml
+restoresession.stash.appscode.com/wordpress-db-restore created
+</code></pre></div><p>Now, wait for the <code>RestoreSession</code> phase to go into <code>Succeeded</code> state,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get restoresession -n demo -w
+NAME                   REPOSITORY   PHASE     AGE
+wordpress-db-restore   gcs-repo     Running   10s
+wordpress-db-restore   gcs-repo     Succeeded   89s
+</code></pre></div><p>So, we can see that Stash has successfully restored the database.</p><p><strong>Verify Restored Data :</strong></p><p>Let&rsquo;s verify whether the sample post has been restored or not,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec -n demo wordpress-db-58657b89b9-kgt76 -- mysql --user<span style=color:#f92672>=</span>root --password<span style=color:#f92672>=</span>mysqlpass -e <span style=color:#e6db74>&#34;SELECT post_name FROM wordpress.wp_posts;&#34;</span>
+mysql: <span style=color:#f92672>[</span>Warning<span style=color:#f92672>]</span> Using a password on the command line interface can be insecure.
+post_name
+hello-world
+sample-page
+privacy-policy
+
+stash-batch-backup-test
+5-revision-v1
+</code></pre></div><p>We can see from the above output that the <code>stash-batch-backup-test</code> post has been restored. Now, if you navigate to the WordPress site in a browser, you should see the post again.</p><h2 id=cleaning-up>Cleaning Up</h2><p>To clean up the Kubernetes resources created by this tutorial, run:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl delete -n demo backupbatch wordpress-backup
+kubectl delete -n demo restorebatch wordpress-restore
+kubectl delete -n demo restoresession wordpress-db-restore
+
+kubectl delete -n demo deployment wordpress-db
+kubectl delete -n demo deployment wordpress-app
+kubectl delete -n demo repository gcs-repo
+kubectl delete -n demo pvc --all
+kubectl delete -n demo service --all
+</code></pre></div></div></div><div class="column is-2"><div class=right-sidebar-area><div class=search-area><form action=#><input id=acSearch type=text placeholder=Search...>
+<button class=search-button>
+<i class="fa fa-search" aria-hidden=true></i></button></form></div><div class=tbl-of-contents><h4>What's on this Page</h4><nav id=TableOfContents><ul><li><a href=#before-you-begin>Before You Begin</a></li><li><a href=#deploy-wordpress-site>Deploy WordPress Site</a><ul><li><a href=#deploy-database>Deploy Database</a></li><li><a href=#deploy-wordpress>Deploy WordPress</a></li><li><a href=#backup>Backup</a></li></ul></li><li><a href=#restore>Restore</a><ul><li><a href=#batch-restore>Batch Restore</a></li><li><a href=#individual-restore>Individual Restore</a></li></ul></li><li><a href=#cleaning-up>Cleaning Up</a></li></ul></nav></div></div></div></div></div><script>var kdDropdown=document.querySelector(".dropdown");var kdDropdownBtn=document.querySelector(".dropdown-trigger");kdDropdownBtn.addEventListener("click",function(){kdDropdown.classList.toggle("is-active");})</script></div><div class=overlay-bg></div><div class=sidebar-search-area><div class=search-area-top><h3>Search</h3><div class=searchbar-area><input type=search name=search id=searchbox placeholder=Search...>
+<button onclick=queryPage(1)><i class="fa fa-search" aria-hidden=true></i></button></div><span id=searchbar-script-container style=display:none></span><div class="search-meta-information level"><div class=level-left></div></div></div><div class=search-result-wrapper></div><div class=pagination-area><div class=pagination-list></div></div></div><div class=improve-section-area><div class="container section"><div class=improve-bg-color><div class=columns><div class="column is-6"><a href=https://github.com/stashed/docs/edit/master/docs/guides/latest/batch-backup/batch-backup.md/>Improve This Page</a></div></div></div></div></div><script type=text/javascript>var pageSize=5;var acSearch=document.querySelector("#acSearch");var bodyOverlay=document.querySelector(".overlay-bg");var sidebarSearch=document.querySelector(".sidebar-search-area");acSearch.addEventListener("click",function(){bodyOverlay.style.display="block";sidebarSearch.style.right="0";document.getElementById("searchbox").focus();bodyOverlay.addEventListener("click",function(){bodyOverlay.style.display="none";sidebarSearch.style.right="-80%";});});function encodeQueryData(data){var ret=[];for(var d in data)
+ret.push(encodeURIComponent(d)+'='+encodeURIComponent(data[d]));return ret.join('&');}
+document.querySelector(".searchbar-area input[type=search]").addEventListener("keyup",function(event){event.preventDefault();if(event.keyCode===13){queryPage(1);}});function queryPage(idx){var q=document.getElementById("searchbox").value;var cx="015199383701854252104:0pfqfvpvwyl";var key="AIzaSyBrcwLTnL09geNrFMUx1kpL--dT1379aag";var imgSize="small";var callback="renderResult";var src="https://www.googleapis.com/customsearch/v1?"+encodeQueryData({q:q,cx:cx,key:key,imgSize:imgSize,callback:callback,start:(idx-1)*pageSize+1,num:pageSize,});var newScript=document.createElement("script");newScript.src=src;e=document.getElementById("searchbar-script-container");var child=e.lastElementChild;if(child){e.removeChild(child);}
+e.appendChild(newScript);}
+function renderSearchResultEntry(e){var out='<div class="single-search-result">'+
+'<h3><a href="'+e.link+'">'+e.title+'</a></h3>'+
+'<a href="'+e.link+'">'+e.htmlFormattedUrl+'</a>'+
+'<div class="result-description-wrapper">';if(e.pagemap&&e.pagemap.cse_thumbnail){out+='<div class="result-thumb">'+
+'<img src="'+e.pagemap.cse_thumbnail[0].src+'" alt="" />'+
+'</div>';}
+out+='<div class="result-description">'+
+'<p>'+
+e.snippet+
+'</p>'+
+'</div>'+
+'</div>'+
+'</div>';return out;}
+function renderResult(response){document.querySelector(".search-meta-information .level-left").innerHTML='<div class="level-left">'+
+'<p>'+
+'About <span class="search-count">'+response.searchInformation.formattedTotalResults+'</span> results (<span class="time-count">'+response.searchInformation.formattedSearchTime+' </span>seconds)'+
+'</p>'+
+'</div>';if(!response.items){return;}
+var searchResultWrapper=document.querySelector(".search-result-wrapper");searchResultWrapper.innerHTML="";for(var i=0;i<response.items.length;i++){searchResultWrapper.innerHTML+=renderSearchResultEntry(response.items[i]);}
+var pager='<ul>';if(response.queries.previousPage){var pageIndex=Math.floor(response.queries.previousPage[0].startIndex/pageSize)+1;pager+='<li><a href="#" onclick="queryPage('+pageIndex+')">Previous</a></li>';}
+if(response.queries.request){var pageIndex=Math.floor(response.queries.request[0].startIndex/pageSize)+1;pager+='<li><a href="#" onclick="queryPage('+pageIndex+')" class="is-active">'+pageIndex+'</a></li>';}
+if(response.queries.nextPage){var pageIndex=Math.floor(response.queries.nextPage[0].startIndex/pageSize)+1;pager+='<li><a href="#" onclick="queryPage('+pageIndex+')">Next</a></li>';}
+pager+='</ul>';document.querySelector(".pagination-area .pagination-list").innerHTML=pager;}</script><section></section><section></section><section></section><button class=go-to-top id=goTop>
+<i class="fa fa-angle-up" aria-hidden=true></i></button><footer class=footer-area><div class=footer-top><div class="container section"><div class="columns is-mobile is-multiline"><div class="column is-full-mobile is-one-third-desktop is-one-third-widescreen is-one-third-tablet" data-aos=fade-up><div class=single-footer-widget><div class=footer-logo><a href=https://appscode.com><img src=/assets/images/products/appscode/appscode.png alt=AppsCode class=img></a></div><div class=subscription-form><form action="https://appscode.us17.list-manage.com/subscribe/post?u=feb2bf31969a951e7449048a3&id=82fb19acb9" method=post id=mc-embedded-subscribe-form name=mc-embedded-subscribe-form class=navbar-form target=_blank novalidate role=email role=email><label for=email>Subscribe to Our Newsletter</label><p class=spam-message>No spam, we promise. Your mail address is secure</p><div class="field has-addons"><div class=control><input class=input name=EMAIL id=mce-EMAIL type=email placeholder="Your work email address" required>
+<button id=mc-embedded-subscribe type=submit name=subscribe class=button>
+<i class="fa fa-paper-plane-o" aria-hidden=true></i></button></div></div></form></div><div class=contact-information><h4>Have any Inquiry?</h4><ul class=all-contact-info><li><a href=callto:+1%28650%29241-8486><span><i class="fa fa-phone" aria-hidden=true></i></span>+1(650)241-8486</a></li><li><a href=mailto:support@appscode.com><span><i class="fa fa-envelope-o" aria-hidden=true></i></span>support@appscode.com</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=500><div class=single-footer-widget><div class=footer-menu><h4>Products</h4><ul class=footer-link><li><a href=https://kubedb.com>KubeDB</a></li><li><a href=https://stash.run>Stash</a></li><li><a href=https://kubevault.com>KubeVault</a></li><li><a href=https://kubeform.com>Kubeform</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=600><div class=single-footer-widget><div class=footer-menu><h4>Services</h4><ul class=footer-link><li><a href=https://appscode.com/pricing/>Pricing</a></li><li><a href=https://appscode.com/consulting/>Consulting</a></li><li><a href=https://appscode.com/training/>Training</a></li><li><a href=https://appscode.com/support/>Support</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=700><div class=single-footer-widget><div class=footer-menu><h4>Company</h4><ul class=footer-link><li><a href=https://appscode.com/about/>About Us</a></li><li><a href=https://blog.byte.builders>Blog</a></li><li><a href=https://appscode.com/contact/>Contact Us</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=800><div class=single-footer-widget><div class=footer-menu><h4>Legal</h4><ul class=footer-link><li><a href=https://appscode.com/legal/tos/>Terms of Sevice</a></li><li><a href=https://appscode.com/legal/privacy-policy/>Privacy Policy</a></li><li><a href=https://appscode.com/legal/security/>Security</a></li><li><a href=https://appscode.com/legal/sla/>Service Level Agreement</a></li></ul></div></div></div></div></div></div><div class=footer-bottom><div class="container section"><div class=columns><div class="column is-4"><p>© 2021 AppsCode Inc. All rights reserved.</p></div><div class="column is-4 is-mobile has-text-centered"><div class=footer-inline-link><a href=https://appscode.com/legal/privacy-policy/>Privacy Policy</a>
+<a href=https://appscode.com/legal/tos/>Terms of Service</a></div></div><div class="column is-4 is-mobile has-text-right"><div class=socail-link-inline><ul><li><a href=https://twitter.com/AppsCodeHQ><i class="fa fa-twitter" aria-hidden=true></i></a></li><li><a href=https://www.facebook.com/appscode><i class="fa fa-facebook" aria-hidden=true></i></a></li><li><a href=https://www.youtube.com/c/AppsCodeInc><i class="fa fa-youtube" aria-hidden=true></i></a></li></ul></div></div></div></div></div></footer><script src=/assets/js/bulma-carousel.min.js></script><script src=https://unpkg.com/aos@2.3.1/dist/aos.js></script><script src=https://unpkg.com/downloadjs@1.4.7/download.min.js></script><script src=https://unpkg.com/clipboard@2/dist/clipboard.min.js></script><script src=/assets/js/main.js></script><script type=text/javascript id=hs-script-loader async defer src=//js.hs-scripts.com/9255943.js></script><script type=text/javascript>var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/5821e34b18d9f16af02864b7/default';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();</script></body></html>
