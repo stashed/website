@@ -1,0 +1,465 @@
+<!doctype html><html lang=en><head><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-62096468-4','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=theme-color content="#5E2DEA"><title>Stash by AppsCode</title><meta name=description content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta name=author content="AppsCode Inc."><meta name=keywords content="kubernetes appscode backup disaster recovery volume"><link rel=apple-touch-icon sizes=57x57 href=/assets/images/products/stash/icons/apple-icon-57x57.png><link rel=apple-touch-icon sizes=60x60 href=/assets/images/products/stash/icons/apple-icon-60x60.png><link rel=apple-touch-icon sizes=72x72 href=/assets/images/products/stash/icons/apple-icon-72x72.png><link rel=apple-touch-icon sizes=76x76 href=/assets/images/products/stash/icons/apple-icon-76x76.png><link rel=apple-touch-icon sizes=114x114 href=/assets/images/products/stash/icons/apple-icon-114x114.png><link rel=apple-touch-icon sizes=120x120 href=/assets/images/products/stash/icons/apple-icon-120x120.png><link rel=apple-touch-icon sizes=144x144 href=/assets/images/products/stash/icons/apple-icon-144x144.png><link rel=apple-touch-icon sizes=152x152 href=/assets/images/products/stash/icons/apple-icon-152x152.png><link rel=apple-touch-icon sizes=180x180 href=/assets/images/products/stash/icons/apple-icon-180x180.png><link rel=icon type=image/png sizes=192x192 href=/assets/images/products/stash/icons/android-icon-192x192.png><link rel=icon type=image/png sizes=32x32 href=/assets/images/products/stash/icons/favicon-32x32.png><link rel=icon type=image/png sizes=96x96 href=/assets/images/products/stash/icons/favicon-96x96.png><link rel=icon type=image/png sizes=16x16 href=/assets/images/products/stash/icons/favicon-16x16.png><link rel=manifest href=/assets/images/products/stash/icons/manifest.json><meta name=msapplication-TileColor content="#ffffff"><meta name=msapplication-TileImage content="/assets/images/products/stash/icons/ms-icon-144x144.png"><meta itemprop=name content="Stash by AppsCode"><meta itemprop=description content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta itemprop=image content="https://stash.run/assets/images/products/stash/stash-1280x640.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:site content="@KubeStash"><meta name=twitter:title content="Stash by AppsCode"><meta name=twitter:creator content="@KubeStash"><meta name=twitter:description content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta name=twitter:image:src content="https://stash.run/assets/images/products/stash/stash-1280x640.png"><meta property="og:url" content="https://stash.run"><meta property="og:title" content="Stash by AppsCode"><meta property="og:description" content="Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases"><meta property="og:site_name" content="Stash by AppsCode"><meta property="og:image" content="https://stash.run/assets/images/products/stash/stash-1280x640.png"><meta property="og:type" content="article"><link rel=stylesheet href=/assets/css/font-awesome.min.css><link href=https://unpkg.com/aos@2.3.1/dist/aos.css rel=stylesheet><link rel=stylesheet href=/assets/css/bulma-carousel.min.css><link rel=stylesheet href=/assets/css/bulma-tooltip.min.css><link rel=stylesheet href=/assets/css/bulma.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.css><link rel=stylesheet href=/assets/sass/main.min.7c4a3c9b9b725ecf3969bcbc5840e69b185f0fac32d96a51f603a97a3293fcc7.css></head><body class=stash><header><div class=header-top><div class="container section"><nav class=navbar><div class=navbar-brand><a class=navbar-item href=https://appscode.com><img src=/assets/images/products/appscode/appscode.png alt=AppsCode></a>
+<a role=button class="navbar-burger burger" aria-label=menu aria-expanded=false data-target=acNav1><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a></div><div id=acNav1 class="navbar-menu main-menu"><div class=navbar-end><div class=navbar-start><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Products</a><div class=ac-megamenu><div class=columns><div class="column is-6"><div class=columns><div class="column is-12 br-1"><a href=https://kubedb.com class="single-product-item is-kubedb"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubedb/kubedb-icon.png alt=KubeDB></div><h5>KubeDB</h5></div><div class=menu-body><p>Run production-grade Databases on Kubernetes</p></div></a><a href=https://stash.run class="single-product-item is-stash"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/stash/stash-icon.png alt=Stash></div><h5>Stash</h5></div><div class=menu-body><p>Backup your Kubernetes Stateful Applications</p></div></a><a href=https://kubevault.com class="single-product-item is-kubevault"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubevault/kubevault-icon.png alt=KubeVault></div><h5>KubeVault</h5></div><div class=menu-body><p>Tools for running HashiCorp Vault on Kubernetes</p></div></a></div></div></div><div class="column is-6"><div class=columns><div class="column is-12"><a href=https://byte.builders class="single-product-item byte-builder kd-orange"><div class=menu-header><p class=intro>Introducing....</p><h5>ByteBuilders</h5></div><div class=menu-body><p>Cloud reimagined for the age of Kubernetes</p></div><p class=learn-more-btn>Learn more
+<span class=icon><i class="fa fa-long-arrow-right" aria-hidden=true></i></span></p></a><a href=https://kubeform.com class="single-product-item is-kubeform"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubeform/kubeform-icon.png alt=Kubeform></div><h5>Kubeform</h5></div><div class=menu-body><p>Provision cloud resources using Kubernetes CRDs & Terraform</p></div></a></div></div></div></div></div></div><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Open Source</a><div class=ac-megamenu><div class=columns><div class="column is-6"><div class=columns><div class="column is-12 br-1"><a href=https://voyagermesh.com class="single-product-item is-voyager"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/voyager/voyager-icon.png alt=Voyager></div><h5>Voyager</h5></div><div class=menu-body><p>Secure HAProxy Ingress Controller for
+Kubernetes</p></div></a><a href=https://appscode.com/products/guard/ class="single-product-item is-guard"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/guard/guard-icon.png alt=Guard></div><h5>Guard</h5></div><div class=menu-body><p>Kubernetes Authentication WebHook Server</p></div></a><a href=https://appscode.com/products/kubed/ class="single-product-item is-kubed"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/kubed/kubed-icon.png alt=Kubed></div><h5>Kubed</h5></div><div class=menu-body><p>Kubernetes cluster manager daemon</p></div></a></div></div></div><div class="column is-6"><div class=columns><div class="column is-12"><a href=https://pharmer.cloud class="single-product-item is-pharmer"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/pharmer/pharmer-icon.png alt=Pharmer></div><h5>Pharmer</h5></div><div class=menu-body><p>Kubernetes Cluster Manager using Kubeadm & Cluster API</p></div></a><a href=https://appscode.com/products/swift/ class="single-product-item is-swift"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/swift/swift-icon.png alt=Swift></div><h5>Swift</h5></div><div class=menu-body><p>Ajax friendly Helm Tiller Proxy</p></div></a><a href=https://appscode.com/products/searchlight/ class="single-product-item is-searchlight"><div class=menu-header><div class=menu-logo><img src=/assets/images/products/searchlight/searchlight-icon.png alt=Searchlight></div><h5>Searchlight</h5></div><div class=menu-body><p>Alerts for Kubernetes</p></div></a></div></div></div></div></div></div><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Services</a><div class=ac-dropdown><a class=navbar-item href=https://appscode.com/consulting/>Consulting</a>
+<a class=navbar-item href=https://appscode.com/training/>Training</a>
+<a class=navbar-item href=https://appscode.com/support/>Support</a></div></div><a class=navbar-item href=https://blog.byte.builders>Blog</a>
+<a class=navbar-item href=https://appscode.com/contact/>Contact Us</a></div><div class=navbar-item><div class="buttons main-menu-button-top"><a class="button is-small for-chat" href=https://slack.appscode.com><span><img src=/assets/images/icon/slack.png alt></span>Slack</a>
+<a class="button is-small for-support" href=https://appscode.freshdesk.com><span><img src=/assets/images/icon/chat.png alt></span>Support Portal</a></div></div></div></div></nav></div></div><div class="header-bottom-area header-area kubedb-primary-bg customize-kubedb fixed-menu"><div class="container section"><nav class=navbar><div class=navbar-brand><a class=navbar-item href=https://stash.run><img src=/assets/images/products/stash/stash-white.png alt=Stash></a>
+<a role=button class="navbar-burger burger" aria-label=menu aria-expanded=false data-target=acNav><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a></div><div id=acNav class="navbar-menu main-menu"><div class=navbar-end><div class=navbar-start><a href=/features/ class=navbar-item>Features</a>
+<a href=/pricing/ class=navbar-item>Pricing</a>
+<a href=/docs/v2021.04.12/welcome/ class=navbar-item>Documentation</a><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Community</a><div class=ac-dropdown><a href=https://github.com/stashed class=navbar-item>GitHub</a>
+<a href=https://twitter.com/KubeStash class=navbar-item>Twitter</a>
+<a href=https://slack.appscode.com class=navbar-item>Slack</a></div></div></div><div class=navbar-item><div class="buttons main-menu-button"><img style=height:24px alt="GitHub Stars" src="https://img.shields.io/badge/dynamic/json?style=flat&labelColor=1B3D4B&color=06A64F&logoColor=white&logo=github&label=stars&query=%24.stars&url=https://github-stars.appscode.workers.dev/user/stashed">
+&nbsp;&nbsp;&nbsp;
+<img style=height:24px alt="GitHub Forks" src="https://img.shields.io/badge/dynamic/json?style=flat&labelColor=1B3D4B&color=06A64F&logoColor=white&logo=github&label=forks&query=%24.forks&url=https://github-stars.appscode.workers.dev/user/stashed">
+&nbsp;&nbsp;&nbsp;
+<img style=height:24px alt="Docker Pulls" src="https://img.shields.io/docker/pulls/appscode/stash?style=flat&labelColor=1B3D4B&color=06A64F&logoColor=white&logo=docker&label=pulls"></div></div></div></div></nav></div></div><div class=documentation-menu><div class="container section"><div class=is-centered><div class="is-half has-text-centered-desktop"><div class=responsive-menu><a role=button class="navbar-burger burger" aria-label=menu aria-expanded=false data-target=acNav3><span aria-hidden=true></span><span aria-hidden=true></span><span aria-hidden=true></span></a></div><nav class=documentation-navbar><div id=acNav3 class="navbar-menu nav-menu main-menu"><div class=navbar-centered><div class=navbar-start><a href=/docs/v0.9.0-rc.6/ class=navbar-item>Welcome</a>
+<a href=/docs/v0.9.0-rc.6/concepts/ class=navbar-item>Concepts</a>
+<a href=/docs/v0.9.0-rc.6/setup/ class=navbar-item>Setup</a><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Guides</a><div class=ac-dropdown><a href=/docs/v0.9.0-rc.6/guides/latest/ class=navbar-item>Latest Guides</a>
+<a href=/docs/v0.9.0-rc.6/guides/v1alpha1/ class=navbar-item>v1alpha1 Guides</a></div></div><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Addons</a><div class=ac-dropdown><a href=/docs/v0.9.0-rc.6/addons/postgres/ class=navbar-item>Postgres</a>
+<a href=/docs/v0.9.0-rc.6/addons/elasticsearch/ class=navbar-item>Elasticsearch</a>
+<a href=/docs/v0.9.0-rc.6/addons/mysql/ class=navbar-item>MySQL</a>
+<a href=/docs/v0.9.0-rc.6/addons/mongodb/ class=navbar-item>MongoDB</a>
+<a href=/docs/v0.9.0-rc.6/addons/percona-xtradb/ class=navbar-item>Percona XtraDB</a></div></div><div class="navbar-item has-dropdown ac-is-hoverable"><a class=navbar-link>Reference</a><div class=ac-dropdown><a href=/docs/v0.9.0-rc.6/reference/operator/ class=navbar-item>Stash Operator</a></div></div></div></div></div></nav></div></div></div></div></header><div class=documentation-area><div class="container section"><article class="message is-danger"><div class=message-body>You are looking at the documentation of a prior release. To read the documentation of the latest release, please visit <a href=/docs/v2021.04.12/guides/latest/hooks/backup-and-restore-hooks/>here</a>.</div></article><div class=columns><div class="column is-3"><div class=kd-left-sidebar><div class=trial-button><a href=/docs/v2021.04.12/setup/ class="button is-fullwidth">Try Now for FREE!</a></div><div class=kd-version><div class=dropdown><div class=dropdown-trigger><button class="button is-fullwidth" aria-haspopup=true aria-controls=dropdown-menu3>
+<span><strong class=icon><i class="fa fa-cog" aria-hidden=true></i></strong>v0.9.0-rc.6</span>
+<span class="icon is-small"><i class="fa fa-angle-down" aria-hidden=true></i></span></button></div><div class=dropdown-menu id=dropdown-menu3 role=menu><div class=dropdown-content><a href=https://github.com/stashed/docs/tree/master/docs target=_blank class=dropdown-item>master</a>
+<a href=/docs/v2021.04.12/ class=dropdown-item>v2021.04.12<div class=tag>Latest</div></a><a href=/docs/v2021.03.17/ class=dropdown-item>v2021.03.17</a>
+<a href=/docs/v2021.01.21/ class=dropdown-item>v2021.01.21</a>
+<a href=/docs/v2020.12.17/ class=dropdown-item>v2020.12.17</a>
+<a href=/docs/v2020.11.17/ class=dropdown-item>v2020.11.17</a>
+<a href=/docs/v2020.11.06/ class=dropdown-item>v2020.11.06</a>
+<a href=/docs/v2020.10.30/ class=dropdown-item>v2020.10.30</a>
+<a href=/docs/v2020.10.29/ class=dropdown-item>v2020.10.29</a>
+<a href=/docs/v2020.10.21/ class=dropdown-item>v2020.10.21</a>
+<a href=/docs/v2020.09.29/ class=dropdown-item>v2020.09.29</a>
+<a href=/docs/v2020.09.16/ class=dropdown-item>v2020.09.16</a>
+<a href=/docs/v2020.08.27/ class=dropdown-item>v2020.08.27</a>
+<a href=/docs/v0.9.0-rc.6/ class=dropdown-item>v0.9.0-rc.6</a></div></div></div></div><div class=kd-sidebar-menu><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-1>
+<label for=80544b21c7e057d364fa545a8d70c70b-1><a href=/docs/v0.9.0-rc.6/guides/latest/>Latest Guides</a></label></div><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-2>
+<label for=80544b21c7e057d364fa545a8d70c70b-2><a>Supported Backends</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.6/guides/latest/backends/overview/>What is Backend?</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/backends/local/>Kubernetes Volumes</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/backends/s3/>AWS S3/Minio/Rook</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/backends/azure/>Azure Blob Storage</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/backends/gcs/>Google Cloud Storage</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/backends/swift/>OpenStack Swift</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/backends/b2/>Backblaze B2</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/backends/rest/>REST Server</a></li></ul></div></div><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-3>
+<label for=80544b21c7e057d364fa545a8d70c70b-3><a>Workload's Volumes</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.6/guides/latest/workloads/overview/>How Backup and Restore works?</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/workloads/deployment/>Backup & Restore Volumes of a Deployment</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/workloads/statefulset/>Backup & Restore Volumes of a StatefulSet</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/workloads/daemonset/>Backup & Restore Volumes of a DaemonSet</a></li></ul></div></div><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-4>
+<label for=80544b21c7e057d364fa545a8d70c70b-4><a>Stand-alone Volumes</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.6/guides/latest/volumes/overview/>How does it work?</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/volumes/pvc/>Backup & Restore a Stand-alone PVC</a></li></ul></div></div><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-5>
+<label for=80544b21c7e057d364fa545a8d70c70b-5><a>Batch Backup</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.6/guides/latest/batch-backup/overview/>How batch backup works?</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/batch-backup/batch-backup/>Backup application with multiple co-related components</a></li></ul></div></div><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-6>
+<label for=80544b21c7e057d364fa545a8d70c70b-6><a>Auto Backup</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.6/guides/latest/auto-backup/overview/>What is Auto Backup?</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/auto-backup/workload/>Auto Backup for Workloads</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/auto-backup/pvc/>Auto Backup for PVCs</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/auto-backup/database/>Auto Backup for Databases</a></li></ul></div></div><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-7>
+<label for=80544b21c7e057d364fa545a8d70c70b-7><a>Volume Snapshot</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.6/guides/latest/volumesnapshot/overview/>How VolumeSnapshot works?</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/volumesnapshot/deployment/>Snapshot Deployment Volumes</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/volumesnapshot/statefulset/>Snapshot StatefulSet Volumes</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/volumesnapshot/pvc/>Snapshot Stand-alone PVC</a></li></ul></div></div><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-8>
+<label for=80544b21c7e057d364fa545a8d70c70b-8><a>Advance Use Cases</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.6/guides/latest/advanced-use-case/instant-backup/>Instant Backup</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/advanced-use-case/pause-backup/>Pause Backup</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/advanced-use-case/clone-pvc/>Clone Data Volumes</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/advanced-use-case/ownership/>File Ownership</a></li></ul></div></div><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-9>
+<label for=80544b21c7e057d364fa545a8d70c70b-9><a>Platforms</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.6/guides/latest/platforms/eks/>EKS</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/platforms/aks/>AKS</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/platforms/gke/>GKE</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/platforms/minio/>Minio</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/platforms/rook/>Rook</a></li></ul></div></div><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-10>
+<label for=80544b21c7e057d364fa545a8d70c70b-10><a>Monitoring</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.6/guides/latest/monitoring/overview/>Overview</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/monitoring/builtin/>Builtin Prometheus</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/monitoring/coreos/>Prometheus Operator</a></li></ul></div></div><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-11>
+<label for=80544b21c7e057d364fa545a8d70c70b-11><a>Addons</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.6/guides/latest/addons/overview/>Overview</a></li></ul></div></div><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-12 checked>
+<label for=80544b21c7e057d364fa545a8d70c70b-12><a>Hooks</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.6/guides/latest/hooks/overview/>Overview</a></li><li class=is-active><a href=/docs/v0.9.0-rc.6/guides/latest/hooks/backup-and-restore-hooks/>Backup & Restore Hooks</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/hooks/batch-backup-hooks/>BackupBatch Hooks</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/hooks/configuring-hooks/>Configuring Hooks</a></li></ul></div></div><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-13>
+<label for=80544b21c7e057d364fa545a8d70c70b-13><a>CLI</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/cli/>Stash kubectl Plugin</a></li><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-14>
+<label for=80544b21c7e057d364fa545a8d70c70b-14><a>References</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><div class=item><input type=checkbox id=80544b21c7e057d364fa545a8d70c70b-15>
+<label for=80544b21c7e057d364fa545a8d70c70b-15><a>v0.3.1</a> <span><i class="fa fa-angle-right" aria-hidden=true></i></span></label><div class=item><ul><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_clone/>Clone</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_clone_pvc/>Clone Pvc</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_cp/>Cp</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_cp_backupconfig/>Cp Backupconfig</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_cp_repository/>Cp Repository</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_cp_secret/>Cp Secret</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_cp_volumesnapshot/>Cp Volumesnapshot</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_create/>Create</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_create_backupconfig/>Create Backupconfig</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_create_repository/>Create Repository</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_create_restoresession/>Create Restoresession</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_delete/>Delete</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_delete_snapshot/>Delete Snapshot</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_download/>Download</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash/>Kubectl-Stash</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_trigger/>Trigger</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_unlock/>Unlock</a></li><li><a href=/docs/v0.9.0-rc.6/guides/latest/cli/reference/v0.3.1/kubectl-stash_version/>Version</a></li></ul></div></div></ul></div></div></ul></div></div></div></div></div><div class="column is-7"><div class=full-info><h1 id=backup--restore-hooks>Backup & Restore Hooks</h1><p>Stash hooks let you perform some actions before and after the backup or restore process. This is particularly helpful when you want to prepare your application before backup or restore.</p><p>Here, we are going to demonstrate how you can perform different actions before and after backup and restore a MySQL database. Some of the examples might not reflect the real-world use cases but it serves the sole purpose of demonstrating what is possible.</p><blockquote><p>Note that, this is an advanced concept. If you haven&rsquo;t tried the normal backup restore processes yet, we will recommend to try them first.</p></blockquote><h2 id=before-you-begin>Before You Begin</h2><ul><li>At first, you need to have a Kubernetes cluster, and the <code>kubectl</code> command-line tool must be configured to communicate with your cluster. If you do not already have a cluster, you can create one by using <a href=https://kind.sigs.k8s.io/docs/user/quick-start/>kind</a>.</li><li>Install Stash in your cluster following the steps <a href=/docs/v0.9.0-rc.6/setup/install>here</a>.</li><li>Install MySQL addon for Stash following the steps <a href=/docs/v0.9.0-rc.6/addons/mysql/setup/install>here</a>.</li><li>Install <a href=https://kubedb.com>KubeDB</a> in your cluster following the steps <a href=https://kubedb.com/docs/setup/install/>here</a>. This step is optional. You can deploy your database using any method you want. We are using KubeDB because KubeDB simplifies many of the difficult or tedious management tasks of running production-grade databases on private and public clouds.</li><li>If you are not familiar with how Stash backup and restore MySQL databases, please check the following guide <a href=/docs/v0.9.0-rc.6/addons/mysql/overview>here</a>.</li><li>Also, if you haven&rsquo;t read about how hooks work in Stash, please check it from <a href=/docs/v0.9.0-rc.6/guides/latest/hooks/overview>here</a>.</li></ul><p>You should be familiar with the following <code>Stash</code> concepts:</p><ul><li><a href=/docs/v0.9.0-rc.6/concepts/crds/backupconfiguration>BackupConfiguration</a></li><li><a href=/docs/v0.9.0-rc.6/concepts/crds/backupsession>BackupSession</a></li><li><a href=/docs/v0.9.0-rc.6/concepts/crds/repository>Repository</a></li><li><a href=/docs/v0.9.0-rc.6/concepts/crds/function>Function</a></li><li><a href=/docs/v0.9.0-rc.6/concepts/crds/task>Task</a></li><li><a href=/docs/v0.9.0-rc.6/concepts/crds/appbinding>AppBinding</a></li></ul><p>To keep everything isolated, we are going to use a separate namespace called <code>demo</code> throughout this tutorial.</p><pre><code class=language-console data-lang=console>$ kubectl create ns demo
+namespace/demo created
+</code></pre><h2 id=prepare-database>Prepare Database</h2><p>At first, let&rsquo;s deploy a MySQL database. Here, we are going to deploy MySQL <code>8.0.14</code> using KubeDB. We are going to insert some sample data into the database so that we can verify that the backup and restore process is working properly.</p><p><strong>Deploy Database:</strong></p><p>Below is the <code>MySQL</code> CR(Custom Resource) that we are going to create,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>kubedb.com/v1alpha1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>MySQL</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>sample-mysql</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>version</span>: <span style=color:#e6db74>&#34;8.0.14&#34;</span>
+  <span style=color:#f92672>replicas</span>: <span style=color:#ae81ff>1</span>
+  <span style=color:#f92672>storageType</span>: <span style=color:#ae81ff>Durable</span>
+  <span style=color:#f92672>storage</span>:
+    <span style=color:#f92672>accessModes</span>:
+      - <span style=color:#ae81ff>ReadWriteOnce</span>
+    <span style=color:#f92672>resources</span>:
+      <span style=color:#f92672>requests</span>:
+        <span style=color:#f92672>storage</span>: <span style=color:#ae81ff>1Gi</span>
+  <span style=color:#f92672>terminationPolicy</span>: <span style=color:#ae81ff>WipeOut</span>
+</code></pre></div><p>Let&rsquo;s create the above <code>MySQL</code> CR,</p><pre><code class=language-console data-lang=console>$ kubectl apply -f https://github.com/stashed/docs/raw/v0.9.0-rc.6/docs/examples/guides/latest/hooks/sample-mysql.yaml
+mysql.kubedb.com/sample-mysql created
+</code></pre><p>KubeDB will deploy a MySQL database according to the above specification. It will also create the necessary Secrets and Services to access the database.</p><p>Wait for the database to go into <code>Running</code> state,</p><pre><code class=language-console data-lang=console>$ kubectl get mysql -n demo -w
+NAME           VERSION   STATUS    AGE
+sample-mysql   8.0.14    Creating  5s
+sample-mysql   8.0.14    Running   2m7s
+</code></pre><p><strong>Verify Database Secret:</strong></p><p>Verify that KubeDB has created a Secret for the database.</p><pre><code class=language-console data-lang=console>$ kubectl get secret -n demo -l=kubedb.com/name=sample-mysql
+NAME                TYPE     DATA   AGE
+sample-mysql-auth   Opaque   2      5m7s
+</code></pre><p><strong>Verify AppBinding:</strong></p><p>KubeDB creates an <code>AppBinding</code> CR that holds the necessary information to connect with the database. Verify that the <code>AppBinding</code> has been created for the above database:</p><pre><code class=language-console data-lang=console>$ kubectl get appbindings -n demo -l=kubedb.com/name=sample-mysql
+NAME           TYPE               VERSION   AGE
+sample-mysql   kubedb.com/mysql   8.0.14    66s
+</code></pre><p>If you check the YAML of the <code>AppBinding</code>, you will see the connection information and respective Secret reference to access the database is presents in <code>spec</code> section.</p><pre><code class=language-console data-lang=console>$ kubectl get appbindings sample-mysql -n demo -o yaml
+</code></pre><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>appcatalog.appscode.com/v1alpha1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>AppBinding</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>creationTimestamp</span>: <span style=color:#e6db74>&#34;2020-01-16T10:28:00Z&#34;</span>
+  <span style=color:#f92672>generation</span>: <span style=color:#ae81ff>1</span>
+  <span style=color:#f92672>labels</span>:
+    <span style=color:#f92672>app.kubernetes.io/component</span>: <span style=color:#ae81ff>database</span>
+    <span style=color:#f92672>app.kubernetes.io/instance</span>: <span style=color:#ae81ff>sample-mysql</span>
+    <span style=color:#f92672>app.kubernetes.io/managed-by</span>: <span style=color:#ae81ff>kubedb.com</span>
+    <span style=color:#f92672>app.kubernetes.io/name</span>: <span style=color:#ae81ff>mysql</span>
+    <span style=color:#f92672>app.kubernetes.io/version</span>: <span style=color:#ae81ff>8.0.14</span>
+    <span style=color:#f92672>kubedb.com/kind</span>: <span style=color:#ae81ff>MySQL</span>
+    <span style=color:#f92672>kubedb.com/name</span>: <span style=color:#ae81ff>sample-mysql</span>
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>sample-mysql</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>clientConfig</span>:
+    <span style=color:#f92672>service</span>:
+      <span style=color:#f92672>name</span>: <span style=color:#ae81ff>sample-mysql</span>
+      <span style=color:#f92672>path</span>: <span style=color:#ae81ff>/</span>
+      <span style=color:#f92672>port</span>: <span style=color:#ae81ff>3306</span>
+      <span style=color:#f92672>scheme</span>: <span style=color:#ae81ff>mysql</span>
+    <span style=color:#f92672>url</span>: <span style=color:#ae81ff>tcp(sample-mysql:3306)/</span>
+  <span style=color:#f92672>secret</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>sample-mysql-auth</span>
+  <span style=color:#f92672>type</span>: <span style=color:#ae81ff>kubedb.com/mysql</span>
+  <span style=color:#f92672>version</span>: <span style=color:#ae81ff>8.0.14</span>
+</code></pre></div><p><strong>Insert Sample Data:</strong></p><p>Now, let&rsquo;s insert some sample data into the above database. Here, we are going to <code>exec</code> into the database pod and create a database named <code>companyRecord</code>. Then, we are going to create a table named <code>employee</code> which will store employee&rsquo;s id, name and salary information. Then, we are going to insert a sample row in the table.</p><p>At first, let&rsquo;s export the database credentials as environment variables in our current shell so that we can use those variables to access the database instead of typing username and password every time.</p><pre><code class=language-console data-lang=console># export username from the database secret
+$ export MYSQL_USER=$(kubectl get secret -n demo  sample-mysql-auth -o jsonpath='{.data.username}'| base64 -d)
+
+# verify that the username has been exported properly
+$ echo $MYSQL_USER
+root
+
+# export the password from the database secret
+$ export MYSQL_PASSWORD=$(kubectl get secret -n demo  sample-mysql-auth -o jsonpath='{.data.password}'| base64 -d)
+
+# verify that the password has been exported properly
+$ echo $MYSQL_PASSWORD
+CWg2hru8b0Yu7dzS
+</code></pre><p>Now, let&rsquo;s identify the database pod,</p><pre><code class=language-console data-lang=console>$ kubectl get pods -n demo --selector=&quot;kubedb.com/name=sample-mysql&quot;
+NAME             READY   STATUS    RESTARTS   AGE
+sample-mysql-0   1/1     Running   0          6m50s
+</code></pre><p>Let&rsquo;s <code>exec</code> into the database pod and insert sample data,</p><pre><code class=language-console data-lang=console>$ kubectl exec -it -n demo sample-mysql-0 -- mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD
+
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 131
+Server version: 8.0.14 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+# create database named &quot;companyRecord&quot;
+mysql&gt; CREATE DATABASE companyRecord;
+Query OK, 1 row affected (0.01 sec)
+
+# verify that the database has been created
+mysql&gt; SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| companyRecord      |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+# create a table called &quot;employee&quot; in &quot;companyRecord&quot; database
+mysql&gt; CREATE TABLE companyRecord.employee (id INT, name VARCHAR(50), salary INT, PRIMARY KEY(id));
+Query OK, 0 rows affected (0.05 sec)
+
+# insert a demo data into the table
+mysql&gt; INSERT INTO companyRecord.employee (id, name, salary) VALUES (1, &quot;John Doe&quot;, 5000);
+Query OK, 1 row affected (0.01 sec)
+
+# verify that the data has been inserted
+mysql&gt; SELECT * FROM companyRecord.employee;
++----+----------+--------+
+| id | name     | salary |
++----+----------+--------+
+|  1 | John Doe |   5000 |
++----+----------+--------+
+1 row in set (0.00 sec)
+
+mysql&gt; exit
+Bye
+</code></pre><h3 id=prepare-backend>Prepare Backend</h3><p>We are going to store our backed up data into a GCS bucket. At first, we need to create a secret with GCS credentials then we need to create a <code>Repository</code> CR. If you want to use a different backend, please read the respective backend configuration doc from <a href=/docs/v0.9.0-rc.6/guides/latest/backends/overview>here</a>.</p><p><strong>Create Storage Secret:</strong></p><p>Let&rsquo;s create a secret called <code>gcs-secret</code> with access credentials to our desired GCS bucket,</p><pre><code class=language-console data-lang=console>$ echo -n 'changeit' &gt; RESTIC_PASSWORD
+$ echo -n '&lt;your-project-id&gt;' &gt; GOOGLE_PROJECT_ID
+$ cat downloaded-sa-json.key &gt; GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+$ kubectl create secret generic -n demo gcs-secret \
+    --from-file=./RESTIC_PASSWORD \
+    --from-file=./GOOGLE_PROJECT_ID \
+    --from-file=./GOOGLE_SERVICE_ACCOUNT_JSON_KEY
+secret/gcs-secret created
+</code></pre><p><strong>Create Repository:</strong></p><p>Now, crete a <code>Respository</code> using this secret. Below is the YAML of Repository CR we are going to create,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>stash.appscode.com/v1alpha1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Repository</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>gcs-repo</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>backend</span>:
+    <span style=color:#f92672>gcs</span>:
+      <span style=color:#f92672>bucket</span>: <span style=color:#ae81ff>appscode-qa</span>
+      <span style=color:#f92672>prefix</span>: <span style=color:#ae81ff>/demo/mysql/hook-example</span>
+    <span style=color:#f92672>storageSecretName</span>: <span style=color:#ae81ff>gcs-secret</span>
+</code></pre></div><p>Let&rsquo;s create the <code>Repository</code> we have shown above,</p><pre><code class=language-console data-lang=console>$ kubectl apply -f https://github.com/stashed/docs/raw/v0.9.0-rc.6/docs/examples/guides/latest/hooks/repository.yaml
+repository.stash.appscode.com/gcs-repo created
+</code></pre><p>Now, we are ready to backup our database into our desired backend.</p><h2 id=backup>Backup</h2><p>In this section, we are going to demonstrate <code>preBackup</code> hook and <code>postBackup</code> hook. We are going to make MySQL database read-only in <code>preBackup</code> hook so that no write operation happens in the database during backup. Then, we are going to make the database writable in <code>postBackup</code> hook so that the application can write again into the database.</p><h3 id=prebackup-hook>PreBackup Hook</h3><p>At first, we are going to set <code>super_read_only</code> flag <code>ON</code> in <code>preBackup</code> hook which will make the database read-only. However, we won&rsquo;t set this flag <code>OFF</code> in <code>postBackup</code> so that we can verify that the hook has been executed.</p><p><strong>Create BackupConfiguration:</strong></p><p>Below is the YAML of the <code>BackupConfiguration</code> CR with <code>preBackup</code> hook configured to make the database read-only before backup,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>stash.appscode.com/v1beta1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>BackupConfiguration</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>backup-hook-demo</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>schedule</span>: <span style=color:#e6db74>&#34;*/5 * * * *&#34;</span>
+  <span style=color:#f92672>task</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql-backup-8.0.14</span>
+  <span style=color:#f92672>repository</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>gcs-repo</span>
+  <span style=color:#f92672>hooks</span>:
+    <span style=color:#f92672>preBackup</span>:
+      <span style=color:#f92672>exec</span>:
+        <span style=color:#f92672>command</span>:
+          - <span style=color:#ae81ff>/bin/sh</span>
+          - -<span style=color:#ae81ff>c</span>
+          - <span style=color:#ae81ff>mysql -u root --password=$MYSQL_ROOT_PASSWORD -e &#34;SET GLOBAL super_read_only = ON;&#34;</span>
+      <span style=color:#f92672>containerName</span>: <span style=color:#ae81ff>mysql</span> <span style=color:#75715e># KubeDB uses &#34;mysql&#34; name for MySQL database container. If you haven&#39;t used KubeDB, change this according to your setup.</span>
+  <span style=color:#f92672>target</span>:
+    <span style=color:#f92672>ref</span>:
+      <span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>appcatalog.appscode.com/v1alpha1</span>
+      <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>AppBinding</span>
+      <span style=color:#f92672>name</span>: <span style=color:#ae81ff>sample-mysql</span>
+  <span style=color:#f92672>retentionPolicy</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>keep-last-5</span>
+    <span style=color:#f92672>keepLast</span>: <span style=color:#ae81ff>5</span>
+    <span style=color:#f92672>prune</span>: <span style=color:#66d9ef>true</span>
+</code></pre></div><p>Let&rsquo;s create the above <code>BackupConfiguration</code>,</p><pre><code class=language-console data-lang=console>$ kubectl apply -f https://github.com/stashed/docs/raw/v0.9.0-rc.6/docs/examples/guides/latest/hooks/pre_backup_hook_demo.yaml
+backupconfiguration.stash.appscode.com/backup-hook-demo created
+</code></pre><p><strong>Verify CronJob:</strong></p><p>If everything goes well, Stash will create a CronJob with the schedule specified in <code>spec.schedule</code> field of the <code>BackupConfiguration</code> CR.</p><pre><code class=language-console data-lang=console>$ kubectl get cronjob -n demo
+NAME                            SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+stash-backup-backup-hook-demo   */5 * * * *   False     0        &lt;none&gt;          74s
+</code></pre><p><strong>Wait for BackupSession:</strong></p><p>The <code>stash-backup-backup-hook-demo</code> CronJob will trigger a backup on each scheduled slot by creating a <code>BackupSession</code> CR.</p><p>Wait for a schedule to appear. Run the following command to watch <code>BackupSession</code> CR,</p><pre><code class=language-console data-lang=console>$ kubectl get backupsession -n demo -w
+
+NAME                          INVOKER-TYPE          INVOKER-NAME       PHASE       AGE
+backup-hook-demo-1579179002   BackupConfiguration   backup-hook-demo   Running     10s
+backup-hook-demo-1579179002   BackupConfiguration   backup-hook-demo   Running     52s
+backup-hook-demo-1579179002   BackupConfiguration   backup-hook-demo   Succeeded   86s
+</code></pre><p>Here, the phase <code>Succeeded</code> means that the backup process has been completed successfully.</p><p><strong>Verify Backup:</strong></p><p>Once a backup is completed, Stash will update the respective <code>Repository</code> CR to reflect the backup completion. Check that the repository <code>gcs-repo</code> has been updated by the following command,</p><pre><code class=language-console data-lang=console>$ kubectl get repository -n demo gcs-repo
+NAME       INTEGRITY   SIZE   SNAPSHOT-COUNT   LAST-SUCCESSFUL-BACKUP   AGE
+gcs-repo   true               1                75s                      55m
+</code></pre><p>Here, <code>SNAPSHOT-COUNT</code> 1 indicates that one snapshot has been taken for the targeted database.</p><p><strong>Verify PreBackup Hook Executed:</strong></p><p>If the <code>preBackup</code> hook executes successfully, the database will be marked as read-only. In this situation, if we try to make a write operation into the database, it should reject the operation. However, the database should serve the read operations without any problem.</p><p>Let&rsquo;s verify that the database is read-only by trying to execute a write operation,</p><pre><code class=language-console data-lang=console>$ kubectl exec -it -n demo sample-mysql-0 -- mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD -e &quot;CREATE DATABASE read-OnlyTest;&quot;
+mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 1290 (HY000) at line 1: The MySQL server is running with the --super-read-only option so it cannot execute this statement
+command terminated with exit code 1
+</code></pre><p>Here, the error message clearly states the database is now read-only. Let&rsquo;s try to execute a read operation.</p><pre><code class=language-console data-lang=console>$ kubectl exec -it -n demo sample-mysql-0 -- mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD -e &quot;SELECT * FROM companyRecord.employee;&quot;
+mysql: [Warning] Using a password on the command line interface can be insecure.
++----+----------+--------+
+| id | name     | salary |
++----+----------+--------+
+|  1 | John Doe |   5000 |
++----+----------+--------+
+</code></pre><p>So, we can see that the database can serve read-only queries without any problem.</p><h3 id=postbackup-hook>PostBackup Hook</h3><p>Now, let&rsquo;s update the <code>BackupConfiguration</code> CR and add a <code>postBackup</code> hook that set <code>super_read_only</code> flag to <code>OFF</code>. So, the database should be writable again from the next backup.</p><p><strong>Update BackupConfiguration:</strong></p><p>Below is the YAML for the updated <code>BackupConfiguration</code> CR with <code>postBackup</code> hook.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>stash.appscode.com/v1beta1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>BackupConfiguration</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>backup-hook-demo</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>schedule</span>: <span style=color:#e6db74>&#34;*/5 * * * *&#34;</span>
+  <span style=color:#f92672>task</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql-backup-8.0.14</span>
+  <span style=color:#f92672>repository</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>gcs-repo</span>
+  <span style=color:#f92672>hooks</span>:
+    <span style=color:#f92672>preBackup</span>:
+      <span style=color:#f92672>exec</span>:
+        <span style=color:#f92672>command</span>:
+          - <span style=color:#ae81ff>/bin/sh</span>
+          - -<span style=color:#ae81ff>c</span>
+          - <span style=color:#ae81ff>mysql -u root --password=$MYSQL_ROOT_PASSWORD -e &#34;SET GLOBAL super_read_only = ON;&#34;</span>
+      <span style=color:#f92672>containerName</span>: <span style=color:#ae81ff>mysql</span> <span style=color:#75715e># KubeDB uses &#34;mysql&#34; name for MySQL database container. If you haven&#39;t used KubeDB, change this according to your setup.</span>
+    <span style=color:#f92672>postBackup</span>:
+      <span style=color:#f92672>exec</span>:
+        <span style=color:#f92672>command</span>:
+          - <span style=color:#ae81ff>/bin/sh</span>
+          - -<span style=color:#ae81ff>c</span>
+          - <span style=color:#ae81ff>mysql -u root --password=$MYSQL_ROOT_PASSWORD -e &#34;SET GLOBAL super_read_only = OFF;&#34;</span>
+      <span style=color:#f92672>containerName</span>: <span style=color:#ae81ff>mysql</span>
+  <span style=color:#f92672>target</span>:
+    <span style=color:#f92672>ref</span>:
+      <span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>appcatalog.appscode.com/v1alpha1</span>
+      <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>AppBinding</span>
+      <span style=color:#f92672>name</span>: <span style=color:#ae81ff>sample-mysql</span>
+  <span style=color:#f92672>retentionPolicy</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>keep-last-5</span>
+    <span style=color:#f92672>keepLast</span>: <span style=color:#ae81ff>5</span>
+    <span style=color:#f92672>prune</span>: <span style=color:#66d9ef>true</span>
+</code></pre></div><p>Let&rsquo;s apply the update,</p><pre><code class=language-console data-lang=console>$ kubectl apply -f https://github.com/stashed/docs/raw/v0.9.0-rc.6/docs/examples/guides/latest/hooks/post_backup_hook_demo.yaml
+backupconfiguration.stash.appscode.com/backup-hook-demo configured
+</code></pre><p><strong>Wait for Next BackupSession:</strong></p><p>Now, wait for the next backup slot,</p><pre><code class=language-console data-lang=console>$ kubectl get backupsession -n demo -w
+
+NAME                          INVOKER-TYPE          INVOKER-NAME       PHASE       AGE
+backup-hook-demo-1579179002   BackupConfiguration   backup-hook-demo   Succeeded   7m8s
+backup-hook-demo-1579179905   BackupConfiguration   backup-hook-demo   Running     12s
+backup-hook-demo-1579179905   BackupConfiguration   backup-hook-demo   Running     8s
+backup-hook-demo-1579179905   BackupConfiguration   backup-hook-demo   Succeeded   63s
+</code></pre><p><strong>Verify PostBackup Hook Executed:</strong></p><p>If the <code>postBackup</code> hook has been executed successfully, the database should be writable again. Let&rsquo;s try to execute a write operation to verify that the database writable,</p><pre><code class=language-console data-lang=console>$ kubectl exec -it -n demo sample-mysql-0 -- mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD -e &quot;CREATE DATABASE postBackupHookTest;&quot;
+mysql: [Warning] Using a password on the command line interface can be insecure.
+</code></pre><p>Verify the test database has been created successfully,</p><pre><code class=language-console data-lang=console>$ kubectl exec -it -n demo sample-mysql-0 -- mysql --user=$MYSQL_USER --password=CWg2hru8b0Yu7dzS -e &quot;SHOW DATABASES;&quot;
+
+mysql: [Warning] Using a password on the command line interface can be insecure.
++--------------------+
+| Database           |
++--------------------+
+| companyRecord      |
+| information_schema |
+| mysql              |
+| performance_schema |
+| postBackupHookTest |
+| sys                |
++--------------------+
+</code></pre><p>So, we can see the database is writable again after the backup.</p><h2 id=restore>Restore</h2><p>In this section, we are going to demonstrate <code>preRestore</code> and <code>postRestore</code> hooks. Here, we are going to delete corrupted data in <code>preRestore</code> hook and apply some migration on the database in <code>postRestore</code> hook.</p><p><strong>Pause Backup:</strong></p><p>At first, let stop the backup so that no new backup happens during the restore process. Let&rsquo;s set <code>spec.paused</code> section of <code>BackupConfiguration</code> to <code>true</code> which will stop taking further scheduled backup.</p><pre><code class=language-console data-lang=console>$ kubectl patch backupconfiguration -n demo backup-hook-demo --type=&quot;merge&quot; --patch='{&quot;spec&quot;: {&quot;paused&quot;: true}}'
+backupconfiguration.stash.appscode.com/backup-hook-demo patched
+</code></pre><p>It should suspend the respective CronJob which is responsible for triggering backup at a scheduled slot. Let&rsquo;s verify that the CronJob has been suspended.</p><pre><code class=language-console data-lang=console>$ kubectl get cronjob -n demo
+NAME                            SCHEDULE      SUSPEND   ACTIVE   LAST SCHEDULE   AGE
+stash-backup-backup-hook-demo   */5 * * * *   True      0        5m13s           29m
+</code></pre><p><strong>Simulate Disaster Scenario:</strong></p><p>Now, let&rsquo;s simulate a disaster scenario. Here, we are going to delete the <code>companyRecord</code> database before restoring so that we can verify that the data has been restored from backup.</p><pre><code class=language-console data-lang=console>$ kubectl exec -it -n demo sample-mysql-0 -- mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD -e &quot;DROP DATABASE companyRecord;&quot;
+mysql: [Warning] Using a password on the command line interface can be insecure.
+</code></pre><p>Verify that the database has been deleted,</p><pre><code class=language-console data-lang=console>$ kubectl exec -it -n demo sample-mysql-0 -- mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD -e &quot;SHOW DATABASES;&quot;
+mysql: [Warning] Using a password on the command line interface can be insecure.
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| postBackupHookTest |
+| sys                |
++--------------------+
+</code></pre><p>So, we can see from the above output that the database <code>companyRecord</code> has been deleted from the MySQL server.</p><h3 id=prerestore-hook>PreRestore Hook</h3><p>Here, we are going to configure <code>preRestore</code> hook to delete the corrupted database. Stash will remove the corrupted database first, then it will restore the database from the backup.</p><p><strong>Create RestoreSession:</strong></p><p>Below is the YAML for <code>RestoreSession</code> with <code>preRestore</code> hook configured to drop the <code>companyRecord</code> database before restoring from backup.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>stash.appscode.com/v1beta1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>RestoreSession</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>pre-restore-hook-demo</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>task</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql-restore-8.0.14</span>
+  <span style=color:#f92672>repository</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>gcs-repo</span>
+  <span style=color:#f92672>hooks</span>:
+    <span style=color:#f92672>preRestore</span>:
+      <span style=color:#f92672>exec</span>:
+        <span style=color:#f92672>command</span>:
+          - <span style=color:#ae81ff>/bin/sh</span>
+          - -<span style=color:#ae81ff>c</span>
+          - <span style=color:#ae81ff>mysql -u root --password=$MYSQL_ROOT_PASSWORD -e &#34;DROP DATABASE companyRecord;&#34;</span>
+      <span style=color:#f92672>containerName</span>: <span style=color:#ae81ff>mysql</span>
+  <span style=color:#f92672>target</span>:
+    <span style=color:#f92672>ref</span>:
+      <span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>appcatalog.appscode.com/v1alpha1</span>
+      <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>AppBinding</span>
+      <span style=color:#f92672>name</span>: <span style=color:#ae81ff>sample-mysql</span>
+  <span style=color:#f92672>rules</span>:
+    - <span style=color:#f92672>snapshots</span>: [<span style=color:#ae81ff>latest]</span>
+</code></pre></div><p>Let&rsquo;s create the above <code>RestoreSession</code>,</p><pre><code class=language-console data-lang=console>$ kubectl apply -f https://github.com/stashed/docs/raw/v0.9.0-rc.6/docs/examples/guides/latest/hooks/pre_restore_hook_demo.yaml
+restoresession.stash.appscode.com/pre-restore-hook-demo created
+</code></pre><p><strong>Wait for Restore to Complete:</strong></p><p>Now, wait for the restore process to complete,</p><pre><code class=language-console data-lang=console>$ kubectl get restoresession -n demo -w
+NAME                    REPOSITORY   PHASE     AGE
+pre-restore-hook-demo   gcs-repo     Running   10s
+pre-restore-hook-demo   gcs-repo     Running   42s
+pre-restore-hook-demo   gcs-repo     Succeeded   42s
+</code></pre><p>Here, <code>RestoreSession</code> phase <code>Succeeded</code> means the restore process has been completed successfully.</p><p><strong>Verify Restored Data:</strong></p><p>Verify that the data has been restored successfully,</p><pre><code class=language-console data-lang=console>$ kubectl exec -it -n demo sample-mysql-0 -- mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD -e &quot;SELECT * FROM companyRecord.employee;&quot;
+mysql: [Warning] Using a password on the command line interface can be insecure.
++----+----------+--------+
+| id | name     | salary |
++----+----------+--------+
+|  1 | John Doe |   5000 |
++----+----------+--------+
+</code></pre><p>So, we can see that the data we had deleted from the <code>employee</code> table has been restored.</p><h3 id=postrestore-hook>PostRestore Hook</h3><p>Now, let&rsquo;s consider that you want to perform some migration on the database during the restore process. You want to rename the <code>employee</code> table into <code>salaryRecord</code> as it holds the employee&rsquo;s salary information. You can configure a <code>postRestore</code> hook to perform the task automatically.</p><p><strong>Drop Old Database:</strong></p><p>Let&rsquo;s delete the old database <code>companyRecord</code> before restoring so that we can verify that the data has been restored from backup.</p><pre><code class=language-console data-lang=console>$ kubectl exec -it -n demo sample-mysql-0 -- mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD -e &quot;DROP DATABASE companyRecord;&quot;
+mysql: [Warning] Using a password on the command line interface can be insecure.
+</code></pre><p>Verify that the database has been deleted,</p><pre><code class=language-console data-lang=console>$ kubectl exec -it -n demo sample-mysql-0 -- mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD -e &quot;SHOW DATABASES;&quot;
+mysql: [Warning] Using a password on the command line interface can be insecure.
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| postBackupHookTest |
+| sys                |
++--------------------+
+</code></pre><p><strong>Create RestoreSession:</strong></p><p>Below is the YAML of the <code>RestoreSession</code> with <code>postRestore</code> hook configured to rename the <code>employee</code> table into <code>salaryRecord</code>.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>stash.appscode.com/v1beta1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>RestoreSession</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>post-restore-hook-demo</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>demo</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>task</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>mysql-restore-8.0.14</span>
+  <span style=color:#f92672>repository</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>gcs-repo</span>
+  <span style=color:#f92672>hooks</span>:
+    <span style=color:#f92672>postRestore</span>:
+      <span style=color:#f92672>exec</span>:
+        <span style=color:#f92672>command</span>:
+          - <span style=color:#ae81ff>/bin/sh</span>
+          - -<span style=color:#ae81ff>c</span>
+          - <span style=color:#ae81ff>mysql -u root --password=$MYSQL_ROOT_PASSWORD -e &#34;RENAME TABLE companyRecord.employee TO companyRecord.salaryRecord;&#34;</span>
+      <span style=color:#f92672>containerName</span>: <span style=color:#ae81ff>mysql</span>
+  <span style=color:#f92672>target</span>:
+    <span style=color:#f92672>ref</span>:
+      <span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>appcatalog.appscode.com/v1alpha1</span>
+      <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>AppBinding</span>
+      <span style=color:#f92672>name</span>: <span style=color:#ae81ff>sample-mysql</span>
+  <span style=color:#f92672>rules</span>:
+    - <span style=color:#f92672>snapshots</span>: [<span style=color:#ae81ff>latest]</span>
+</code></pre></div><p>Let&rsquo;s create the above <code>RestoreSession</code>,</p><pre><code class=language-console data-lang=console>$ kubectl apply -f https://github.com/stashed/docs/raw/v0.9.0-rc.6/docs/examples/guides/latest/hooks/post_restore_hook_demo.yaml
+restoresession.stash.appscode.com/post-restore-hook-demo created
+</code></pre><p><strong>Wait for Restore process to Complete:</strong></p><p>Now, wait for the restore process to complete,</p><pre><code class=language-console data-lang=console>$ kubectl get restoresession -n demo post-restore-hook-demo -w
+NAME                     REPOSITORY   PHASE     AGE
+post-restore-hook-demo   gcs-repo     Running   12s
+post-restore-hook-demo   gcs-repo     Running   29s
+post-restore-hook-demo   gcs-repo     Succeeded   29s
+</code></pre><p><strong>Verify Restored Data:</strong></p><p>Verify that the <code>companyRecord</code> database has been restored and the <code>employee</code> table has been renamed to <code>salaryRecord</code>.</p><pre><code class=language-console data-lang=console>$ kubectl exec -it -n demo sample-mysql-0 -- mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD -e &quot;SHOW TABLES IN companyRecord;&quot;
+mysql: [Warning] Using a password on the command line interface can be insecure.
++-------------------------+
+| Tables_in_companyRecord |
++-------------------------+
+| salaryRecord            |
++-------------------------+
+</code></pre><p>Let&rsquo;s check <code>salaryRecord</code> table contains the original data of the <code>employee</code> table,</p><pre><code class=language-console data-lang=console>$ kubectl exec -it -n demo sample-mysql-0 -- mysql --user=$MYSQL_USER --password=$MYSQL_PASSWORD -e &quot;SELECT * FROM companyRecord.salaryRecord;&quot;
+mysql: [Warning] Using a password on the command line interface can be insecure.
++----+----------+--------+
+| id | name     | salary |
++----+----------+--------+
+|  1 | John Doe |   5000 |
++----+----------+--------+
+</code></pre><p>So, we can see that the <code>postRestore</code> hook successfully performed migration on the restored database.</p><h2 id=cleanup>Cleanup</h2><p>To cleanup the Kubernetes resources created by this tutorial, run:</p><pre><code class=language-console data-lang=console>kubectl delete -n demo restoresession pre-restore-hook-demo post-restore-hook-demo
+kubectl delete -n demo backupconfiguration backup-hook-demo
+kubectl delete -n demo repository gcs-repo
+kubectl delete -n demo secret gcs-secret
+kubectl delete -n demo mysql sample-mysql
+</code></pre></div></div><div class="column is-2"><div class=right-sidebar-area><div class=search-area><form action=#><input id=acSearch type=text placeholder=Search...>
+<button class=search-button>
+<i class="fa fa-search" aria-hidden=true></i></button></form></div><div class=tbl-of-contents><h4>What's on this Page</h4><nav id=TableOfContents><ul><li><a href=#before-you-begin>Before You Begin</a></li><li><a href=#prepare-database>Prepare Database</a><ul><li><a href=#prepare-backend>Prepare Backend</a></li></ul></li><li><a href=#backup>Backup</a><ul><li><a href=#prebackup-hook>PreBackup Hook</a></li><li><a href=#postbackup-hook>PostBackup Hook</a></li></ul></li><li><a href=#restore>Restore</a><ul><li><a href=#prerestore-hook>PreRestore Hook</a></li><li><a href=#postrestore-hook>PostRestore Hook</a></li></ul></li><li><a href=#cleanup>Cleanup</a></li></ul></nav></div></div></div></div></div><script>var kdDropdown=document.querySelector(".dropdown");var kdDropdownBtn=document.querySelector(".dropdown-trigger");kdDropdownBtn.addEventListener("click",function(){kdDropdown.classList.toggle("is-active");})</script></div><div class=overlay-bg></div><div class=sidebar-search-area><div class=search-area-top><h3>Search</h3><div class=searchbar-area><input type=search name=search id=searchbox placeholder=Search...>
+<button onclick=queryPage(1)><i class="fa fa-search" aria-hidden=true></i></button></div><span id=searchbar-script-container style=display:none></span><div class="search-meta-information level"><div class=level-left></div></div></div><div class=search-result-wrapper></div><div class=pagination-area><div class=pagination-list></div></div></div><div class=improve-section-area><div class="container section"><div class=improve-bg-color><div class=columns><div class="column is-6"><a href=https://github.com/stashed/docs/edit/master/docs/guides/latest/hooks/backup-and-restore-hooks.md/>Improve This Page</a></div></div></div></div></div><script type=text/javascript>var pageSize=5;var acSearch=document.querySelector("#acSearch");var bodyOverlay=document.querySelector(".overlay-bg");var sidebarSearch=document.querySelector(".sidebar-search-area");acSearch.addEventListener("click",function(){bodyOverlay.style.display="block";sidebarSearch.style.right="0";document.getElementById("searchbox").focus();bodyOverlay.addEventListener("click",function(){bodyOverlay.style.display="none";sidebarSearch.style.right="-80%";});});function encodeQueryData(data){var ret=[];for(var d in data)
+ret.push(encodeURIComponent(d)+'='+encodeURIComponent(data[d]));return ret.join('&');}
+document.querySelector(".searchbar-area input[type=search]").addEventListener("keyup",function(event){event.preventDefault();if(event.keyCode===13){queryPage(1);}});function queryPage(idx){var q=document.getElementById("searchbox").value;var cx="015199383701854252104:0pfqfvpvwyl";var key="AIzaSyBrcwLTnL09geNrFMUx1kpL--dT1379aag";var imgSize="small";var callback="renderResult";var src="https://www.googleapis.com/customsearch/v1?"+encodeQueryData({q:q,cx:cx,key:key,imgSize:imgSize,callback:callback,start:(idx-1)*pageSize+1,num:pageSize,});var newScript=document.createElement("script");newScript.src=src;e=document.getElementById("searchbar-script-container");var child=e.lastElementChild;if(child){e.removeChild(child);}
+e.appendChild(newScript);}
+function renderSearchResultEntry(e){var out='<div class="single-search-result">'+
+'<h3><a href="'+e.link+'">'+e.title+'</a></h3>'+
+'<a href="'+e.link+'">'+e.htmlFormattedUrl+'</a>'+
+'<div class="result-description-wrapper">';if(e.pagemap&&e.pagemap.cse_thumbnail){out+='<div class="result-thumb">'+
+'<img src="'+e.pagemap.cse_thumbnail[0].src+'" alt="" />'+
+'</div>';}
+out+='<div class="result-description">'+
+'<p>'+
+e.snippet+
+'</p>'+
+'</div>'+
+'</div>'+
+'</div>';return out;}
+function renderResult(response){document.querySelector(".search-meta-information .level-left").innerHTML='<div class="level-left">'+
+'<p>'+
+'About <span class="search-count">'+response.searchInformation.formattedTotalResults+'</span> results (<span class="time-count">'+response.searchInformation.formattedSearchTime+' </span>seconds)'+
+'</p>'+
+'</div>';if(!response.items){return;}
+var searchResultWrapper=document.querySelector(".search-result-wrapper");searchResultWrapper.innerHTML="";for(var i=0;i<response.items.length;i++){searchResultWrapper.innerHTML+=renderSearchResultEntry(response.items[i]);}
+var pager='<ul>';if(response.queries.previousPage){var pageIndex=Math.floor(response.queries.previousPage[0].startIndex/pageSize)+1;pager+='<li><a href="#" onclick="queryPage('+pageIndex+')">Previous</a></li>';}
+if(response.queries.request){var pageIndex=Math.floor(response.queries.request[0].startIndex/pageSize)+1;pager+='<li><a href="#" onclick="queryPage('+pageIndex+')" class="is-active">'+pageIndex+'</a></li>';}
+if(response.queries.nextPage){var pageIndex=Math.floor(response.queries.nextPage[0].startIndex/pageSize)+1;pager+='<li><a href="#" onclick="queryPage('+pageIndex+')">Next</a></li>';}
+pager+='</ul>';document.querySelector(".pagination-area .pagination-list").innerHTML=pager;}</script><section></section><section></section><section></section><button class=go-to-top id=goTop>
+<i class="fa fa-angle-up" aria-hidden=true></i></button><footer class=footer-area><div class=footer-top><div class="container section"><div class="columns is-mobile is-multiline"><div class="column is-full-mobile is-one-third-desktop is-one-third-widescreen is-one-third-tablet" data-aos=fade-up><div class=single-footer-widget><div class=footer-logo><a href=https://appscode.com><img src=/assets/images/products/appscode/appscode.png alt=AppsCode class=img></a></div><div class=subscription-form><form action="https://appscode.us17.list-manage.com/subscribe/post?u=feb2bf31969a951e7449048a3&id=82fb19acb9" method=post id=mc-embedded-subscribe-form name=mc-embedded-subscribe-form class=navbar-form target=_blank novalidate role=email role=email><label for=email>Subscribe to Our Newsletter</label><p class=spam-message>No spam, we promise. Your mail address is secure</p><div class="field has-addons"><div class=control><input class=input name=EMAIL id=mce-EMAIL type=email placeholder="Your work email address" required>
+<button id=mc-embedded-subscribe type=submit name=subscribe class=button>
+<i class="fa fa-paper-plane-o" aria-hidden=true></i></button></div></div></form></div><div class=contact-information><h4>Have any Inquiry?</h4><ul class=all-contact-info><li><a href=callto:+1%28650%29241-8486><span><i class="fa fa-phone" aria-hidden=true></i></span>+1(650)241-8486</a></li><li><a href=mailto:support@appscode.com><span><i class="fa fa-envelope-o" aria-hidden=true></i></span>support@appscode.com</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=500><div class=single-footer-widget><div class=footer-menu><h4>Products</h4><ul class=footer-link><li><a href=https://kubedb.com>KubeDB</a></li><li><a href=https://stash.run>Stash</a></li><li><a href=https://kubevault.com>KubeVault</a></li><li><a href=https://kubeform.com>Kubeform</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=600><div class=single-footer-widget><div class=footer-menu><h4>Services</h4><ul class=footer-link><li><a href=https://appscode.com/pricing/>Pricing</a></li><li><a href=https://appscode.com/consulting/>Consulting</a></li><li><a href=https://appscode.com/training/>Training</a></li><li><a href=https://appscode.com/support/>Support</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=700><div class=single-footer-widget><div class=footer-menu><h4>Company</h4><ul class=footer-link><li><a href=https://appscode.com/about/>About Us</a></li><li><a href=https://blog.byte.builders>Blog</a></li><li><a href=https://appscode.com/contact/>Contact Us</a></li></ul></div></div></div><div class="column is-half-mobile" data-aos=fade-up data-aos-duration=800><div class=single-footer-widget><div class=footer-menu><h4>Legal</h4><ul class=footer-link><li><a href=https://appscode.com/legal/tos/>Terms of Sevice</a></li><li><a href=https://appscode.com/legal/privacy-policy/>Privacy Policy</a></li><li><a href=https://appscode.com/legal/security/>Security</a></li><li><a href=https://appscode.com/legal/sla/>Service Level Agreement</a></li></ul></div></div></div></div></div></div><div class=footer-bottom><div class="container section"><div class=columns><div class="column is-4"><p>© 2021 AppsCode Inc. All rights reserved.</p></div><div class="column is-4 is-mobile has-text-centered"><div class=footer-inline-link><a href=https://appscode.com/legal/privacy-policy/>Privacy Policy</a>
+<a href=https://appscode.com/legal/tos/>Terms of Service</a></div></div><div class="column is-4 is-mobile has-text-right"><div class=socail-link-inline><ul><li><a href=https://twitter.com/AppsCodeHQ><i class="fa fa-twitter" aria-hidden=true></i></a></li><li><a href=https://www.facebook.com/appscode><i class="fa fa-facebook" aria-hidden=true></i></a></li><li><a href=https://www.youtube.com/c/AppsCodeInc><i class="fa fa-youtube" aria-hidden=true></i></a></li></ul></div></div></div></div></div></footer><script src=/assets/js/bulma-carousel.min.js></script><script src=https://unpkg.com/aos@2.3.1/dist/aos.js></script><script src=https://unpkg.com/downloadjs@1.4.7/download.min.js></script><script src=https://unpkg.com/clipboard@2/dist/clipboard.min.js></script><script src=/assets/js/main.js></script><script type=text/javascript id=hs-script-loader async defer src=//js.hs-scripts.com/9255943.js></script><script type=text/javascript>var Tawk_API=Tawk_API||{},Tawk_LoadStart=new Date();(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/5821e34b18d9f16af02864b7/default';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();</script></body></html>
