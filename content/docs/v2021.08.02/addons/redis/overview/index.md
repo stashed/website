@@ -62,7 +62,7 @@ info:
 
 # How Stash Backups & Restores Redis Database
 
-Stash `{{ .version }}` supports backup and restore operation of many databases. This guide will give you an overview of how Redis database backup and restore process works in Stash.
+Stash `{{< param "info.version" >}}` supports backup and restore operation of many databases. This guide will give you an overview of how Redis database backup and restore process works in Stash.
 
 ## Logical Backup
 

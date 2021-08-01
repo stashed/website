@@ -60,7 +60,7 @@ info:
 
 # Take a logical backup of the Redis database using Stash
 
-Stash `{{ .version }}` supports backup and restoration of Redis databases. This guide will show you how you can take a logical backup of your Redis databases and restore them using Stash.
+Stash `{{< param "info.version" >}}` supports backup and restoration of Redis databases. This guide will show you how you can take a logical backup of your Redis databases and restore them using Stash.
 
 ## Before You Begin
 
