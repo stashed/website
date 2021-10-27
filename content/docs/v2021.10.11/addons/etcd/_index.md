@@ -1,16 +1,12 @@
 ---
-title: NATS with authentication
-description: Backup and restore NATS streams using different authentication methods
-  with Stash
+title: Stash Etcd Addon
 menu:
   docs_v2021.10.11:
-    identifier: stash-nats-auth
-    name: Authentication
-    parent: stash-nats
-    weight: 30
-product_name: stash
+    identifier: stash-etcd
+    name: Etcd
+    parent: stash-addons
+    weight: 100
 menu_name: docs_v2021.10.11
-section_menu_id: stash-addons
 info:
   cli: v0.16.0
   community: v0.16.0
