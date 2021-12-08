@@ -92,7 +92,7 @@ Any addon with matching major version with the database version should be able t
 
 Stash Elasticsearch documentations are organized as below:
 
-- [How does it works?](/docs/v2021.11.24/addons/elasticsearch/overview/) gives an overview of how backup and restore process for Elasticsearch database works in Stash.
+- [How does it work?](/docs/v2021.11.24/addons/elasticsearch/overview/) gives an overview of how backup and restore process for Elasticsearch database works in Stash.
 - [KubeDB managed Elasticsearch](/docs/v2021.11.24/addons/elasticsearch/kubedb/) shows how to backup and restore a KubeDB managed Elasticsearch database.
 - [Auto-Backup](/docs/v2021.11.24/addons/elasticsearch/auto-backup/) shows how to configure a generic backup template for all the Elasticsearch databases of a cluster.
 - [Customizing Backup & Restore Process](/docs/v2021.11.24/addons/elasticsearch/customization/) shows how to customize the backup & restore process.

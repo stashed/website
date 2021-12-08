@@ -92,7 +92,7 @@ Any addon with matching major version with the database version should be able t
 
 Stash Redis documentations are organized as below:
 
-- [How does it works?](/docs/v2021.11.24/addons/redis/overview/) gives an overview of how backup and restore process for Redis database works in Stash.
+- [How does it work?](/docs/v2021.11.24/addons/redis/overview/) gives an overview of how backup and restore process for Redis database works in Stash.
 - [Helm managed Redis](/docs/v2021.11.24/addons/redis/helm/) shows how to backup and restore a Helm managed Redis database.
 - [Auto-Backup](/docs/v2021.11.24/addons/redis/auto-backup/) shows how to configure a generic backup template for all the Redis databases of a cluster.
 - [Customizing Backup & Restore Process](/docs/v2021.11.24/addons/redis/customization/) shows how to customize the backup & restore process.

@@ -92,7 +92,7 @@ Any addon with matching major version with the database version should be able t
 
 Stash Etcd documentations are organized as below:
 
-- [How does it works?](/docs/v2021.11.24/addons/etcd/overview/) gives an overview of how backup and restore process for Etcd database works in Stash.
+- [How does it work?](/docs/v2021.11.24/addons/etcd/overview/) gives an overview of how backup and restore process for Etcd database works in Stash.
 - [Etcd Cluster with Basic Auth](/docs/v2021.11.24/addons/etcd/basic-auth/) shows how to backup and restore an Etcd cluster with basic authentication enabled.
 - [Etcd Cluster with TLS](/docs/v2021.11.24/addons/etcd/tls/) shows how to configure backup and restore process for TLS secured Etcd cluster.
 - [Customizing Backup & Restore Process](/docs/v2021.11.24/addons/etcd/customization/) shows how to customize the backup & restore process.

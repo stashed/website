@@ -92,7 +92,7 @@ Any addon with matching major version with the database version should be able t
 
 Stash MongoDB documentations are organized as below:
 
-- [How does it works?](/docs/v2021.11.24/addons/mongodb/overview/) gives an overview of how backup and restore process for MongoDB database works in Stash.
+- [How does it work?](/docs/v2021.11.24/addons/mongodb/overview/) gives an overview of how backup and restore process for MongoDB database works in Stash.
 - [Standalone MongoDB](/docs/v2021.11.24/addons/mongodb/standalone/) shows how to backup and restore a standalone MongoDB database.
 - [MongoDB ReplicaSet](/docs/v2021.11.24/addons/mongodb/replicaset/) shows how to backup & restore  a MongoDB ReplicaSet.
 - [Sharded MongoDB Cluster](/docs/v2021.11.24/addons/mongodb/sharding/) shows how to backup & restore a sharded MongoDB cluster.

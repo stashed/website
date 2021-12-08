@@ -92,6 +92,6 @@ Any addon with matching major version with the database version should be able t
 
 Stash PostgreSQL documentations are organized as below:
 
-- [How does it works?](/docs/v2021.11.24/addons/postgres/overview/) gives an overview of how backup and restore process for PostgreSQL database works in Stash.
+- [How does it work?](/docs/v2021.11.24/addons/postgres/overview/) gives an overview of how backup and restore process for PostgreSQL database works in Stash.
 - [Standalone PostgreSQL](/docs/v2021.11.24/addons/postgres/standalone/) shows how to backup and restore a standalone PostgreSQL database using Stash.
 - [Auto-Backup](/docs/v2021.11.24/addons/postgres/auto-backup/) shows how to configure a generic backup template for all the PostgreSQL databases of a cluster.

@@ -92,5 +92,5 @@ Any addon with matching major version with the database version should be able t
 
 Stash MySQL documentations are organized as below:
 
-- [How does it works?](/docs/v2021.11.24/addons/mysql/overview/) gives an overview of how backup and restore process for MySQL database works in Stash.
+- [How does it work?](/docs/v2021.11.24/addons/mysql/overview/) gives an overview of how backup and restore process for MySQL database works in Stash.
 - [Standalone MySQL Database](/docs/v2021.11.24/addons/mysql/standalone/) shows how to backup and restore a standalone MySQL database.

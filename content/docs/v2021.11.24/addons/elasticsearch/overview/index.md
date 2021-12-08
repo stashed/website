@@ -4,7 +4,7 @@ description: How Elasticsearch Backup Works in Stash
 menu:
   docs_v2021.11.24:
     identifier: stash-elasticsearch-overview
-    name: How does it works?
+    name: How does it work?
     parent: stash-elasticsearch
     weight: 10
 product_name: stash
