@@ -5,7 +5,7 @@
   {{ $title = .Title }}
 {{ end }}
 
-{{ $summary = $p.summary }}
+{{ $summary := $p.summary }}
 {{ if .Summary }}
   {{ $summary = .Summary }}
 {{ end }}
