@@ -66,15 +66,11 @@ url(./assets/images/bg-image/gradient-bg.webp);">
             </div>
             {{highlight (printf `$ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
-$ helm search repo appscode/stash --version %s
-NAME            CHART VERSION         APP VERSION         DESCRIPTION
-appscode/stash  %s %s  Stash by AppsCode - Backup your Kubernetes native applications
-
 $ helm install stash appscode/stash \
   --version %s \
   --namespace kube-system \
   --set features.community=true \
-  --set-file global.license=/path/to/the/license.txt` $p.latestVersion $p.latestVersion $p.latestVersion $p.latestVersion) "bash" "style=dracula" }}
+  --set-file global.license=/path/to/the/license.txt` $p.latestVersion) "bash" "style=dracula" }}
 
            
           </div>
@@ -129,7 +125,7 @@ $ helm install stash appscode/stash \
       <!-- single feature information start  -->
       {{ range $f := $p.features }}
       <div class="column is-half-tablet is-one-third-widescreen">
-        <a href="/kubernetes/features/{{ $f.url }}" class="single-features-item" data-aos="fade-up"
+        <div class="single-features-item" data-aos="fade-up"
           data-aos-duration="500">
           <div class="feature-icon">
             <img src="{{ $f.icon.src }}" alt="{{ $f.icon.alt }}" />
@@ -137,12 +133,10 @@ $ helm install stash appscode/stash \
           <div class="feature-information">
 
             <h5>{{ $f.title }}</h5>
-            <p class="is-ellipsis-2">{{ $f.summary }}</p>
-            <p class="is-ellipsis-2">{{ $f.description }}</p>
-            <button class="readmore-button mt-15">Read More<span
-                class="material-icons-outlined">arrow_forward</span></button>
+            <p>{{ $f.summary }}</p>
+            <p>{{ $f.description }}</p>
           </div>
-        </a>
+        </div>
       </div>
       {{end}}
       <!-- single feature information end -->
