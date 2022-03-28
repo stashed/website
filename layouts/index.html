@@ -64,15 +64,13 @@ url(./assets/images/bg-image/gradient-bg.webp);">
               <span class="action maximize"></span>
               <span class="action minimize"></span>
             </div>
-            {{highlight (printf `$ helm repo add appscode https://charts.appscode.com/stable/
+            {{ highlight (printf `$ helm repo add appscode https://charts.appscode.com/stable/
 $ helm repo update
 $ helm install stash appscode/stash \
   --version %s \
-  --namespace kube-system \
-  --set features.community=true \
+  --namespace stash --create-namespace \
+  --set features.enterprise=true \
   --set-file global.license=/path/to/the/license.txt` $p.latestVersion) "bash" "style=dracula" }}
-
-           
           </div>
         </div>
         <!-- code editor end  -->
