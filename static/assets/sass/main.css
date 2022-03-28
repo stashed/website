@@ -10732,6 +10732,10 @@ Responsive Classes
   color: #ffffff;
 }
 
+.hero-area.is-product.is-dark .button.ac-button.is-white {
+  color: var(--ac-primary);
+}
+
 .hero-area.is-product.is-dark .button.ac-button:hover {
   border-color: var(--ac-primary);
 }

@@ -198,6 +198,9 @@
     .button.ac-button {
       border-color: rgba(255, 255, 255, 0.5);
       color: $ac-white;
+      &.is-white {
+        color: $ac-primary;
+      }
 
       &:hover {
         border-color: $ac-primary;
