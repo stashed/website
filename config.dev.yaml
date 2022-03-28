@@ -52,7 +52,59 @@ menu:
     parent: community
     url: https://slack.appscode.com
     weight: 3
+menu:
+  main:
+  - name: Documentation
+    weight: 20
+  logo:
+  - name: Elasticsearch
+    identifier: elasticsearch
+    parent: database
+    weight: 10
+    pre: /assets/images/databases/logos/elasticsearch.svg
+  - name: MariaDB
+    identifier: mariadb
+    parent: database
+    weight: 20
+    pre: /assets/images/databases/logos/mariadbs.svg
+  - name: MongoDB
+    identifier: mongodb
+    parent: database
+    weight: 40
+    pre: /assets/images/databases/logos/mongodb.svg
+  - name: MySQL
+    identifier: mysql
+    parent: database
+    weight: 50
+    pre: /assets/images/databases/logos/mysql.svg
+  - name: Percona XtraDB
+    identifier: percona-xtradb
+    parent: database
+    weight: 60
+    pre: /assets/images/databases/logos/perconaxtradbs.svg
+  - name: PostgreSQL
+    identifier: postgres
+    parent: database
+    weight: 80
+    pre: /assets/images/databases/logos/postgresql.svg
+  - name: Redis
+    identifier: redis
+    parent: database
+    weight: 100
+    pre: /assets/images/databases/logos/redis.svg
+  - name: NATS
+    identifier: nats
+    parent: database
+    weight: 100
+    pre: /assets/images/databases/logos/nats.svg
+  - name: Etcd
+    identifier: etcd
+    parent: database
+    weight: 100
+    pre: /assets/images/databases/logos/etcd.svg
 markup:
   goldmark:
     renderer:
       unsafe: true
+  highlight:
+    style: manni
