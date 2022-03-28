@@ -42,52 +42,52 @@ menu:
   main:
   - name: Documentation
     weight: 20
-  logo:
+  addons:
   - name: Elasticsearch
     identifier: elasticsearch
-    parent: database
+    parent: addons
     weight: 10
-    pre: /assets/images/databases/logos/elasticsearch.svg
+    pre: /assets/images/addons/logos/elasticsearch.svg
   - name: MariaDB
     identifier: mariadb
-    parent: database
+    parent: addons
     weight: 20
-    pre: /assets/images/databases/logos/mariadbs.svg
+    pre: /assets/images/addons/logos/mariadbs.svg
   - name: MongoDB
     identifier: mongodb
-    parent: database
+    parent: addons
     weight: 40
-    pre: /assets/images/databases/logos/mongodb.svg
+    pre: /assets/images/addons/logos/mongodb.svg
   - name: MySQL
     identifier: mysql
-    parent: database
+    parent: addons
     weight: 50
-    pre: /assets/images/databases/logos/mysql.svg
+    pre: /assets/images/addons/logos/mysql.svg
   - name: Percona XtraDB
     identifier: percona-xtradb
-    parent: database
+    parent: addons
     weight: 60
-    pre: /assets/images/databases/logos/perconaxtradbs.svg
-  - name: PostgreSQL
+    pre: /assets/images/addons/logos/perconaxtradbs.svg
+  - name: Postgres
     identifier: postgres
-    parent: database
+    parent: addons
     weight: 80
-    pre: /assets/images/databases/logos/postgresql.svg
+    pre: /assets/images/addons/logos/postgres.svg
   - name: Redis
     identifier: redis
-    parent: database
+    parent: addons
     weight: 100
-    pre: /assets/images/databases/logos/redis.svg
+    pre: /assets/images/addons/logos/redis.svg
   - name: NATS
     identifier: nats
-    parent: database
+    parent: addons
     weight: 100
-    pre: /assets/images/databases/logos/nats.svg
+    pre: /assets/images/addons/logos/nats.svg
   - name: Etcd
     identifier: etcd
-    parent: database
+    parent: addons
     weight: 100
-    pre: /assets/images/databases/logos/etcd.svg
+    pre: /assets/images/addons/logos/etcd.svg
 markup:
   goldmark:
     renderer:
