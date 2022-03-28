@@ -10098,6 +10098,9 @@ Responsive Classes
   .navbar-appscode .navbar-right .community-items.ml-70 {
     margin-left: 10px !important;
   }
+  .navbar-appscode .navbar-right .ac-searchbar {
+    width: 34%;
+  }
   .navbar-appscode ul .nav-item {
     margin-right: 1.5rem;
   }
@@ -10115,8 +10118,14 @@ Responsive Classes
 }
 
 @media (min-width: 1408px) and (max-width: 1600px) {
+  .navbar-appscode.documentation-menu .navbar-right .ac-searchbar {
+    width: 34%;
+  }
   .navbar-appscode .navbar-left .navbar-brand {
     margin-right: 3rem;
+  }
+  .navbar-appscode ul .nav-item {
+    margin-right: 1.5rem;
   }
 }
 
@@ -13215,7 +13224,15 @@ Responsive Classes
   line-height: 1.3;
 }
 
+.full-info h1 a {
+  font-size: 2rem;
+}
+
 .full-info h2 {
+  font-size: 24px;
+}
+
+.full-info h2 a {
   font-size: 24px;
 }
 
@@ -13223,7 +13240,15 @@ Responsive Classes
   font-size: 18px;
 }
 
+.full-info h3 a {
+  font-size: 18px;
+}
+
 .full-info h4 {
+  font-size: 16px;
+}
+
+.full-info h4 a {
   font-size: 16px;
 }
 
@@ -13231,7 +13256,15 @@ Responsive Classes
   font-size: 15px;
 }
 
+.full-info h5 a {
+  font-size: 15px;
+}
+
 .full-info h6 {
+  font-size: 13px;
+}
+
+.full-info h6 a {
   font-size: 13px;
 }
 

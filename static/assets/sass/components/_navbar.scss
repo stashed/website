@@ -1181,6 +1181,9 @@ Responsive Classes
       .community-items.ml-70 {
         margin-left: 10px !important;
       }
+      .ac-searchbar {
+        width: 34%;
+      }
     }
 
     ul {
@@ -1209,9 +1212,21 @@ Responsive Classes
 
 @media (min-width: 1408px) and (max-width: 1600px) {
   .navbar-appscode {
+    &.documentation-menu {
+      .navbar-right {
+        .ac-searchbar {
+          width: 34%;
+        }
+      }
+    }
     .navbar-left {
       .navbar-brand {
         margin-right: 3rem;
+      }
+    }
+    ul {
+      .nav-item {
+        margin-right: 1.5rem;
       }
     }
   }
