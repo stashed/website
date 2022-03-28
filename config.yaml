@@ -40,7 +40,7 @@ params:
       map: title
 menu:
   main:
-  - name: Documentation 
+  - name: Documentation
     weight: 20
   logo:
   - name: Elasticsearch
@@ -94,4 +94,3 @@ markup:
       unsafe: true
   highlight:
     style: manni
-
