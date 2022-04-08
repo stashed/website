@@ -40,6 +40,9 @@ params:
       map: title
 menu:
   main:
+  - name: Addons
+    identifier: addons
+    weight: 15
   - name: Documentation
     weight: 20
   addons:

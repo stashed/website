@@ -104,9 +104,9 @@ Array.from(responsiveMenus).forEach((menu, idx) => {
 });
 
 
-$('.grid').masonry({
-  itemSelector: '.grid-item'
-});
+// $('.grid').masonry({
+//   itemSelector: '.grid-item'
+// });
 
 // scroll to top start
 //Get the button

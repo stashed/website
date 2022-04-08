@@ -1,0 +1,9 @@
+---
+title: Run and Manage PostgreSQL Database on Kubernetes - KubeDB
+id: postgres
+type: "overview"
+layout: "overview"
+data: "data/products/kubedb/databases/postgresql.json"
+url: "/addons/databases/backup-and-restore-postgres-on-kubernetes"
+description: "Provision, Upgrade, Scaling, Volume Expansion, Monitor, Backup & Restore, Security for PostgreSQL Databases in Kubernetes on any Public & Private Cloud"
+---
