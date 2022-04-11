@@ -8,7 +8,7 @@ disableKinds:
 - taxonomyTerm
 params:
   product_key: stash
-  main_menu_dropdown_item: database
+  main_menu_dropdown_item: addons
   domain_appscode: https://appscode.com
   domain_voyagermesh: https://voyagermesh.com
   domain_stash: https://stash.run
@@ -45,7 +45,6 @@ menu:
     weight: 15
   - name: Documentation
     weight: 20
-  addons:
   - name: Elasticsearch
     identifier: elasticsearch
     parent: addons
