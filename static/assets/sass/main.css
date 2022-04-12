@@ -11332,7 +11332,7 @@ Responsive Classes
   }
   .single-features-item {
     padding: 20px;
-    min-height: 126px;
+    min-height: 310px;
   }
   .single-features-item .feature-information h5 {
     font-size: 16px;
@@ -14509,3 +14509,4 @@ Responsive Classes
     min-width: 1344px;
   }
 }
+/*# sourceMappingURL=main.css.map */
