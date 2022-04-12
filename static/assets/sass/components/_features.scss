@@ -10,7 +10,7 @@
 
     .check-list {
       position: absolute;
-      top: 60px;
+      top: 50px;
       left: -150px;
       left: -150px;
     }
@@ -352,6 +352,8 @@ Responsive Classes
     .features-image {
       .check-list {
         top: 30px;
+        left: 50%;
+        margin-left: -150px;
       }
     }
   }
@@ -366,6 +368,13 @@ Responsive Classes
         margin-bottom: 0;
         line-height: 130%;
       }
+    }
+  }
+}
+@media (min-width: 1601px){
+  .features-area {
+    .features-description {
+      margin-right: 190px;
     }
   }
 }

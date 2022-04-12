@@ -11034,7 +11034,7 @@ Responsive Classes
 
 .features-area .features-image .check-list {
   position: absolute;
-  top: 60px;
+  top: 50px;
   left: -150px;
   left: -150px;
 }
@@ -11327,6 +11327,8 @@ Responsive Classes
   }
   .features-area .features-image .check-list {
     top: 30px;
+    left: 50%;
+    margin-left: -150px;
   }
   .single-features-item {
     padding: 20px;
@@ -11336,6 +11338,12 @@ Responsive Classes
     font-size: 16px;
     margin-bottom: 0;
     line-height: 130%;
+  }
+}
+
+@media (min-width: 1601px) {
+  .features-area .features-description {
+    margin-right: 190px;
   }
 }
 
@@ -14501,4 +14509,3 @@ Responsive Classes
     min-width: 1344px;
   }
 }
-/*# sourceMappingURL=main.css.map */
