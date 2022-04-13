@@ -1,4 +1,4 @@
-title: Backup your Kubernetes Stateful Applications
+title: Stash - Backup and Recovery Solution for Kubernetes
 baseurl: https://stash.run
 languageCode: en-us
 assetDir: static
@@ -70,7 +70,7 @@ menu:
     parent: addons
     weight: 60
     pre: /assets/images/addons/logos/perconaxtradbs.svg
-  - name: Postgres
+  - name: PostgreSQL
     identifier: postgres
     parent: addons
     weight: 80
