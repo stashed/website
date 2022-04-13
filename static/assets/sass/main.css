@@ -11333,11 +11333,24 @@ Responsive Classes
   .single-features-item {
     padding: 20px;
     min-height: 310px;
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+    -ms-flex-line-pack: baseline;
+        align-content: baseline;
+  }
+  .single-features-item .feature-icon {
+    margin: 0 auto;
+  }
+  .single-features-item .feature-information {
+    text-align: center;
   }
   .single-features-item .feature-information h5 {
     font-size: 16px;
     margin-bottom: 0;
     line-height: 130%;
+  }
+  .single-features-item .feature-information p {
+    margin-top: 5px;
   }
 }
 

@@ -1,9 +1,9 @@
 ---
-title: Run and Manage PostgreSQL Database on Kubernetes - KubeDB
-id: postgres
+title: Backup & Restore PostgreSQL Database on Kubernetes | Stash
+id: postgresql
 type: "overview"
 layout: "overview"
 data: "data/products/stashed/addons/postgresql.json"
-url: "/addons/databases/backup-and-restore-postgres-on-kubernetes"
-description: "Provision, Upgrade, Scaling, Volume Expansion, Monitor, Backup & Restore, Security for PostgreSQL Databases in Kubernetes on any Public & Private Cloud"
+url: "/addons/databases/backup-and-restore-postgresql-on-kubernetes"
+description: "A complete Kubernetes native disaster recovery solution for backup and restore PostgreSQL databases in Kubernetes on various public and private clouds."
 ---

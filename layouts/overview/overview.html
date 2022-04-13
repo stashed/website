@@ -34,8 +34,7 @@
         <p data-aos="fade-up" data-aos-duration="500">{{.summary | markdownify }}</p>
         <div class="buttons">
           <a href="/docs/{{ $p.latestVersion }}/addons/{{.id}}/" class="button ac-button is-primary" data-aos="fade-up"
-            data-aos-duration="700">GET
-            STARTED</a>
+            data-aos-duration="700">USER GUIDES</a>
         </div>
       </div>
       <div class="column is-6 is-full-touch">
@@ -98,7 +97,7 @@
       <div class="column is-one-third-widescreen">
         <div class="features-image">
           <ul class="check-list" data-aos="flip-left">
-            <h2 class="is-size-6 mb-15">Why Choose KubeDB?🤔</h2>
+            <h2 class="is-size-6 mb-15">Why Choose {{ $p.name }}?🤔</h2>
             {{ range .features }}
             <li>
               <lord-icon src="https://cdn.lordicon.com/hjeefwhm.json" target="ul.check-list li" trigger="hover" colors="primary:#1971bd"
