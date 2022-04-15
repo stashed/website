@@ -104,10 +104,6 @@ Array.from(responsiveMenus).forEach((menu, idx) => {
 });
 
 
-// $('.grid').masonry({
-//   itemSelector: '.grid-item'
-// });
-
 // scroll to top start
 //Get the button
 const goToTopBtn = document.querySelector(".go-to-top");
