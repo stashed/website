@@ -10,7 +10,7 @@
 
     .check-list {
       position: absolute;
-      top: 60px;
+      top: 50px;
       left: -150px;
       left: -150px;
     }
@@ -81,7 +81,7 @@
   grid-template-columns: 3.75rem auto;
   border: 1px solid $ac-white-light;
   border-radius: 2px;
-  min-height: 126px;
+  min-height: 235px;
 
   &:hover {
     .readmore-button {
@@ -352,20 +352,38 @@ Responsive Classes
     .features-image {
       .check-list {
         top: 30px;
+        left: 50%;
+        margin-left: -150px;
       }
     }
   }
 
   .single-features-item {
     padding: 20px;
-    min-height: 126px;
+    min-height: 310px;
+    grid-template-columns: auto;
+    align-content: baseline;
+    .feature-icon {
+      margin: 0 auto;
+    }
 
     .feature-information {
+      text-align: center;
       h5 {
         font-size: 16px;
         margin-bottom: 0;
         line-height: 130%;
       }
+      p {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+@media (min-width: 1601px) {
+  .features-area {
+    .features-description {
+      margin-right: 190px;
     }
   }
 }

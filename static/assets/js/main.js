@@ -104,10 +104,6 @@ Array.from(responsiveMenus).forEach((menu, idx) => {
 });
 
 
-$('.grid').masonry({
-  itemSelector: '.grid-item'
-});
-
 // scroll to top start
 //Get the button
 const goToTopBtn = document.querySelector(".go-to-top");
@@ -199,14 +195,6 @@ navbarItems.forEach((navbarItem) => {
       else megamenu.classList.remove("is-active");
     });
   });
-});
-
-//bulma carousel
-bulmaCarousel.attach("#carousel-demo", {
-  slidesToScroll: 1,
-  slidesToShow: 1,
-  infinite: true,
-  autoplay: false,
 });
 
 // owl owlCarousel JS 

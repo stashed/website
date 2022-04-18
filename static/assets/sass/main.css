@@ -11034,7 +11034,7 @@ Responsive Classes
 
 .features-area .features-image .check-list {
   position: absolute;
-  top: 60px;
+  top: 50px;
   left: -150px;
   left: -150px;
 }
@@ -11107,7 +11107,7 @@ Responsive Classes
       grid-template-columns: 3.75rem auto;
   border: 1px solid #dbdbde;
   border-radius: 2px;
-  min-height: 126px;
+  min-height: 235px;
 }
 
 .single-features-item:hover .readmore-button {
@@ -11327,15 +11327,36 @@ Responsive Classes
   }
   .features-area .features-image .check-list {
     top: 30px;
+    left: 50%;
+    margin-left: -150px;
   }
   .single-features-item {
     padding: 20px;
-    min-height: 126px;
+    min-height: 310px;
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+    -ms-flex-line-pack: baseline;
+        align-content: baseline;
+  }
+  .single-features-item .feature-icon {
+    margin: 0 auto;
+  }
+  .single-features-item .feature-information {
+    text-align: center;
   }
   .single-features-item .feature-information h5 {
     font-size: 16px;
     margin-bottom: 0;
     line-height: 130%;
+  }
+  .single-features-item .feature-information p {
+    margin-top: 5px;
+  }
+}
+
+@media (min-width: 1601px) {
+  .features-area .features-description {
+    margin-right: 190px;
   }
 }
 
