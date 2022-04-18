@@ -6,7 +6,7 @@
       "images": "static/assets/images"
     },
     "repoURL": "https://github.com/appscode/static-assets",
-    "version": "add-stash-website-data"
+    "version": "mohin/added-stash-features-logo"
   },
   "clouds": [
     "aws",

@@ -2,8 +2,8 @@
   "key": "stash",
   "name": "Stash",
   "fullname": "Stash by AppsCode",
-  "tagline": "Backup and Recovery Solution for Kubernetes",
-  "summary": "A complete Kubernetes native disaster recovery solution for backup and restore your volumes and databases in Kubernetes on any public and private clouds.",
+  "tagline": "Backup your Kubernetes Stateful Applications",
+  "summary": "Stash by AppsCode is a cloud native data backup and recovery solution for Kubernetes workloads, volumes and databases",
   "published": true,
   "author": "AppsCode Inc.",
   "website": {
@@ -79,7 +79,7 @@
         "alt": "http"
       },
       "icon": {
-        "src": "/assets/images/products/stash/features/kub-workload.svg",
+        "src": "/assets/images/products/stash/features/vol.svg",
         "alt": "http"
       },
       "summary": "",
@@ -93,7 +93,7 @@
         "alt": "http"
       },
       "icon": {
-        "src": "/assets/images/products/stash/features/kub-workload.svg",
+        "src": "/assets/images/products/stash/features/backup-icon.png",
         "alt": "http"
       },
       "summary": "",
@@ -107,7 +107,7 @@
         "alt": "http"
       },
       "icon": {
-        "src": "/assets/images/products/stash/features/platform-support.svg",
+        "src": "/assets/images/products/stash/features/storage-icon.png",
         "alt": "http"
       },
       "summary": "",
@@ -121,7 +121,7 @@
         "alt": "http"
       },
       "icon": {
-        "src": "/assets/images/products/stash/features/kub-workload.svg",
+        "src": "/assets/images/products/stash/features/compare.png",
         "alt": "http"
       },
       "summary": "",
@@ -135,7 +135,7 @@
         "alt": "http"
       },
       "icon": {
-        "src": "/assets/images/products/stash/features/rback.svg",
+        "src": "/assets/images/products/stash/features/encryption-icon.png",
         "alt": "http"
       },
       "summary": "",
@@ -149,7 +149,7 @@
         "alt": "http"
       },
       "icon": {
-        "src": "/assets/images/products/stash/features/kub-workload.svg",
+        "src": "/assets/images/products/stash/features/volume-snapshot.png",
         "alt": "http"
       },
       "summary": "",
@@ -163,7 +163,7 @@
         "alt": "http"
       },
       "icon": {
-        "src": "/assets/images/products/stash/features/rback.svg",
+        "src": "/assets/images/products/stash/features/policy-based-icon.png",
         "alt": "http"
       },
       "summary": "",
@@ -177,7 +177,7 @@
         "alt": "http"
       },
       "icon": {
-        "src": "/assets/images/products/stash/features/platform-support.svg",
+        "src": "/assets/images/products/stash/features/prometheus-icon.png",
         "alt": "http"
       },
       "summary": "",
