@@ -197,14 +197,6 @@ navbarItems.forEach((navbarItem) => {
   });
 });
 
-//bulma carousel
-bulmaCarousel.attach("#carousel-demo", {
-  slidesToScroll: 1,
-  slidesToShow: 1,
-  infinite: true,
-  autoplay: false,
-});
-
 // owl owlCarousel JS 
 var owl = $('.testimonial-carousel');
 owl.owlCarousel({
