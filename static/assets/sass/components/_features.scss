@@ -136,7 +136,7 @@
     align-items: center;
 
     img {
-      max-width: 400px;
+      max-width: 80%;
     }
   }
   p {
@@ -174,7 +174,11 @@ Responsive Classes
         padding: 30px;
       }
     }
-
+    .single-feature-image {
+      img {
+        max-width: 100%;
+      }
+    }
     .buttons {
       justify-content: center;
     }
@@ -270,6 +274,11 @@ Responsive Classes
       margin: 0 auto;
       &.has-text-right {
         margin-right: auto;
+      }
+    }
+    .single-feature-image {
+      img {
+        max-width: 100%;
       }
     }
   }
