@@ -16,11 +16,12 @@
   },
   "homepage": "https://github.com/kubedb/website#readme",
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
+    "autoprefixer": "^9.8.8",
     "postcss-cli": "^9.1.0"
   },
   "private": true,
   "dependencies": {
-    "postcss": "^8.4.12"
+    "fs-extra": "^10.1.0",
+    "postcss": "^8.4.13"
   }
 }
