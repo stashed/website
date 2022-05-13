@@ -99,6 +99,12 @@ menu:
     weight: 100
     pre: /assets/images/addons/logos/etcd.svg
     pageRef: /addons/databases/backup-and-restore-etcd-on-kubernetes/
+  - name: KubeDump
+    identifier: kubedump
+    parent: addons
+    weight: 110
+    pre: /assets/images/addons/logos/kubedump.svg
+    pageRef: /addons/kubernetes/backup-kubernetes-resources/
 markup:
   goldmark:
     renderer:

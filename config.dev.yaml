@@ -102,6 +102,12 @@ menu:
     parent: database
     weight: 100
     pre: /assets/images/databases/logos/etcd.svg
+  - name: KubeDump
+    identifier: kubedump
+    parent: addons
+    weight: 110
+    pre: /assets/images/addons/logos/kubedump.svg
+    pageRef: /addons/kubernetes/backup-kubernetes-resources/
 markup:
   goldmark:
     renderer:
