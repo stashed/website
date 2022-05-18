@@ -30,6 +30,9 @@ params:
   youtube_url: https://www.youtube.com/c/AppsCodeInc
   contact_email: support@appscode.com
   contact_phone: +1(650)241-8486
+  intro_video:
+    url: https://www.youtube.com/watch?v=hXwnjIGgvMg
+    thumbnail: https://img.youtube.com/vi/hXwnjIGgvMg/sddefault.jpg
   comments:
     enable: true
     giscus:
@@ -50,7 +53,7 @@ menu:
     parent: addons
     weight: 10
     pre: /assets/images/addons/logos/elasticsearch.svg
-    pageRef: /addons/databases/backup-and-restore-elasticsearch-on-kubernetes/
+    pageRef: /addons/databases/backup-and-recover-elasticsearch-on-kubernetes/
   - name: MariaDB
     identifier: mariadb
     parent: addons
