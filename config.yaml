@@ -53,7 +53,7 @@ menu:
     parent: addons
     weight: 10
     pre: /assets/images/addons/logos/elasticsearch.svg
-    pageRef: /addons/databases/backup-and-recover-elasticsearch-on-kubernetes/
+    pageRef: /addons/databases/backup-and-restore-elasticsearch-on-kubernetes/
   - name: MariaDB
     identifier: mariadb
     parent: addons
