@@ -559,7 +559,10 @@
           <div class="navbar-left">
             <div class="navbar-brand">
               <a href="{{ index $.Site.Params $p.website.domainKey }}{{ $p.website.path }}"><img src="{{ $p.logo.src }}"
-                  alt="{{ $p.logo.alt }}" alt="{{ $p.logo.alt }}"></a>
+                  alt="{{ $p.logo.alt }}" alt="{{ $p.logo.alt }}" class="is-hidden-mobile"></a>
+              <a href="{{ index $.Site.Params $p.website.domainKey }}{{ $p.website.path }}"><img
+                  src="/assets/images/products/{{ $p.key }}/icons/apple-icon-76x76.png"
+                 alt="{{ $p.logo.alt }}" alt="{{ $p.logo.alt }}" class="is-hidden-tablet"></a>
 
               <!-- {{ $currentPageType := index (split .Page.Permalink "/") 3 }} -->
               {{ if eq $currentPageType "docs" }}
