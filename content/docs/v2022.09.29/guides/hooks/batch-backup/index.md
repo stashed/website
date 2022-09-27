@@ -70,7 +70,7 @@ info:
   version: v2022.09.29
 ---
 
-{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2022.09.29/setup/install/enterprise) to try this feature." >}}
+{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2022.09.29/setup/install/enterprise/) to try this feature." >}}
 
 # Hooks in Batch Backup
 
@@ -83,7 +83,7 @@ Here, we are going to demonstrate how to send a notification to a Slack channel 
 ## Before You Begin
 
 - At first, you need to have a Kubernetes cluster, and the `kubectl` command-line tool must be configured to communicate with your cluster. If you do not already have a cluster, you can create one by using [kind](https://kind.sigs.k8s.io/docs/user/quick-start/).
-- Install Stash Enterprise in your cluster following the steps [here](/docs/v2022.09.29/setup/install/enterprise).
+- Install Stash Enterprise in your cluster following the steps [here](/docs/v2022.09.29/setup/install/enterprise/).
 - Install [KubeDB](https://kubedb.com) in your cluster following the steps [here](https://kubedb.com/docs/latest/setup/). This step is optional. You can deploy your database using any method you want. We are using KubeDB because KubeDB simplifies many of the difficult or tedious management tasks of running production-grade databases on private and public clouds.
 - If you are not familiar with how Stash backup and restore MySQL databases, please check the following guide [here](/docs/v2022.09.29/addons/mysql/overview/).
 - Also, if you haven't read about how hooks work in Stash, please check it from [here](/docs/v2022.09.29/guides/hooks/overview/).

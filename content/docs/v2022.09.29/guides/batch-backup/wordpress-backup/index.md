@@ -72,7 +72,7 @@ info:
   version: v2022.09.29
 ---
 
-{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2022.09.29/setup/install/enterprise) to try this feature." >}}
+{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2022.09.29/setup/install/enterprise/) to try this feature." >}}
 
 # Backup & Restore a WordPress Site Using Batch Backup
 

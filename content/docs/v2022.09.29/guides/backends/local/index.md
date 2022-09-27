@@ -71,7 +71,7 @@ info:
   version: v2022.09.29
 ---
 
-{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2022.09.29/setup/install/enterprise) to try this feature." >}}
+{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2022.09.29/setup/install/enterprise/) to try this feature." >}}
 
 # Local Backend
 
@@ -190,7 +190,7 @@ $ kubectl apply -f https://github.com/stashed/docs/raw/{{< param "info.version" 
 repository/local-repo-with-nfs created
 ```
 
->For NFS backend, Stash may have to run the network volume accessor deployments in privileged mode to provide Snapshot listing facility. In this case, please configure network volume accessors by following the instruction [here](/docs/v2022.09.29/setup/install/troubleshoting#configuring-network-volume-accessor).
+>For NFS backend, Stash may have to run the network volume accessor deployments in privileged mode to provide Snapshot listing facility. In this case, please configure network volume accessors by following the instruction [here](/docs/v2022.09.29/setup/install/troubleshooting/#configuring-network-volume-accessor).
 
 ##### GCE PersitentDisk as Backend
 

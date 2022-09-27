@@ -71,7 +71,7 @@ info:
   version: v2022.09.29
 ---
 
-{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2022.09.29/setup/install/enterprise) to try this feature." >}}
+{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2022.09.29/setup/install/enterprise/) to try this feature." >}}
 
 # Backup and restore Elasticsearch database deployed with KubeDB
 
@@ -80,7 +80,7 @@ Stash 0.9.0+ supports backup and restoration of Elasticsearch clusters. This gui
 ## Before You Begin
 
 - At first, you need to have a Kubernetes cluster, and the `kubectl` command-line tool must be configured to communicate with your cluster.
-- Install Stash Enterprise in your cluster following the steps [here](/docs/v2022.09.29/setup/install/enterprise).
+- Install Stash Enterprise in your cluster following the steps [here](/docs/v2022.09.29/setup/install/enterprise/).
 - Install [KubeDB](https://kubedb.com) in your cluster following the steps [here](https://kubedb.com/docs/latest/setup/).
 - If you are not familiar with how Stash backup and restore Elasticsearch databases, please check the following guide [here](/docs/v2022.09.29/addons/elasticsearch/overview/).
 

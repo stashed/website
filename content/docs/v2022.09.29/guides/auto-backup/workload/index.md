@@ -71,7 +71,7 @@ info:
   version: v2022.09.29
 ---
 
-{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2022.09.29/setup/install/enterprise) to try this feature." >}}
+{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2022.09.29/setup/install/enterprise/) to try this feature." >}}
 
 # Auto Backup for Workloads
 
@@ -162,6 +162,12 @@ You have to add the auto-backup annotations to the workload that you want to bac
 
 ```yaml
 stash.appscode.com/backup-blueprint: <BackupBlueprint name>
+```
+
+You can also specify multiple BackupBlueprint name separated by comma (`,`). For example:
+
+```yaml
+stash.appscode.com/backup-blueprint: daily-gcs-backup,weekly-s3-backup
 ```
 
 - **Schedule:** You can specify a schedule to backup this target through this annotation. If you don't specify this annotation, schedule from the `BackupBlueprint` will be used.

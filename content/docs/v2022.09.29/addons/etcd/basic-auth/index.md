@@ -78,7 +78,7 @@ Stash `{{< param "info.version" >}}` supports backup and restoration of Etcd dat
 ## Before You Begin
 
 - At first, you need to have a Kubernetes cluster, and the `kubectl` command-line tool must be configured to communicate with your cluster.
-- Install Stash Enterprise in your cluster following the steps [here](/docs/v2022.09.29/setup/install/enterprise).
+- Install Stash Enterprise in your cluster following the steps [here](/docs/v2022.09.29/setup/install/enterprise/).
 - If you are not familiar with how Stash backup and restore Etcd database, please check the following guide [here](/docs/v2022.09.29/addons/etcd/overview/).
 
 You have to be familiar with following custom resources:
