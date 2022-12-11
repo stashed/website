@@ -1,0 +1,118 @@
+---
+title: Trigger
+menu:
+  docs_v2022.12.11:
+    identifier: kubectl-stash-trigger
+    name: Trigger
+    parent: reference-cli
+menu_name: docs_v2022.12.11
+section_menu_id: reference
+info:
+  cli: v0.24.0
+  community: v0.24.0
+  elasticsearch:
+  - 5.6.4-v20
+  - 6.2.4-v20
+  - 6.3.0-v20
+  - 6.4.0-v20
+  - 6.5.3-v20
+  - 6.8.0-v20
+  - 7.14.0-v6
+  - 7.2.0-v20
+  - 7.3.2-v20
+  - 8.2.0-v3
+  enterprise: v0.24.0
+  etcd:
+  - 3.5.0-v7
+  installer: v2022.12.11
+  kubedump:
+  - 0.1.0-v3
+  mariadb:
+  - 10.5.8-v13
+  mongodb:
+  - 3.4.17-v20
+  - 3.4.22-v20
+  - 3.6.13-v20
+  - 3.6.8-v20
+  - 4.0.11-v20
+  - 4.0.3-v20
+  - 4.0.5-v20
+  - 4.1.13-v20
+  - 4.1.4-v20
+  - 4.1.7-v20
+  - 4.2.3-v20
+  - 4.4.6-v11
+  - 5.0.3-v8
+  mysql:
+  - 5.7.25-v20
+  - 8.0.14-v20
+  - 8.0.21-v14
+  - 8.0.3-v20
+  nats:
+  - 2.6.1-v8
+  - 2.8.2-v3
+  percona-xtradb:
+  - 5.7-v15
+  postgres:
+  - 10.14-v19
+  - 11.9-v19
+  - 12.4-v19
+  - 13.1-v16
+  - 14.0-v8
+  - "15.1"
+  - 9.6.19-v19
+  redis:
+  - 5.0.13-v8
+  - 6.2.5-v8
+  - 7.0.5-v1
+  ui-server: v0.6.0
+  vault:
+  - 1.10.3
+  version: v2022.12.11
+---
+
+## kubectl-stash trigger
+
+Trigger a backup
+
+### Synopsis
+
+Trigger a backup by creating BackupSession
+
+```
+kubectl-stash trigger [flags]
+```
+
+### Options
+
+```
+  -h, --help   help for trigger
+```
+
+### Options inherited from parent commands
+
+```
+      --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
+      --as-group stringArray           Group to impersonate for the operation, this flag can be repeated to specify multiple groups.
+      --as-uid string                  UID to impersonate for the operation.
+      --cache-dir string               Default cache directory (default "/home/runner/.kube/cache")
+      --certificate-authority string   Path to a cert file for the certificate authority
+      --client-certificate string      Path to a client certificate file for TLS
+      --client-key string              Path to a client key file for TLS
+      --cluster string                 The name of the kubeconfig cluster to use
+      --context string                 The name of the kubeconfig context to use
+      --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
+      --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
+      --match-server-version           Require server version to match client version
+  -n, --namespace string               If present, the namespace scope for this CLI request
+      --request-timeout string         The length of time to wait before giving up on a single server request. Non-zero values should contain a corresponding time unit (e.g. 1s, 2m, 3h). A value of zero means don't timeout requests. (default "0")
+  -s, --server string                  The address and port of the Kubernetes API server
+      --tls-server-name string         Server name to use for server certificate validation. If it is not provided, the hostname used to contact the server is used
+      --token string                   Bearer token for authentication to the API server
+      --user string                    The name of the kubeconfig user to use
+```
+
+### SEE ALSO
+
+* [kubectl-stash](/docs/v2022.12.11/reference/cli/kubectl-stash)	 - kubectl plugin for Stash by AppsCode
+
