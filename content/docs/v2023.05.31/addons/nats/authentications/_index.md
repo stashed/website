@@ -1,7 +1,6 @@
 ---
 title: NATS with authentication
-description: Backup and restore NATS streams using different authentication methods
-  with Stash
+description: Backup and restore NATS streams using different authentication methods with Stash
 menu:
   docs_v2023.05.31:
     identifier: stash-nats-auth

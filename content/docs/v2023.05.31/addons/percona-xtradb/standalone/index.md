@@ -1,7 +1,6 @@
 ---
 title: Backup & Restore Percona XtraDB Database | Stash
-description: Backup & Restore a standalone Percona XtraDB Database database using
-  Stash
+description: Backup & Restore a standalone Percona XtraDB Database database using Stash
 menu:
   docs_v2023.05.31:
     identifier: stash-percona-xtradb-standalone

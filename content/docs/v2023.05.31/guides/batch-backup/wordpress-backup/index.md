@@ -1,7 +1,6 @@
 ---
 title: Batch Backup | Stash
-description: A step by step guide showing how to backup and restore an application
-  with multiple co-related components.
+description: A step by step guide showing how to backup and restore an application with multiple co-related components.
 menu:
   docs_v2023.05.31:
     identifier: batch-backup-guide

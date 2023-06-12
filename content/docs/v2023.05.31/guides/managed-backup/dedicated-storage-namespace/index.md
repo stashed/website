@@ -1,7 +1,6 @@
 ---
 title: Dedicated Storage Namespace | Stash
-description: A guide on how to use backup and restore by keeping the storage resources
-  in a separate namespace in Stash.
+description: A guide on how to use backup and restore by keeping the storage resources in a separate namespace in Stash.
 menu:
   docs_v2023.05.31:
     identifier: managed-backup-dedicated-storage-namespace

@@ -1,7 +1,6 @@
 ---
 title: Dedicated Backup Namespace | Stash
-description: A guide on how to manage backup and restore from a dedicated namespace
-  for targets of different namespaces using Stash.
+description: A guide on how to manage backup and restore from a dedicated namespace for targets of different namespaces using Stash.
 menu:
   docs_v2023.05.31:
     identifier: managed-backup-dedicated-backup-namespace
