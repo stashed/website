@@ -82,7 +82,7 @@ info:
 # Setup
 
 <div style="text-align: center;">
-  <a class="button is-info is-medium is-active has-text-weight-normal" href="/docs/v2023.10.9/setup/install/enterprise/"  style="background:#FC6011; width: 18rem;">Install Stash</a>
+  <a class="button is-info is-medium is-active has-text-weight-normal" href="/docs/v2023.10.9/setup/install/stash/"  style="background:#FC6011; width: 18rem;">Install Stash</a>
 </div>
 <br>
 

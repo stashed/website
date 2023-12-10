@@ -85,7 +85,7 @@ In this tutorial, we are going to show how you can configure a backup blueprint 
 ## Before You Begin
 
 - At first, you need to have a Kubernetes cluster, and the `kubectl` command-line tool must be configured to communicate with your cluster.
-- Install Stash Enterprise in your cluster following the steps [here](/docs/v2023.10.9/setup/install/enterprise/).
+- Install Stash in your cluster following the steps [here](/docs/v2023.10.9/setup/install/stash/).
 - Install [KubeDB](https://kubedb.com) in your cluster following the steps [here](https://kubedb.com/docs/latest/setup/). This step is optional. You can deploy your database using any method you want.
 - If you are not familiar with how Stash backup and restore Elasticsearch databases, please check the following guide [here](/docs/v2023.10.9/addons/elasticsearch/overview/).
 - If you are not familiar with how auto-backup works in Stash, please check the following guide [here](/docs/v2023.10.9/guides/auto-backup/overview/).
@@ -113,7 +113,7 @@ namespace/demo-2 created
 namespace/demo-3 created
 ```
 
-When you install Stash Enterprise version, it will automatically install the necessary addon to backup databases. Make sure you have installed the Elasticsearch addon for Stash.
+When you install Stash, it will automatically install the necessary addon to backup databases. Make sure you have installed the Elasticsearch addon for Stash.
 
 ```bash
 ❯ kubectl get tasks.stash.appscode.com | grep elasticsearch

@@ -99,13 +99,11 @@ Concept explains some significant aspect of Stash. This is where you can learn a
 Setup contains instruction for installing, uninstalling, and upgrading Stash.
 
 - **Install Stash:** Provides installation instructions for Stash and its various components.
-  - [Community Edition](/docs/v2023.10.9/setup/install/community/): Provides installation instructions for Stash Community Edition.
-  - [Enterprise Edition](/docs/v2023.10.9/setup/install/enterprise/): Provides installation instructions for Stash Enterprise Edition.
+  - [Stash](/docs/v2023.10.9/setup/install/stash/): Provides installation instructions for Stash.
   - [Stash kubectl Plugin](/docs/v2023.10.9/setup/install/kubectl-plugin/): Provides installation instructions for Stash `kubectl` plugin.
   - [Troubleshooting](/docs/v2023.10.9/setup/install/troubleshooting/): Provides troubleshooting guide for various installation problems.
 - **Uninstall Stash:** Provides uninstallation instructions for Stash and its various components.
-  - [Community Edition](/docs/v2023.10.9/setup/uninstall/community/): Provides uninstallation instructions for Stash Community Edition.
-  - [Enterprise Edition](/docs/v2023.10.9/setup/uninstall/enterprise/): Provides uninstallation instructions for Stash Enterprise Edition.
+  - [Stash](/docs/v2023.10.9/setup/uninstall/stash/): Provides uninstallation instructions for Stash.
   - [Stash kubectl Plugin](/docs/v2023.10.9/setup/uninstall/kubectl-plugin/): Provides uninstallation instructions for Stash `kubectl` plugin.
 - [Upgrade Stash](/docs/v2023.10.9/setup/upgrade/): Provides instruction for updating Stash license and upgrading between various Stash versions.
 

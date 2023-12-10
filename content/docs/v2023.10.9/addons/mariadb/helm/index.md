@@ -83,7 +83,7 @@ Stash `v0.11.8+` supports backup and restoration of MariaDB databases. This guid
 ## Before You Begin
 
 - At first, you need to have a Kubernetes cluster, and the `kubectl` command-line tool must be configured to communicate with your cluster.
-- Install Stash Enterprise in your cluster following the steps [here](/docs/v2023.10.9/setup/install/enterprise/).
+- Install Stash in your cluster following the steps [here](/docs/v2023.10.9/setup/install/stash/).
 - If you are not familiar with how Stash backup and restore MariaDB databases, please check the following guide [here](/docs/v2023.10.9/addons/mariadb/overview/).
 
 You have to be familiar with following custom resources:
@@ -262,7 +262,7 @@ In this section, we are going to prepare the necessary resources (i.e. database 
 
 ### Ensure MariaDB Addon
 
-When you install Stash Enterprise version, it will automatically install all the official database addons. Make sure that MariaDB addon was installed properly using the following command.
+When you install Stash, it will automatically install all the official database addons. Make sure that MariaDB addon was installed properly using the following command.
 
 ```bash
 $ kubectl get tasks.stash.appscode.com | grep mariadb
