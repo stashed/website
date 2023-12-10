@@ -76,8 +76,6 @@ info:
   version: v2023.10.9
 ---
 
-{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2023.10.9/setup/install/enterprise/) to try this feature." >}}
-
 # Auto Backup for PVC
 
 This tutorial will show you how to configure automatic backup for PersistentVolumeClaims. Here, we are going to backup a PVC provisioned from an NFS server using auto-backup.

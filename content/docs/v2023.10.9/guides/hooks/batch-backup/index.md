@@ -75,8 +75,6 @@ info:
   version: v2023.10.9
 ---
 
-{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2023.10.9/setup/install/enterprise/) to try this feature." >}}
-
 # Hooks in Batch Backup
 
 Stash 0.9.0+ supports taking backup of multiple co-related stateful workloads using a single configuration named `BackupBatch`. Combining with backup hooks, this can be very powerful. For example, you can prepare your application stack before backup to ensure backup integrity or you can send a notification to a webhook (i.e. in a Slack channel via slack incoming webhook) before or after the backup of all the resources of your application stack.

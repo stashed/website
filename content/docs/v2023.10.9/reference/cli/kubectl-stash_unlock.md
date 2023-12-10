@@ -75,11 +75,7 @@ info:
 
 ## kubectl-stash unlock
 
-Unlock Restic Repository
-
-### Synopsis
-
-Unlock Restic Repository
+Unlock restic repository
 
 ```
 kubectl-stash unlock [flags]

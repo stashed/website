@@ -76,8 +76,6 @@ info:
   version: v2023.10.9
 ---
 
-{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2023.10.9/setup/install/enterprise/) to try this feature." >}}
-
 # Backup PostgreSQL using Stash Auto-Backup
 
 Stash can be configured to automatically backup any PostgreSQL database in your cluster. Stash enables cluster administrators to deploy backup blueprints ahead of time so that the database owners can easily backup their database with just a few annotations.
@@ -115,7 +113,7 @@ namespace/demo-2 created
 namespace/demo-3 created
 ```
 
-When you install Stash Enterprise edition, it will automatically installs the official database addons. Make sure the addons for PostgreSQL was installed properly using the following command.
+When you install Stash, it will automatically installs the official database addons. Make sure the addons for PostgreSQL was installed properly using the following command.
 
 ```bash
 ❯ kubectl get tasks.stash.appscode.com | grep postgres

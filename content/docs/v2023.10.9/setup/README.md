@@ -82,21 +82,19 @@ info:
 # Setup
 
 <div style="text-align: center;">
-  <a class="button is-link is-medium is-active has-text-weight-normal" href="/docs/v2023.10.9/setup/install/community/" style="background:#00A651; width: 18rem;">Install Community Edition</a>
-  <a class="button is-info is-medium is-active has-text-weight-normal" href="/docs/v2023.10.9/setup/install/enterprise/"  style="background:#FC6011; width: 18rem;">Try Enterprise Edition</a>
-  <a style="margin-top: 10px; display: block;" href="/docs/v2023.10.9/concepts/what-is-stash/overview/">Compare Editions</a>
+  <a class="button is-info is-medium is-active has-text-weight-normal" href="/docs/v2023.10.9/setup/install/enterprise/"  style="background:#FC6011; width: 18rem;">Install Stash</a>
 </div>
 <br>
 
 The setup section contains instructions for installing the Stash and its various components in Kubernetes. This section has been divided into the following sub-sections:
 
 - **Install Stash:** Installation instructions for Stash and its various components.
-  - [Community Edition](/docs/v2023.10.9/setup/install/community/): Installation instructions for Stash Community Edition.
-  - [Enterprise Edition](/docs/v2023.10.9/setup/install/enterprise/): Installation instructions for Stash Enterprise Edition.
+  - [Stash operator](/docs/v2023.10.9/setup/install/stash/): Installation instructions for Stash operator.
   - [Stash kubectl Plugin](/docs/v2023.10.9/setup/install/kubectl-plugin/): Installation instructions for Stash `kubectl` plugin.
   - [Troubleshooting](/docs/v2023.10.9/setup/install/troubleshooting/): Troubleshooting guide for various installation problems.
+
 - **Uninstall Stash:** Uninstallation instructions for Stash and its various components.
-  - [Community Edition](/docs/v2023.10.9/setup/uninstall/community/): Uninstallation instructions for Stash Community Edition.
-  - [Enterprise Edition](/docs/v2023.10.9/setup/uninstall/enterprise/): Uninstallation instructions for Stash Enterprise Edition.
+  - [Stash operator](/docs/v2023.10.9/setup/uninstall/stash/): Uninstallation instructions for Stash operator.
   - [Stash kubectl Plugin](/docs/v2023.10.9/setup/uninstall/kubectl-plugin/): Uninstallation instructions for Stash `kubectl` plugin.
+
 - [Upgrading Stash](/docs/v2023.10.9/setup/upgrade/): Instruction for updating Stash license and upgrading between various Stash versions.

@@ -76,8 +76,6 @@ info:
   version: v2023.10.9
 ---
 
-{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2023.10.9/setup/install/enterprise/) to try this feature." >}}
-
 # How Stash Backups & Restores NATS Streams
 
 Stash `{{< param "info.version" >}}` supports backup and restore operation of NATS streams. This guide will give you an overview of how NATS stream backup and restore process works in Stash.

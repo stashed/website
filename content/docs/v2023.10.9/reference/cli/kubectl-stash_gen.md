@@ -1,16 +1,12 @@
 ---
-title: Kubectl-Stash
+title: Gen
 menu:
   docs_v2023.10.9:
-    identifier: kubectl-stash
-    name: Kubectl-Stash
+    identifier: kubectl-stash-gen
+    name: Gen
     parent: reference-cli
-    weight: 0
 menu_name: docs_v2023.10.9
 section_menu_id: reference
-url: /docs/v2023.10.9/reference/cli/
-aliases:
-- /docs/v2023.10.9/reference/cli/kubectl-stash/
 info:
   cli: v0.32.0
   community: v0.32.0
@@ -77,15 +73,17 @@ info:
   version: v2023.10.9
 ---
 
-## kubectl-stash
+## kubectl-stash gen
 
-kubectl plugin for Stash by AppsCode
-
-### Synopsis
-
-kubectl plugin for Stash by AppsCode. For more information, visit here: https://appscode.com/products/stash
+generate stash resources
 
 ### Options
+
+```
+  -h, --help   help for gen
+```
+
+### Options inherited from parent commands
 
 ```
       --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
@@ -97,7 +95,6 @@ kubectl plugin for Stash by AppsCode. For more information, visit here: https://
       --client-key string              Path to a client key file for TLS
       --cluster string                 The name of the kubeconfig cluster to use
       --context string                 The name of the kubeconfig context to use
-  -h, --help                           help for kubectl-stash
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
@@ -111,18 +108,6 @@ kubectl plugin for Stash by AppsCode. For more information, visit here: https://
 
 ### SEE ALSO
 
-* [kubectl-stash clone](/docs/v2023.10.9/reference/cli/kubectl-stash_clone)	 - Clone Kubernetes resources
-* [kubectl-stash completion](/docs/v2023.10.9/reference/cli/kubectl-stash_completion)	 - Generate completion script
-* [kubectl-stash cp](/docs/v2023.10.9/reference/cli/kubectl-stash_cp)	 - Copy stash resources from one namespace to another namespace
-* [kubectl-stash create](/docs/v2023.10.9/reference/cli/kubectl-stash_create)	 - create stash resources
-* [kubectl-stash debug](/docs/v2023.10.9/reference/cli/kubectl-stash_debug)	 - Debug common Stash issues
-* [kubectl-stash delete](/docs/v2023.10.9/reference/cli/kubectl-stash_delete)	 - Delete stash resources
-* [kubectl-stash download](/docs/v2023.10.9/reference/cli/kubectl-stash_download)	 - Download snapshots
-* [kubectl-stash gen](/docs/v2023.10.9/reference/cli/kubectl-stash_gen)	 - generate stash resources
-* [kubectl-stash key](/docs/v2023.10.9/reference/cli/kubectl-stash_key)	 - manages restic keys (passwords) for accessing the repository
-* [kubectl-stash pause](/docs/v2023.10.9/reference/cli/kubectl-stash_pause)	 - Pause Stash backup temporarily
-* [kubectl-stash resume](/docs/v2023.10.9/reference/cli/kubectl-stash_resume)	 - Resume Stash backup
-* [kubectl-stash trigger](/docs/v2023.10.9/reference/cli/kubectl-stash_trigger)	 - Trigger a backup
-* [kubectl-stash unlock](/docs/v2023.10.9/reference/cli/kubectl-stash_unlock)	 - Unlock restic repository
-* [kubectl-stash version](/docs/v2023.10.9/reference/cli/kubectl-stash_version)	 - Prints binary version number.
+* [kubectl-stash](/docs/v2023.10.9/reference/cli/kubectl-stash)	 - kubectl plugin for Stash by AppsCode
+* [kubectl-stash gen rules](/docs/v2023.10.9/reference/cli/kubectl-stash_gen_rules)	 - Generate restore rules from nearest snapshots at a specific time.
 

@@ -76,8 +76,6 @@ info:
   version: v2023.10.9
 ---
 
-{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2023.10.9/setup/install/enterprise/) to try this feature." >}}
-
 # Backup and Restore Percona XtraDB Cluster using Stash
 
 Stash 0.9.0+ supports backup and restoration of Percona XtraDB cluster databases. This guide will show you how you can backup and restore your Percona XtraDB cluster with Stash.

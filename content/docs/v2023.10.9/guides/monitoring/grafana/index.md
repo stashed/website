@@ -89,7 +89,7 @@ We provide a pre-built Grafana dashboard to our **Stash Enterprise** users. In t
 ## Before You Begin
 
 - At first, you need to setup a Prometheus monitoring stack in your cluster. Please, follow the [Prometheus Operator](/docs/v2023.10.9/guides/monitoring/prom-operator/) guide to setup your monitoring stack if you haven't done already.
-- Then, install Stash Enterprise edition with monitoring enabled. Please, follow [this guide](/docs/v2023.10.9/guides/monitoring/prom-operator/#enable-monitoring-in-stash) if you haven't done already.
+- Then, install Stash with monitoring enabled. Please, follow [this guide](/docs/v2023.10.9/guides/monitoring/prom-operator/#enable-monitoring-in-stash) if you haven't done already.
 - You must have `stash_dashboard.json` file. Please, contact us to get the dashboard JSON file.
 
 ## Install Panopticon
@@ -100,7 +100,7 @@ Stash Grafana dashboard depends on our another product called [Panopticon](https
 
 Like other AppsCode products, [Panopticon](https://blog.byte.builders/post/introducing-panopticon/) also need a license to run. You can grab a 30 days trial license for Panopticon from [here](https://license-issuer.appscode.com/?p=panopticon-enterprise).
 
->**If you already have an enterprise license for KubeDB or Stash, you do not need to issue a new license for Panopticon. Your existing KubeDB or Stash license will work with Panopticon.**
+>**If you already have a license for KubeDB or Stash, you do not need to issue a new license for Panopticon. Your existing KubeDB or Stash license will work with Panopticon.**
 
 **Install Panopticon:**
 

@@ -76,8 +76,6 @@ info:
   version: v2023.10.9
 ---
 
-{{< notice type="warning" message="This is an Enterprise-only feature. Please install [Stash Enterprise Edition](/docs/v2023.10.9/setup/install/enterprise/) to try this feature." >}}
-
 # Auto Backup for Database
 
 This tutorial will give you an overview of how you can configure Stash auto-backup of the databases and the available configurable options for database auto-backup.
