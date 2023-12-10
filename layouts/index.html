@@ -96,7 +96,8 @@ url(./assets/images/bg-image/gradient-bg.webp);">
   --version %s \
   --namespace stash --create-namespace \
   --set features.enterprise=true \
-  --set-file global.license=/path/to/the/license.txt` $p.latestVersion) "bash" "style=dracula" }}
+  --set-file global.license=/path/to/the/license.txt \
+  --wait --burst-limit=10000 --debug` $p.latestVersion) "bash" "style=dracula" }}
           </div>
         </div>
         <!-- code editor end  -->
