@@ -95,6 +95,7 @@ url(./assets/images/bg-image/gradient-bg.webp);">
             {{ highlight (printf `$ helm install stash oci://ghcr.io/appscode-charts/stash \
   --version %s \
   --namespace stash --create-namespace \
+  --set features.enterprise=true \
   --set-file global.license=/path/to/the/license.txt` $p.latestVersion) "bash" "style=dracula" }}
           </div>
         </div>
