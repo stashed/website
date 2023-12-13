@@ -112,7 +112,7 @@ standard (default)   k8s.io/minikube-hostpath   130m
 
 Here, we have `standard` StorageClass in our cluster.
 
-> **Note:** YAML files used in this tutorial are stored in  [docs/guides/platforms/minio/examples](/docs/v2023.10.9/guides/platforms/minio/examples) directory of [stashed/doc](https://github.com/stashed/doc) repository.
+> **Note:** YAML files used in this tutorial are stored in  [docs/guides/platforms/minio/examples](/docs/v2023.10.9/guides/platforms/minio/examples) directory of [stashed/docs](https://github.com/stashed/docs) repository.
 
 ## Backup the Volume of a Deployment
 

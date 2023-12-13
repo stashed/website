@@ -100,7 +100,7 @@ $ kubectl create ns demo
 namespace/demo created
 ```
 
-> **Note:** YAML files used in this tutorial are stored in [docs/guides/platforms/rook/examples](/docs/v2023.10.9/guides/platforms/rook/examples) directory of [stashed/doc](https://github.com/stashed/doc) repository.
+> **Note:** YAML files used in this tutorial are stored in [docs/guides/platforms/rook/examples](/docs/v2023.10.9/guides/platforms/rook/examples) directory of [stashed/docs](https://github.com/stashed/docs) repository.
 
 **Choosing StorageClass:**
 
