@@ -1,20 +1,11 @@
 {{ $p := (index .Site.Data.products .Site.Params.product_key) }}
 {{ $currentBranch := (index (split .Params.menu_name "_") 1) }}
 
-{{ $title := $p.fullname }}
-{{ if .Title }}
-{{ $title = .Title }}
-{{ end }}
-
-{{ $summary := $p.summary }}
-{{ if .Summary }}
-{{ $summary = .Summary }}
-{{ end }}
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+  <script>function vqTrackId(){return 'cfececff-9dfc-4c70-9915-dde1416b7010';} (function(d, e) { var el = d.createElement(e); el.sa = function(an, av){this.setAttribute(an, av); return this;}; el.sa('id', 'vq_tracking').sa('src', '//t.visitorqueue.com/p/tracking.min.js?id='+vqTrackId()).sa('async', 1).sa('data-id', vqTrackId()); d.getElementsByTagName(e)[0].parentNode.appendChild(el); })(document, 'script'); </script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -35,14 +26,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="theme-color" content="{{ $p.website.themeColor }}">
-  <title>{{ $title }}</title>
-  <meta name="description" content="{{ $summary | plainify }}">
+  <title>{{ default $p.fullname .Title }}</title>
+  <meta name="description" content="{{ default ($p.summary | plainify) .Description }}">
   <meta name="author" content="{{ $p.author }}">
-  <meta name="keywords" content="{{ $p.keywords }}">
+  <meta name="keywords" content="{{ default $p.keywords .Keywords }}">
   {{ if (and $currentBranch (not (eq $p.latestVersion $currentBranch))) }}
   <!--https://developers.google.com/search/docs/advanced/crawling/block-indexing#meta-tag-->
   <meta name="robots" content="noindex">
   {{ end }}
+  <!-- Search engines should consider as the primary source  -->
+  <link rel="canonical" href="{{ .Permalink }}">
   <!-- favicon -->
   <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/products/{{ $p.key }}/icons/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/products/{{ $p.key }}/icons/apple-icon-60x60.png">
@@ -59,72 +52,118 @@
   <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/products/{{ $p.key }}/icons/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/products/{{ $p.key }}/icons/favicon-16x16.png">
   <link rel="manifest" href="/assets/images/products/{{ $p.key }}/icons/manifest.json">
+  <!-- vuejs3  -->
+  <!-- <script src="https://unpkg.com/vue@3"></script> -->
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/assets/images/products/{{ $p.key }}/icons/ms-icon-144x144.png">
   <!-- Google / Search Engine Tags -->
-  <meta itemprop="name" content="{{ $p.fullname }}">
+  <meta itemprop="name" content="{{ $p.title }}">
   <meta itemprop="description" content="{{ $p.summary | plainify }}">
   <meta itemprop="image" content="{{ $.Site.BaseURL }}/assets/images/products/{{ $p.key }}/{{ $p.key }}-1280x640.png">
   <!-- twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@{{ strings.TrimPrefix `https://twitter.com/` $p.socialLinks.twitter }}">
-  <meta name="twitter:title" content="{{$p.fullname}}">
+  <meta name="twitter:title" content="{{$p.title}}">
   <meta name="twitter:creator" content="@{{ strings.TrimPrefix `https://twitter.com/` $p.socialLinks.twitter }}">
   <meta name="twitter:description" content="{{ $p.summary | plainify }}">
   <meta name="twitter:image:src"
     content="{{ $.Site.BaseURL }}/assets/images/products/{{ $p.key }}/{{ $p.key }}-1280x640.png">
   <!-- facebook -->
   <meta property="og:url" content="{{ $.Site.BaseURL }}">
-  <meta property="og:title" content="{{$p.fullname}}">
+  <meta property="og:title" content="{{$p.title}}">
   <meta property="og:description" content="{{ $p.summary | plainify }}">
-  <meta property="og:site_name" content="{{ $p.fullname }}">
+  <meta property="og:site_name" content="{{ $p.title }}">
   <meta property="og:image"
     content="{{ $.Site.BaseURL }}/assets/images/products/{{ $p.key }}/{{ $p.key }}-1280x640.png">
   <meta property="og:type" content="article">
   <!-- Font Awesome CSS -->
-  <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/font-awesome.min.css" /> -->
   <!-- google fonts icon  -->
   <link
     href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
     rel="stylesheet">
   <!-- AOS CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Bulma Carousel CSS -->
-  <link rel="stylesheet" href="/assets/css/bulma-carousel.min.css" />
   <!-- Bulma tooltip CSS -->
   <link rel="stylesheet" href="/assets/css/bulma-tooltip.min.css" />
   <!-- Magnific-popup css  -->
   <link rel="stylesheet" href="/assets/css/magnific-popup.css" />
   <!-- Bulma CSS -->
-  {{ with $style := resources.Get "assets/css/bulma.min.css" | resources.Fingerprint }}
+  <!-- {{ with $style := resources.Get "assets/css/bulma.min.css" | resources.Fingerprint }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
-  {{ end }}
+  {{ end }} -->
+  <!-- highlight css  -->
+  <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css"> -->
   <!-- owl carousel CSS -->
   <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
   <link rel="stylesheet" href="/assets/css/owl.theme.default.min.css">
+  <!-- Calendly link widget begin -->
+  <link href="https://calendly.com/assets/external/widget.css" rel="stylesheet">
+
+  <!-- <link rel="stylesheet" href="/assets/css/bulma.min.css" /> -->
+  <!-- Keen slider CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.css" />
   <!-- Custom CSS -->
   {{ with $style := resources.Get "assets/sass/main.scss" | resources.ToCSS | resources.PostCSS | resources.Minify | resources.Fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
   {{ end }}
   <!-- <link rel="stylesheet" href="/assets/sass/main.css" /> -->
   <script src="https://cdn.pagesense.io/js/appscodeinc/30ddadb503fc4a72b3eede8ce8b08997.js"></script>
-  <script src="https://tag.clearbitscripts.com/v1/pk_81079761ad5191fbdb09e9f13ff41927/tags.js"></script>
 </head>
 
-<body class="{{$p.key}}">
-  <!--[if lte IE 9]>
-      <p class="browserupgrade">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-        your experience and security.
-      </p>
-    <![endif]-->
-
-
+<body class="{{$p.key}}" id="app">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T7BHQZB"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">
+      You are using an <strong>outdated</strong> browser. Please
+      <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+      your experience and security.
+    </p>
+  <![endif]-->
+
+  {{ block "body" . }}
+
+    <!-- cookies consent start  -->
+    <div class="cookie-wrapper">
+      <div class="container">
+       <div class="cookie-content">
+         <p>We use cookies and other similar technology to collect data to improve your experience on our site, as
+           described in our <a href="https://appscode.com/legal/privacy-policy/" target="_blank">Privacy Policy</a>.</p>
+         <div class="buttons">
+           <button class="button close-btn">Close</button>
+           <button class="button ac-button is-primary">ACCEPT</button>
+         </div>
+       </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      // for cookie
+      const cookieBox = document.querySelector(".cookie-wrapper"), acceptBtn = cookieBox.querySelector(".is-primary"),
+      closeBtn = cookieBox.querySelector(".close-btn");
+
+      // close cookie box
+      closeBtn.addEventListener("click", function(){
+        cookieBox.classList.add("hide");
+      })
+
+      acceptBtn.addEventListener("click", function () {
+      //setting cookie for 1 month, after one month it'll be expired automatically
+        document.cookie = `CookieBy=KubeDB; path=/; max-age=${60 * 60 * 24 * 365}`;
+        if (document.cookie) { //if cookie is set
+        cookieBox.classList.add("hide"); //hide cookie box
+        } else { //if cookie not set then alert an error
+        alert("Cookie can't be set! Please unblock this site from the cookie setting of your browser.");
+        }
+      });
+      let checkCookie = document.cookie.indexOf("CookieBy=KubeDB"); //checking our cookie
+      //if cookie is set then hide the cookie box else show it
+      checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide");
+    </script>
+    <!-- cookies consent end -->
 
   <!--========================== header area start ==========================-->
   {{ block "header" . }}
@@ -155,7 +194,8 @@
 
           <div class="navbar-right">
             <div class="is-flex is-justify-content-space-between is-fullwidth">
-              <!-- navbar items start -->
+              <div class="navbar-left-group">
+                <!-- navbar items start -->
               <ul>
                 <li class="nav-item">
                   <button class="link">Products <i class="fa fa-angle-down" aria-hidden="true"></i></button>
@@ -208,6 +248,27 @@
                         </a>
                         <!-- single product end -->
                         {{ end }}
+
+                        {{ range $item := $.Site.Data.config.productMenu.c2 }}
+                        {{ $p := (index $.Site.Data.products $item) }}
+                        <!-- single product start  -->
+                        <a class="single-product"
+                          href="{{ index $.Site.Params $p.website.domainKey}}{{ $p.website.path }}">
+                          <div class="product-logo">
+                            <img src="{{ $p.icon.src }}" alt="{{ $p.icon.alt }}">
+                          </div>
+                          <div class="product-info">
+                            <h6>{{ $p.name }}</h6>
+                            <p>{{ $p.tagline | plainify }}</p>
+                          </div>
+                          <div class="navigate-icon">
+                            <span class="material-icons">
+                              arrow_forward
+                            </span>
+                          </div>
+                        </a>
+                        <!-- single product end -->
+                        {{ end }}
                       </div>
                       <!-- product end -->
 
@@ -231,8 +292,8 @@
                           {{ end }}
                         </ul>
                         <!-- <a href="{{ index $.Site.Params $p.website.domainKey}}{{ $p.website.path }}"
-                    class="button ac-button inline-button">Learn More <span
-                      class="material-icons">arrow_forward</span></a> -->
+                     class="button ac-button inline-button">Learn More <span
+                       class="material-icons">arrow_forward</span></a> -->
                       </div>
                       <!-- single product description end  -->
                       {{ end }}
@@ -256,8 +317,35 @@
                           {{ end }}
                         </ul>
                         <!-- <a href="{{ index $.Site.Params $p.website.domainKey}}{{ $p.website.path }}"
-                    class="button ac-button inline-button">Learn More <span
-                      class="material-icons">arrow_forward</span></a> -->
+                     class="button ac-button inline-button">Learn More <span
+                       class="material-icons">arrow_forward</span></a> -->
+                      </div>
+                      <!-- single product description end  -->
+                      {{ end }}
+                      <!-- product description end -->
+
+
+                      {{ range $item := $.Site.Data.config.productMenu.c2 }}
+                      {{ $p := (index $.Site.Data.products $item) }}
+                      <!-- single product description start  -->
+                      <div class="product-description">
+                        <div class="brand">
+                          <img src="{{ $p.logo.src }}" alt="{{ $p.logo.alt }}">
+                        </div>
+
+
+                        <p>{{ $p.summary | safeHTML }}</p>
+
+                        <ul class="features">
+                          {{ range $index, $item := $p.features }}
+                          {{ if lt $index 8 }}
+                          <li><span class="material-icons">task_alt</span>{{ $item.title }}</li>
+                          {{ end }}
+                          {{ end }}
+                        </ul>
+                        <!-- <a href="{{ index $.Site.Params $p.website.domainKey}}{{ $p.website.path }}"
+                     class="button ac-button inline-button">Learn More <span
+                       class="material-icons">arrow_forward</span></a> -->
                       </div>
                       <!-- single product description end  -->
                       {{ end }}
@@ -286,123 +374,132 @@
                   </script>
 
                 </li>
-                <!-- <li class="nav-item">
-            <button class="link">Services <i class="fa fa-angle-down" aria-hidden="true"></i></button>
-            <div class="mega-menu-wrapper">
-              <div class="mega-menu-inner ac-grid-container">
-                <div class="linkable-nav-items">
-                  <a class="navbar-item" href="{{ $.Site.Params.domain_appscode }}/consulting/">
-                    Consulting
-                  </a>
-                  <a class="navbar-item" href="{{ $.Site.Params.domain_appscode }}/training/">
-                    Training
-                  </a>
-                  <a class="navbar-item" href="{{ $.Site.Params.domain_appscode }}/support/">
-                    Support
-                  </a>
-                </div>
-              </div>
-            </div>
-          </li> -->
-                <li class="nav-item">
-                  <button class="link">Open Source <i class="fa fa-angle-down" aria-hidden="true"></i></button>
-                  <!-- mega-menu wrapper start  -->
-                  <div class="mega-menu-wrapper">
 
+                <li class="nav-item">
+                  <button class="link">Resources <i class="fa fa-angle-down" aria-hidden="true"></i></button>
+                  <div class="mega-menu-wrapper">
                     <!-- ac-grid-container -->
                     <div class="mega-menu-inner container">
                       <button class="button ac-button inline-button back-button"><span
-                          class="material-icons-outlined">arrow_back</span>Back</button>
-                      <!-- open source project items start   -->
-                      <div class="linkable-nav-items">
-                        <ul>
-                          {{ range $item := $.Site.Data.config.ossMenu.c0 }}
-                          {{ $p := (index $.Site.Data.products $item) }}
-                          <li class="open-source-item"><a
-                              href="{{ index $.Site.Params $p.website.domainKey}}{{ $p.website.path }}"><span><img
-                                  src="{{ $p.icon.src }}" alt=" {{ $p.icon.alt }}"></span>
-                              {{ $p.name }}<span class="material-icons">arrow_forward </span></a></li>
-                          {{ end }}
-
-                          {{ range $item := $.Site.Data.config.ossMenu.c1 }}
-                          {{ $p := (index $.Site.Data.products $item) }}
-                          <li class="open-source-item"><a
-                              href="{{ index $.Site.Params $p.website.domainKey}}{{ $p.website.path }}"><span><img
-                                  src="{{ $p.icon.src }}" alt=" {{ $p.icon.alt }}"></span>
-                              {{ $p.name }}<span class="material-icons">arrow_forward </span></a></li>
-                          {{ end }}
-                        </ul>
-                      </div>
-                      <!-- open source project items end -->
-                      <!-- product description start  -->
-                      {{ range $item := $.Site.Data.config.ossMenu.c0 }}
-                      {{ $p := (index $.Site.Data.products $item) }}
-                      <div class="product-description open-source-description">
-                        <div class="brand">
-                          <img src="{{ $p.logo.src }}" alt="{{ $p.logo.alt }}">
+                          class="material-icons-outlined">arrow_back</span>Back to Resources</button>
+                      <!-- list menu items start  -->
+                      <div class="resources-list">
+                        <!-- single resources list  -->
+                        <div class="list-items">
+                          <h6>RESOURCES</h6>
+                          <ul>
+                            <!-- <li><a href="#" target="_blank">Forum</a></li> -->
+                            <li><a href="{{.Site.Params.blog_url}}">Blog</a></li>
+                            <li><a href="{{.Site.Params.docs_url}}">Docs</a></li>
+                            <li><a
+                                href="https://www.youtube.com/watch?v=4lkBt5UUEAQ&list=PLoiT1Gv2KR1hAtDDW7fHEi-s2y2H3DOgx"
+                                target="_blank">Webinars</a></li>
+                            <li><a href="{{.Site.Params.learn_url}}">Learn</a></li>
+                            <li><a href="{{.Site.Params.youtube_url}}" target="_blank">Demos</a></li>
+                            <!-- <li><a
+                                href="https://www.youtube.com/watch?v=xSq0OdlVLRI&list=PLoiT1Gv2KR1gE-WK7dIQ5bsJ_RAVZnzP8"
+                                target="_blank">Tutorials</a></li> -->
+                            <!-- <li><a href="#" target="_blank">Community</a></li> -->
+                          </ul>
                         </div>
-                        <p>{{ $p.tagline | safeHTML }}
-                        </p>
-                        <ul class="features">
-                          {{ range $index, $item := $p.features }}
-                          {{ if lt $index 8 }}
-                          <li><span class="material-icons">task_alt</span>{{ $item.title }}</li>
-                          {{ end }}
-                          {{ end }}
-                        </ul>
-                        <!-- <a href="{{ index $.Site.Params $p.website.domainKey}}{{ $p.website.path }}"
-                    class="button ac-button inline-button">Learn More <span
-                      class="material-icons">arrow_forward</span></a> -->
-                      </div>
-                      {{ end }}
-                      <!-- product description start  -->
+                        <!-- single resources list  -->
 
-                      <!-- product description start  -->
-                      {{ range $item := $.Site.Data.config.ossMenu.c1 }}
-                      {{ $p := (index $.Site.Data.products $item) }}
-                      <div class="product-description open-source-description">
-                        <div class="brand">
-                          <img src="{{ $p.logo.src }}" alt="{{ $p.logo.alt }}">
+                        <!-- single resources list  -->
+<!--                         <div class="list-items">
+                          <h6>DOCUMENTATION</h6>
+                          <ul>
+                            <li><a
+                                href="https://voyagermesh.com/docs"
+                                target="_blank">Voyager</a></li>
+                            <li><a
+                                href="https://appscode.com/products/guard/latest/welcome/"
+                                target="_blank">Guard</a></li>
+                            <li><a
+                                href="https://appscode.com/products/kubed/latest/welcome/"
+                                target="_blank">Kubed</a>
+                            </li>
+                            <li><a
+                                href="https://pharmer.dev/docs/latest/welcome/"
+                                target="_blank">Pharmer</a></li>
+                            <li><a
+                                href="https://appscode.com/products/swift/latest/welcome/"
+                                target="_blank">Swift</a>
+                            </li>
+                            <li><a
+                                href="https://appscode.com/products/searchlight/latest/welcome/"
+                                target="_blank">Searchlight</a></li>
+                          </ul>
+                        </div> -->
+                        <!-- single resources list  -->
+
+                        <!-- single resources list  -->
+                        <div class="list-items is-hidden">
+                          <h6>RECENT NEWS/BLOG</h6>
+                          {{- $pctx := . -}}
+                          {{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+                          {{- $pages := $pctx.RegularPages -}}
+
+
+                          <div class="press-wrapper">
+                            {{ range $idx, $p := $pages.ByDate.Reverse }}
+                            {{ if lt $idx 2 }}
+                            <!-- single press start  -->
+                            <a class="single-press">
+                              <div class="calender">
+                                <span class="date">{{ $p.Date.Format "2" }}</span>
+                                <span class="month">{{ $p.Date.Format "Jan" }}</span>
+                              </div>
+
+                              <div class="description">
+                                <h6>{{ $p.Title }}</h6>
+                                {{ range $author := $p.Params.authors }}
+                                <a href="/authors/{{ $author | urlize }}"
+                                  class="author"><span>by</span>{{ $author }}</a>
+                                {{ end }}
+                                <p class="is-ellipsis-2">{{ $p.Summary }}</p>
+                              </div>
+                            </a>
+                            <!-- <a class="single-press">
+                          <div class="description">
+                            <h6><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h6>
+                          </div>
+                        </a> -->
+                            <!-- single press end -->
+                            {{ end }}
+                            {{ end }}
+
+                            <a href="#" class="button ac-button inline-button">See More <span
+                                class="material-icons">arrow_forward</span></a>
+                          </div>
+
+
                         </div>
-                        <p>{{ $p.tagline | safeHTML }}
-                        </p>
-                        <ul class="features">
-                          {{ range $index, $item := $p.features }}
-                          {{ if lt $index 8 }}
-                          <li><span class="material-icons">task_alt</span>{{ $item.title }}</li>
-                          {{ end }}
-                          {{ end }}
-                        </ul>
-                        <!-- <a href="{{ index $.Site.Params $p.website.domainKey}}{{ $p.website.path }}"
-                    class="button ac-button inline-button">Learn More <span
-                      class="material-icons">arrow_forward</span></a> -->
+                        <!-- single resources list  -->
+
+
                       </div>
-                      {{ end }}
-                      <!-- product description end -->
+                      <!-- list menu items end -->
                     </div>
                   </div>
-                  <!-- mega-menu wrapper end -->
-                  <script type="text/javascript">
-                    const openSourceItemDescriptions = document.querySelectorAll(".open-source-description");
-                    const openSourceItems = document.querySelectorAll(".open-source-item");
-
-                    openSourceItemDescriptions[0].classList.add("is-block");
-                    openSourceItems[0].classList.add('is-active');
-
-                    openSourceItems.forEach((product, index) => {
-                      product.addEventListener("mouseover", function () {
-                        const currentActiveProduct = document.querySelector(
-                          ".open-source-description.is-block");
-                        const currentActiveItem = document.querySelector(".open-source-item.is-active");
-
-                        currentActiveProduct.classList.remove("is-block");
-                        currentActiveItem.classList.remove('is-active');
-                        openSourceItemDescriptions[index].classList.add("is-block");
-                        openSourceItems[index].classList.add("is-active");
-                      });
-                    });
-                  </script>
                 </li>
+                <!-- <li class="nav-item">
+              <button class="link">Services <i class="fa fa-angle-down" aria-hidden="true"></i></button>
+              <div class="mega-menu-wrapper">
+                <div class="mega-menu-inner ac-grid-container">
+                  <div class="linkable-nav-items">
+                    <a class="navbar-item" href="{{ $.Site.Params.domain_appscode }}/consulting/">
+                      Consulting
+                    </a>
+                    <a class="navbar-item" href="{{ $.Site.Params.domain_appscode }}/training/">
+                      Training
+                    </a>
+                    <a class="navbar-item" href="{{ $.Site.Params.domain_appscode }}/support/">
+                      Support
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li> -->
                 <li class="nav-item">
                   <a href="https://appscode.com/webinar" target="_blank" class="link">Webinar <span
                       class="whats-new">New</span></a>
@@ -434,138 +531,27 @@
                 }());
               </script>
               <!-- navbar items start -->
-              <ul>
-                <li class="nav-item">
-                  <button class="link">Resources <i class="fa fa-angle-down" aria-hidden="true"></i></button>
-                  <div class="mega-menu-wrapper">
-                    <!-- ac-grid-container -->
-                    <div class="mega-menu-inner container">
-                      <button class="button ac-button inline-button back-button"><span
-                          class="material-icons-outlined">arrow_back</span>Back to Resources</button>
-                      <!-- list menu items start  -->
-                      <div class="resources-list">
-                        <!-- single resources list  -->
-                        <div class="list-items">
-                          <h6>RESOURCES</h6>
-                          <ul>
-                            <!-- <li><a href="#" target="_blank">Forum</a></li> -->
-                            <li><a href="{{.Site.Params.blog_url}}" target="_blank">Blog</a></li>
-                            <li><a
-                                href="https://www.youtube.com/watch?v=4lkBt5UUEAQ&list=PLoiT1Gv2KR1hAtDDW7fHEi-s2y2H3DOgx"
-                                target="_blank">Webinars</a></li>
-                            <li><a href="{{.Site.Params.youtube_url}}" target="_blank">Demos</a></li>
-                            <!-- <li><a
-                              href="https://www.youtube.com/watch?v=xSq0OdlVLRI&list=PLoiT1Gv2KR1gE-WK7dIQ5bsJ_RAVZnzP8"
-                              target="_blank">Tutorials</a></li> -->
-                            <!-- <li><a href="#" target="_blank">Community</a></li> -->
-                          </ul>
-                        </div>
-                        <!-- single resources list  -->
+              </div>
+              <div class="navbar-right-group">
+                <ul>
+                  <li class="nav-item">
+                    <a href="https://appscode.freshdesk.com" class="link">Support</a>
+                  </li>
+                </ul>
+                <!-- navbar items end -->
 
-                        <!-- single resources list  -->
-                        <!--                         <div class="list-items">
-                        <h6>DOCUMENTATION</h6>
-                        <ul>
-                          <li><a
-                              href="https://voyagermesh.com/docs"
-                              target="_blank">Voyager</a></li>
-                          <li><a
-                              href="https://appscode.com/products/guard/latest/welcome/"
-                              target="_blank">Guard</a></li>
-                          <li><a
-                              href="https://appscode.com/products/kubed/latest/welcome/"
-                              target="_blank">Kubed</a>
-                          </li>
-                          <li><a
-                              href="https://pharmer.dev/docs/latest/welcome/"
-                              target="_blank">Pharmer</a></li>
-                          <li><a
-                              href="https://appscode.com/products/swift/latest/welcome/"
-                              target="_blank">Swift</a>
-                          </li>
-                          <li><a
-                              href="https://appscode.com/products/searchlight/latest/welcome/"
-                              target="_blank">Searchlight</a></li>
-                        </ul>
-                      </div> -->
-                        <!-- single resources list  -->
+                {{ $currentPageType := index (split .Page.Permalink "/") 3 }}
+                <div class="buttons">
+                  <a id="ac-sign-in-button" href="https://accounts.appscode.com/user/login"
+                  class="button ac-button is-loading {{ if eq $currentPageType "docs" }} is-hidden {{ end }}"><span>SIGN IN</span></a>
+                  <a href="{{ $.Site.Params.domain_appscode }}/contact/"
+                    class="button ac-button is-primary {{ if eq $currentPageType "docs" }} is-outlined {{ end }}">CONTACT
+                    SALES</a>
+                </div>
 
-                        <!-- single resources list  -->
-                        <div class="list-items">
-                          <h6>DOCUMENTATION</h6>
-                          <ul>
-                            <li><a href="https://kubedb.com/docs" target="_blank">KubeDB</a></li>
-                            <li><a href="https://stash.run/docs" target="_blank">Stash</a></li>
-                            <li><a href="https://voyagermesh.com/docs" target="_blank">Voyager</a></li>
-                            <li><a href="https://kubevault.com/docs" target="_blank">KubeVault</a></li>
-                            <li><a href="https://kubeform.com/docs" target="_blank">Kubeform</a></li>
-                          </ul>
-                        </div>
-                        <!-- single resources list  -->
-
-                        <!-- single resources list  -->
-                        <div class="list-items is-hidden">
-                          <h6>RECENT NEWS/BLOG</h6>
-                          {{- $pctx := . -}}
-                          {{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
-                          {{- $pages := $pctx.RegularPages -}}
-
-
-                          <div class="press-wrapper">
-                            {{ range $idx, $p := $pages.ByDate.Reverse }}
-                            {{ if lt $idx 2 }}
-                            <!-- single press start  -->
-                            <a class="single-press">
-                              <div class="calender">
-                                <span class="date">{{ $p.Date.Format "2" }}</span>
-                                <span class="month">{{ $p.Date.Format "Jan" }}</span>
-                              </div>
-
-                              <div class="description">
-                                <h6>{{ $p.Title }}</h6>
-                                {{ range $author := $p.Params.authors }}
-                                <a href="/authors/{{ $author | urlize }}"
-                                  class="author"><span>by</span>{{ $author }}</a>
-                                {{ end }}
-                                <p class="is-ellipsis-2">{{ $p.Summary }}</p>
-                              </div>
-                            </a>
-                            <!-- <a class="single-press">
-                        <div class="description">
-                          <h6><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h6>
-                        </div>
-                      </a> -->
-                            <!-- single press end -->
-                            {{ end }}
-                            {{ end }}
-
-                            <a href="#" class="button ac-button inline-button">See More <span
-                                class="material-icons">arrow_forward</span></a>
-                          </div>
-
-
-                        </div>
-                        <!-- single resources list  -->
-
-
-                      </div>
-                      <!-- list menu items end -->
-                    </div>
-                  </div>
-                </li>
-                <li class="nav-item">
-                  <a href="{{.Site.Params.blog_url}}" class="link">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://appscode.freshdesk.com" class="link">Support</a>
-                </li>
-              </ul>
-              <!-- navbar items end -->
+              </div>
+           
             </div>
-            {{ $currentPageType := index (split .Page.Permalink "/") 3 }}
-            <a href="{{ $.Site.Params.domain_appscode }}/contact/"
-              class="button ac-button is-primary {{ if eq $currentPageType "docs" }} is-outlined {{ end }}">CONTACT
-              SALES</a>
           </div>
         </div>
         <!-- appscode navbar end -->
@@ -576,22 +562,24 @@
         <!-- product navbar start  -->
         {{ $currentPageType := index (split .Page.Permalink "/") 3 }}
         <div class="navbar-appscode{{ if eq $currentPageType "docs" }} bb-1 {{ else }}
-        container{{ end }}">
+          container{{ end }}">
           <!-- navbar left start  -->
           <div class="navbar-left">
             <div class="navbar-brand">
-              <a href="{{ index $.Site.Params $p.website.domainKey }}{{ $p.website.path }}"><img src="{{ $p.logo.src }}"
-                  alt="{{ $p.logo.alt }}" alt="{{ $p.logo.alt }}" class="is-hidden-mobile"></a>
-              <a href="{{ index $.Site.Params $p.website.domainKey }}{{ $p.website.path }}"><img
-                  src="/assets/images/products/{{ $p.key }}/icons/apple-icon-76x76.png"
-                 alt="{{ $p.logo.alt }}" alt="{{ $p.logo.alt }}" class="is-hidden-tablet"></a>
+              <a href="{{ index $.Site.Params $p.website.domainKey }}{{ $p.website.path }}"
+                class="is-hidden-mobile"><img src="{{ $p.logo.src }}"
+                  alt="{{ $p.logo.alt }}" alt="{{ $p.logo.alt }}"></a>
+              <a href="{{ index $.Site.Params $p.website.domainKey }}{{ $p.website.path }}"
+                class="is-hidden-tablet" style="min-width: 20px;"><img
+                  src="/assets/images/logo/{{ $p.key }}/logo-moscot.svg"
+                  alt="{{ $p.logo.alt }}" alt="{{ $p.logo.alt }}"></a>
 
               <!-- {{ $currentPageType := index (split .Page.Permalink "/") 3 }} -->
               {{ if eq $currentPageType "docs" }}
               <!-- version select start  -->
               {{ $p := (index .Site.Data.products .Site.Params.product_key) }}
               {{ $currentBranch := (index (split .Params.menu_name "_") 1) }}
-              <div class="product-version ml-20">
+              <div class="product-version ml-8">
                 <div class="dropdown">
                   <div class="dropdown-trigger">
                     <button class="button is-justify-content-space-between" aria-haspopup="true"
@@ -619,8 +607,7 @@
                       {{ if $v.show }}
                       {{ if $v.hostDocs }}
                       <a href="/docs/{{ $v.version }}/" class="dropdown-item">{{ $v.version }}
-                        {{ if eq $v.version $p.latestVersion }} <div class="new-item ml-15">Latest</div>
-                        {{ end }}</a>
+                        {{ if eq $v.version $p.latestVersion }} <div class="new-item ml-15">Latest</div> {{ end }}</a>
                       {{ else }}
                       <a href="https://github.com/{{ $p.docRepo }}/tree/{{ $v.version }}/docs" target="_blank"
                         class="dropdown-item">{{ $v.version }}</a>
@@ -661,7 +648,8 @@
                       {{ range .Children }}
                       {{ if eq .Parent $.Site.Params.main_menu_dropdown_item }}
                       <!-- single product start  -->
-                      <a href="{{ .PageRef }}" class="single-product">
+                      <a href="/kubernetes/databases/run-and-manage-{{ .Identifier }}-on-kubernetes
+" class="single-product">
                         {{ if .Pre }}
                         <div class="product-logo">
                           <img src="{{ .Pre }}" alt="Menu Icon">
@@ -692,8 +680,7 @@
                     <div class="product-description is-block">
                       <div class="video-content">
                         <div class="yt-thumbnail">
-                          <a href="{{ $.Site.Params.intro_video.url }}"
-                            class="play-icon yt-video">
+                          <a href="https://www.youtube.com/watch?v=hBHxMtSjKo4" class="play-icon yt-video">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                               stroke="#ffffff">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -702,7 +689,9 @@
                                 d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                           </a>
-                          <img src="{{ $.Site.Params.intro_video.thumbnail }}" alt="">
+                          <img
+                            src="https://img.youtube.com/vi/hBHxMtSjKo4/sddefault.jpg"
+                            alt="">
                         </div>
                       </div>
                     </div>
@@ -730,13 +719,13 @@
             <!-- Community link start  -->
             <div class="community-items ml-70">
               {{ if $p.socialLinks.github }}
-              <a href="{{$p.socialLinks.github}}" class="community-item" target="_blank">
+              <a href="{{$p.socialLinks.github}}" class="community-item" target="_blank" title="Github">
                 <img src="/assets/images/icon/community/github-icon.svg" alt="github-icon">
               </a>
               {{ end }}
               {{ if $p.socialLinks.twitter }}
-              <a href="{{$p.socialLinks.twitter}}" class="community-item" target="_blank">
-                <img src="/assets/images/icon/community/twitter-icon.svg" alt="twitter-icon">
+              <a href="{{$p.socialLinks.twitter}}" class="community-item" target="_blank" title="X(Twitter)">
+                <img src="/assets/images/icon/community/twitterx-icon.svg" alt="twitterx-icon">
               </a>
               {{ end }}
             </div>
@@ -802,58 +791,16 @@
   {{ end }}
   <!-- ========================== header area end ==========================-->
 
-  <!-- ========================== cookie box area start ==========================-->
-  
-    <div class="cookie-wrapper">
-      <div class="container">
-        <div class="cookie-content">
-          <p>We use cookies and other similar technology to collect data to improve your experience on our site, as
-            described in our <a href="https://appscode.com/legal/privacy-policy/" target="_blank">Privacy Policy</a>.
-          </p>
-          <div class="buttons">
-            <button class="button close-btn">Close</button>
-            <button class="button ac-button is-primary">ACCEPT</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script type="text/javascript">
-      // for cookie
-      const cookieBox = document.querySelector(".cookie-wrapper"),
-        acceptBtn = cookieBox.querySelector(".is-primary"),
-        closeBtn = cookieBox.querySelector(".close-btn");
-
-      // close cookie box 
-      closeBtn.addEventListener("click", function () {
-        cookieBox.classList.add("hide");
-      })
-
-      acceptBtn.addEventListener("click", function () {
-        //setting cookie for 1 month, after one month it'll be expired automatically
-        document.cookie = `CookieBy=Stash; path=/; max-age=${60 * 60 * 24 * 365}`;
-        if (document.cookie) { //if cookie is set
-          cookieBox.classList.add("hide"); //hide cookie box
-        } else { //if cookie not set then alert an error
-          alert("Cookie can't be set! Please unblock this site from the cookie setting of your browser.");
-        }
-      });
-      let checkCookie = document.cookie.indexOf("CookieBy=Stash"); //checking our cookie
-      //if cookie is set then hide the cookie box else show it
-      checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide");
-    </script>
-  <!-- ========================== cookie box area end ==========================-->
-
-
   <div class="modal-backdrop"></div>
+
 
   <!-- Code that all your templates share, like a header -->
   {{ block "main" . }}
   <!-- The part of the page that begins to differ between templates -->
   {{ end }}
 
-  <!-- testimonial area start -->
   {{ block "testimonial" . }}
+
   <!-- ==========================testimonial area 2022 start ==========================  -->
   <section class="testimonial-area">
 
@@ -903,38 +850,41 @@
   </section>
   <!--========================== testimonial area 2022 end  ==========================-->
 
- 
-  <!--========================== call to action start ========================== -->
+  <!--========================== faq area start ========================== -->
+  {{ partial "faq.html" . }}
+  <!--========================== faq area end ========================== -->
+
   {{ block "cta-install" . }}
   {{ $p := (index .Site.Data.products .Site.Params.product_key) }}
+  <!--========================== call to action start ========================== -->
   <section class="cta-area">
     <div class="container">
       <div class="cta-area-inner">
         <div class="container">
           <div class="columns is-vcentered">
             <div class="column is-full-tablet is-half-tablet is-half-desktop">
-              <h3 data-aos="fade-up" data-aos-duration="500">Backup & Restore your Databases on Kubernetes FREE !</h3>
+              <h3 data-aos="fade-up" data-aos-duration="500">Run and Manage your Database on Kubernetes FREE !</h3>
               <p data-aos="fade-up" data-aos-duration="700">{{ $p.name }} community edition is FREE to use on any
-                supported
-                Kubernetes engines. You can Backup & Restore your volumes and databases on Kubernetes using
-                {{ $p.name }}.
-                There is no up-front investment required. We offer a 30 days license FREE of cost to try {{ $p.name }}
-                Enterprise edition.
+                supported Kubernetes engines. You can deploy and
+                manage
+                your database in Kubernetes using {{ $p.name }}. There is no up-front investment required. We
+                offer a 30 days license FREE
+                of cost to try {{ $p.name }} Enterprise edition.
               </p>
             </div>
             <div
               class="column is-full-tablet is-half-tablet is-half-desktop has-text-centered-touch has-text-right-desktop">
               <div class="buttons is-justify-content-flex-end">
-                 <a href="/docs/{{ $p.latestVersion }}/setup/" class="button ac-button is-white" data-aos="fade-up"
-                   data-aos-duration="900">TRY NOW FREE</a>
+                <a href="/docs/{{ $p.latestVersion }}/setup/" class="button ac-button is-white" data-aos="fade-up"
+                  data-aos-duration="900">TRY NOW FREE</a>
               <a href="{{ $.Site.Params.domain_appscode }}/contact/" class="button ac-button is-secondary"
                 style="background-color: transparent; border: 1px solid #e7e7e7; color: #ffffff;"><span>
-                 <lord-icon class="inherit-color" speed="0.50" src="https://cdn.lordicon.com/uvextprq.json"
-                   trigger="loop" target="a.is-white" trigger="hover"
-                   style="width:22px;height:22px; margin-right: 8px;">
-                 </lord-icon>
+                  <lord-icon class="inherit-color" speed="0.50" src="https://cdn.lordicon.com/uvextprq.json"
+                    trigger="loop" target="a.is-white" trigger="hover"
+                    style="width:22px;height:22px; margin-right: 8px;">
+                  </lord-icon>
                 </span>CONTACT US</a>
-                </div>
+               </div>
             </div>
           </div>
         </div>
@@ -942,10 +892,9 @@
       </div>
     </div>
   </section>
-  {{ end }}
-  {{ end }}
   <!-- ==========================call to action end ========================== -->
- 
+  {{ end }}
+  {{ end }}
 
   <!--========================== top to button start ========================== -->
   <button class="go-to-top" id="goTop">
@@ -1090,7 +1039,7 @@
             <div class="socail-link-inline">
               <ul>
                 <li>
-                  <a href="{{.Site.Params.twitter_url}}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="{{.Site.Params.twitter_url}}"><img src="/assets/images/icon/community/twitterx-solid-icon.svg" alt="twitterx-icon"></a>
                 </li>
                 <li>
                   <a href="https://www.linkedin.com/company/appscode"><i class="fa fa-linkedin"
@@ -1112,14 +1061,15 @@
   {{ end }}
   <!-- ==========================footer area end ==========================-->
 
-  <!-- jquery  -->
+  <!-- <script src="/assets/js/vue-elements.js"></script> -->
+  <!-- integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" -->
   <script src="/assets/js/jquery-3.6.0.min.js"></script>
-  <!-- owl-carousel js  -->
   <script src="/assets/js/owl.carousel.min.js"></script>
-  <!-- headroom js  -->
   <script src="/assets/js/headroom.min.js"></script>
+
   <!-- lordicon js  -->
   <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+  
   <!-- Magnific-popup JS  -->
   <script src="/assets/js/magnific-popup.min.js"></script>
   <!-- AOS JS -->
@@ -1129,11 +1079,15 @@
   <!-- clipboard js  -->
   <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
 
+  <!-- Calendly link widget begin -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+  <!-- highlight js  -->
+  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script> -->
 
-  <!-- <script src="/assets/js/main.js"></script>
-    {{ with $style := resources.Get "assets/js/main.js" | resources.Fingerprint }}
-    <script src="{{ $style.RelPermalink }}"></script>
-    {{ end }} -->
+  <!-- Main JS -->
+  <!-- {{ with $style := resources.Get "assets/js/main.js" | resources.Fingerprint }}
+  <script src="{{ $style.RelPermalink }}"></script>
+  {{ end }} -->
   <script src="/assets/js/main.js"></script>
   <!-- Start of HubSpot Embed Code -->
   <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/9255943.js"></script>
@@ -1152,13 +1106,101 @@
       s1.setAttribute('crossorigin', '*');
       s0.parentNode.insertBefore(s1, s0);
     })();
+
+    const backButtonAll = document.querySelectorAll(".back-button");
+    // create click event for all back button
+    Array.from(backButtonAll).forEach((el) => {
+      el.addEventListener("click", () => {
+        // closeset nav item ancestor
+        const activeNavElement = el.closest(".nav-item.is-active");
+        if (activeNavElement) activeNavElement.classList.remove("is-active");
+      })
+    });
   </script>
   <!--End of Tawk.to Script-->
 
-   <!-- Meilisearch -->
-   {{ block "footer-script" . }}
-   {{ end }}
-   
+  <!-- Meilisearch -->
+  {{ block "footer-script" . }}
+  {{ end }}
+
+  {{ end }}
+
+
+  <!-- console beta tag start  -->
+  <script>
+    const acSignInButton = document.getElementById('ac-sign-in-button')
+
+    // define Beta tag
+    const betaSpan = document.createElement("span")
+    betaSpan.innerText = "BETA"
+    betaSpan.classList.add('tag')
+
+    // function to get cookie
+    function getCookie(cname) {
+      let name = cname + "=";
+      let ca = document.cookie.split(';');
+      for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    // function to fetch user
+    async function fetchUser() {
+      try {
+        const hostname = window.location.hostname;
+        const protocol = window.location.protocol;
+        const port = window.location.port;
+
+        const apiDomain = protocol + "//api." + hostname +  (port? ":3003" : "");
+        const consoleDomain = protocol + "//console." + hostname +  (port? ":5990" : "");
+
+        acSignInButton.classList.add('is-loading');
+
+        const response = await fetch(apiDomain + "/api/v1/user", {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            "X-Csrf-Token": getCookie("_csrf"),
+            "X-Requested-With": "xmlhttprequest"
+          }
+        })
+
+        if(response.status === 200) {
+          // user is logged in
+          // show console link
+          acSignInButton.firstElementChild.innerHTML =  "CONSOLE"
+          acSignInButton.href = consoleDomain
+        }
+      } catch(error) {
+        console.log("Failed to fetch user", error)
+      }
+      // remove the loader
+      acSignInButton.classList.remove('is-loading');
+      // append beta tag
+      acSignInButton.appendChild(betaSpan);
+    }
+
+    window.addEventListener('load', function() {
+      jQuery('a:contains("KubeDB")').click(function() {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-10933819571/j5J-CL2sweQDELOx090o'
+        });
+      })
+
+
+      // fetch if user is logged in or not
+      fetchUser();
+    });
+  </script>
+  <!-- console beta tag end  -->
+
 </body>
 
 </html>
