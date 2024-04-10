@@ -749,7 +749,6 @@
   </section>
   <!--========================== testimonial area 2022 end  ==========================-->
 
- 
   <!--========================== call to action start ========================== -->
   {{ block "cta-install" . }}
   {{ $p := (index .Site.Data.products .Site.Params.product_key) }}
@@ -760,12 +759,11 @@
           <div class="columns is-vcentered">
             <div class="column is-full-tablet is-half-tablet is-half-desktop">
               <h3 data-aos="fade-up" data-aos-duration="500">Backup & Restore your Databases on Kubernetes FREE !</h3>
-              <p data-aos="fade-up" data-aos-duration="700">{{ $p.name }} community edition is FREE to use on any
+              <p data-aos="fade-up" data-aos-duration="700">{{ $p.name }} is FREE to try on any
                 supported
                 Kubernetes engines. You can Backup & Restore your volumes and databases on Kubernetes using
                 {{ $p.name }}.
-                There is no up-front investment required. We offer a 30 days license FREE of cost to try {{ $p.name }}
-                Enterprise edition.
+                There is no up-front investment required. We offer a 30 days license FREE of cost to try {{ $p.name }}.
               </p>
             </div>
             <div
