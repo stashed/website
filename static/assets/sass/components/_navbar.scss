@@ -63,10 +63,7 @@
       justify-content: space-between;
 
       .ac-searchbar {
-        width: 35%;
-        @media (min-width: 1408px) and (max-width: 1600px) {
-          width: 30%;
-        }
+        width: 49%;
       }
     }
 
@@ -197,7 +194,7 @@
         background-color: transparent;
         cursor: pointer;
         margin: 0;
-        padding: 0.5rem;
+        padding: 0.5rem 0;
         transition: 0.3s ease-in-out;
         position: relative;
         z-index: 1;

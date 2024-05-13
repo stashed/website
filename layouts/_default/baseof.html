@@ -174,7 +174,7 @@
                           <a class="single-product"
                             href="{{ index $.Site.Params $p.website.domainKey}}{{ $p.website.path }}">
                             <div class="product-logo">
-                              <img src="{{ $p.icon.src }}" alt="{{ $p.icon.alt }}">
+                              <img src="{{ $p.icon.src }}" alt="{{ $p.icon.alt }}" loading="lazy">
                             </div>
                             <div class="product-info">
                               <h6>{{ $p.name }}</h6>
@@ -195,7 +195,7 @@
                           <a class="single-product"
                             href="{{ index $.Site.Params $p.website.domainKey}}{{ $p.website.path }}">
                             <div class="product-logo">
-                              <img src="{{ $p.icon.src }}" alt="{{ $p.icon.alt }}">
+                              <img src="{{ $p.icon.src }}" alt="{{ $p.icon.alt }}" loading="lazy">
                             </div>
                             <div class="product-info">
                               <h6>{{ $p.name }}</h6>
@@ -216,7 +216,7 @@
                           <a class="single-product"
                             href="{{ index $.Site.Params $p.website.domainKey}}{{ $p.website.path }}">
                             <div class="product-logo">
-                              <img src="{{ $p.icon.src }}" alt="{{ $p.icon.alt }}">
+                              <img src="{{ $p.icon.src }}" alt="{{ $p.icon.alt }}" loading="lazy">
                             </div>
                             <div class="product-info">
                               <h6>{{ $p.name }}</h6>
@@ -239,7 +239,7 @@
                         <!-- single product description start  -->
                         <div class="product-description">
                           <div class="brand">
-                            <img src="{{ $p.logo.src }}" alt="{{ $p.logo.alt }}">
+                            <img src="{{ $p.logo.src }}" alt="{{ $p.logo.alt }}" loading="lazy">
                           </div>
 
                           <p>{{ $p.summary | safeHTML }}</p>
@@ -264,7 +264,7 @@
                         <!-- single product description start  -->
                         <div class="product-description">
                           <div class="brand">
-                            <img src="{{ $p.logo.src }}" alt="{{ $p.logo.alt }}">
+                            <img src="{{ $p.logo.src }}" alt="{{ $p.logo.alt }}" loading="lazy">
                           </div>
 
 
@@ -287,7 +287,7 @@
                         <!-- single product description start  -->
                         <div class="product-description">
                           <div class="brand">
-                            <img src="{{ $p.logo.src }}" alt="{{ $p.logo.alt }}">
+                            <img src="{{ $p.logo.src }}" alt="{{ $p.logo.alt }}" loading="lazy">
                           </div>
 
 
@@ -395,6 +395,9 @@
               <!-- navbar items start -->
             <div class="navbar-right-group">
               <ul>
+                <li class="nav-item">
+                  <a href="https://appscode.com/partner/" class="link">Partner</a>
+                </li>
                 <li class="nav-item">
                   <a href="https://appscode.freshdesk.com" class="link">Support</a>
                 </li>
@@ -510,7 +513,7 @@
                       <a href="{{ .PageRef }}" class="single-product">
                         {{ if .Pre }}
                         <div class="product-logo">
-                          <img src="{{ .Pre }}" alt="Menu Icon">
+                          <img src="{{ .Pre }}" alt="Menu Icon" loading="lazy">
                         </div>
                         {{ end }}
                         <div class="product-info">
@@ -548,7 +551,7 @@
                                 d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                           </a>
-                          <img src="{{ $.Site.Params.intro_video.thumbnail }}" alt="">
+                          <img src="{{ $.Site.Params.intro_video.thumbnail }}" alt="thumbnail" loading="lazy">
                         </div>
                       </div>
                     </div>
@@ -729,7 +732,7 @@
               <!-- user info wrapper start  -->
               <div class="user-info-wrapper">
                 <figure class="image is-64x64">
-                  <img class="is-rounded" src="{{ $user.profile }}" alt="{{ $user.name }}">
+                  <img class="is-rounded" src="{{ $user.profile }}" alt="{{ $user.name }}" loading="lazy">
                 </figure>
                 <div class="user-info">
                   <h5>{{ $user.name }}</h5>
@@ -810,7 +813,7 @@
               <!-- logo start -->
               <div class="footer-logo">
                 <a href="{{.Site.Params.domain_appscode}}"><img src="{{$.Site.Data.products.appscode.logo.src}}"
-                    alt="{{$.Site.Data.products.appscode.logo.alt}}" class="img" /></a>
+                    alt="{{$.Site.Data.products.appscode.logo.alt}}" class="img" loading="lazy" /></a>
               </div>
               <!-- logo end -->
 
