@@ -1,0 +1,44 @@
+{{ $p := (index .Site.Data.products .Site.Params.product_key) }}
+<!-- product features area start  -->
+<section class="product-feaures-area section-padding">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="section-title has-text-centered">
+          <h2 class="is-gradient">Special Features</h2>
+          {{ if $p.summary }}
+          <p>
+            {{ $p.summary | plainify }}
+          </p>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <!-- is-centered -->
+    <div class="columns is-multiline is-centered">
+      <!-- single feature information start  -->
+      {{ range $f := $p.features }}
+      <div class="column is-half-tablet is-one-third-widescreen">
+        <div class="single-features-item">
+          <div class="feature-icon">
+            <img src="{{ $f.icon.src }}" alt="{{ $f.icon.alt }}" loading="lazy"/>
+          </div>
+          <div class="feature-information">
+          
+            <h3>{{ $f.title }}</h3>
+            {{  if $f.summary }} 
+            <p>{{ $f.summary }}</p>
+            {{ end }}
+            <p>{{ $f.description }}</p>
+           
+          </div>
+        </div>
+      </div>
+      {{end}}
+      <!-- single feature information end -->
+    </div>
+  </div>
+</section>
+<!-- product features area end -->
