@@ -1,16 +1,12 @@
 ---
-title: Kubectl-Stash
+title: Check
 menu:
   docs_v2024.8.27:
-    identifier: kubectl-stash
-    name: Kubectl-Stash
+    identifier: kubectl-stash-check
+    name: Check
     parent: reference-cli
-    weight: 0
 menu_name: docs_v2024.8.27
 section_menu_id: reference
-url: /docs/v2024.8.27/reference/cli/
-aliases:
-- /docs/v2024.8.27/reference/cli/kubectl-stash/
 info:
   cli: v0.35.0
   community: v0.35.0
@@ -78,15 +74,24 @@ info:
   version: v2024.8.27
 ---
 
-## kubectl-stash
+## kubectl-stash check
 
-kubectl plugin for Stash by AppsCode
+Check the repository for errors
 
-### Synopsis
-
-kubectl plugin for Stash by AppsCode. For more information, visit here: https://stash.run
+```
+kubectl-stash check [flags]
+```
 
 ### Options
+
+```
+  -h, --help                      help for check
+      --read-data                 read all data blobs
+      --read-data-subset subset   read a subset of data packs, specified as 'n/t' for specific part, or either 'x%' or 'x.y%' or a size in bytes with suffixes k/K, m/M, g/G, t/T for a random subset
+      --with-cache                use existing cache, only read uncached data from repository
+```
+
+### Options inherited from parent commands
 
 ```
       --as string                      Username to impersonate for the operation. User could be a regular user or a service account in a namespace.
@@ -99,7 +104,6 @@ kubectl plugin for Stash by AppsCode. For more information, visit here: https://
       --cluster string                 The name of the kubeconfig cluster to use
       --context string                 The name of the kubeconfig context to use
       --disable-compression            If true, opt-out of response compression for all requests to the server
-  -h, --help                           help for kubectl-stash
       --insecure-skip-tls-verify       If true, the server's certificate will not be checked for validity. This will make your HTTPS connections insecure
       --kubeconfig string              Path to the kubeconfig file to use for CLI requests.
       --match-server-version           Require server version to match client version
@@ -113,20 +117,5 @@ kubectl plugin for Stash by AppsCode. For more information, visit here: https://
 
 ### SEE ALSO
 
-* [kubectl-stash check](/docs/v2024.8.27/reference/cli/kubectl-stash_check)	 - Check the repository for errors
-* [kubectl-stash clone](/docs/v2024.8.27/reference/cli/kubectl-stash_clone)	 - Clone Kubernetes resources
-* [kubectl-stash completion](/docs/v2024.8.27/reference/cli/kubectl-stash_completion)	 - Generate completion script
-* [kubectl-stash cp](/docs/v2024.8.27/reference/cli/kubectl-stash_cp)	 - Copy stash resources from one namespace to another namespace
-* [kubectl-stash create](/docs/v2024.8.27/reference/cli/kubectl-stash_create)	 - create stash resources
-* [kubectl-stash debug](/docs/v2024.8.27/reference/cli/kubectl-stash_debug)	 - Debug common Stash issues
-* [kubectl-stash delete](/docs/v2024.8.27/reference/cli/kubectl-stash_delete)	 - Delete stash resources
-* [kubectl-stash download](/docs/v2024.8.27/reference/cli/kubectl-stash_download)	 - Download snapshots
-* [kubectl-stash gen](/docs/v2024.8.27/reference/cli/kubectl-stash_gen)	 - generate stash resources
-* [kubectl-stash key](/docs/v2024.8.27/reference/cli/kubectl-stash_key)	 - manages restic keys (passwords) for accessing the repository
-* [kubectl-stash pause](/docs/v2024.8.27/reference/cli/kubectl-stash_pause)	 - Pause Stash backup temporarily
-* [kubectl-stash rebuild-index](/docs/v2024.8.27/reference/cli/kubectl-stash_rebuild-index)	 - Build a new index
-* [kubectl-stash resume](/docs/v2024.8.27/reference/cli/kubectl-stash_resume)	 - Resume Stash backup
-* [kubectl-stash trigger](/docs/v2024.8.27/reference/cli/kubectl-stash_trigger)	 - Trigger a backup
-* [kubectl-stash unlock](/docs/v2024.8.27/reference/cli/kubectl-stash_unlock)	 - Unlock restic repository
-* [kubectl-stash version](/docs/v2024.8.27/reference/cli/kubectl-stash_version)	 - Prints binary version number.
+* [kubectl-stash](/docs/v2024.8.27/reference/cli/kubectl-stash)	 - kubectl plugin for Stash by AppsCode
 
