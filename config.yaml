@@ -125,3 +125,5 @@ outputs:
   home:
   - HTML
   - JSON
+build:
+  writeStats: true
