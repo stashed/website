@@ -133,7 +133,7 @@
         "alt": "http"
       },
       "summary": "",
-      "description": "KubeDB is free to use on any supported Kubernetes engines. There is no up-front investment required, and you pay only for the resources you use to your infrastructure provider. And, when you’re finished with a database instance, you can easily delete it."
+      "description": "KubeDB is free to try on any Kubernetes distribution. There is no up-front investment required, and you pay only for the resources you use to your infrastructure provider. And, when you’re finished with a database instance, you can easily delete it."
     },
     {
       "title": "Security",
@@ -155,6 +155,22 @@
       "version": "master",
       "hostDocs": false,
       "show": true
+    },
+    {
+      "version": "v2024.9.30",
+      "hostDocs": true,
+      "show": true,
+      "info": {
+        "autoscaler": "v0.33.0",
+        "cli": "v0.48.0",
+        "dashboard": "v0.24.0",
+        "installer": "v2024.9.30",
+        "ops-manager": "v0.35.0",
+        "provisioner": "v0.48.0",
+        "schema-manager": "v0.24.0",
+        "ui-server": "v0.24.0",
+        "webhook-server": "v0.24.0"
+      }
     },
     {
       "version": "v2024.8.21",
@@ -1126,7 +1142,7 @@
       "hostDocs": false
     }
   ],
-  "latestVersion": "v2024.8.21",
+  "latestVersion": "v2024.9.30",
   "socialLinks": {
     "facebook": "https://facebook.com/appscode",
     "github": "https://github.com/kubedb",
