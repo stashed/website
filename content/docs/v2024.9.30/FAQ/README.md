@@ -58,7 +58,7 @@ info:
   nats:
   - 2.6.1-v20
   - 2.8.2-v15
-  perconaxtradb:
+  percona-xtradb:
   - 5.7-v27
   postgres:
   - 10.14-v31
