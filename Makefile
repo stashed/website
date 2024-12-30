@@ -6,10 +6,13 @@ run:
 docs: hugo-tools
 	$(HUGO_TOOLS) docs-aggregator --fm-replacements product_stash_=docs_,/products/stash/=/docs/
 	find ./data -name "*.json" -exec sed -i 's/https:\/\/cdn.appscode.com\/images/\/assets\/images/g' {} \;
-	rm -rf static/files/appscode/cluster-api
-	rm -rf static/files/appscode/cluster-api-provider-aws
-	rm -rf static/files/appscode/cluster-api-provider-azure
-	rm -rf static/files/appscode/cluster-api-provider-gcp
+	rm -rf static/files/cluster-api
+	rm -rf static/files/cluster-api-provider-aws
+	rm -rf static/files/cluster-api-provider-azure
+	rm -rf static/files/cluster-api-provider-gcp
+	rm -rf static/files/products/appscode/aws-marketplace
+	rm -rf static/files/products/appscode/azure-marketplace
+	rm -rf static/files/products/appscode/gcp-marketplace
 
 .PHONY: docs-skip-assets
 docs-skip-assets: hugo-tools
@@ -20,10 +23,13 @@ docs-skip-assets: hugo-tools
 assets: hugo-tools
 	$(HUGO_TOOLS) docs-aggregator --only-assets --fm-replacements product_stash_=docs_,/products/stash/=/docs/
 	find ./data -name "*.json" -exec sed -i 's/https:\/\/cdn.appscode.com\/images/\/assets\/images/g' {} \;
-	rm -rf static/files/appscode/cluster-api
-	rm -rf static/files/appscode/cluster-api-provider-aws
-	rm -rf static/files/appscode/cluster-api-provider-azure
-	rm -rf static/files/appscode/cluster-api-provider-gcp
+	rm -rf static/files/cluster-api
+	rm -rf static/files/cluster-api-provider-aws
+	rm -rf static/files/cluster-api-provider-azure
+	rm -rf static/files/cluster-api-provider-gcp
+	rm -rf static/files/products/appscode/aws-marketplace
+	rm -rf static/files/products/appscode/azure-marketplace
+	rm -rf static/files/products/appscode/gcp-marketplace
 
 .PHONY: gen
 gen:
