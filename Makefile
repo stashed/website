@@ -13,6 +13,7 @@ docs: hugo-tools
 	rm -rf static/files/products/appscode/aws-marketplace
 	rm -rf static/files/products/appscode/azure-marketplace
 	rm -rf static/files/products/appscode/gcp-marketplace
+	rm -rf content/overview/kubestash
 
 .PHONY: docs-skip-assets
 docs-skip-assets: hugo-tools
@@ -30,6 +31,7 @@ assets: hugo-tools
 	rm -rf static/files/products/appscode/aws-marketplace
 	rm -rf static/files/products/appscode/azure-marketplace
 	rm -rf static/files/products/appscode/gcp-marketplace
+	rm -rf content/overview/kubestash
 
 .PHONY: gen
 gen:
