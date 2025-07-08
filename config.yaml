@@ -10,6 +10,7 @@ theme: hugo-product-theme
 params:
   product_key: stash
   primary_color: 5e2dea
+  appscode_notification_show: true
   main_menu_dropdown_item: addons
   domain_appscode: https://appscode.com
   domain_bytebuilders: https://appscode.com
