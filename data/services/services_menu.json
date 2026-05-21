@@ -1,0 +1,266 @@
+{
+  "servicesMenu": [
+    {
+      "title": "Application Modernization",
+      "description": "Accelerating your application modernization & microservices journey",
+      "icon": "/assets/images/services/icons8/ios-50-lunacy.png",
+      "lucide_icon": "lucide:terminal",
+      "offerings": [
+        {
+          "id": "monolith-to-microservices",
+          "title": "Monolith to Microservices",
+          "description": "Migrate your legacy applications",
+          "icon": null
+        },
+        {
+          "id": "gitops-consulting-services",
+          "title": "GitOps Consulting",
+          "description": "Streamlining pipeline & deployments",
+          "icon": null
+        },
+        {
+          "id": "ci-cd-consulting-services",
+          "title": "CI/CD & Dev Experience",
+          "description": "Bringing automation at every step",
+          "icon": null
+        },
+        {
+          "id": "devops-toolchain-consulting-services",
+          "title": "DevOps Toolchain",
+          "description": "Tailored DevOps toolset for you!",
+          "icon": null
+        },
+        {
+          "id": "argo-cd-consulting-services",
+          "title": "Argo CD Consulting",
+          "description": "Implement & support ‑ we got you!",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "title": "Managed Cloud",
+      "description": "DevOps experts to onboard, manage, and optimize your cloud accounts and applications",
+      "icon": "/assets/images/services/icons8/ios-50-cloud.png",
+      "lucide_icon": "lucide:cloud",
+      "offerings": [
+        {
+          "id": "managed-aws-services",
+          "title": "Managed AWS",
+          "description": "Onboarding, management & 24/7 support",
+          "icon": null
+        },
+        {
+          "id": "managed-azure-services",
+          "title": "Managed Azure",
+          "description": "Onboarding, management & 24/7 support",
+          "icon": null
+        },
+        {
+          "id": "managed-gcp-services",
+          "title": "Managed GCP",
+          "description": "Onboarding, management & 24/7 support",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "title": "Managed Kubernetes",
+      "description": "Expert-managed Kubernetes platforms across all major distributions",
+      "icon": "/assets/images/services/icons8/ios-50-cloud.png",
+      "lucide_icon": "lucide:layers",
+      "offerings": [
+        {
+          "id": "kubernetes-consulting-services",
+          "title": "Kubernetes Consulting Services",
+          "description": "The Kubernetes experts",
+          "icon": null
+        },
+        {
+          "id": "eks-consulting-services",
+          "title": "AWS EKS Consulting",
+          "description": "AWS Marketplace partner",
+          "icon": null
+        },
+        {
+          "id": "aks-consulting-services",
+          "title": "Azure AKS Consulting",
+          "description": "Azure Marketplace partner",
+          "icon": null
+        },
+        {
+          "id": "gke-consulting-services",
+          "title": "Google GKE Consulting",
+          "description": "Google Cloud Marketplace partner",
+          "icon": null
+        },
+        {
+          "id": "openshift-consulting-services",
+          "title": "Red Hat OpenShift Consulting",
+          "description": "Certified Red Hat partner",
+          "icon": null
+        },
+        {
+          "id": "rancher-consulting-services",
+          "title": "Rancher by SUSE Consulting",
+          "description": "Certified SUSE partner",
+          "icon": null
+        },
+        {
+          "id": "tanzu-consulting-services",
+          "title": "VMware Tanzu Consulting",
+          "description": "VMware Tanzu Consulting",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "title": "Managed Databases",
+      "description": "Production-grade databases on Kubernetes, provisioned, monitored, and backed up by experts",
+      "icon": "/assets/images/services/icons8/ios-50-database.png",
+      "lucide_icon": "lucide:database",
+      "offerings": [
+        {
+          "id": "managed-databases-services",
+          "title": "Managed Databases",
+          "description": "20+ Database engines, fully managed on Kubernetes",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "title": "Platform Engineering",
+      "description": "Designing & Building solid platforms for your teams",
+      "icon": "/assets/images/services/icons8/ios-50-laptop-settings.png",
+      "lucide_icon": "lucide:cpu",
+      "offerings": [
+        {
+          "id": "platform-engineering-services",
+          "title": "Platform Engineering Services",
+          "description": "From design to deployment ‑ with you!",
+          "icon": null
+        },
+        {
+          "id": "progressive-delivery-consulting-services",
+          "title": "Progressive Delivery",
+          "description": "Roll out updates strategically",
+          "icon": null
+        },
+        {
+          "id": "ci-cd-consulting-services",
+          "title": "CI/CD & Dev Experience",
+          "description": "Bringing automation at every step",
+          "icon": null
+        },
+        {
+          "id": "bare-metal-provisioning-and-infrastructure-consulting",
+          "title": "Bare Metal Provisioning Consulting",
+          "description": "Automated provisioning for on‑prem setup",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "title": "Product Engineering",
+      "description": "Building faster products, MVP, launch & scale",
+      "icon": "/assets/images/services/icons8/external-engineering-manufacturing.png",
+      "lucide_icon": "lucide:box",
+      "offerings": [
+        {
+          "id": "cloud-native-product-development-services",
+          "title": "Cloud Native Product Development",
+          "description": "On‑Demand product engineers",
+          "icon": null
+        },
+        {
+          "id": "monolith-to-microservices",
+          "title": "Monolith to Microservices",
+          "description": "Migrate your legacy applications",
+          "icon": null
+        },
+        {
+          "id": "/extending-kubernetes-confidence-with-whitepaper",
+          "title": "Extending Kubernetes? Custom Resources & Controllers",
+          "description": "Learn how custom resources & controllers can enhance your Kubernetes environment,  Download the 16 page whitepaper",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "title": "Site Reliability Engineering",
+      "description": "SRE Experts",
+      "icon": "/assets/images/services/icons8/ios-50-web-design.png",
+      "lucide_icon": "lucide:shield",
+      "offerings": [
+        {
+          "id": "site-reliability-engineering-consulting-services",
+          "title": "SRE Consulting",
+          "description": "The Site Reliability Engineering Experts",
+          "icon": null
+        },
+        {
+          "id": "service-mesh-consulting-support",
+          "title": "Service Mesh Consulting",
+          "description": "Onboarding Service Mesh? we got you!",
+          "icon": null
+        },
+        {
+          "id": "accelerate-cloud-native-networking-services",
+          "title": "Cloud Native Networking",
+          "description": "Your cloud networking specialists",
+          "icon": null
+        },
+        {
+          "id": "istio-consulting-services",
+          "title": "Istio Consulting",
+          "description": "Recognized by Istio for support",
+          "icon": null
+        },
+        {
+          "id": "terraform-consulting-services",
+          "title": "Terraform Consulting",
+          "description": "Keep infra scalable & efficient",
+          "icon": null
+        },
+        {
+          "id": "kubernetes-backup-and-disaster-recovery-services",
+          "title": "Backup & Disaster Recovery",
+          "description": "Cloud Native backup & DR experts",
+          "icon": null
+        }
+      ]
+    },
+    {
+      "title": "Observability & DevSecOps",
+      "description": "Build a solid observability stack that is secure too!",
+      "icon": "/assets/images/services/icons8/dotty-80-system-task.png",
+      "lucide_icon": "lucide:line-chart",
+      "offerings": [
+        {
+          "id": "devsecops-consulting-services-and-implementation",
+          "title": "DevSecOps Consulting",
+          "description": "Securing your applications",
+          "icon": null
+        },
+        {
+          "id": "observability-consulting-services-and-support",
+          "title": "Observability Adoption",
+          "description": "Monitoring, logging, tracing experts",
+          "icon": null
+        },
+        {
+          "id": "grafana-consulting-services-and-support",
+          "title": "Grafana Consulting",
+          "description": "Adoption to support ‑ we do it all",
+          "icon": null
+        },
+        {
+          "id": "prometheus-consulting-services",
+          "title": "Prometheus Consulting",
+          "description": "Monitoring & alerting ‑ sorted!",
+          "icon": null
+        }
+      ]
+    }
+  ]
+}
