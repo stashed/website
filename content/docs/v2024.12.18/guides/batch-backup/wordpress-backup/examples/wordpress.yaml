@@ -1,0 +1,71 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-app
+  namespace: demo
+  labels:
+    app: wordpress-app
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: wordpress-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress-app
+  namespace: demo
+  labels:
+    app: wordpress-app
+spec:
+  selector:
+    matchLabels:
+      app: wordpress-app
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: wordpress-app
+    spec:
+      containers:
+      - image: wordpress:5.3.2-apache
+        name: wordpress
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: wordpress-db
+        - name: WORDPRESS_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-pass
+              key: password
+        - name: WORDPRESS_DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-pass
+              key: username
+        ports:
+        - containerPort: 80
+          name: wordpress
+        volumeMounts:
+        - name: storage
+          mountPath: /var/www/html
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: wordpress-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wordpress-pvc
+  namespace: demo
+  labels:
+    app: wordpress-app
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
