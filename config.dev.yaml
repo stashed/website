@@ -36,29 +36,15 @@ params:
   learn_url: https://appscode.com/learn
   docs_url: https://appscode.com/docs
 menu:
-  main:
-  - name: Documentation
-    weight: 20
-  - name: Community
-    identifier: community
-    weight: 25
-  - name: GitHub
-    identifier: github
-    parent: community
-    url: https://github.com/stashed
-    weight: 1
-  - name: Twitter
-    identifier: twitter
-    parent: community
-    url: https://twitter.com/KubeStash
-    weight: 2
-  - name: Slack
-    identifier: slack
-    parent: community
-    url: https://slack.appscode.com
-    weight: 3
-menu:
-  main:
+  product_stash:
+  - name: Features
+    identifier: features
+    url: /features/
+    weight: 5
+  - name: Pricing
+    identifier: pricing
+    url: /pricing/
+    weight: 10
   - name: Addons
     identifier: addons
     weight: 15

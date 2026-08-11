@@ -54,7 +54,21 @@ menu:
   - name: Addons
     identifier: addons
     weight: 15
+  product_stash:
+  - name: Features
+    identifier: features
+    url: /features/
+    weight: 5
+  - name: Pricing
+    identifier: pricing
+    url: /pricing/
+    weight: 10
+  - name: Addons
+    identifier: addons
+    weight: 15
   - name: Documentation
+    identifier: documentation
+    url: /docs/v2025.10.17/welcome/
     weight: 20
   - name: Elasticsearch
     identifier: elasticsearch
