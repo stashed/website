@@ -68,7 +68,6 @@ menu:
     weight: 15
   - name: Documentation
     identifier: documentation
-    url: /docs/v2025.10.17/welcome/
     weight: 20
   - name: Elasticsearch
     identifier: elasticsearch
