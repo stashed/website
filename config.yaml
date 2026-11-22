@@ -41,14 +41,6 @@ params:
   intro_video:
     url: https://www.youtube.com/watch?v=hXwnjIGgvMg
     thumbnail: https://img.youtube.com/vi/hXwnjIGgvMg/sddefault.jpg
-  comments:
-    enable: true
-    giscus:
-      repo: appscode/community
-      repoId: R_kgDOG-h6rw
-      category: Stash
-      categoryId: DIC_kwDOG-h6r84COCFw
-      map: title
 menu:
   main:
   - name: Addons
